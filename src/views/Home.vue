@@ -14,7 +14,7 @@
             <li class="property-list__item" v-for="(property, index) in properties" :key="property.id">
                 <div class="property-list__item-container">
                     <div class="left-side">
-                        <span class="property-name">{{ property.name }}</span>
+                        <p class="property-name">{{ property.name }}</p>
 
                         <div class="flex-container">
                             <div class="item-gallery">
@@ -106,10 +106,10 @@
 
                     <button class="btn btn-add-extras" type="button" @click="openExtras(index)">Add Extras</button>
                 </div>
-
-                <Extras :extras="extras"></Extras>
             </li>
         </ul>
+
+        <extras :extras="extras"></extras>
     </div>
 </template>
 
@@ -166,43 +166,49 @@
             id: "1",
             name: 'The Day Delegate Package',
             description: 'The Day Delegate Package',
-            price: 999.99,
-            icon: 'fas fa-gift'
+            price: 999.90,
+            icon: 'fas fa-gift',
+            quantity: 1
           },
           {
             id: "2",
             name: 'Tea and Nespresso Coffee',
             description: 'Nespresso coffee and a selection of T Leaf Tea as well as individual water bottles for each attendee',
-            price: 999.99,
-            icon: 'fas fa-coffee'
+            price: 999.90,
+            icon: 'fas fa-coffee',
+            quantity: 50
           },
           {
             id: "3",
             name: 'Polycom',
             description: 'Teleconferencing for up to 8 callers',
-            price: 999.99,
-            icon: 'fas fa-video'
+            price: 999.90,
+            icon: 'fas fa-video',
+            quantity: 1
           },
           {
             id: "4",
             name: 'Projector and Screen',
             description: '2 x 5K Projectors with dual connectivity 2 x 120” screen and hidden speakers',
-            price: 999.99,
-            icon: 'fab fa-r-project'
+            price: 999.90,
+            icon: 'fab fa-r-project',
+            quantity: 1
           },
           {
             id: "5",
             name: 'Flipchart',
             description: 'A1 flipchart, stand and markers',
-            price: 999.99,
-            icon: 'fab fa-flipboard'
+            price: 999.90,
+            icon: 'fab fa-flipboard',
+            quantity: 1
           },
           {
             id: "6",
             name: 'Whiteboard',
             description: 'Whiteboard and markers',
-            price: 999.99,
-            icon: 'fas fa-chalkboard-teacher'
+            price: 999.90,
+            icon: 'fas fa-chalkboard-teacher',
+            quantity: 1
           }
         ],
       }

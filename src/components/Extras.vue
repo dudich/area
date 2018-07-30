@@ -11,8 +11,8 @@
 
                     <div class="extras-checkbox">
                         <label>
-                            <i class="fas fa-check" v-if="checkedExtras.indexOf(extra.id) !== -1"></i>
-                            <input type="checkbox" :value="extra.id" v-model="checkedExtras">
+                            <i class="fas fa-check" v-if="checked.indexOf(extra.id) !== -1"></i>
+                            <input type="checkbox" :value="extra.id" v-model="checked">
                         </label>
                     </div>
                 </div>
@@ -22,45 +22,61 @@
         </ul>
 
         <p class="extras-description">{{ selected ? description : '' }}</p>
+
+        <extras-table :extras="extras" :checked="checked"></extras-table>
     </div>
 </template>
 
 <script>
+  import ExtrasTable from './ExtrasTable';
+
   export default {
-    props: ['extras'],
+    props: {
+      extras: {
+        type: Array,
+        required: true
+      }
+    },
+
     data() {
       return {
         selected: null,
-        checkedExtras: [],
+        checked: []
       }
     },
+
     computed: {
       description() {
         return this.extras[+this.selected].description
       }
     },
-    methods: {
 
+    components: {
+      ExtrasTable
     }
   }
 </script>
 
 <style lang="scss" scoped>
     .extras {
+        max-width: 1200px;
+        margin: 0 auto;
         padding: 30px 0 5px;
         background-color: #1b4350;
 
         &-list {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: flex-end;
+            max-width: 81%;
+            margin: 0 auto;
         }
 
         &-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 10px 30px;
+            margin: 10px 35px;
         }
 
         &-name,
