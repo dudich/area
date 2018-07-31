@@ -11,13 +11,13 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
 
-ul {
-  padding: 0;
-  margin: 0;
-  li {
-    list-style: none;
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+    }
   }
 }
 
