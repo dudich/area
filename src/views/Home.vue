@@ -125,92 +125,16 @@
           selectPackage: 'Select Package',
           pay: 'Book and Pay'
         },
-        selected: null,
-        properties: [
-          {
-            id: 1,
-            name: 'meeting room name',
-            status: 'Available',
-            description: 'LorumIpsumLorumIpsumLorumIpsumLorumIpsumLorumIpsumLorumIpsumLorumIpsumLorumIpsumLorumIpsum',
-            capacity: '1000',
-            type: 'Theater',
-            price: 999.99,
-            extrasPrice: 999.99,
-            addExtras: false,
-            images: {
-              main: 'http://placekitten.com/350/200',
-              others: [
-                'http://placekitten.com/80/80',
-                'http://placekitten.com/80/80',
-                'http://placekitten.com/80/80',
-                'http://placekitten.com/80/80'
-              ]
-            },
-            arrangementTypes: [
-              {
-                type: 1
-              },
-              {
-                type: 2
-              },
-              {
-                type: 3
-              }
-            ],
-            catering: false,
-          }
-        ],
+        selected: null
+      }
+    },
 
-        extras: [
-          {
-            id: "1",
-            name: 'The Day Delegate Package',
-            description: 'The Day Delegate Package',
-            price: 999.90,
-            icon: 'fas fa-gift',
-            quantity: 1
-          },
-          {
-            id: "2",
-            name: 'Tea and Nespresso Coffee',
-            description: 'Nespresso coffee and a selection of T Leaf Tea as well as individual water bottles for each attendee',
-            price: 999.90,
-            icon: 'fas fa-coffee',
-            quantity: 50
-          },
-          {
-            id: "3",
-            name: 'Polycom',
-            description: 'Teleconferencing for up to 8 callers',
-            price: 999.90,
-            icon: 'fas fa-video',
-            quantity: 1
-          },
-          {
-            id: "4",
-            name: 'Projector and Screen',
-            description: '2 x 5K Projectors with dual connectivity 2 x 120” screen and hidden speakers',
-            price: 999.90,
-            icon: 'fab fa-r-project',
-            quantity: 1
-          },
-          {
-            id: "5",
-            name: 'Flipchart',
-            description: 'A1 flipchart, stand and markers',
-            price: 999.90,
-            icon: 'fab fa-flipboard',
-            quantity: 1
-          },
-          {
-            id: "6",
-            name: 'Whiteboard',
-            description: 'Whiteboard and markers',
-            price: 999.90,
-            icon: 'fas fa-chalkboard-teacher',
-            quantity: 1
-          }
-        ],
+    computed: {
+      properties() {
+        return this.$store.getters.properties;
+      },
+      extras() {
+        return this.$store.getters.extras;
       }
     },
 

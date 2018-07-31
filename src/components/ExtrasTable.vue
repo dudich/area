@@ -13,9 +13,9 @@
                 <td>Cost</td>
                 <td v-for="extra in extras">{{ cost(extra) }}</td>
             </tr>
-            <tr>
-                <td>Total</td>
-                <td>{{total()}}</td>
+            <tr class="extras-total">
+                <td class="text" colspan="6">Total</td>
+                <td class="count">{{ total() }}</td>
             </tr>
         </tbody>
     </table>
@@ -51,11 +51,11 @@
           return this.checked.indexOf(extra.id) !== -1 ? `$ ${ extra.quantity *  extra.price }` : '-';
         },
         total() {
-          let arr = this.extras.filter((item) => this.checked.indexOf(item.id) !== -1);
-          let sum = arr.map((item) => item.price * item.quantity);
-          let result = sum.reduce((acc, item) => acc + item, 0);
+          const arrOfChecked = this.extras.filter((item) => this.checked.indexOf(item.id) !== -1);
+          const arrOfCost = arrOfChecked.map((item) => item.price * item.quantity);
+          const result = arrOfCost.reduce((acc, item) => acc + item, 0);
 
-          return this.checked.length > 0 ? `$ ${ result }` : '-';
+          return this.checked.length > 0 ? `$ ${ result.toFixed(2) }` : '-';
         }
       }
     }
@@ -80,6 +80,12 @@
         td:first-of-type {
             width: 10%;
             color: white;
+        }
+    }
+
+    .extras-total {
+        .text {
+            text-align: right;
         }
     }
 </style>

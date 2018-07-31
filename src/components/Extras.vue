@@ -47,7 +47,9 @@
 
     computed: {
       description() {
-        return this.extras[+this.selected].description
+        const index = this.extras.map((item) => item.id).indexOf(this.selected);
+        console.log(index);
+        return this.extras[index].description
       }
     },
 
