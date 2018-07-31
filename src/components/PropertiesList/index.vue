@@ -20,9 +20,9 @@
             <button class="btn btn-hold" type="button">Hold</button>
           </div>
         </div>
-
-        <button class="btn btn-add-extras" type="button">Add Extras</button>
       </div>
+
+      <extras-list :extras="extras" :propertyId="property.id"></extras-list>
     </li>
   </ul>
 </template>
@@ -32,12 +32,17 @@
   import PropertyGallery from './PropertyGallery'
   import PropertyPrice from './PropertyPrice'
   import Catering from './Catering'
+  import ExtrasList from '../ExtrasList'
 
   export default {
     name: 'properties-list',
 
     props: {
       properties: {
+        type: Array,
+        required: true
+      },
+      extras: {
         type: Array,
         required: true
       }
@@ -47,7 +52,8 @@
       PropertyGallery,
       PropertyDescription,
       PropertyPrice,
-      Catering
+      Catering,
+      ExtrasList
     }
   }
 </script>
@@ -55,13 +61,13 @@
 <style lang="scss" scoped>
   .property {
     margin-bottom: 20px;
+    background-color: #00528b;
 
     &-container {
       position: relative;
       display: flex;
       justify-content: space-between;
       padding: 20px 10px;
-      background-color: #00528b;
     }
 
     .left-side {

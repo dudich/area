@@ -1,8 +1,7 @@
 <template>
   <div class="select package">
     <stage-list></stage-list>
-    <properties-list :properties="properties"></properties-list>
-    <extras-list :extras="extras"></extras-list>
+    <properties-list :properties="properties" :extras="extras"></properties-list>
   </div>
 </template>
 
@@ -10,7 +9,6 @@
   import StageList from '../components/StageList'
   import SelectControls from '../components/SelectControls'
   import PropertiesList from '../components/PropertiesList'
-  import ExtrasList from '../components/ExtrasList'
 
   export default {
     name: 'home',
@@ -25,7 +23,6 @@
     },
 
     components: {
-      ExtrasList,
       StageList,
       PropertiesList,
       SelectControls

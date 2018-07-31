@@ -15,7 +15,7 @@
     </tr>
     <tr class="extras-total">
       <td class="text" colspan="6">Total</td>
-      <td class="count">{{ total() }}</td>
+      <td class="count">${{ total }}</td>
     </tr>
     </tbody>
   </table>
@@ -31,6 +31,10 @@
       checked: {
         type: Array,
         required: false
+      },
+      total: {
+        type: Number,
+        required: true
       }
     },
 
@@ -44,13 +48,7 @@
       cost(extra) {
         return this.checked.indexOf(extra.id) !== -1 ? `$ ${ extra.quantity * extra.price }` : '-';
       },
-      total() {
-        const arrOfChecked = this.extras.filter((item) => this.checked.indexOf(item.id) !== -1);
-        const arrOfCost = arrOfChecked.map((item) => item.price * item.quantity);
-        const result = arrOfCost.reduce((acc, item) => acc + item, 0);
 
-        return this.checked.length > 0 ? `$ ${ result.toFixed(2) }` : '-';
-      }
     }
   }
 </script>
