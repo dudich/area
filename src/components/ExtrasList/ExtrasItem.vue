@@ -3,7 +3,7 @@
     <p class="extras-name">{{ extra.name }}</p>
     <div class="extras-icon">
       <div class="icon-container" :class="{ active: selected === extra.id }" @click="handleOnSelect(extra.id)">
-        <i :class="extra.icon"></i>
+        <img :src="`icons/extras/extra-icon-${ extra.id }.png`" alt="icon">
       </div>
       <div class="extras-checkbox" @click="handleOnCheck(extra.id)">
           <i class="fas fa-check" v-if="checked.indexOf(extra.id) !== -1"></i>
@@ -70,21 +70,22 @@
       cursor: pointer;
 
       .icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100px;
         height: 100px;
         border: 4px solid black;
         border-radius: 5px;
-        text-align: center;
         &:hover,
         &.active {
           border-color: #7FBE42;
         }
       }
 
-      .fas,
-      .fab {
-        font-size: 60px;
-        line-height: 100px;
+      img {
+        width: 50px;
+        height: 50px;
       }
     }
 

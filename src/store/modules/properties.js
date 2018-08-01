@@ -19,13 +19,22 @@ const state = [
       },
       arrangementTypes: [
         {
-          type: 1
+          id: 1
         },
         {
-          type: 2
+          id: 2
         },
         {
-          type: 3
+          id: 3
+        },
+        {
+          id: 4
+        },
+        {
+          id: 5
+        },
+        {
+          id: 6
         }
       ],
       catering: false,
@@ -51,13 +60,22 @@ const state = [
     },
     arrangementTypes: [
       {
-        type: 1
+        id: 1
       },
       {
-        type: 2
+        id: 2
       },
       {
-        type: 3
+        id: 3
+      },
+      {
+        id: 4
+      },
+      {
+        id: 5
+      },
+      {
+        id: 6
       }
     ],
     catering: false,
@@ -66,8 +84,7 @@ const state = [
 
 const mutations = {
   CHANGE_EXTRAS_PRICE (state, payload) {
-    //state =  state[state.indexOf(payload.id)];
-    console.log(state.indexOf(payload.id));
+    state = []
   }
 };
 

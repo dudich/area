@@ -8,10 +8,11 @@
     <ul class="arrangement-list">
       <li class="arrangement-type"
           v-for="type in property.arrangementTypes"
-          :class="{ active: selected === type.type }"
+          :class="{ active: selected === type.id }"
       >
         <label>
-          <input type="radio" :value="type.type" v-model="selected">
+          <input type="radio" :value="type.id" v-model="selected">
+          <img :src="`icons/arrangements/arrangement-icon-${ type.id }.png`" alt="arrangement-icon">
         </label>
       </li>
     </ul>
@@ -42,7 +43,7 @@
   .property {
 
     &-description {
-      max-width: 350px;
+      max-width: 380px;
       color: aliceblue;
 
       .text {
@@ -73,27 +74,30 @@
     &-type {
       margin: 5px;
       width: 80px;
-      height: 80px;
-      border: {
-        width: 3px;
-        style: solid;
-        color: white;
-      }
+      height: 90px;
+      border: 3px solid black;
       border-radius: 10px;
       background-color: white;
       transition: .5s;
       &:hover,
       &.active {
-        border-color: green;
+        border-color: #7FBE42;
       }
 
       label {
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         height: 100%;
         cursor: pointer;
 
         input {
           display: none;
+        }
+
+        img {
+          width: 80%;
+          height: 80%;
         }
       }
     }

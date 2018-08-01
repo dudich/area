@@ -8,7 +8,7 @@
       <div class="property-capacity">
         <span class="count">{{ property.capacity }}</span>
         <div class="icon-container">
-          <i class="fas fa-users"></i>
+          <img src="icons/users-icon.png" alt="users-icon">
         </div>
       </div>
     </div>
@@ -81,15 +81,18 @@
       }
 
       .icon-container {
-        width: 40px;
-        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 40px;
         border-radius: 10px;
         border: 1px solid black;
         background-color: white;
 
-        .fas {
-          font-size: 20px;
-          line-height: 30px;
+        img {
+          width: 80%;
+          height: 80%;
         }
       }
     }
