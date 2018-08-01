@@ -2,6 +2,10 @@
   <li class="extras-item" :key="extra.id">
     <p class="extras-name">{{ extra.name }}</p>
     <div class="extras-icon">
+      <div class="extras-control" v-if="extra.maxQuantity">
+        <i class="fas fa-plus"  @click="increaseExtraQuantity(extra.id)" v-if="extra.maxQuantity !== extra.quantity"></i>
+        <i class="fas fa-minus" @click="decreaseExtraQuantity(extra.id)" v-else></i>
+      </div>
       <div class="icon-container" :class="{ active: selected === extra.id }" @click="handleOnSelect(extra.id)">
         <img :src="`icons/extras/extra-icon-${ extra.id }.png`" alt="icon">
       </div>
@@ -36,9 +40,20 @@
       handleOnSelect(id) {
         this.$emit('EXTRA_SELECTED', id)
       },
-
       handleOnCheck(payload) {
-        this.$emit('EXTRA_CHECKED', payload)
+        this.$emit('EXTRA_CHECKED', payload);
+        /*if(this.checked.indexOf('1') !== -1) {
+          return
+        }
+        if(this.checked.indexOf('1') !== -1) {
+          this.$emit('REMOVE_ITEMS')
+        }*/
+      },
+      increaseExtraQuantity(id) {
+        this.$emit('INCREASE_EXTRA_QUANTITY', id);
+      },
+      decreaseExtraQuantity(id) {
+        this.$emit('DECREASE_EXTRA_QUANTITY', id);
       }
     }
   }
@@ -89,18 +104,33 @@
       }
     }
 
-    &-checkbox {
+    &-checkbox,
+    &-control {
       position: absolute;
-      bottom: -14px;
-      left: -14px;
       width: 30px;
       height: 25px;
       border: 1px solid black;
       border-radius: 4px;
       background-color: white;
+    }
+
+    &-checkbox {
+      bottom: -14px;
+      left: -14px;
 
       .fas {
         font-size: 30px;
+        line-height: 25px;
+        color: #7FBE42;
+      }
+    }
+
+    &-control {
+      top: -14px;
+      right: -14px;
+
+      .fas {
+        font-size: 15px;
         line-height: 25px;
         color: #7FBE42;
       }

@@ -6,7 +6,7 @@
       >
       </i>
     </div>
-    <button class="btn" type="button" @click="property.catering = !property.catering">Catering</button>
+    <v-btn color="white" round @click="property.catering = !property.catering">Catering</v-btn>
     <div class="notification" :style="{ opacity: property.catering ? '1' : '0' }">
       Catering Added! We will contact you and details your booking is confirmed.
     </div>

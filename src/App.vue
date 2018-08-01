@@ -25,12 +25,4 @@ body, html {
   margin: 0;
   padding: 0;
 }
-
-  .btn {
-    padding: 10px 20px;
-    border: 1px solid black;
-    border-radius: 10px;
-    outline: none;
-    cursor: pointer;
-  }
 </style>

@@ -15,6 +15,8 @@
             :checked="checked"
             @EXTRA_SELECTED="updateSelected"
             @EXTRA_CHECKED="updateChecked"
+            @INCREASE_EXTRA_QUANTITY="increaseExtraQuantity"
+            @DECREASE_EXTRA_QUANTITY="decreaseExtraQuantity"
           >
           </extras-item>
         </ul>
@@ -78,6 +80,14 @@
       closeModal() {
         this.$store.commit('CHANGE_EXTRAS_PRICE', { total: this.total, id: this.propertyId });
         this.dialog = false;
+      },
+      increaseExtraQuantity(id) {
+        const index = this.extras.map((item) => item.id).indexOf(id);
+        ++this.extras[index].quantity
+      },
+      decreaseExtraQuantity(id) {
+        const index = this.extras.map((item) => item.id).indexOf(id);
+        --this.extras[index].quantity;
       }
     },
 

@@ -13,11 +13,10 @@
           <catering :property="property"></catering>
           <property-price :property="property"></property-price>
           <div class="btn-container">
-            <button class="btn btn-confirm" type="button">Book and Confirm</button>
+            <v-btn class="btn" color="white" round>Book and Confirm</v-btn>
           </div>
-
           <div class="btn-container">
-            <button class="btn btn-hold" type="button">Hold</button>
+            <v-btn class="btn" color="white" round large>Hold</v-btn>
           </div>
         </div>
       </div>
