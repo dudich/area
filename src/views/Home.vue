@@ -1,8 +1,8 @@
 <template>
-  <div class="select package">
+  <v-container>
     <stage-list></stage-list>
     <properties-list :properties="properties" :extras="extras"></properties-list>
-  </div>
+  </v-container>
 </template>
 
 <script>
