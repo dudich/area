@@ -1,31 +1,37 @@
 <template>
-  <v-container>
-    <stage-list></stage-list>
-    <properties-list :properties="properties" :extras="extras"></properties-list>
+  <v-container fluid>
+    <section class="home-banner" :style="{ backgroundImage: `url(${urlImage})`}">
+      <v-btn absolute to="/event-details" color="white" round>Book now</v-btn>
+    </section>
   </v-container>
 </template>
 
 <script>
-  import StageList from '../components/StageList'
-  import SelectControls from '../components/SelectControls'
-  import PropertiesList from '../components/PropertiesList'
-
   export default {
     name: 'home',
 
-    computed: {
-      properties() {
-        return this.$store.getters.properties;
-      },
-      extras() {
-        return this.$store.getters.extras;
+    data() {
+      return {
+        urlImage: 'http://www.areaevents.co.nz/wp-content/themes/areaevents/uploads/IMG_8198.jpg'
       }
-    },
-
-    components: {
-      StageList,
-      PropertiesList,
-      SelectControls
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  .home {
+    &-banner {
+      position: relative;
+      height: 800px;
+      background: {
+        repeat: no-repeat;
+        size: cover;
+      };
+
+      .v-btn {
+        top: 60px;
+        right: 60px;
+      }
+    }
+  }
+</style>

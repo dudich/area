@@ -1,7 +1,7 @@
 <template>
   <v-toolbar app class="page-header">
     <div class="logo">
-      <img src="../../assets/area-logo.png" alt="logo">
+      <v-jumbotron :src="logo" to="/"></v-jumbotron>
     </div>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
@@ -19,11 +19,14 @@
 </template>
 
 <script>
+  import logo from '../../assets/area-logo.png'
+
   export default {
     name: 'page-header',
 
     data() {
       return {
+        logo,
         menuItems: [
           {title: 'home', link: '/'},
           {title: 'meeting rooms', link: '/meeting-rooms'},
@@ -50,9 +53,13 @@
     .logo {
       width: 200px;
       height: 80px;
-      img {
-        width: 100%;
-        height: 100%;
+
+      .v-jumbotron {
+        height: 100% !important;
+
+        &__image {
+          width: 100%;
+        }
       }
     }
 
