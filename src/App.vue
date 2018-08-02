@@ -1,8 +1,28 @@
 <template>
   <div id="app">
-    <router-view/>
+    <v-app>
+      <v-toolbar app dark flat>
+        <page-header></page-header>
+      </v-toolbar>
+      <v-content>
+        <v-container>
+          <router-view></router-view>
+        </v-container>
+      </v-content>
+      <v-footer app></v-footer>
+    </v-app>
   </div>
 </template>
+
+<script>
+  import PageHeader from './components/layouts/PageHeader'
+
+  export default {
+    components: {
+      PageHeader
+    }
+  }
+</script>
 
 <style lang="scss">
 #app {

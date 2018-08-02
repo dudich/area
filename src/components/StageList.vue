@@ -1,9 +1,11 @@
 <template>
-  <ul class="booking-stage-list">
-    <li class="booking-stage-list__item">{{ bookingStages.details }}</li>
-    <li class="booking-stage-list__item active">{{ bookingStages.selectPackage }}</li>
-    <li class="booking-stage-list__item">{{ bookingStages.pay }}</li>
-  </ul>
+  <v-container class="booking-stage-list" fluid>
+    <v-layout row wrap>
+      <v-flex xs4 class="booking-stage-list__item">{{ bookingStages.details }}</v-flex>
+      <v-flex xs4 class="booking-stage-list__item">{{ bookingStages.selectPackage }}</v-flex>
+      <v-flex xs4 class="booking-stage-list__item">{{ bookingStages.pay }}</v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -22,7 +24,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .booking-stage-list {
+  /*.booking-stage-list {
     display: flex;
     justify-content: center;
     padding: 10px 20%;
@@ -40,5 +42,5 @@
         font-weight: 900;
       }
     }
-  }
+  }*/
 </style>
