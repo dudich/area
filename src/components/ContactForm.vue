@@ -1,27 +1,58 @@
 <template>
   <div class="contact-form">
-    <p class="contact-form__caption" v-html="caption"></p>
+    <p class="contact-form__caption text-xs-left" v-html="caption"></p>
     <form>
       <v-text-field
         v-validate="'required|max:10'"
         v-model="name"
         :counter="10"
         :error-messages="errors.collect('name')"
-        label="Name"
+        label="Your Name"
         data-vv-name="name"
+        color="light-green"
         required
+        autofocus
       ></v-text-field>
       <v-text-field
         v-validate="'required|email'"
         v-model="email"
         :error-messages="errors.collect('email')"
-        label="E-mail"
+        label="Your Email"
         data-vv-name="email"
+        color="light-green"
         required
       ></v-text-field>
+      <v-text-field
+        v-validate="'required'"
+        v-model="phone"
+        :error-messages="errors.collect('phone')"
+        label="Your Phone"
+        data-vv-name="phone"
+        color="light-green"
+        required
+      ></v-text-field>
+      <v-text-field
+        v-validate="'required'"
+        v-model="subject"
+        :error-messages="errors.collect('subject')"
+        label="Your Subject"
+        data-vv-name="subject"
+        color="light-green"
+        required
+      ></v-text-field>
+      <v-textarea
+        v-validate="'required'"
+        v-model="message"
+        :error-messages="errors.collect('message')"
+        data-vv-name="message"
+        label="Your Message"
+        color="light-green"
+        height="80"
+        required
+      ></v-textarea>
 
-      <v-btn @click="submit">submit</v-btn>
-      <v-btn @click="clear">clear</v-btn>
+      <v-btn dark round @click="submit">Send</v-btn>
+      <v-btn dark round @click="clear">Clear</v-btn>
     </form>
   </div>
 </template>
@@ -34,8 +65,12 @@
 
     data: () => ({
       caption: 'Send us message',
+
       name: '',
       email: '',
+      subject: '',
+      message: '',
+      phone: '',
       dictionary: {
         attributes: {
           email: 'E-mail Address'
@@ -51,21 +86,50 @@
       }
     }),
 
-    mounted () {
+    mounted() {
       this.$validator.localize('en', this.dictionary)
     },
 
     methods: {
-      submit () {
+      submit() {
         this.$validator.validateAll()
       },
-      clear () {
+      clear() {
         this.name = '',
-        this.email = '',
-        this.select = null,
-        this.checkbox = null,
-        this.$validator.reset()
+          this.email = '',
+          this.subject = '',
+          this.phone = '',
+          this.message = '',
+          this.$validator.reset()
       }
     }
   }
 </script>
+
+<style lang="scss">
+  .contact-form {
+
+    &__caption {
+      margin-bottom: 25px;
+      color: #8BC34A;
+    }
+
+    .v-input {
+      margin-bottom: 28px;
+      &__slot {
+
+        &:before {
+          border-color: #acacac!important;
+        }
+
+        input {
+          color: white!important;
+        }
+      }
+
+      .v-label {
+        color: #acacac;
+      }
+    }
+  }
+</style>

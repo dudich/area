@@ -32,6 +32,10 @@
   text-align: center;
   color: #2c3e50;
 
+  .container {
+    padding: 0;
+  }
+
   .v-content {
     padding: 110px 0 32px!important;
     background-color: $main-color;
