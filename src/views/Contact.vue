@@ -16,9 +16,9 @@
 </template>
 
 <script>
-  import ContactForm from '../components/ContactForm'
-  import ContactText from '../components/ContactText'
-  import ContactMap from '../components/ContactMap'
+  import ContactForm from '../components/Contact/ContactForm'
+  import ContactText from '../components/Contact/ContactText'
+  import ContactMap from '../components/Contact/ContactMap'
 
   export default {
     name: 'contact',

@@ -1,17 +1,43 @@
 <template>
   <v-container>
     <div class="event-details" :style="{ backgroundImage: `url(${bgImage})` }">
-      <h2 class="event-details__caption" v-html="caption"></h2>
-      <stage-list></stage-list>
-      <event-list></event-list>
+      <div class="content">
+        <h2 class="event-details__caption" v-html="caption"></h2>
+        <stage-list class="mb-5"></stage-list>
+        <v-layout row wrap>
+          <v-flex class="mb-4" xs12 sm6 md3 offset-md2>
+            <select-event class="pa-2"></select-event>
+          </v-flex>
+          <v-flex class="mb-4" xs12 sm6 md4>
+            <select-date class="pa-2"></select-date>
+          </v-flex>
+          <v-flex class="mb-4" xs3 sm2 md1 offset-xs3 offset-sm5 offset-md0>
+            <input-capacity class="ma-2"></input-capacity>
+          </v-flex>
+        </v-layout>
+        <v-layout row wrap>
+          <v-flex class="mb-4" xs12 sm6 md3 offset-md2>
+            <select-time class="pa-2"></select-time>
+          </v-flex>
+          <v-flex class="mb-4" xs12 sm6 md5>
+            <select-layout class="pa-2"></select-layout>
+          </v-flex>
+        </v-layout>
+        <v-btn class="blue lighten-2" dark round @click="findVenue">FIND VENUE</v-btn>
+      </div>
+      <div class="overlay"></div>
     </div>
   </v-container>
 </template>
 
 <script>
   import StageList from '../components/StageList'
-  import EventList from '../components/EventList'
   import bgImage from '../assets/event-details-bg.png'
+  import SelectEvent from '../components/Controlers/SelectEvent'
+  import SelectDate from '../components/Controlers/SelectDate'
+  import InputCapacity from '../components/Controlers/InputCapacity'
+  import SelectTime from '../components/Controlers/SelectTime'
+  import SelectLayout from '../components/Controlers/SelectLayout'
 
   export default {
     name: 'event-details',
@@ -23,19 +49,40 @@
       }
     },
 
+    methods: {
+      findVenue() {
+        this.$router.push('/select-package')
+      }
+    },
+
     components: {
       StageList,
-      EventList
+      SelectDate,
+      SelectEvent,
+      InputCapacity,
+      SelectTime,
+      SelectLayout
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  .container {
+    height: 100%;
+  }
+
   .event-details {
+    position: relative;
+    height: 100%;
     padding: 20px;
     background: {
       repeat: no-repeat;
       size: cover;
+    }
+
+    .content {
+      position: relative;
+      z-index: 100;
     }
 
     &__caption {
@@ -46,6 +93,15 @@
       line-height: 55px;
       font-weight: 700;
       color: white;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
     }
   }
 </style>
