@@ -2,9 +2,9 @@
   <v-container>
     <div class="event-details" :style="{ backgroundImage: `url(${bgImage})` }">
       <div class="content">
-        <h2 class="event-details__caption" v-html="caption"></h2>
+        <h2 class="event-details__caption mt-1" v-html="caption"></h2>
         <stage-list class="mb-5"></stage-list>
-        <v-layout row wrap>
+        <v-layout class="pt-4" row wrap>
           <v-flex class="mb-4" xs12 sm6 md3 offset-md2>
             <select-event class="pa-2"></select-event>
           </v-flex>
@@ -23,7 +23,7 @@
             <select-layout class="pa-2"></select-layout>
           </v-flex>
         </v-layout>
-        <v-btn class="blue lighten-2" dark round @click="findVenue">FIND VENUE</v-btn>
+        <v-btn class="btn" dark round @click="findVenue">FIND VENUE</v-btn>
       </div>
       <div class="overlay"></div>
     </div>
@@ -102,6 +102,10 @@
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .btn {
+      background-color: #29AAE2!important;
     }
   }
 </style>

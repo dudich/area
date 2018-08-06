@@ -33,7 +33,7 @@
     color: white;
     &.active {
       font-weight: bold;
-      color: #1976D2;
+      color: #27a9e1;;
     }
   }
 </style>

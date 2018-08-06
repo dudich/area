@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar app class="page-header">
+  <v-toolbar app>
     <div class="logo">
       <v-jumbotron :src="logo" to="/"></v-jumbotron>
     </div>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import logo from '../../assets/area-logo.png'
+  import logo from '../../assets/area-logo.jpg'
 
   export default {
     name: 'page-header',
@@ -49,6 +49,7 @@
       bottom: 15px;
     }
     background-color: #164755!important;
+    z-index: 1000!important;
 
     .logo {
       width: 200px;

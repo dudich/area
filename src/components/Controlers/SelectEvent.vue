@@ -40,11 +40,20 @@
     }
 
     .v-label {
-      color: #fff;
+      top: -30px;
+      color: #fff!important;
+
+      &--active {
+        transform: none;
+      }
     }
 
     .v-icon {
-      color: #fff;
+      color: #fff!important;
+    }
+
+    .v-select__selections {
+      padding-top: 0!important;
     }
   }
 </style>

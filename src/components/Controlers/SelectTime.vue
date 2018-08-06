@@ -2,7 +2,7 @@
   <v-select
     class="select-control"
     :items="items"
-    label="Select Event"
+    label="Select Time"
     outline
     append-icon="$vuetify.icons.dropdown"
   ></v-select>

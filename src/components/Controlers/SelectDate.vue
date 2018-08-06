@@ -1,11 +1,15 @@
 <template>
-  <date-picker
-    v-model="date"
-    :lang="lang"
-    width="100%"
-    range
-    :shortcuts="shortcuts"
-    :not-before="new Date()"></date-picker>
+  <div class="datepicker-container">
+    <label class="datepicker-label" for="datePicker">Select Date</label>
+    <date-picker
+      v-model="date"
+      :lang="lang"
+      width="100%"
+      range
+      :shortcuts="shortcuts"
+      :not-before="new Date()"
+      id="datePicker"></date-picker>
+  </div>
 </template>
 
 <script>
@@ -29,8 +33,7 @@
           months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
           pickers: ['next 7 days', 'next 30 days', 'previous 7 days', 'previous 30 days'],
           placeholder: {
-            date: 'Select Date',
-            dateRange: 'Select Date Range'
+            dateRange: 'Start Date ~ End Date'
           }
         }
       }
@@ -65,6 +68,19 @@
       .mx-input-icon {
         color: #fff;
       }
+    }
+  }
+
+  .datepicker-container {
+    position: relative;
+    label {
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      color: #fff;
+      font-size: 16px;
+      line-height: 20px;
+      cursor: pointer;
     }
   }
 </style>
