@@ -60,7 +60,7 @@
 <style lang="scss" scoped>
   .property {
     margin-bottom: 20px;
-    background-color: #00528b;
+    background-color: #184556;
 
     &-container {
       position: relative;

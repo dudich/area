@@ -30,30 +30,49 @@
 </script>
 
 <style lang="scss">
-  .select-control {
-    .v-input__slot {
-      border-color: rgba(255, 255, 255, .8)!important;
-    }
+  .event-details,
+  .select-package {
+    .select-control {
+      .v-select__selections {
+        padding-top: 0!important;
+        color: #fff;
+      }
 
-    .v-select__selection {
-      color: #fff;
-    }
+      .v-label {
+        top: -30px;
+        color: #fff!important;
 
-    .v-label {
-      top: -30px;
-      color: #fff!important;
+        &--active {
+          transform: none;
+        }
+      }
 
-      &--active {
-        transform: none;
+      .v-icon {
+        color: #fff!important;
       }
     }
+  }
 
-    .v-icon {
-      color: #fff!important;
+  .event-details {
+    .select-control {
+      .v-input__slot {
+        border-color: rgba(255, 255, 255, .8)!important;
+      }
     }
+  }
 
-    .v-select__selections {
-      padding-top: 0!important;
+  .select-package {
+    .select-control {
+      .v-input__slot {
+        height: 35px;
+        min-height: auto;
+        border: none!important;
+        background-color: rgba(255, 255, 255, .1) !important;
+
+        .v-input__append-inner {
+          margin-top: 7px;
+        }
+      }
     }
   }
 </style>

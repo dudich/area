@@ -15,23 +15,3 @@
     })
   }
 </script>
-
-<style lang="scss">
-  .select-control {
-    .v-input__slot {
-      border-color: rgba(255, 255, 255, .8)!important;
-    }
-
-    .v-select__selection {
-      color: #fff;
-    }
-
-    .v-label {
-      color: #fff;
-    }
-
-    .v-icon {
-      color: #fff;
-    }
-  }
-</style>

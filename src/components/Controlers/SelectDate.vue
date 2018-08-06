@@ -42,45 +42,64 @@
 </script>
 
 <style lang="scss">
-  .mx-datepicker {
-    .mx-input {
-      height: 60px;
-      border: 2px solid rgba(256, 256, 256, .8);
-      color: #fff;
-      background-color: transparent;
+  .event-details,
+  .select-package {
+    .mx-datepicker {
+      .mx-input {
+        color: #fff;
 
-      &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: #fff;
-        opacity: 1; /* Firefox */
+        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #fff;
+          opacity: 1; /* Firefox */
+        }
+        &::-ms-input-placeholder { /* Microsoft Edge */
+          color: #fff;
+        }
       }
-      &::-ms-input-placeholder { /* Microsoft Edge */
-        color: #fff;
+
+      .mx-input-append {
+        background-color: transparent;
+
+        svg {
+          display: none;
+        }
+
+        .mx-input-icon {
+          color: #fff;
+        }
       }
     }
 
-    .mx-input-append {
-      background-color: transparent;
-
-      svg {
-        display: none;
-      }
-
-      .mx-input-icon {
+    .datepicker-container {
+      position: relative;
+      label {
+        position: absolute;
+        top: -20px;
+        left: 20px;
         color: #fff;
+        font-size: 16px;
+        line-height: 20px;
+        cursor: pointer;
       }
     }
   }
 
-  .datepicker-container {
-    position: relative;
-    label {
-      position: absolute;
-      top: -20px;
-      left: 20px;
-      color: #fff;
-      font-size: 16px;
-      line-height: 20px;
-      cursor: pointer;
+  .event-details {
+    .mx-datepicker {
+      .mx-input {
+        height: 60px;
+        border: 2px solid rgba(256, 256, 256, .8);
+        background-color: transparent;
+      }
+    }
+  }
+
+  .select-package {
+    .mx-datepicker {
+      .mx-input {
+        border: none;
+        background-color: rgba(255, 255, 255, .1)
+      }
     }
   }
 </style>

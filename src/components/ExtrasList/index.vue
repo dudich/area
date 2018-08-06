@@ -2,7 +2,7 @@
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="1200" class="extras">
       <v-btn slot="activator" color="white" round>Add Extras</v-btn>
-      <v-card color="light-blue darken-4">
+      <v-card class="extras-card">
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="light-blue lighten-3" round @click.native="closeModal">Done</v-btn>
@@ -98,12 +98,8 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .extras {
-    .v-dialog {
-      background-color: #1b4350;
-    }
-
     &-list {
       display: flex;
       justify-content: flex-start;
@@ -116,5 +112,9 @@
       color: white;
       text-align: center;
     }
+  }
+
+  .extras-card {
+    background-color: #184556!important;
   }
 </style>

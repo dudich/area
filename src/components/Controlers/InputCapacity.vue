@@ -34,43 +34,69 @@
 </script>
 
 <style lang="scss">
-  .input-capacity-container {
-    position: relative;
+  .event-details,
+  .select-package {
+    .input-capacity-container {
+      position: relative;
 
-    .capacityLabel {
-      position: absolute;
-      top: -26px;
-      left: 5px;
-      color: #fff;
-      font-size: 16px;
-      line-height: 20px;
-      cursor: pointer;
-    }
-    .input-capacity {
-      display: flex;
-      align-items: center;
-      height: 60px;
-      margin-top: 0;
-      border: 2px solid rgba(255, 255, 255, 0.8);
-      border-radius: 4px;
+      .capacityLabel {
+        position: absolute;
+        top: -30px;
+        left: 5px;
+        color: #fff;
+        font-size: 16px;
+        line-height: 20px;
+        cursor: pointer;
+      }
+      .input-capacity {
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+        border-radius: 4px;
 
-      .v-input__slot {
-        padding: 0 12px;
-        margin-bottom: 0;
-        &::before,
-        &::after {
-          content: none;
+        .v-input__slot {
+          padding: 0 12px;
+          margin-bottom: 0;
+          &::before,
+          &::after {
+            content: none;
+          }
+
+          input {
+            color: #fff;
+          }
         }
 
-        input {
-          color: #fff;
+        .v-text-field__details {
+          position: absolute;
+          text-align: center;
         }
       }
+    }
+  }
 
-      .v-text-field__details {
-        position: absolute;
-        top: 65px;
-        text-align: center;
+  .event-details {
+    .input-capacity-container {
+      .input-capacity {
+        height: 60px;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+
+        .v-text-field__details {
+          top: 65px;
+        }
+      }
+    }
+  }
+
+  .select-package {
+    .input-capacity-container {
+      .input-capacity {
+        height: 35px;
+        background-color: rgba(255, 255, 255, .1);
+
+        .v-text-field__details {
+          top: 40px;
+        }
       }
     }
   }

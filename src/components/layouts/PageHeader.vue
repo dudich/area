@@ -48,7 +48,7 @@
       top: 15px;
       bottom: 15px;
     }
-    background-color: #164755!important;
+    background-color: #184556!important;
     z-index: 1000!important;
 
     .logo {
