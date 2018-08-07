@@ -1,12 +1,6 @@
 <template>
-  <v-layout row justify-center>
-    <v-dialog v-model="dialog" persistent max-width="1200" class="extras">
-      <v-btn slot="activator" color="white" round>Add Extras</v-btn>
       <v-card class="extras-card">
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="light-blue lighten-3" round @click.native="closeModal">Done</v-btn>
-        </v-card-actions>
+        <extras-header :total="total"></extras-header>
         <ul class="extras-list">
           <extras-item
             v-for="extra in extras"
@@ -21,13 +15,12 @@
           </extras-item>
         </ul>
         <p class="extras-description">{{ selected ? description : '' }}</p>
-        <extras-table :extras="extras" :checked="checked" :total="total"></extras-table>
+        <extras-table :extras="extras" :checked="checked"></extras-table>
       </v-card>
-    </v-dialog>
-  </v-layout>
 </template>
 
 <script>
+  import ExtrasHeader from './ExtrasHeader'
   import ExtrasTable from './ExtrasTable'
   import ExtrasItem from './ExtrasItem'
   import findIndexByKey from '../../mixins/findIndexByKey'
@@ -48,15 +41,14 @@
 
     data() {
       return {
-        selected: null,
-        checked: [],
-        dialog: false
+        selected: '',
+        checked: []
       }
     },
 
     computed: {
       description() {
-        const index = this.findIndexByKey(this.extras, id, this.selected);
+        const index = this.findIndexByKey(this.extras, 'id', this.selected);
         return this.extras[index].description;
       },
       total() {
@@ -82,7 +74,6 @@
       },
       closeModal() {
         this.$store.commit('CHANGE_EXTRAS_PRICE', { total: this.total, id: this.propertyId });
-        this.dialog = false;
       },
       increaseExtraQuantity(id) {
         const index = this.extras.map((item) => item.id).indexOf(id);
@@ -96,7 +87,8 @@
 
     components: {
       ExtrasTable,
-      ExtrasItem
+      ExtrasItem,
+      ExtrasHeader
     }
   }
 </script>

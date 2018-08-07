@@ -41,7 +41,8 @@
         margin: {
           top: 0;
           bottom: 20px;
-        };
+        }
+      ;
         text-align: left;
         word-wrap: break-word;
       }
@@ -51,6 +52,7 @@
 
         li {
           margin-bottom: 5px;
+          text-align: left;
         }
       }
     }

@@ -13,10 +13,6 @@
       <td>Cost</td>
       <td v-for="extra in extras">{{ cost(extra) }}</td>
     </tr>
-    <tr class="extras-total">
-      <td class="text" colspan="6">Total</td>
-      <td class="count">${{ total }}</td>
-    </tr>
     </tbody>
   </table>
 </template>
@@ -31,10 +27,6 @@
       checked: {
         type: Array,
         required: false
-      },
-      total: {
-        type: Number,
-        required: true
       }
     },
 
@@ -74,12 +66,6 @@
           width: 10%;
           color: white;
         }
-      }
-    }
-
-    &-total {
-      .text {
-        text-align: right;
       }
     }
   }

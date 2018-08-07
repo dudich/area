@@ -2,9 +2,11 @@
   <li class="extras-item" :key="extra.id">
     <p class="extras-name">{{ extra.name }}</p>
     <div class="extras-icon">
-      <div class="extras-control" v-if="extra.maxQuantity">
-        <i class="fas fa-plus"  @click="increaseExtraQuantity(extra.id)" v-if="extra.maxQuantity !== extra.quantity"></i>
-        <i class="fas fa-minus" @click="decreaseExtraQuantity(extra.id)" v-else></i>
+      <div class="extras-control extras-control-minus" v-if="extra.maxQuantity && extra.quantity > 0 && checked.indexOf(extra.id) !== -1">
+        <i class="fas fa-minus" @click="decreaseExtraQuantity(extra.id)"></i>
+      </div>
+      <div class="extras-control extras-control-plus" v-if="extra.maxQuantity && extra.maxQuantity !== extra.quantity && checked.indexOf(extra.id) !== -1">
+        <i class="fas fa-plus"  @click="increaseExtraQuantity(extra.id)"></i>
       </div>
       <div class="icon-container" :class="{ active: selected === extra.id }" @click="handleOnSelect(extra.id)">
         <img :src="`icons/extras/extra-icon-${ extra.id }.png`" alt="icon">
@@ -126,8 +128,15 @@
     }
 
     &-control {
-      top: -14px;
-      right: -14px;
+      &-minus {
+        top: -14px;
+        left: -14px;
+      }
+
+      &-plus {
+        top: -14px;
+        right: -14px;
+      }
 
       .fas {
         font-size: 15px;

@@ -1,14 +1,14 @@
 <template>
   <ul class="property-list">
     <li class="property" v-for="property in properties" :key="property.id">
-      <div class="property-container">
+      <v-layout class="px-3 py-2">
         <div class="left-side">
           <p class="property-name">{{ property.name }}</p>
           <v-layout row wrap>
-            <v-flex class="mb-3" xs12 md6>
+            <v-flex class="mb-3" xs12 md5>
               <property-gallery :property="property"></property-gallery>
             </v-flex>
-            <v-flex class="mb-3" xs12 md6>
+            <v-flex class="mb-3" xs12 md7>
               <property-description :property="property"></property-description>
             </v-flex>
             <v-flex class="mb-3" xs12>
@@ -16,17 +16,13 @@
             </v-flex>
           </v-layout>
         </div>
-        <div class="right-side">
+        <div class="right-side text-xs-right">
           <catering :property="property"></catering>
           <property-price :property="property"></property-price>
-          <div class="btn-container">
-            <v-btn class="btn" color="white" round>Book and Confirm</v-btn>
-          </div>
-          <div class="btn-container">
-            <v-btn class="btn" color="white" round large>Hold</v-btn>
-          </div>
+            <v-btn class="btn-view-extras" dark round large @click="openExtras(property.id)">View Extras</v-btn>
+            <v-btn class="btn-add-to-cart" dark round large>Add to Card</v-btn>
         </div>
-      </div>
+      </v-layout>
 
       <extras-list :extras="extras" :propertyId="property.id"></extras-list>
     </li>
@@ -62,21 +58,20 @@
       PropertyPrice,
       Catering,
       ExtrasList
+    },
+
+    methods: {
+      openExtras(id) {
+        this.$emit(`OPEN_EXTRAS_${id}`)
+      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
   .property {
-    margin-bottom: 20px;
+    border: 1px solid #fff;
     background-color: #184556;
-
-    &-container {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      padding: 20px 10px;
-    }
 
     &-name {
       margin: {
@@ -92,22 +87,14 @@
     }
 
     .btn {
-      &-container {
-        margin-bottom: 10px;
-        text-align: right;
+      &-view-extras {
+        background-color: #29AAE2!important;
+        text-transform: none;
       }
-      &-confirm {
-        color: white;
-        background-color: greenyellow;
-      }
-      &-hold {
-        color: white;
-        background-color: blueviolet;
-      }
-      &-add-extras {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
+
+      &-add-to-cart {
+        background-color: #8CC63E!important;
+        text-transform: none;
       }
     }
   }

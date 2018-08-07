@@ -31,6 +31,7 @@
     }
     font-size: 20px;
     color: white;
+
     &.active {
       font-weight: bold;
       color: #27a9e1;;

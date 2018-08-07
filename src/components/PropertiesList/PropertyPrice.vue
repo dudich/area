@@ -1,7 +1,7 @@
 <template>
   <table class="price">
     <tr class="price-property">
-      <td class="text">Room Hire Cost-Half Day</td>
+      <td class="text">Room</td>
       <td class="count">${{ property.price }}</td>
     </tr>
     <tr class="price-extras">
@@ -36,19 +36,23 @@
 
 <style lang="scss" scoped>
   .price {
-    margin-bottom: 15px;
+    width: 100%;
+
     td {
       padding: 5px 10px;
       font-size: 16px;
       font-weight: 700;
       color: white;
     }
+
     .text {
       text-align: right;
     }
+
     .count {
       text-align: right;
     }
+
     &-total td {
       color: greenyellow;
     }

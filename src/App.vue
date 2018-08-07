@@ -23,10 +23,8 @@
 </script>
 
 <style lang="scss">
-  //variables
-  $main-color: #164755;
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Varela', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -38,7 +36,7 @@
 
   .v-content {
     padding: 110px 0 32px!important;
-    background-color: $main-color;
+    background-color: #164755;
   }
 
   ul {
