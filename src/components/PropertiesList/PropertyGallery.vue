@@ -1,9 +1,6 @@
 <template>
   <div class="property-gallery">
     <div class="main-img-container">
-      <div class="property-status">
-        <span>{{ property.status }}</span>
-      </div>
       <img class="main-img" :src="property.images.main" alt="img">
       <div class="property-capacity">
         <span class="count">{{ property.capacity }}</span>
@@ -42,6 +39,8 @@
       margin-right: 20px;
 
       .main-img {
+        width: 100%;
+
         &-container {
           position: relative;
         }
@@ -55,18 +54,6 @@
       }
     }
 
-    &-status {
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 5px 10px;
-      color: lightgreen;
-      background-color: white;
-      border: 1px solid black;
-      font-size: 16px;
-      font-weight: 700;
-    }
-
     &-capacity {
       position: absolute;
       right: 10px;
@@ -74,10 +61,11 @@
 
       .count {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: -5px;
         font-size: 20px;
+        line-height: 18px;
         font-weight: 700;
-        color: white;
+        color: #000;
       }
 
       .icon-container {
@@ -86,9 +74,6 @@
         justify-content: center;
         width: 50px;
         height: 40px;
-        border-radius: 10px;
-        border: 1px solid black;
-        background-color: white;
 
         img {
           width: 80%;

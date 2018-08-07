@@ -1,14 +1,20 @@
 const state = {
   properties: [
     {
-      id: 1,
-      name: 'meeting room name',
-      status: 'Available',
-      description: 'LorumIpsumLorumIpsumLorumIpsumLorumIpsumLorumIpsumLorumIpsumLorumIpsumLorumIpsumLorumIpsum',
-      capacity: 1000,
-      type: 'Theater',
+      id: '1',
+      name: 'The Precinct',
+      description: [
+        'Largest room in the AREA portfolio',
+        'Natural light and a 4 m high ceiling',
+        'Blackout blinds',
+        'Outside balcony',
+        'Can be divided'
+      ],
+      capacity: 130,
+      floorArea: 128.7,
       price: 999.99,
       extrasPrice: 0,
+      dayDelegateMin: 30,
       images: {
         main: 'http://placekitten.com/350/200',
         others: [
@@ -18,38 +24,21 @@ const state = {
           'http://placekitten.com/80/80'
         ]
       },
-      arrangementTypes: [
-        {
-          id: 1
-        },
-        {
-          id: 2
-        },
-        {
-          id: 3
-        },
-        {
-          id: 4
-        },
-        {
-          id: 5
-        },
-        {
-          id: 6
-        }
-      ],
       catering: false,
     },
-
     {
-      id: 2,
-      name: 'Room',
-      status: 'Available',
-      description: 'LorumIpsumLorumIpsumLorumIpsumLorumIpsumLorumIpsumLorumIpsumLorumIpsumLorumIpsumLorumIpsum',
-      capacity: 50,
-      type: 'Room',
-      price: 100.00,
+      id: '2',
+      name: 'The Precinct',
+      description: [
+        'Natural light',
+        'Outside balcony',
+        'Catering and breakout areas close by',
+      ],
+      capacity: 60,
+      floorArea: 76,
+      price: 875.99,
       extrasPrice: 0,
+      dayDelegateMin: 20,
       images: {
         main: 'http://placekitten.com/350/200',
         others: [
@@ -59,26 +48,6 @@ const state = {
           'http://placekitten.com/80/80'
         ]
       },
-      arrangementTypes: [
-        {
-          id: 1
-        },
-        {
-          id: 2
-        },
-        {
-          id: 3
-        },
-        {
-          id: 4
-        },
-        {
-          id: 5
-        },
-        {
-          id: 6
-        }
-      ],
       catering: false,
     }
   ]

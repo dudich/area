@@ -30,6 +30,7 @@
 <script>
   import ExtrasTable from './ExtrasTable'
   import ExtrasItem from './ExtrasItem'
+  import findIndexByKey from '../../mixins/findIndexByKey'
 
   export default {
     props: {
@@ -38,10 +39,12 @@
         required: true
       },
       propertyId: {
-        type: Number,
+        type: String,
         required: true
       }
     },
+
+    mixins: [findIndexByKey],
 
     data() {
       return {
@@ -53,7 +56,7 @@
 
     computed: {
       description() {
-        const index = this.extras.map((item) => item.id).indexOf(this.selected);
+        const index = this.findIndexByKey(this.extras, id, this.selected);
         return this.extras[index].description;
       },
       total() {

@@ -1,19 +1,10 @@
 <template>
   <div class="property-description">
-    <p class="text">{{ property.description }}</p>
-    <div class="property-features">
-      <span class="property-capacity">{{ property.capacity }} people</span>
-      <span class="property-type">{{ property.type }}</span>
-    </div>
-    <ul class="arrangement-list">
-      <li class="arrangement-type"
-          v-for="type in property.arrangementTypes"
-          :class="{ active: selected === type.id }"
-      >
-        <label>
-          <input type="radio" :value="type.id" v-model="selected">
-          <img :src="`icons/arrangements/arrangement-icon-${ type.id }.png`" alt="arrangement-icon">
-        </label>
+    <ul class="property-description__list">
+      <li v-for="(description, i) in property.description" :key="i" v-html="description"></li>
+      <li class="property-delegate-min">
+        <span>Day Delegate Min.</span>
+        <span>- {{ property.capacity }} people</span>
       </li>
     </ul>
   </div>
@@ -54,51 +45,23 @@
         text-align: left;
         word-wrap: break-word;
       }
+
+      &__list {
+        text-align: left;
+
+        li {
+          margin-bottom: 5px;
+        }
+      }
     }
 
-    &-features {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-  }
-
-  .arrangement {
-
-    &-list {
-      display: flex;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-    }
-
-    &-type {
-      margin: 5px;
-      width: 80px;
-      height: 90px;
-      border: 3px solid black;
-      border-radius: 10px;
-      background-color: white;
-      transition: .5s;
-      &:hover,
-      &.active {
-        border-color: #7FBE42;
+    &-delegate-min {
+      span {
+        margin-right: 5px;
       }
 
-      label {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        cursor: pointer;
-
-        input {
-          display: none;
-        }
-
-        img {
-          width: 80%;
-          height: 80%;
-        }
+      span:first-of-type {
+        font-weight: 700;
       }
     }
   }

@@ -4,10 +4,17 @@
       <div class="property-container">
         <div class="left-side">
           <p class="property-name">{{ property.name }}</p>
-          <div class="flex-container">
-            <property-gallery :property="property"></property-gallery>
-            <property-description :property="property"></property-description>
-          </div>
+          <v-layout row wrap>
+            <v-flex class="mb-3" xs12 md6>
+              <property-gallery :property="property"></property-gallery>
+            </v-flex>
+            <v-flex class="mb-3" xs12 md6>
+              <property-description :property="property"></property-description>
+            </v-flex>
+            <v-flex class="mb-3" xs12>
+              <property-layouts></property-layouts>
+            </v-flex>
+          </v-layout>
         </div>
         <div class="right-side">
           <catering :property="property"></catering>
@@ -29,6 +36,7 @@
 <script>
   import PropertyDescription from './PropertyDescription'
   import PropertyGallery from './PropertyGallery'
+  import PropertyLayouts from './PropertyLayouts'
   import PropertyPrice from './PropertyPrice'
   import Catering from './Catering'
   import ExtrasList from '../ExtrasList'
@@ -50,6 +58,7 @@
     components: {
       PropertyGallery,
       PropertyDescription,
+      PropertyLayouts,
       PropertyPrice,
       Catering,
       ExtrasList
@@ -69,18 +78,14 @@
       padding: 20px 10px;
     }
 
-    .left-side {
-      .flex-container {
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-
     &-name {
       margin: {
         bottom: 5px;
         left: 5px;
       }
+      font-size: 18px;
+      line-height: 20px;
+      font-weight: 700;
       text-align: left;
       text-transform: capitalize;
       color: white;
