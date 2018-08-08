@@ -20,6 +20,9 @@
         </v-flex>
       </v-layout>
       <properties-list :properties="properties" :extras="extras"></properties-list>
+      <modal>
+        <gallery-carousel :properties="properties"></gallery-carousel>
+      </modal>
     </div>
   </v-container>
 </template>
@@ -32,10 +35,16 @@
   import InputCapacity from '../components/Controlers/InputCapacity'
   import SelectTime from '../components/Controlers/SelectTime'
   import SelectLayout from '../components/Controlers/SelectLayout'
+  import Modal from '../components/Modal'
+  import GalleryCarousel from '../components/PropertiesList/PropertyGallery/GalleryCarousel/index'
 
 
   export default {
     name: 'select-package',
+
+    /*data: () => ({
+      images: []
+    }),*/
 
     computed: {
       properties() {
@@ -53,7 +62,9 @@
       SelectDate,
       InputCapacity,
       SelectTime,
-      SelectLayout
+      SelectLayout,
+      Modal,
+      GalleryCarousel
     }
   }
 </script>

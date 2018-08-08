@@ -15,20 +15,23 @@ const state = {
       price: 999.99,
       extrasPrice: 0,
       dayDelegateMin: 30,
-      images: {
-        main: 'http://placekitten.com/350/200',
-        others: [
-          'http://placekitten.com/80/80',
-          'http://placekitten.com/80/80',
-          'http://placekitten.com/80/80',
-          'http://placekitten.com/80/80'
-        ]
-      },
+      images: [
+        {
+          id: '1',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '2',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        }
+      ],
       catering: false,
     },
     {
       id: '2',
-      name: 'The Precinct',
+      name: 'East Precinct',
       description: [
         'Natural light',
         'Outside balcony',
@@ -39,15 +42,75 @@ const state = {
       price: 875.99,
       extrasPrice: 0,
       dayDelegateMin: 20,
-      images: {
-        main: 'http://placekitten.com/350/200',
-        others: [
-          'http://placekitten.com/80/80',
-          'http://placekitten.com/80/80',
-          'http://placekitten.com/80/80',
-          'http://placekitten.com/80/80'
-        ]
-      },
+      images: [
+        {
+          id: '1',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '2',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '3',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '4',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        }
+      ],
+      catering: false,
+    },
+    {
+      id: '3',
+      name: 'West Precinct',
+      description: [
+        'Smaller room',
+        'Natural Daylight',
+        'Catering and breakout areas close by',
+      ],
+      capacity: 50,
+      floorArea: 52.7,
+      price: 400.00,
+      extrasPrice: 0,
+      dayDelegateMin: 20,
+      images: [
+        {
+          id: '1',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '2',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '3',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '4',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '5',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '6',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        }
+      ],
       catering: false,
     }
   ]
