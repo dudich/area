@@ -1,25 +1,26 @@
 <template>
-      <v-card class="extras-card">
-        <extras-header :total="total"></extras-header>
-        <ul class="extras-list">
-          <extras-item
-            v-for="extra in extras"
-            :extra="extra"
-            :selected="selected"
-            :checked="checked"
-            @EXTRA_SELECTED="updateSelected"
-            @EXTRA_CHECKED="updateChecked"
-            @INCREASE_EXTRA_QUANTITY="increaseExtraQuantity"
-            @DECREASE_EXTRA_QUANTITY="decreaseExtraQuantity"
-          >
-          </extras-item>
-        </ul>
-        <p class="extras-description">{{ selected ? description : '' }}</p>
-        <extras-table :extras="extras" :checked="checked"></extras-table>
-      </v-card>
+  <v-card class="extras-card" v-if="showExtras">
+    <extras-header :total="total" :propertyId="propertyId" :addExtras="addExtras"></extras-header>
+    <ul class="extras-list">
+      <extras-item
+        v-for="extra in extras"
+        :extra="extra"
+        :selected="selected"
+        :checked="checked"
+        @EXTRA_SELECTED="updateSelected"
+        @EXTRA_CHECKED="updateChecked"
+        @INCREASE_EXTRA_QUANTITY="increaseExtraQuantity"
+        @DECREASE_EXTRA_QUANTITY="decreaseExtraQuantity"
+      >
+      </extras-item>
+    </ul>
+    <p class="extras-description">{{ selected ? description : '' }}</p>
+    <extras-table :extras="extras" :checked="checked"></extras-table>
+  </v-card>
 </template>
 
 <script>
+  import {SHOW_EXTRAS, HIDE_EXTRAS} from "../../store/actionTypes";
   import ExtrasHeader from './ExtrasHeader'
   import ExtrasTable from './ExtrasTable'
   import ExtrasItem from './ExtrasItem'
@@ -42,8 +43,22 @@
     data() {
       return {
         selected: '',
-        checked: []
+        checked: [],
+        showExtras: false
       }
+    },
+
+    mounted() {
+      EventBus.$on(SHOW_EXTRAS, (payload) => {
+        if (payload === this.propertyId) {
+          this.showExtras = true
+        }
+      });
+      EventBus.$on(HIDE_EXTRAS, (payload) => {
+        if (payload === this.propertyId) {
+          this.showExtras = false
+        }
+      })
     },
 
     computed: {
@@ -54,9 +69,7 @@
       total() {
         const arrOfChecked = this.extras.filter((item) => this.checked.indexOf(item.id) !== -1);
         const arrOfCost = arrOfChecked.map((item) => item.price * item.quantity);
-        const result = arrOfCost.reduce((acc, item) => acc + item, 0);
-
-        return +result.toFixed(2);
+        return arrOfCost.reduce((acc, item) => acc + item, 0);
       }
     },
 
@@ -72,8 +85,8 @@
           this.checked.splice(index, 1);
         }
       },
-      closeModal() {
-        this.$store.commit('CHANGE_EXTRAS_PRICE', { total: this.total, id: this.propertyId });
+      addExtras() {
+        this.$store.commit('CHANGE_EXTRAS_PRICE', {total: this.total, id: this.propertyId});
       },
       increaseExtraQuantity(id) {
         const index = this.extras.map((item) => item.id).indexOf(id);
@@ -95,6 +108,7 @@
 
 <style lang="scss">
   .extras {
+
     &-list {
       display: flex;
       justify-content: flex-start;
@@ -110,6 +124,6 @@
   }
 
   .extras-card {
-    background-color: #184556!important;
+    background-color: #184556 !important;
   }
 </style>

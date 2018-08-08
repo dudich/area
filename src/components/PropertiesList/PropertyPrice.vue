@@ -28,7 +28,7 @@
 
     methods: {
       totalPrice(property) {
-        return property.price + property.extrasPrice
+        return (property.price + property.extrasPrice).toFixed(2)
       }
     },
   }

@@ -1,14 +1,19 @@
 <template>
   <v-layout class="extras-header" align-center justify-center>
-    <v-flex class="extras-header__container" xs12 sm7 offset-xs0 offset-sm5 align-center>
+    <v-flex class="text-xs-left" xs2 sm5>
+      <i class="far fa-times-circle" @click="hideExtras"></i>
+    </v-flex>
+    <v-flex class="extras-header__container" xs10 sm7 align-center>
       <span class="extras-header__caption">Extras</span>
       <span class="extras-header__total-price">Total   ${{ total }}</span>
-      <v-btn class="addExtrasBtn" dark round @click.native="closeModal">Add</v-btn>
+      <v-btn class="addExtrasBtn" dark round @click="addExtras">Add</v-btn>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
+  import {HIDE_EXTRAS} from "../../store/actionTypes";
+
   export default {
     name: 'extras-header',
 
@@ -16,6 +21,20 @@
       total: {
         type: Number,
         required: true
+      },
+      propertyId: {
+        type: String,
+        required: true
+      },
+      addExtras: {
+        type: Function,
+        required: true
+      }
+    },
+
+    methods: {
+      hideExtras() {
+        EventBus.$emit(HIDE_EXTRAS, this.propertyId)
       }
     }
   }
@@ -25,6 +44,12 @@
   .extras-header {
     padding: 20px;
     border: 1px solid #fff;
+
+    .far {
+      font-size: 30px;
+      color: #ed1c24;
+      cursor: pointer;
+    }
 
     &__container {
       display: flex;
@@ -45,7 +70,7 @@
 
     .addExtrasBtn {
       margin-left: auto;
-      background-color: #29AAE2!important;
+      background-color: #29AAE2 !important;
       text-transform: none;
     }
   }

@@ -1,1 +1,3 @@
 export const CHANGE_EXTRAS_PRICE = 'CHANGE_EXTRAS_PRICE';
+export const SHOW_EXTRAS = 'SHOW_EXTRAS';
+export const HIDE_EXTRAS = 'HIDE_EXTRAS';

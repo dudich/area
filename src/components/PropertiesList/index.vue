@@ -19,7 +19,7 @@
         <div class="right-side text-xs-right">
           <catering :property="property"></catering>
           <property-price :property="property"></property-price>
-            <v-btn class="btn-view-extras" dark round large @click="openExtras(property.id)">View Extras</v-btn>
+            <v-btn class="btn-view-extras" dark round large @click="showExtras(property.id)">View Extras</v-btn>
             <v-btn class="btn-add-to-cart" dark round large>Add to Card</v-btn>
         </div>
       </v-layout>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+  import { SHOW_EXTRAS } from "../../store/actionTypes";
   import PropertyDescription from './PropertyDescription'
   import PropertyGallery from './PropertyGallery'
   import PropertyLayouts from './PropertyLayouts'
@@ -61,8 +62,8 @@
     },
 
     methods: {
-      openExtras(id) {
-        this.$emit(`OPEN_EXTRAS_${id}`)
+      showExtras(id) {
+        EventBus.$emit(SHOW_EXTRAS, id);
       }
     }
   }
