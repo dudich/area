@@ -36,8 +36,6 @@
   .property {
 
     &-gallery {
-      margin-right: 20px;
-
       .main-img {
         width: 100%;
 

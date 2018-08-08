@@ -8,6 +8,8 @@
       <td class="text">Extras</td>
       <td class="count">${{ property.extrasPrice }}</td>
     </tr>
+    <catering :catering="catering" @ADD_CATERING="catering = true"></catering>
+    <catering-notification :catering="catering"></catering-notification>
     <tr class="price-total">
       <td class="text">Total</td>
       <td class="count">${{ totalPrice(property) }}</td>
@@ -16,6 +18,9 @@
 </template>
 
 <script>
+  import Catering from './Catering'
+  import CateringNotification from './CateringNotification'
+
   export default {
     name: 'PropertyPrice',
 
@@ -26,11 +31,18 @@
       }
     },
 
+    data: () => ({
+      catering: false
+    }),
+
     methods: {
-      totalPrice(property) {
-        return (property.price + property.extrasPrice).toFixed(2)
-      }
+      totalPrice: (property) => (property.price + property.extrasPrice).toFixed(2)
     },
+
+    components: {
+      Catering,
+      CateringNotification
+    }
   }
 </script>
 

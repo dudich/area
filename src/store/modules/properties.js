@@ -32,7 +32,7 @@ const state = {
       description: [
         'Natural light',
         'Outside balcony',
-        'Catering and breakout areas close by',
+        'PropertyPrice and breakout areas close by',
       ],
       capacity: 60,
       floorArea: 76,

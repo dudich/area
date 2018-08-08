@@ -8,7 +8,7 @@
             <v-flex class="mb-3" xs12 md5>
               <property-gallery :property="property"></property-gallery>
             </v-flex>
-            <v-flex class="mb-3" xs12 md7>
+            <v-flex class="mb-3 pl-3" xs12 md7>
               <property-description :property="property"></property-description>
             </v-flex>
             <v-flex class="mb-3" xs12>
@@ -17,10 +17,10 @@
           </v-layout>
         </div>
         <div class="right-side text-xs-right">
-          <catering :property="property"></catering>
           <property-price :property="property"></property-price>
-            <v-btn class="btn-view-extras" dark round large @click="showExtras(property.id)">View Extras</v-btn>
-            <v-btn class="btn-add-to-cart" dark round large>Add to Card</v-btn>
+          <v-btn class="btn-view-extras" dark round large @click="showExtras(property.id)">View Extras</v-btn>
+          <v-btn class="btn-hold" dark round large>Hold</v-btn>
+          <v-btn class="btn-book" dark round large>Book and confirm</v-btn>
         </div>
       </v-layout>
 
@@ -30,12 +30,11 @@
 </template>
 
 <script>
-  import { SHOW_EXTRAS } from "../../store/actionTypes";
+  import {SHOW_EXTRAS} from "../../store/actionTypes";
   import PropertyDescription from './PropertyDescription'
   import PropertyGallery from './PropertyGallery'
   import PropertyLayouts from './PropertyLayouts'
-  import PropertyPrice from './PropertyPrice'
-  import Catering from './Catering'
+  import PropertyPrice from './PropertyPrice/index'
   import ExtrasList from '../ExtrasList'
 
   export default {
@@ -57,7 +56,6 @@
       PropertyDescription,
       PropertyLayouts,
       PropertyPrice,
-      Catering,
       ExtrasList
     },
 
@@ -88,13 +86,14 @@
     }
 
     .btn {
-      &-view-extras {
-        background-color: #29AAE2!important;
+      &-view-extras,
+      &-hold {
+        background-color: #29AAE2 !important;
         text-transform: none;
       }
 
-      &-add-to-cart {
-        background-color: #8CC63E!important;
+      &-book {
+        background-color: #8CC63E !important;
         text-transform: none;
       }
     }
