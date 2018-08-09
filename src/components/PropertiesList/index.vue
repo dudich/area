@@ -6,7 +6,12 @@
           <p class="property-name">{{ property.name }}</p>
           <v-layout row wrap>
             <v-flex class="mb-3" xs12 md5>
-              <property-gallery :propertyId="property.id" :capacity="property.capacity" :images="property.images"></property-gallery>
+              <property-gallery
+                :propertyId="property.id"
+                :capacity="property.capacity"
+                :images="property.images"
+                :propertyName="property.name"
+              ></property-gallery>
             </v-flex>
             <v-flex class="mb-3 pl-3" xs12 md7>
               <property-description :property="property"></property-description>

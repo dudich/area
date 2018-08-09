@@ -41,6 +41,10 @@
       images: {
         type: Array,
         required: true
+      },
+      propertyName: {
+        type: String,
+        required: true
       }
     },
 
@@ -55,7 +59,7 @@
 
     methods: {
       openGalleryCarousel() {
-        EventBus.$emit(OPEN_GALLERY_CAROUSEL, this.propertyId)
+        EventBus.$emit(OPEN_GALLERY_CAROUSEL, {images: this.images, caption: this.propertyName})
       }
     }
   }

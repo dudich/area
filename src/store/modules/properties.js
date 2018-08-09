@@ -109,6 +109,21 @@ const state = {
           id: '6',
           big: 'http://placekitten.com/350/200',
           thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '7',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '8',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '9',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
         }
       ],
       catering: false,

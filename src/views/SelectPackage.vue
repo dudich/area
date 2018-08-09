@@ -21,7 +21,7 @@
       </v-layout>
       <properties-list :properties="properties" :extras="extras"></properties-list>
       <modal>
-        <gallery-carousel :properties="properties"></gallery-carousel>
+        <gallery-carousel></gallery-carousel>
       </modal>
     </div>
   </v-container>
@@ -36,15 +36,11 @@
   import SelectTime from '../components/Controlers/SelectTime'
   import SelectLayout from '../components/Controlers/SelectLayout'
   import Modal from '../components/Modal'
-  import GalleryCarousel from '../components/PropertiesList/PropertyGallery/GalleryCarousel/index'
+  import GalleryCarousel from '../components/PropertiesList/PropertyGallery/GalleryCarousel'
 
 
   export default {
     name: 'select-package',
-
-    /*data: () => ({
-      images: []
-    }),*/
 
     computed: {
       properties() {
