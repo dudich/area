@@ -94,23 +94,20 @@
 
   .thumbnails {
     display: flex;
-    justify-content: center;
     flex-direction: row;
     overflow-x: auto;
   }
 
   .thumbnail-image {
-    //display: flex;
     flex: 0 0 84px;
     align-items: center;
     cursor: pointer;
-    padding: 2px;
+    margin-right: 8px;
   }
 
   .thumbnail-image > img {
     width: 100%;
     height: auto;
-    margin: 3px;
     transition: all 250ms;
     opacity: 0.6;
     box-shadow: 2px 2px 6px 1px rgba(0,0,0, 0.5);

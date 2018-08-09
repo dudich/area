@@ -24,7 +24,7 @@
         <div class="right-side text-xs-right">
           <property-price :property="property"></property-price>
           <v-btn class="btn-view-extras" dark round large @click="showExtras(property.id)">View Extras</v-btn>
-          <v-btn class="btn-hold" dark round large>Hold</v-btn>
+          <v-btn class="btn-hold" dark round large @click="holdProperty(property.id)">Hold</v-btn>
           <v-btn class="btn-book" dark round large>Book and confirm</v-btn>
         </div>
       </v-layout>
@@ -67,6 +67,9 @@
     methods: {
       showExtras(id) {
         EventBus.$emit(SHOW_EXTRAS, id);
+      },
+      holdProperty(id) {
+        this.$router.push(`/hold/${id}`);
       }
     }
   }

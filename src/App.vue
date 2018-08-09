@@ -28,7 +28,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #000;
 
   .container {
     padding: 0;
@@ -36,7 +36,7 @@
 
   .v-content {
     padding: 110px 0 32px!important;
-    background-color: #164755;
+    //background-color: #164755;
   }
 
   ul {

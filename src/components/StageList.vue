@@ -1,9 +1,22 @@
 <template>
-    <v-layout row wrap>
-      <v-flex md4 sm12 class="booking-stage" :class="{ active: $route.path === '/event-details'}">{{ bookingStages.details }}</v-flex>
-      <v-flex md4 sm12 class="booking-stage" :class="{ active: $route.path === '/select-package'}">{{ bookingStages.selectPackage }}</v-flex>
-      <v-flex md4 sm12 class="booking-stage" :class="{ active: $route.path === '/book'}">{{ bookingStages.pay }}</v-flex>
-    </v-layout>
+  <div class="booking-stages">
+    <v-container>
+      <v-layout row wrap>
+        <v-flex md4 sm12>
+          <h3 class="booking-stage" v-text="bookingStages.details" :class="{ active: $route.path === '/event-details'}"></h3>
+        </v-flex>
+        <v-flex md4 sm12>
+          <h3 class="booking-stage" v-text="bookingStages.selectPackage" :class="{ active: $route.path === '/select-package'}"></h3>
+        </v-flex>
+        <v-flex md4 sm12 v-if="$route.path === '/hold'">
+          <h3 class="booking-stage" v-text="bookingStages.hold" :class="{ active: $route.path === '/hold'}"></h3>
+        </v-flex>
+        <v-flex md4 sm12 v-else>
+          <h3 class="booking-stage" v-text="bookingStages.pay" :class="{ active: $route.path === '/book'}"></h3>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </div>
 </template>
 
 <script>
@@ -15,7 +28,8 @@
         bookingStages: {
           details: 'Event Details',
           selectPackage: 'Select Package',
-          pay: 'Book and Pay'
+          pay: 'Book and Pay',
+          hold: 'Hold Room'
         }
       }
     }
@@ -24,12 +38,16 @@
 
 
 <style lang="scss" scoped>
+  .booking-stages {
+    background-color: #164755;
+  }
   .booking-stage {
     margin: {
       top: 16px;
       bottom: 16px;
     }
     font-size: 20px;
+    font-weight: 400;
     color: white;
 
     &.active {
