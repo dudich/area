@@ -1,7 +1,7 @@
 <template>
-  <table class="price">
+  <table class="price text-xs-right">
     <tr class="price-property">
-      <td class="text">Room</td>
+      <td class="text">Room Hire Cost</td>
       <td class="count">${{ property.price }}</td>
     </tr>
     <tr class="price-extras">
@@ -10,9 +10,9 @@
     </tr>
     <catering :catering="catering" @ADD_CATERING="catering = true"></catering>
     <catering-notification :catering="catering"></catering-notification>
-    <tr class="price-total text-green">
-      <td class="text">Total</td>
-      <td class="count">${{ totalPrice(property) }}</td>
+    <tr class="price-total">
+      <td class="text text-green">Total</td>
+      <td class="count text-green">${{ totalPrice(property) }}</td>
     </tr>
   </table>
 </template>
@@ -55,14 +55,6 @@
       font-size: 16px;
       font-weight: 700;
       color: white;
-    }
-
-    .text {
-      text-align: right;
-    }
-
-    .count {
-      text-align: right;
     }
   }
 </style>

@@ -52,12 +52,12 @@
       .btn {
         position: absolute;
         top: -7px;
-        left: -16px;
+        left: -20px;
       }
 
       img {
         position: absolute;
-        left: 60px;
+        left: 90px;
         width: 20px;
         height: 20px;
       }

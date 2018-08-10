@@ -79,7 +79,7 @@
       }
 
       .thumb-img {
-        margin-right: 8px;
+        margin-right: 6px;
 
         &-container {
           display: flex;

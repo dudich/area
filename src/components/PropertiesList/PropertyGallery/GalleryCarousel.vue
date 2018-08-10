@@ -101,7 +101,7 @@
     flex: 0 0 84px;
     align-items: center;
     cursor: pointer;
-    margin-right: 8px;
+    margin-right: 6px;
   }
 
   .thumbnail-image > img {
