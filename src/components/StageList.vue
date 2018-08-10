@@ -8,11 +8,11 @@
         <v-flex md4 sm12>
           <h3 class="booking-stage" v-text="bookingStages.selectPackage" :class="{ active: $route.path === '/select-package'}"></h3>
         </v-flex>
-        <v-flex md4 sm12 v-if="$route.path === '/hold'">
-          <h3 class="booking-stage" v-text="bookingStages.hold" :class="{ active: $route.path === '/hold'}"></h3>
+        <v-flex md4 sm12 v-if="$route.path === `/hold/${ $route.params.id }`">
+          <h3 class="booking-stage" v-text="bookingStages.hold" :class="{ active: $route.path === `/hold/${ $route.params.id }`}"></h3>
         </v-flex>
         <v-flex md4 sm12 v-else>
-          <h3 class="booking-stage" v-text="bookingStages.pay" :class="{ active: $route.path === '/book'}"></h3>
+          <h3 class="booking-stage" v-text="bookingStages.pay" :class="{ active: $route.path === `/hold/${ $route.params.id }`}"></h3>
         </v-flex>
       </v-layout>
     </v-container>

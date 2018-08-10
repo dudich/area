@@ -2,7 +2,7 @@
   <v-container>
     <h3 class="hold-caption">Hold Room</h3>
     <v-layout row wrap>
-      <v-flex class="px-5" xs12 sm6>
+      <v-flex class="px-5 mb-4" xs12 sm6>
         <h4 class="hold-form-caption">Booker Details</h4>
         <div class="hold-input">
           <v-text-field
@@ -40,7 +40,7 @@
           <i class="fas fa-phone-square"></i>
         </div>
       </v-flex>
-      <v-flex class="px-5" xs12 sm6>
+      <v-flex class="px-5 mb-4" xs12 sm6>
         <h4 class="hold-form-caption">Booker Comments</h4>
         <div class="hold-input hold-textarea">
           <v-textarea
@@ -74,7 +74,8 @@
     margin: {
       left: 5px;
       bottom: 5px;
-    };
+    }
+  ;
     font-size: 18px;
     font-weight: 400;
     text-align: left;
@@ -85,8 +86,20 @@
 
     .v-input__slot {
       border: 1px solid #000;
-      border-radius: 0!important;
-      background-color: $light-gray!important;
+      border-radius: 0 !important;
+      background-color: $light-gray !important;
+
+      input {
+        color: $grey;
+
+        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: $grey;
+          opacity: 1; /* Firefox */
+        }
+        &::-ms-input-placeholder { /* Microsoft Edge */
+          color: $grey;
+        }
+      }
     }
 
     i {

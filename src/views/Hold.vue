@@ -1,13 +1,24 @@
 <template>
-    <div class="hold">
-      <stage-list class="bg-dark-blue"></stage-list>
-      <component :is="currentView"></component>
-      <property-summary :property="property"></property-summary>
-      <modal>
-        <h1>Confirming hold</h1>
-        <ball-spin-fade-loader color="#000000" size="20px"></ball-spin-fade-loader>
-      </modal>
-    </div>
+  <div class="hold">
+    <v-layout class="bg-dark-blue" row>
+      <v-flex xl6 offset-xl3>
+        <stage-list class="bg-dark-blue"></stage-list>
+      </v-flex>
+    </v-layout>
+    <v-layout row>
+      <v-flex xl6 offset-xl3>
+        <component :is="currentView"></component>
+      </v-flex>
+    </v-layout>
+    <v-layout class="bg-dark-blue" row>
+      <v-flex xl6 offset-xl3>
+        <property-summary :property="property"></property-summary>
+      </v-flex>
+    </v-layout>
+    <modal>
+      <ConfirmModalContent></ConfirmModalContent>
+    </modal>
+  </div>
 </template>
 
 <script>
@@ -15,6 +26,7 @@
   import findIndexByKey from '../mixins/findIndexByKey'
   import StageList from '../components/StageList'
   import Modal from '../components/Modal'
+  import ConfirmModalContent from '../components/PropertySummary/ConfirmModalContent'
   import HoldForm from '../components/Hold/HoldForm'
   import ConfirmDialog from '../components/PropertySummary/ConfimDialog'
   import PropertySummary from '../components/PropertySummary'
@@ -49,7 +61,8 @@
       Modal,
       HoldForm,
       PropertySummary,
-      ConfirmDialog
+      ConfirmDialog,
+      ConfirmModalContent
     }
   }
 </script>
