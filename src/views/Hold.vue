@@ -8,7 +8,7 @@
     <component :is="currentView"></component>
     <v-layout class="bg-dark-blue" row>
       <v-flex xl6 offset-xl3>
-        <property-summary :property="property" :route="$route"></property-summary>
+        <property-summary :property="property" :currentView="currentView"></property-summary>
       </v-flex>
     </v-layout>
     <modal>

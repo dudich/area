@@ -1,6 +1,6 @@
 <template>
   <div class="summary bg-dark-blue">
-    <h4 class="summary-caption">Summary</h4>
+    <h4 class="summary-caption" v-text="summaryCaption"></h4>
     <v-container>
       <v-layout row wrap>
         <v-flex class="px-4" xs12 sm6>
@@ -22,12 +22,17 @@
   } from "../../store/actionTypes";
   import PropertyInfo from './PropertyInfo'
   import SummaryTable from './SummaryTable'
+  import HoldForm from '../../components/Hold/HoldForm'
 
   export default {
     name: 'property-summary',
 
     props: {
       property: {
+        type: Object,
+        required: true
+      },
+      currentView: {
         type: Object,
         required: true
       }
@@ -39,11 +44,11 @@
       }
     },
 
-    /*computed: {
+    computed: {
       summaryCaption() {
-        return this.route.path === `/hold/${ this.route.params.id }` ? 'Summary' : 'Hold Summary'
+        return this.currentView === HoldForm ? 'Summary' : 'Hold Summary'
       }
-    },*/
+    },
 
     mounted() {
       EventBus.$on(CLOSE_CONFIRMATION_MODAL, () => this.visibleBtn = false);
@@ -58,7 +63,8 @@
 
     components: {
       PropertyInfo,
-      SummaryTable
+      SummaryTable,
+      HoldForm
     }
   }
 </script>

@@ -3,7 +3,7 @@
     <v-flex xl6 offset-xl3>
     <v-container>
       <v-layout align-center>
-        <v-flex xs6 sm4 offset-xs3 offset-sm4>
+        <v-flex xs6 sm5 offset-xs3 offset-sm3>
           <p class="confirm-dialog__message text-light-green font-weight-bold" v-text="confirmMessage"></p>
         </v-flex>
         <v-flex xs6 sm2 offset-xs3 offset-sm0>
