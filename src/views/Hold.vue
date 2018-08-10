@@ -2,7 +2,7 @@
     <div class="hold">
       <stage-list></stage-list>
       <h3 class="hold-caption">Hold Room</h3>
-      <hold-form></hold-form>
+      <component :is="currentView"></component>
       <property-summary :property="property"></property-summary>
       <modal>
         <h1>Confirming0hold</h1>
@@ -15,12 +15,19 @@
   import StageList from '../components/StageList'
   import Modal from '../components/Modal'
   import HoldForm from '../components/Hold/HoldForm'
+  import ConfirmDialog from '../components/ConfimDialog'
   import PropertySummary from '../components/PropertySummary'
 
   export default {
     name: 'hold',
 
     mixins: [findIndexByKey],
+
+    data() {
+      return {
+        currentView: ConfirmDialog
+      }
+    },
 
     computed: {
       properties() {
@@ -36,7 +43,8 @@
       StageList,
       Modal,
       HoldForm,
-      PropertySummary
+      PropertySummary,
+      ConfirmDialog
     }
   }
 </script>

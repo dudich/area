@@ -8,6 +8,7 @@
         </v-flex>
         <v-flex class="px-5" xs12 sm4 offset-xs0 offset-sm4>
           <summary-table :price="property.price" :extras="property.extrasPrice"></summary-table>
+          <v-btn class="btn-view-extras" dark round large @click="confirmHold">Hold</v-btn>
         </v-flex>
       </v-layout>
     </v-container>
@@ -25,6 +26,12 @@
       property: {
         type: Object,
         required: true
+      }
+    },
+
+    methods: {
+      confirmHold() {
+
       }
     },
 
