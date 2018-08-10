@@ -1,28 +1,32 @@
 <template>
-    <div class="select-package">
-      <stage-list></stage-list>
+    <div class="select-package bg-dark-blue">
       <v-container>
-        <v-layout class="pt-5" row wrap>
-          <v-flex xs12 sm6 md2>
-            <select-event class="pa-2"></select-event>
-          </v-flex>
-          <v-flex xs12 sm6 md3>
-            <select-date class="pa-2"></select-date>
-          </v-flex>
-          <v-flex xs3 sm2 md1>
-            <input-capacity class="ma-2"></input-capacity>
-          </v-flex>
-          <v-flex xs12 sm6 md3>
-            <select-time class="pa-2"></select-time>
-          </v-flex>
-          <v-flex xs12 sm6 md3>
-            <select-layout class="pa-2"></select-layout>
+        <v-layout row>
+          <v-flex xl8 offset-xl2>
+            <stage-list></stage-list>
+            <v-layout class="pt-5 select-package__container" row wrap>
+              <v-flex xs12 sm6 md2>
+                <select-event class="pa-2"></select-event>
+              </v-flex>
+              <v-flex xs12 sm6 md3>
+                <select-date class="pa-2"></select-date>
+              </v-flex>
+              <v-flex xs3 sm2 md1>
+                <input-capacity class="ma-2"></input-capacity>
+              </v-flex>
+              <v-flex xs12 sm6 md3>
+                <select-time class="pa-2"></select-time>
+              </v-flex>
+              <v-flex xs12 sm6 md3>
+                <select-layout class="pa-2"></select-layout>
+              </v-flex>
+            </v-layout>
+            <properties-list :properties="properties" :extras="extras"></properties-list>
+            <modal>
+              <gallery-carousel></gallery-carousel>
+            </modal>
           </v-flex>
         </v-layout>
-        <properties-list :properties="properties" :extras="extras"></properties-list>
-        <modal>
-          <gallery-carousel></gallery-carousel>
-        </modal>
       </v-container>
     </div>
 </template>
@@ -67,7 +71,7 @@
 
 <style lang="scss" scoped>
   .select-package {
-    .layout {
+    &__container {
       border: 1px solid #fff;
     }
   }

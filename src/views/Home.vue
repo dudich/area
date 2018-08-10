@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <section class="home-banner" :style="{ backgroundImage: `url(${urlImage})`}">
-      <v-btn color="light-green font-weight-bold" to="/event-details" absolute round>Book now</v-btn>
+      <v-btn color="bg-light-green font-weight-bold" to="/event-details" absolute round>Book now</v-btn>
     </section>
   </v-container>
 </template>

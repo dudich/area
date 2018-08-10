@@ -2,27 +2,27 @@
   <table class="summary-table">
     <tr>
       <td>Room Hire Cost-Hourly</td>
-      <td v-text="`$${ price }`"></td>
+      <td class="text-green" v-text="`$${ price }`"></td>
     </tr>
     <tr>
       <td>Extras</td>
-      <td v-text="`$${ extras }`"></td>
+      <td class="text-green" v-text="`$${ extras }`"></td>
     </tr>
     <tr>
       <td>Catering</td>
-      <td v-text="catering"></td>
+      <td class="text-green" v-text="catering"></td>
     </tr>
     <tr>
       <td v-text="`Discount (${discountPercentage}%)`"></td>
-      <td v-text="`$${ discountSum }`"></td>
+      <td class="text-green" v-text="`$${ discountSum }`"></td>
     </tr>
     <tr class="total">
       <td>Total</td>
-      <td v-text="`$${total}`"></td>
+      <td class="text-green" v-text="`$${total}`"></td>
     </tr>
-    <tr class="deposit">
+    <tr class="deposit text-green">
       <td>Deposit</td>
-      <td v-text="`$${total}`"></td>
+      <td class="text-green" v-text="`$${total}`"></td>
     </tr>
   </table>
 </template>
@@ -51,10 +51,10 @@
         return 10
       },
       discountSum() {
-        return (this.price + this.extras) * (this.discountPercentage / 100);
+        return ((this.price + this.extras) * (this.discountPercentage / 100)).toFixed(2);
       },
       total() {
-        return this.price + this.extras - this.discountSum;
+        return (this.price + this.extras - this.discountSum).toFixed(2);
       }
     }
   }
@@ -71,11 +71,7 @@
     }
 
     td:first-of-type {
-      padding-right: 10px;
-    }
-
-    td:last-of-type {
-      color: #8cc63e;
+      //padding-right: 10px;
     }
 
     .total,

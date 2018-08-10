@@ -23,9 +23,31 @@
         </div>
         <div class="right-side text-xs-right">
           <property-price :property="property"></property-price>
-          <v-btn class="btn-view-extras" dark round large @click="showExtras(property.id)">View Extras</v-btn>
-          <v-btn class="btn-hold" dark round large @click="holdProperty(property.id)">Hold</v-btn>
-          <v-btn class="btn-book" dark round large>Book and confirm</v-btn>
+          <div class="btn-container">
+            <v-btn
+              class="btn btn-view-extras no-text-transform bg-blue no-text-transform btn-large"
+              dark
+              round
+              block
+              @click="showExtras(property.id)"
+            >View Extras
+            </v-btn>
+            <v-btn
+              class="btn btn-hold no-text-transform bg-blue no-text-transform btn-large"
+              dark
+              round
+              block
+              @click="holdProperty(property.id)"
+            >Hold
+            </v-btn>
+            <v-btn
+              class="btn btn-book no-text-transform bg-light-green no-text-transform btn-large"
+              dark
+              block
+              round
+            >Book and confirm
+            </v-btn>
+          </div>
         </div>
       </v-layout>
 
@@ -78,7 +100,6 @@
 <style lang="scss" scoped>
   .property {
     border: 1px solid #fff;
-    background-color: #184556;
 
     &-name {
       margin: {
@@ -91,19 +112,6 @@
       text-align: left;
       text-transform: capitalize;
       color: white;
-    }
-
-    .btn {
-      &-view-extras,
-      &-hold {
-        background-color: #29AAE2 !important;
-        text-transform: none;
-      }
-
-      &-book {
-        background-color: #8CC63E !important;
-        text-transform: none;
-      }
     }
   }
 </style>

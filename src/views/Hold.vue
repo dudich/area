@@ -1,7 +1,6 @@
 <template>
     <div class="hold">
-      <stage-list></stage-list>
-      <h3 class="hold-caption">Hold Room</h3>
+      <stage-list class="bg-dark-blue"></stage-list>
       <component :is="currentView"></component>
       <property-summary :property="property"></property-summary>
       <modal>
@@ -17,7 +16,7 @@
   import StageList from '../components/StageList'
   import Modal from '../components/Modal'
   import HoldForm from '../components/Hold/HoldForm'
-  import ConfirmDialog from '../components/ConfimDialog'
+  import ConfirmDialog from '../components/PropertySummary/ConfimDialog'
   import PropertySummary from '../components/PropertySummary'
 
   export default {
@@ -54,7 +53,3 @@
     }
   }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

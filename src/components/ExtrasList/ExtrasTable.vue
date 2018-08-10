@@ -3,15 +3,15 @@
     <tbody>
     <tr>
       <td>Quantity</td>
-      <td v-for="extra in extras">{{ quantity(extra) }}</td>
+      <td class="text-green" v-for="extra in extras">{{ quantity(extra) }}</td>
     </tr>
     <tr>
       <td>Unit Price</td>
-      <td v-for="extra in extras">{{ unitePrice(extra) }}</td>
+      <td class="text-green" v-for="extra in extras">{{ unitePrice(extra) }}</td>
     </tr>
     <tr>
       <td>Cost</td>
-      <td v-for="extra in extras">{{ cost(extra) }}</td>
+      <td class="text-green" v-for="extra in extras">{{ cost(extra) }}</td>
     </tr>
     </tbody>
   </table>
@@ -59,7 +59,6 @@
       td {
         width: 15%;
         padding: 10px;
-        color: #7FBE42;
         font-weight: 700;
 
         &:first-of-type {

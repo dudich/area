@@ -34,7 +34,10 @@
 </script>
 
 <style lang="scss">
+  @import "../styles/variables";
+
   .v-dialog {
     border-radius: 50px;
+    background-color: $dark-blue;
   }
 </style>

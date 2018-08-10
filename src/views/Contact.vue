@@ -1,13 +1,13 @@
 <template>
-  <div class="contact">
+  <div class="contact bg-dark-blue">
     <contact-map></contact-map>
     <v-container>
       <v-layout row wrap>
-        <v-flex xs12 md6 class="pa-3">
+        <v-flex xs12 md6 xl4 offset-md0 offset-xl2 class="pa-3">
           <contact-text></contact-text>
         </v-flex>
 
-        <v-flex xs12 md6 class="pa-3">
+        <v-flex xs12 md6 xl4 class="pa-3">
           <contact-form></contact-form>
         </v-flex>
       </v-layout>

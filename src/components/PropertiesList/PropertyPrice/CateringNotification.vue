@@ -1,6 +1,6 @@
 <template>
   <tr v-if="catering">
-    <td class="catering-notification"  v-text="notificationText" colspan="2"></td>
+    <td class="catering-notification text-notification"  v-text="notificationText" colspan="2"></td>
   </tr>
 </template>
 
@@ -24,6 +24,5 @@
 <style scoped>
   .catering-notification {
     font-size: 11px;
-    color: orange;
   }
 </style>

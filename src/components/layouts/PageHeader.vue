@@ -43,12 +43,14 @@
 </script>
 
 <style lang="scss">
+  @import '../../styles/colors';
+
   .v-toolbar {
     padding: {
       top: 15px;
       bottom: 15px;
     }
-    background-color: #184556!important;
+    background-color: $dark-blue!important;
     z-index: 1000!important;
 
     .logo {
@@ -79,11 +81,11 @@
         text-transform: capitalize;
         &:hover {
           background: none!important;
-          color: #8cc63e;
+          color: $green!important;
         }
 
         &--active {
-          color: #8cc63e!important;
+          color: $green!important;
         }
       }
     }

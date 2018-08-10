@@ -23,6 +23,10 @@
 </script>
 
 <style lang="scss">
+  @import './styles/buttons';
+  @import './styles/colors';
+  @import 'styles/helpers';
+
 #app {
   font-family: 'Varela', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -36,7 +40,6 @@
 
   .v-content {
     padding: 110px 0 32px!important;
-    //background-color: #164755;
   }
 
   .v-overlay:before {

@@ -38,9 +38,8 @@
 
 
 <style lang="scss" scoped>
-  .booking-stages {
-    background-color: #164755;
-  }
+  @import '../styles/variables';
+
   .booking-stage {
     margin: {
       top: 16px;
@@ -52,7 +51,7 @@
 
     &.active {
       font-weight: bold;
-      color: #27a9e1;;
+      color: $blue;
     }
   }
 </style>

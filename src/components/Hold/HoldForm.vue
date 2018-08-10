@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <h3 class="hold-caption">Hold Room</h3>
     <v-layout row wrap>
       <v-flex class="px-5" xs12 sm6>
         <h4 class="hold-form-caption">Booker Details</h4>
@@ -59,6 +60,8 @@
 </script>
 
 <style lang="scss">
+  @import "../../styles/variables";
+
   .hold-caption {
     margin: {
       top: 25px;
@@ -83,7 +86,7 @@
     .v-input__slot {
       border: 1px solid #000;
       border-radius: 0!important;
-      background-color: gainsboro!important;
+      background-color: $light-gray!important;
     }
 
     i {

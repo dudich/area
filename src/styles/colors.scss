@@ -1,0 +1,37 @@
+@import './variables';
+
+.bg-light-green {
+  background: $light-green!important;
+}
+
+.bg-blue {
+  background-color: $blue!important;
+}
+
+.bg-dark-blue {
+  background: $dark-blue!important;
+}
+
+.bg-light-dark {
+  background-color: $light-dark!important;
+}
+
+.text-green {
+  color: $green!important;
+}
+
+.text-light-green {
+  color: $light-green
+}
+
+.text-red {
+  color: #ed1c24!important
+}
+
+.text-notification {
+  color: orange;
+}
+
+/*.text-gray {
+  color: $grey!important;
+}*/

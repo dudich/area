@@ -1,33 +1,37 @@
 <template>
-  <v-container>
-    <div class="event-details" :style="{ backgroundImage: `url(${bgImage})` }">
-      <div class="content">
-        <h2 class="event-details__caption mt-1" v-html="caption"></h2>
-        <stage-list class="mb-5"></stage-list>
-        <v-layout class="pt-4" row wrap>
-          <v-flex class="mb-4" xs12 sm6 md3 offset-md2>
-            <select-event class="pa-2"></select-event>
-          </v-flex>
-          <v-flex class="mb-4" xs12 sm6 md4>
-            <select-date class="pa-2"></select-date>
-          </v-flex>
-          <v-flex class="mb-4" xs3 sm2 md1 offset-xs3 offset-sm5 offset-md0>
-            <input-capacity class="ma-2"></input-capacity>
-          </v-flex>
-        </v-layout>
-        <v-layout row wrap>
-          <v-flex class="mb-4" xs12 sm6 md3 offset-md2>
-            <select-time class="pa-2"></select-time>
-          </v-flex>
-          <v-flex class="mb-4" xs12 sm6 md5>
-            <select-layout class="pa-2"></select-layout>
-          </v-flex>
-        </v-layout>
-        <v-btn class="btn" dark round @click="findVenue">FIND VENUE</v-btn>
-      </div>
-      <div class="overlay"></div>
-    </div>
-  </v-container>
+  <div class="event-details bg-dark-blue height-100">
+    <v-container>
+      <v-flex class="height-100" xl8 offset-xl2>
+        <div class="event-details__filters" :style="{ backgroundImage: `url(${bgImage})` }">
+          <div class="content">
+            <h2 class="event-details__caption mt-1" v-html="caption"></h2>
+            <stage-list class="mb-5"></stage-list>
+            <v-layout class="pt-4" row wrap>
+              <v-flex class="mb-4" xs12 sm6 md3 offset-md2>
+                <select-event class="pa-2"></select-event>
+              </v-flex>
+              <v-flex class="mb-4" xs12 sm6 md4>
+                <select-date class="pa-2"></select-date>
+              </v-flex>
+              <v-flex class="mb-4" xs3 sm2 md1 offset-xs3 offset-sm5 offset-md0>
+                <input-capacity class="ma-2"></input-capacity>
+              </v-flex>
+            </v-layout>
+            <v-layout row wrap>
+              <v-flex class="mb-4" xs12 sm6 md3 offset-md2>
+                <select-time class="pa-2"></select-time>
+              </v-flex>
+              <v-flex class="mb-4" xs12 sm6 md5>
+                <select-layout class="pa-2"></select-layout>
+              </v-flex>
+            </v-layout>
+            <v-btn class="btn btn-large bg-blue" dark round @click="findVenue">FIND VENUE</v-btn>
+          </div>
+          <div class="overlay"></div>
+        </div>
+      </v-flex>
+    </v-container>
+  </div>
 </template>
 
 <script>
@@ -72,12 +76,15 @@
   }
 
   .event-details {
-    position: relative;
-    height: 100%;
-    padding: 20px;
-    background: {
-      repeat: no-repeat;
-      size: cover;
+
+    &__filters {
+      position: relative;
+      height: 100%;
+      padding: 20px;
+      background: {
+        repeat: no-repeat;
+        size: cover;
+      }
     }
 
     .content {
@@ -102,10 +109,6 @@
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    .btn {
-      background-color: #29AAE2!important;
     }
   }
 </style>

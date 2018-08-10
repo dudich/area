@@ -2,7 +2,7 @@
   <tr class="catering">
     <td class="text">
       Catering
-      <v-btn class="btn-add-catering" dark round v-if="!catering" @click="addCatering">Add</v-btn>
+      <v-btn class="btn bg-blue no-text-transform" dark round v-if="!catering" @click="addCatering">Add</v-btn>
       <img src="../../../assets/check-icon.png" alt="check-icon" v-if="catering" :class="{ opacity: disappear }">
     </td>
     <td class="count">{{ catering ? 'Added' : '$0.00' }}</td>
@@ -49,7 +49,7 @@
       position: relative;
       text-align: right;
 
-      .btn-add-catering {
+      .btn {
         position: absolute;
         top: -7px;
         left: -16px;

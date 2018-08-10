@@ -1,5 +1,5 @@
 <template>
-  <v-card class="extras-card" v-if="showExtras">
+  <v-card class="extras-card bg-dark-blue" v-if="showExtras">
     <extras-header :total="total" :propertyId="propertyId" :addExtras="addExtras"></extras-header>
     <ul class="extras-list">
       <extras-item
@@ -121,9 +121,5 @@
       color: white;
       text-align: center;
     }
-  }
-
-  .extras-card {
-    background-color: #184556 !important;
   }
 </style>

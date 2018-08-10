@@ -10,7 +10,7 @@
     </tr>
     <catering :catering="catering" @ADD_CATERING="catering = true"></catering>
     <catering-notification :catering="catering"></catering-notification>
-    <tr class="price-total">
+    <tr class="price-total text-green">
       <td class="text">Total</td>
       <td class="count">${{ totalPrice(property) }}</td>
     </tr>
@@ -63,10 +63,6 @@
 
     .count {
       text-align: right;
-    }
-
-    &-total td {
-      color: greenyellow;
     }
   }
 </style>

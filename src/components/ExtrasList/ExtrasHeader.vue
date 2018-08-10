@@ -1,12 +1,12 @@
 <template>
   <v-layout class="extras-header" align-center justify-center>
     <v-flex class="text-xs-left" xs2 sm5>
-      <i class="far fa-times-circle" @click="hideExtras"></i>
+      <i class="far fa-times-circle text-red" @click="hideExtras"></i>
     </v-flex>
     <v-flex class="extras-header__container" xs10 sm7 align-center>
       <span class="extras-header__caption">Extras</span>
-      <span class="extras-header__total-price">Total   ${{ total }}</span>
-      <v-btn class="addExtrasBtn" dark round @click="addExtras">Add</v-btn>
+      <span class="extras-header__total-price text-green">Total   ${{ total }}</span>
+      <v-btn class="btn bg-blue no-text-transform" dark round @click="addExtras">Add</v-btn>
     </v-flex>
   </v-layout>
 </template>
@@ -47,7 +47,6 @@
 
     .far {
       font-size: 30px;
-      color: #ed1c24;
       cursor: pointer;
     }
 
@@ -65,13 +64,10 @@
     &__total-price {
       margin-right: 150px;
       font-weight: 700;
-      color: #8cc63e;
     }
 
-    .addExtrasBtn {
+    .btn {
       margin-left: auto;
-      background-color: #29AAE2 !important;
-      text-transform: none;
     }
   }
 </style>

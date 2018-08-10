@@ -1,15 +1,17 @@
 <template>
-  <v-container>
-    <v-layout>
-      <v-flex xs6 sm4 offset-xs3 offset-sm4>
-        <p v-text="confirmMessage"></p>
-      </v-flex>
-      <v-flex xs6 sm2 offset-xs3 offset-sm0>
-        <i class="fas fa-print"></i>
-        <span>PDF</span>
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <div class="confirm-dialog bg-dark-blue">
+    <v-container>
+      <v-layout>
+        <v-flex xs6 sm4 offset-xs3 offset-sm4>
+          <p v-text="confirmMessage"></p>
+        </v-flex>
+        <v-flex xs6 sm2 offset-xs3 offset-sm0>
+          <i class="fas fa-print"></i>
+          <span>PDF</span>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </div>
 </template>
 
 <script>

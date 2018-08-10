@@ -6,19 +6,19 @@
            v-if="extra.maxQuantity && extra.quantity > 0 && checked.indexOf(extra.id) !== -1"
            @click="decreaseExtraQuantity(extra.id)"
       >
-        <i class="fas fa-minus"></i>
+        <i class="fas fa-minus text-light-green"></i>
       </div>
       <div class="extras-control extras-control-plus"
            v-if="extra.maxQuantity && extra.maxQuantity !== extra.quantity && checked.indexOf(extra.id) !== -1"
            @click="increaseExtraQuantity(extra.id)"
       >
-        <i class="fas fa-plus"></i>
+        <i class="fas fa-plus text-light-green"></i>
       </div>
       <div class="icon-container" :class="{ active: selected === extra.id }" @click="handleOnSelect(extra.id)">
         <img :src="`icons/extras/extra-icon-${ extra.id }.png`" alt="icon">
       </div>
       <div class="extras-checkbox" @click="handleOnCheck(extra.id)">
-          <i class="fas fa-check" v-if="checked.indexOf(extra.id) !== -1"></i>
+          <i class="fas fa-check text-light-green" v-if="checked.indexOf(extra.id) !== -1"></i>
       </div>
     </div>
     <span class="extras-price">${{ extra.price }}</span>
@@ -129,7 +129,6 @@
       .fas {
         font-size: 30px;
         line-height: 25px;
-        color: #7FBE42;
       }
     }
 
@@ -147,7 +146,6 @@
       .fas {
         font-size: 15px;
         line-height: 25px;
-        color: #7FBE42;
       }
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class="summary">
+  <div class="summary bg-dark-blue">
     <h4 class="summary-caption">Summary</h4>
     <v-container>
       <v-layout row wrap>
@@ -8,7 +8,7 @@
         </v-flex>
         <v-flex class="px-5" xs12 sm4 offset-xs0 offset-sm4>
           <summary-table :price="property.price" :extras="property.extrasPrice"></summary-table>
-          <v-btn class="btn-view-extras"  v-show="visibleBtn" dark round large @click="confirmHold">Hold</v-btn>
+          <v-btn class="btn btn-large no-text-transform bg-blue"  v-show="visibleBtn" dark round large @click="confirmHold">Hold</v-btn>
         </v-flex>
       </v-layout>
     </v-container>
@@ -59,7 +59,6 @@
 
 <style lang="scss" scoped>
   .summary {
-    background-color: #164755;
     color: #fff;
 
     &-caption {

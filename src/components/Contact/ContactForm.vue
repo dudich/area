@@ -1,6 +1,6 @@
 <template>
   <div class="contact-form">
-    <p class="contact-form__caption text-xs-left" v-html="caption"></p>
+    <p class="contact-form__caption text-xs-left text-green" v-html="caption"></p>
     <form>
       <v-text-field
         v-validate="'required|max:10'"
@@ -51,8 +51,8 @@
         required
       ></v-textarea>
 
-      <v-btn dark round @click="submit">Send</v-btn>
-      <v-btn dark round @click="clear">Clear</v-btn>
+      <v-btn class="bg-light-dark font-weight-bold" dark round @click="submit">Send</v-btn>
+      <v-btn class="bg-light-dark font-weight-bold" dark round @click="clear">Clear</v-btn>
     </form>
   </div>
 </template>
@@ -107,11 +107,12 @@
 </script>
 
 <style lang="scss">
+  @import '../../styles/variables';
+
   .contact-form {
 
     &__caption {
       margin-bottom: 25px;
-      color: #8BC34A;
     }
 
     .v-input {
@@ -119,7 +120,7 @@
       &__slot {
 
         &:before {
-          border-color: #acacac!important;
+          border-color: $light-gray!important;
         }
 
         input {
@@ -128,7 +129,7 @@
       }
 
       .v-label {
-        color: #acacac;
+        color: $grey;
       }
     }
   }

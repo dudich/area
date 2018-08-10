@@ -1,0 +1,19 @@
+@import 'variables';
+
+.v-btn.bg-light-dark {
+  &:hover {
+    background-color: $light-green!important;
+  }
+}
+
+.btn {
+  font-size: 16px!important;
+}
+
+.btn-large {
+  height: 50px!important;
+
+  .v-btn__content {
+    padding: 0 10px;
+  }
+}
