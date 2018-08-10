@@ -39,6 +39,10 @@
     //background-color: #164755;
   }
 
+  .v-overlay:before {
+    background-color: #fff!important;
+  }
+
   ul {
     padding: 0;
     margin: 0;

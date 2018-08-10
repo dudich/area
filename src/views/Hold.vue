@@ -5,12 +5,14 @@
       <component :is="currentView"></component>
       <property-summary :property="property"></property-summary>
       <modal>
-        <h1>Confirming0hold</h1>
+        <h1>Confirming hold</h1>
+        <ball-spin-fade-loader color="#000000" size="20px"></ball-spin-fade-loader>
       </modal>
     </div>
 </template>
 
 <script>
+  import {CLOSE_CONFIRMATION_MODAL} from "../store/actionTypes";
   import findIndexByKey from '../mixins/findIndexByKey'
   import StageList from '../components/StageList'
   import Modal from '../components/Modal'
@@ -25,7 +27,7 @@
 
     data() {
       return {
-        currentView: ConfirmDialog
+        currentView: HoldForm
       }
     },
 
@@ -37,6 +39,10 @@
       property() {
         return this.properties[this.findIndexByKey(this.properties, 'id', this.$route.params.id)];
       }
+    },
+
+    mounted() {
+      EventBus.$on(CLOSE_CONFIRMATION_MODAL, () => this.currentView = ConfirmDialog);
     },
 
     components: {
