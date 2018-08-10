@@ -39,6 +39,12 @@
       }
     },
 
+    /*computed: {
+      summaryCaption() {
+        return this.route.path === `/hold/${ this.route.params.id }` ? 'Summary' : 'Hold Summary'
+      }
+    },*/
+
     mounted() {
       EventBus.$on(CLOSE_CONFIRMATION_MODAL, () => this.visibleBtn = false);
     },
@@ -59,6 +65,7 @@
 
 <style lang="scss" scoped>
   .summary {
+    padding-bottom: 220px;
     color: #fff;
 
     &-caption {

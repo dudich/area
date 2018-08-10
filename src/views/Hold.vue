@@ -5,14 +5,10 @@
         <stage-list class="bg-dark-blue"></stage-list>
       </v-flex>
     </v-layout>
-    <v-layout row>
-      <v-flex xl6 offset-xl3>
-        <component :is="currentView"></component>
-      </v-flex>
-    </v-layout>
+    <component :is="currentView"></component>
     <v-layout class="bg-dark-blue" row>
       <v-flex xl6 offset-xl3>
-        <property-summary :property="property"></property-summary>
+        <property-summary :property="property" :route="$route"></property-summary>
       </v-flex>
     </v-layout>
     <modal>

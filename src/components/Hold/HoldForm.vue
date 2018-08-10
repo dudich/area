@@ -1,58 +1,62 @@
 <template>
-  <v-container>
-    <h3 class="hold-caption">Hold Room</h3>
-    <v-layout row wrap>
-      <v-flex class="px-5 mb-4" xs12 sm6>
-        <h4 class="hold-form-caption">Booker Details</h4>
-        <div class="hold-input">
-          <v-text-field
-            placeholder="Booker Name"
-            single-line
-            solo
-          ></v-text-field>
-          <i class="fas fa-user"></i>
-        </div>
-        <div class="hold-input">
-          <v-text-field
-            class="hold-input"
-            placeholder="Email"
-            single-line
-            solo
-          ></v-text-field>
-          <i class="fas fa-envelope"></i>
-        </div>
-        <div class="hold-input">
-          <v-text-field
-            class="hold-input"
-            placeholder="Phone Number-Day"
-            single-line
-            solo
-          ></v-text-field>
-          <i class="fas fa-phone-square"></i>
-        </div>
-        <div class="hold-input">
-          <v-text-field
-            class="hold-input"
-            placeholder="Phone Number-Mobile"
-            single-line
-            solo
-          ></v-text-field>
-          <i class="fas fa-phone-square"></i>
-        </div>
-      </v-flex>
-      <v-flex class="px-5 mb-4" xs12 sm6>
-        <h4 class="hold-form-caption">Booker Comments</h4>
-        <div class="hold-input hold-textarea">
-          <v-textarea
-            class="hold-input"
-            placeholder="Comments"
-            solo
-          ></v-textarea>
-          <i class="fas fa-pen"></i>
-        </div>
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <v-layout row>
+    <v-flex xl6 offset-xl3>
+      <v-container>
+        <h3 class="hold-caption">Hold Room</h3>
+        <v-layout row wrap>
+          <v-flex class="px-5 mb-4" xs12 sm6>
+            <h4 class="hold-form-caption">Booker Details</h4>
+            <div class="hold-input">
+              <v-text-field
+                placeholder="Booker Name"
+                single-line
+                solo
+              ></v-text-field>
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="hold-input">
+              <v-text-field
+                class="hold-input"
+                placeholder="Email"
+                single-line
+                solo
+              ></v-text-field>
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="hold-input">
+              <v-text-field
+                class="hold-input"
+                placeholder="Phone Number-Day"
+                single-line
+                solo
+              ></v-text-field>
+              <i class="fas fa-phone-square"></i>
+            </div>
+            <div class="hold-input">
+              <v-text-field
+                class="hold-input"
+                placeholder="Phone Number-Mobile"
+                single-line
+                solo
+              ></v-text-field>
+              <i class="fas fa-phone-square"></i>
+            </div>
+          </v-flex>
+          <v-flex class="px-5 mb-4" xs12 sm6>
+            <h4 class="hold-form-caption">Booker Comments</h4>
+            <div class="hold-input hold-textarea">
+              <v-textarea
+                class="hold-input"
+                placeholder="Comments"
+                solo
+              ></v-textarea>
+              <i class="fas fa-pen"></i>
+            </div>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
