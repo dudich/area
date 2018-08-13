@@ -19,6 +19,10 @@
       catering: {
         type: Boolean,
         required: true
+      },
+      propertyId: {
+        type: String,
+        required: true
       }
     },
 
@@ -28,7 +32,7 @@
 
     methods: {
       addCatering() {
-        this.$emit(ADD_CATERING);
+        this.$store.commit(ADD_CATERING, this.propertyId);
         setTimeout(() => this.disappear = true, 1000);
       }
     }

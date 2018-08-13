@@ -8,8 +8,8 @@
       <td class="text">Extras</td>
       <td class="count">${{ property.extrasPrice }}</td>
     </tr>
-    <catering :catering="catering" @ADD_CATERING="catering = true"></catering>
-    <catering-notification :catering="catering"></catering-notification>
+    <catering :catering="property.catering" :propertyId="property.id"></catering>
+    <catering-notification :catering="property.catering"></catering-notification>
     <tr class="price-total">
       <td class="text text-green">Total</td>
       <td class="count text-green">${{ totalPrice(property) }}</td>
@@ -30,10 +30,6 @@
         required: true
       }
     },
-
-    data: () => ({
-      catering: false
-    }),
 
     methods: {
       totalPrice: (property) => (property.price + property.extrasPrice).toFixed(2)

@@ -7,7 +7,7 @@
           <property-info :propertyName="property.name"></property-info>
         </v-flex>
         <v-flex class="px-5 text-xs-right" xs12 sm6>
-          <summary-table :price="property.price" :extras="property.extrasPrice"></summary-table>
+          <summary-table :price="property.price" :extras="property.extrasPrice" :catering="property.catering"></summary-table>
           <v-btn class="btn btn-large no-text-transform bg-blue mt-3"  v-show="visibleBtn" dark round large @click="confirmHold">Hold</v-btn>
         </v-flex>
       </v-layout>

@@ -135,6 +135,10 @@ const mutations = {
   'CHANGE_EXTRAS_PRICE'(state, payload) {
     const index = state.properties.map((item) => item.id).indexOf(payload.id);
     state.properties[index].extrasPrice = payload.total;
+  },
+  'ADD_CATERING'(state, payload) {
+    const index = state.properties.map((item) => item.id).indexOf(payload);
+    state.properties[index].catering = true;
   }
 };
 

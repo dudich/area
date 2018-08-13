@@ -10,7 +10,7 @@
     </tr>
     <tr>
       <td>Catering</td>
-      <td class="text-green" v-text="catering"></td>
+      <td class="text-green" v-text="catering ? 'TBC' : '$0'"></td>
     </tr>
     <tr>
       <td v-text="`Discount (${discountPercentage}%)`"></td>
@@ -41,8 +41,8 @@
         required: true
       },
       catering: {
-        type: String,
-        default: 'TBC'
+        type: Boolean,
+        required: true
       }
     },
 
