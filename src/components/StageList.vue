@@ -13,7 +13,7 @@
           <h3 class="booking-stage" v-text="bookingStages.hold" :class="{ active: $route.path === `/hold/${ $route.params.id }`}"></h3>
         </v-flex>
         <v-flex md4 sm12 v-else>
-          <h3 class="booking-stage" v-text="bookingStages.pay" :class="{ active: $route.path === `/hold/${ $route.params.id }`}"></h3>
+          <h3 class="booking-stage" v-text="bookingStages.book" :class="{ active: $route.path === `/book/${ $route.params.id }`}"></h3>
         </v-flex>
       </v-layout>
     </v-container>
@@ -29,8 +29,8 @@
         bookingStages: {
           details: 'Event Details',
           selectPackage: 'Select Package',
-          pay: 'Book and Pay',
-          hold: 'Hold Room'
+          book: 'BookForm and Pay',
+          hold: 'HoldForm Room'
         }
       }
     }

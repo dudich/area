@@ -23,7 +23,7 @@
   import StageList from '../components/StageList'
   import Modal from '../components/Modal'
   import ConfirmModalContent from '../components/PropertySummary/ConfirmModalContent'
-  import HoldForm from '../components/Hold/HoldForm'
+  import HoldForm from '../components/HoldForm/index'
   import ConfirmDialog from '../components/PropertySummary/ConfimDialog'
   import PropertySummary from '../components/PropertySummary'
 

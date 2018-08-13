@@ -22,7 +22,7 @@
   } from "../../store/actionTypes";
   import PropertyInfo from './PropertyInfo'
   import SummaryTable from './SummaryTable'
-  import HoldForm from '../../components/Hold/HoldForm'
+  import HoldForm from '../HoldForm/index'
 
   export default {
     name: 'property-summary',
@@ -46,7 +46,7 @@
 
     computed: {
       summaryCaption() {
-        return this.currentView === HoldForm ? 'Summary' : 'Hold Summary'
+        return this.currentView === HoldForm ? 'Summary' : 'HoldForm Summary'
       }
     },
 

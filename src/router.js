@@ -33,7 +33,7 @@ export default new Router({
     {
       path: '/book/:id',
       name: 'book',
-      component: () => import('./views/Hold')
+      component: () => import('./views/Book')
     },
     {
       path: '/contact',

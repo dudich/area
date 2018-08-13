@@ -23,12 +23,12 @@
   import StageList from '../components/StageList'
   import Modal from '../components/Modal'
   import ConfirmModalContent from '../components/PropertySummary/ConfirmModalContent'
-  import BookForm from '../components/Book/BookForm'
+  import BookForm from '../components/BookForm/index'
   import ConfirmDialog from '../components/PropertySummary/ConfimDialog'
   import PropertySummary from '../components/PropertySummary'
 
   export default {
-    name: 'hold',
+    name: 'book',
 
     mixins: [findIndexByKey],
 

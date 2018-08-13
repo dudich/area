@@ -24,7 +24,7 @@
 
     computed: {
       confirmMessage() {
-        return this.$route.path === `/hold/${ this.$route.params.id }` ? 'Hold Confirmed. This will be valid from 24 hours.' : 'Booking Confirmed! Tour booking confirmation has been emailed to you. We will be in touch within the next 48 hours' +
+        return this.$route.path === `/hold/${ this.$route.params.id }` ? 'HoldForm Confirmed. This will be valid from 24 hours.' : 'Booking Confirmed! Tour booking confirmation has been emailed to you. We will be in touch within the next 48 hours' +
           'to talk about your catering options'
       }
     }

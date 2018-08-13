@@ -89,7 +89,7 @@
     position: relative;
 
     .v-input__slot {
-      border: 1px solid #000;
+      border: 2px solid #000;
       border-radius: 0 !important;
       background-color: $light-gray !important;
 
