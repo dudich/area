@@ -48,6 +48,7 @@
                   dark
                   block
                   round
+                  @click="bookProperty(property.id)"
                 >Book and confirm
                 </v-btn>
               </div>
@@ -97,6 +98,9 @@
       },
       holdProperty(id) {
         this.$router.push(`/hold/${id}`);
+      },
+      bookProperty(id) {
+        this.$router.push(`/book/${id}`);
       }
     }
   }

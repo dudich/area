@@ -122,15 +122,16 @@
         &:before {
           border-color: $light-gray!important;
         }
-
-        input {
-          color: white!important;
-        }
       }
 
       .v-label {
         color: $grey;
       }
+    }
+
+    input,
+    textarea {
+      color: white!important;
     }
   }
 </style>
