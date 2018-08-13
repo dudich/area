@@ -69,7 +69,7 @@
       total() {
         const arrOfChecked = this.extras.filter((item) => this.checked.indexOf(item.id) !== -1);
         const arrOfCost = arrOfChecked.map((item) => item.price * item.quantity);
-        return arrOfCost.reduce((acc, item) => acc + item, 0);
+        return +arrOfCost.reduce((acc, item) => acc + item, 0).toFixed(2);
       }
     },
 

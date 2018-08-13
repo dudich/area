@@ -32,7 +32,9 @@
     },
 
     methods: {
-      totalPrice: (property) => (property.price + property.extrasPrice).toFixed(2)
+      totalPrice(property) {
+        return property.price + property.extrasPrice
+      }
     },
 
     components: {
