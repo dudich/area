@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-app>
+    <v-app  v-scroll="onScroll">
       <v-toolbar app dark flat>
         <page-header></page-header>
       </v-toolbar>
@@ -8,6 +8,7 @@
         <router-view></router-view>
         <footer-banner></footer-banner>
       </v-content>
+      <scroll-top-btn :offsetTop=" offsetTop"></scroll-top-btn>
       <page-footer></page-footer>
     </v-app>
   </div>
@@ -17,12 +18,28 @@
   import PageHeader from './components/layouts/PageHeader'
   import PageFooter from './components/layouts/PageFooter'
   import FooterBanner from './components/FooterBanner'
+  import ScrollTopBtn from './components/ScrollTopBtn'
 
   export default {
+    name: 'app',
+
+    data() {
+      return {
+        offsetTop: 0
+      }
+    },
+
+    methods: {
+      onScroll (e) {
+        this.offsetTop = window.pageYOffset || document.documentElement.scrollTop
+      }
+    },
+
     components: {
       PageHeader,
       PageFooter,
-      FooterBanner
+      FooterBanner,
+      ScrollTopBtn
     }
   }
 </script>
