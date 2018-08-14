@@ -96,7 +96,7 @@
     .same-as-checkbox {
       position: absolute;
       top: 5px;
-      right: 60px;
+      right: 10px;
       display: flex;
 
       .checkbox-container {

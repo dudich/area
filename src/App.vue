@@ -25,7 +25,8 @@
 <style lang="scss">
   @import './styles/buttons';
   @import './styles/colors';
-  @import 'styles/helpers';
+  @import './styles/helpers';
+  @import './styles/general';
 
 #app {
   font-family: 'Varela', Helvetica, Arial, sans-serif;

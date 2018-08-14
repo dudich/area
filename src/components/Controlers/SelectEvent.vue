@@ -30,6 +30,8 @@
 </script>
 
 <style lang="scss">
+  @import "../../styles/variables";
+
   .event-details,
   .select-package {
     .select-control {

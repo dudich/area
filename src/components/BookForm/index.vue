@@ -15,15 +15,17 @@
             </v-layout>
             <v-layout row>
               <v-flex xs12 sm6>
-                <div class="book-select">
-                  <v-select
-                    label="Arrival Time"
-                    outline
-                  ></v-select>
-                  <i class="fas fa-star-of-life"></i>
-                </div>
+                <arrival-time></arrival-time>
               </v-flex>
             </v-layout>
+          </v-flex>
+        </v-layout>
+        <v-layout row>
+          <v-flex class="pr-2" xs12 sm6>
+            <book-texarea :placeholder="'How did you hear about us?'"></book-texarea>
+          </v-flex>
+          <v-flex class="pl-2" xs12 sm6>
+            <book-texarea :placeholder="'Comments'"></book-texarea>
           </v-flex>
         </v-layout>
       </v-container>
@@ -35,6 +37,8 @@
   import BookerDetails from './BookerDetails'
   import ContactsOnSite from './ContacsOnSite'
   import RequiredAction from './RequiredAction'
+  import ArrivalTime from './ArrivalTime'
+  import BookTexarea from './BookTextarea'
 
   export default {
     name: 'book-form',
@@ -74,49 +78,19 @@
     components: {
       BookerDetails,
       ContactsOnSite,
-      RequiredAction
+      RequiredAction,
+      ArrivalTime,
+      BookTexarea
     }
   }
 </script>
 
 <style lang="scss">
-  @import "../../styles/variables";
-
   .book-caption {
     margin: {
       top: 25px;
       bottom: 25px;
     }
     font-size: 20px;
-  }
-
-  .book-select {
-    position: relative;
-
-    .fa-star-of-life {
-      position: absolute;
-      top: 5px;
-      left: -25px;
-      font-size: 18px;
-    }
-
-    .v-label {
-      top: 12px;
-      color: $grey !important;
-
-      &--active {
-        transform: none;
-      }
-    }
-
-    .v-input__slot {
-      min-height: auto;
-      height: 48px;
-      background-color: $light-gray !important;
-    }
-
-    .v-input__append-inner {
-      margin-top: 10px !important;
-    }
   }
 </style>
