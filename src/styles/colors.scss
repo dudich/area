@@ -1,41 +1,45 @@
 @import './variables';
 
 .bg-light-green {
-  background: $light-green!important;
+  background: $light-green !important;
 }
 
 .bg-blue {
-  background-color: $blue!important;
+  background-color: $blue !important;
 }
 
 .bg-dark-blue {
-  background: $dark-blue!important;
+  background: $dark-blue !important;
 }
 
 .bg-light-dark {
-  background-color: $light-dark!important;
+  background-color: $light-dark !important;
+}
+
+.bg-red {
+  background-color: $red !important;
 }
 
 .text-white {
-  color: #fff;
+  color: #fff !important;;
 }
 
 .text-green {
-  color: $green!important;
+  color: $green !important;
 }
 
 .text-light-green {
-  color: $light-green
+  color: $light-green !important;
+}
+
+.text-dark-blue {
+  color: $dark-blue !important;
 }
 
 .text-red {
-  color: #ed1c24!important
+  color: #ed1c24 !important
 }
 
 .text-notification {
-  color: orange;
+  color: orange !important;
 }
-
-/*.text-gray {
-  color: $grey!important;
-}*/
