@@ -31,43 +31,43 @@
           name: 'theater',
           capacity: 100,
           area: 40,
-          img: require('../../assets/layout-icons/theatre.png')
+          img: require('../../assets/icons/layouts/theatre.png')
         },
         {
           name: 'cocktail',
           capacity: 130,
           area: 30,
-          img: require('../../assets/layout-icons/cocktail.png')
+          img: require('../../assets/icons/layouts/cocktail.png')
         },
         {
           name: 'classroom',
           capacity: 54,
           area: 10,
-          img: require('../../assets/layout-icons/classroom.png')
+          img: require('../../assets/icons/layouts/classroom.png')
         },
         {
           name: 'banquet',
           capacity: 80,
           area: 410,
-          img: require('../../assets/layout-icons/banquet.png')
+          img: require('../../assets/icons/layouts/banquet.png')
         },
         {
           name: 'cabaret',
           capacity: 54,
           area: 45,
-          img: require('../../assets/layout-icons/cabaret.png')
+          img: require('../../assets/icons/layouts/cabaret.png')
         },
         {
           name: 'boardroom',
           capacity: 22,
           area: 80,
-          img: require('../../assets/layout-icons/boardroom.png')
+          img: require('../../assets/icons/layouts/boardroom.png')
         },
         {
           name: 'u-shape',
           capacity: 21,
           area: 90,
-          img: require('../../assets/layout-icons/banquet.png')
+          img: require('../../assets/icons/layouts/banquet.png')
         }
       ]
     }),

@@ -5,7 +5,7 @@
       <div class="property-capacity">
         <span class="count" v-text="capacity"></span>
         <div class="icon-container">
-          <img src="icons/users-icon.png" alt="users-icon">
+          <img src="../../../assets/icons/users-icon.png" alt="users-icon">
         </div>
       </div>
     </div>

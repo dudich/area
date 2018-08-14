@@ -15,7 +15,7 @@
         <i class="fas fa-plus text-light-green"></i>
       </div>
       <div class="icon-container" :class="{ active: selected === extra.id }" @click="handleOnSelect(extra.id)">
-        <img :src="`icons/extras/extra-icon-${ extra.id }.png`" alt="icon">
+        <img :src="iconPath" alt="icon">
       </div>
       <div class="extras-checkbox" @click="handleOnCheck(extra.id)">
           <i class="fas fa-check text-light-green" v-if="checked.indexOf(extra.id) !== -1"></i>
@@ -42,6 +42,12 @@
         type: Array,
         required: false
       },
+    },
+
+    data() {
+      return {
+        iconPath: require(`../../assets/icons/extras/extra-icon-${ this.extra.id }.png`)
+      }
     },
 
     methods: {
