@@ -14,6 +14,7 @@
 
 <style lang="scss">
   .v-footer {
+    position: relative !important;
     display: block;
     height: 70px !important;
     padding: 0 80px 0 24px;

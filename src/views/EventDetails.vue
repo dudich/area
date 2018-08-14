@@ -1,7 +1,7 @@
 <template>
-  <div class="event-details bg-dark-blue height-100">
+  <div class="event-details bg-dark-blue">
     <v-container>
-      <v-flex class="height-100" xl8 offset-xl2>
+      <v-flex xl8 offset-xl2>
         <div class="event-details__filters" :style="{ backgroundImage: `url(${bgImage})` }">
           <div class="content">
             <h2 class="event-details__caption mt-1" v-html="caption"></h2>

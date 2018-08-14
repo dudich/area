@@ -16,7 +16,10 @@
       </v-flex>
     </v-layout>
     <modal>
-      <ConfirmModalContent></ConfirmModalContent>
+      <ConfirmModalContent
+        :terms="terms"
+        :caption="'Hold'"
+      ></ConfirmModalContent>
     </modal>
   </div>
 </template>
@@ -38,7 +41,8 @@
 
     data() {
       return {
-        currentView: HoldForm
+        currentView: HoldForm,
+        terms: false
       }
     },
 

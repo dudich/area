@@ -16,7 +16,11 @@
       </v-flex>
     </v-layout>
     <modal>
-      <ConfirmModalContent></ConfirmModalContent>
+      <ConfirmModalContent
+        :terms="terms"
+        :caption="'Payment'"
+        @ACCEPT_TERMS="terms = false"
+      ></ConfirmModalContent>
     </modal>
   </div>
 </template>
@@ -38,7 +42,8 @@
 
     data() {
       return {
-        currentView: BookForm
+        currentView: BookForm,
+        terms: true
       }
     },
 

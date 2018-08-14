@@ -41,7 +41,7 @@
               <v-btn
                 class="btn btn-large no-text-transform bg-light-green"
                 v-show="visible"
-                @click="confirmHold"
+                @click="confirmBook"
                 dark
                 round
                 large
@@ -62,7 +62,7 @@
 <script>
   import {
     OPEN_CONFIRMATION_MODAL,
-    CLOSE_CONFIRMATION_MODAL
+    CLOSE_CONFIRMATION_MODAL,
   } from "../../store/actionTypes";
   import PropertyInfo from './PropertyInfo'
   import PaymentInfo from './PaymentInfo'
@@ -108,6 +108,9 @@
       confirmHold() {
         EventBus.$emit(OPEN_CONFIRMATION_MODAL);
         setTimeout(() => EventBus.$emit(CLOSE_CONFIRMATION_MODAL), 3000)
+      },
+      confirmBook() {
+        EventBus.$emit(OPEN_CONFIRMATION_MODAL);
       }
     },
 

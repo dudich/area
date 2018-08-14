@@ -21,7 +21,8 @@
 
     &__caption {
       margin-right: 10px;
-      font-size: 16px;
+      font-size: 25px;
+      line-height: 35px;
     }
   }
 </style>

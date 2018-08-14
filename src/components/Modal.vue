@@ -13,7 +13,8 @@
   import {
     OPEN_GALLERY_CAROUSEL,
     OPEN_CONFIRMATION_MODAL,
-    CLOSE_CONFIRMATION_MODAL
+    CLOSE_CONFIRMATION_MODAL,
+    DECLINE_TERMS
   } from "../store/actionTypes";
 
   export default {
@@ -29,6 +30,7 @@
       EventBus.$on(OPEN_GALLERY_CAROUSEL, () => this.dialog = true);
       EventBus.$on(OPEN_CONFIRMATION_MODAL, () => this.dialog = true);
       EventBus.$on(CLOSE_CONFIRMATION_MODAL, () => this.dialog = false);
+      EventBus.$on(DECLINE_TERMS, () => this.dialog = false);
     }
   }
 </script>
