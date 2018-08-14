@@ -29,8 +29,8 @@
         bookingStages: {
           details: 'Event Details',
           selectPackage: 'Select Package',
-          book: 'BookForm and Pay',
-          hold: 'HoldForm Room'
+          book: 'Book and Pay',
+          hold: 'Hold Room'
         }
       }
     }

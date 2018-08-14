@@ -24,10 +24,10 @@
 
 <style lang="scss">
   .property-info {
+    margin-bottom: 60px;
     text-align: left;
 
     p {
-      margin-bottom: 5px;
       font-size: 16px;
     }
   }

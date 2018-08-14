@@ -8,7 +8,11 @@
     <component :is="currentView"></component>
     <v-layout class="bg-dark-blue" row>
       <v-flex xl6 offset-xl3>
-        <property-summary :property="property" :currentView="currentView"></property-summary>
+        <property-summary
+          :property="property"
+          :currentView="currentView"
+          :caption="'Booking'"
+        ></property-summary>
       </v-flex>
     </v-layout>
     <modal>
@@ -24,7 +28,7 @@
   import Modal from '../components/Modal'
   import ConfirmModalContent from '../components/PropertySummary/ConfirmModalContent'
   import BookForm from '../components/BookForm/index'
-  import ConfirmDialog from '../components/PropertySummary/ConfimDialog'
+  import ConfirmDialog from '../components/PropertySummary/ConfirmDialog'
   import PropertySummary from '../components/PropertySummary'
 
   export default {
