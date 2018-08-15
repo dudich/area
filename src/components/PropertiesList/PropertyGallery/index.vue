@@ -1,7 +1,7 @@
 <template>
   <div class="property-gallery">
     <div class="big-img-container">
-      <img class="big-img" :src="images[index].big" alt="img" @click="openGalleryCarousel">
+      <img class="big-img" :src="images[0].big" alt="img" @click="openGalleryCarousel">
       <div class="property-capacity">
         <span class="count" v-text="capacity"></span>
         <div class="icon-container">
@@ -22,20 +22,13 @@
 
 <script>
   import {OPEN_GALLERY_CAROUSEL} from "../../../store/actionTypes";
-  import findIndexById from '../../../mixins/findIndexByKey'
 
   export default {
     name: 'property-gallery',
 
-    mixins: [findIndexById],
-
     props: {
       capacity: {
         type: Number,
-        required: true
-      },
-      propertyId: {
-        type: String,
         required: true
       },
       images: {
@@ -51,9 +44,6 @@
     computed: {
       thumbArr() {
         return this.images.map((item) => item.thumb)
-      },
-      index() {
-        return this.findIndexByKey(this.images, 'id', this.propertyId)
       }
     },
 

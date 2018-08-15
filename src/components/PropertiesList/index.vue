@@ -7,7 +7,6 @@
           <v-layout row wrap>
             <v-flex class="mb-3" xs12 md6>
               <property-gallery
-                :propertyId="property.id"
                 :capacity="property.capacity"
                 :images="property.images"
                 :propertyName="property.name"

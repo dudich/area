@@ -127,6 +127,172 @@ const state = {
         }
       ],
       catering: false,
+    },
+    {
+      id: '4',
+      name: 'The Domain',
+      description: [
+        'Great for a breakout spacce',
+        'Natural light',
+        '65” television'
+      ],
+      capacity: 32,
+      floorArea: 30.2,
+      price: 500,
+      extrasPrice: 0,
+      dayDelegateMin: 12,
+      images: [
+        {
+          id: '1',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '2',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        }
+      ],
+      catering: false,
+    },
+    {
+      id: '5',
+      name: 'The Zone',
+      description: [
+        'Great for a breakout spacce',
+        'Natural light',
+        '65” television'
+      ],
+      capacity: 40,
+      floorArea: 34.9,
+      price: 875.99,
+      extrasPrice: 0,
+      dayDelegateMin: 12,
+      images: [
+        {
+          id: '1',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '2',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '3',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '4',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        }
+      ],
+      catering: false,
+    },
+    {
+      id: '6',
+      name: 'The Space',
+      description: [
+        'Smaller room',
+        'Natural Daylight',
+        'Catering and breakout areas close by',
+      ],
+      capacity: 24,
+      floorArea: 38.7,
+      price: 400.00,
+      extrasPrice: 0,
+      dayDelegateMin: 10,
+      images: [
+        {
+          id: '1',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '2',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '3',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '4',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '5',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '6',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '7',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '8',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '9',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        }
+      ],
+      catering: false,
+    },
+    {
+      id: '7',
+      name: 'The Osullivan Space',
+      description: [
+        'ideal for private dinners,\n' +
+        'business meetings or coctail\n' +
+        'functions.',
+        'on the top floor of Bulcotte suites',
+        'outdoor deck with fantastic views of\n' +
+        'wellington',
+      ],
+      capacity: 130,
+      floorArea: 128.7,
+      price: 875.99,
+      extrasPrice: 0,
+      dayDelegateMin: 70,
+      images: [
+        {
+          id: '1',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '2',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '3',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        },
+        {
+          id: '4',
+          big: 'http://placekitten.com/350/200',
+          thumb: 'http://placekitten.com/80/80'
+        }
+      ],
+      catering: false,
     }
   ]
 };
