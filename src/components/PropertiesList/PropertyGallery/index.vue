@@ -27,8 +27,8 @@
     name: 'property-gallery',
 
     props: {
-      capacity: {
-        type: Number,
+      propertyId: {
+        type: String,
         required: true
       },
       images: {
@@ -41,10 +41,20 @@
       }
     },
 
+    data() {
+      return {
+        capacity: ''
+      }
+    },
+
     computed: {
       thumbArr() {
         return this.images.map((item) => item.thumb)
       }
+    },
+
+    mounted() {
+      EventBus.$on(`CHANGE_LAYOUT_TYPE_${this.propertyId}`, (payload) => this.capacity = payload)
     },
 
     methods: {

@@ -7,16 +7,21 @@
           <v-layout row wrap>
             <v-flex class="mb-3" xs12 md6>
               <property-gallery
-                :capacity="property.capacity"
                 :images="property.images"
                 :propertyName="property.name"
+                :propertyId="property.id"
               ></property-gallery>
             </v-flex>
             <v-flex class="mb-3 pl-3" xs12 md6>
               <property-description :property="property"></property-description>
             </v-flex>
             <v-flex class="mb-3" xs12>
-              <property-layouts></property-layouts>
+              <property-layouts
+                :layouts="property.layoutTypes"
+                :area="property.floorArea"
+                :propertyId="property.id"
+                :select="'theatre'"
+              ></property-layouts>
             </v-flex>
           </v-layout>
         </v-flex>

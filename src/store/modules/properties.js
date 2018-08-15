@@ -10,7 +10,6 @@ export default {
         'Outside balcony',
         'Can be divided'
       ],
-      capacity: 130,
       floorArea: 128.7,
       price: 999.99,
       extrasPrice: 0,
@@ -30,23 +29,28 @@ export default {
       catering: false,
       layoutTypes: [
         {
-          type: 'Theatre',
+          type: 'theatre',
+          img: require('../../assets/icons/layouts/theatre.png'),
           capacity: 100
         },
         {
-          type: 'Cocktail',
+          type: 'cocktail',
+          img: require('../../assets/icons/layouts/cocktail.png'),
           capacity: 130
         },
         {
-          type: 'Classroom',
+          type: 'classroom',
+          img: require('../../assets/icons/layouts/classroom.png'),
           capacity: 54
         },
         {
-          type: 'Banquet',
+          type: 'banquet',
+          img: require('../../assets/icons/layouts/banquet.png'),
           capacity: 80
         },
         {
-          type: 'Cabaret',
+          type: 'cabaret',
+          img: require('../../assets/icons/layouts/cabaret.png'),
           capacity: 54
         }
       ]
@@ -59,7 +63,6 @@ export default {
         'Outside balcony',
         'PropertyPrice and breakout areas close by',
       ],
-      capacity: 60,
       floorArea: 76,
       price: 875.99,
       extrasPrice: 0,
@@ -89,31 +92,38 @@ export default {
       catering: false,
       layoutTypes: [
         {
-          type: 'Theatre',
+          type: 'theatre',
+          img: require('../../assets/icons/layouts/theatre.png'),
           capacity: 54
         },
         {
-          type: 'Cocktail',
+          type: 'cocktail',
+          img: require('../../assets/icons/layouts/cocktail.png'),
           capacity: 60
         },
         {
-          type: 'Classroom',
+          type: 'classroom',
+          img: require('../../assets/icons/layouts/classroom.png'),
           capacity: 30
         },
         {
-          type: 'Boardroom',
+          type: 'boardroom',
+          img: require('../../assets/icons/layouts/boardroom.png'),
           capacity: 22
         },
         {
-          type: 'U-Shape',
+          type: 'u-shape',
+          img: require('../../assets/icons/layouts/banquet.png'),
           capacity: 24
         },
         {
-          type: 'Banquet',
+          type: 'banquet',
+          img: require('../../assets/icons/layouts/banquet.png'),
           capacity: 40
         },
         {
-          type: 'Cabaret',
+          type: 'cabaret',
+          img: require('../../assets/icons/layouts/cabaret.png'),
           capacity: 20
         }
       ]
@@ -126,7 +136,6 @@ export default {
         'Natural Daylight',
         'Catering and breakout areas close by',
       ],
-      capacity: 50,
       floorArea: 52.7,
       price: 400.00,
       extrasPrice: 0,
@@ -181,31 +190,38 @@ export default {
       catering: false,
       layoutTypes: [
         {
-          type: 'Theatre',
+          type: 'theatre',
+          img: require('../../assets/icons/layouts/theatre.png'),
           capacity: 43
         },
         {
-          type: 'Cocktail',
+          type: 'cocktail',
+          img: require('../../assets/icons/layouts/cocktail.png'),
           capacity: 50
         },
         {
-          type: 'Classroom',
+          type: 'classroom',
+          img: require('../../assets/icons/layouts/classroom.png'),
           capacity: 24
         },
         {
-          type: 'Boardroom',
+          type: 'boardroom',
+          img: require('../../assets/icons/layouts/boardroom.png'),
           capacity: 22
         },
         {
-          type: 'U-Shape',
+          type: 'u-shape',
+          img: require('../../assets/icons/layouts/banquet.png'),
           capacity: 21
         },
         {
-          type: 'Banquet',
+          type: 'banquet',
+          img: require('../../assets/icons/layouts/banquet.png'),
           capacity: 30
         },
         {
-          type: 'Cabaret',
+          type: 'cabaret',
+          img: require('../../assets/icons/layouts/cabaret.png'),
           capacity: 20
         }
       ]
@@ -218,7 +234,6 @@ export default {
         'Natural light',
         '65” television'
       ],
-      capacity: 32,
       floorArea: 30.2,
       price: 500,
       extrasPrice: 0,
@@ -238,15 +253,18 @@ export default {
       catering: false,
       layoutTypes: [
         {
-          type: 'Theatre',
+          type: 'theatre',
+          img: require('../../assets/icons/layouts/theatre.png'),
           capacity: 32
         },
         {
-          type: 'Boardroom',
+          type: 'boardroom',
+          img: require('../../assets/icons/layouts/boardroom.png'),
           capacity: 14
         },
         {
-          type: 'U-Shape',
+          type: 'u-shape',
+          img: require('../../assets/icons/layouts/banquet.png'),
           capacity: 15
         }
       ]
@@ -259,7 +277,6 @@ export default {
         'Natural light',
         '65” television'
       ],
-      capacity: 40,
       floorArea: 34.9,
       price: 875.99,
       extrasPrice: 0,
@@ -289,15 +306,18 @@ export default {
       catering: false,
       layoutTypes: [
         {
-          type: 'Theatre',
+          type: 'theatre',
+          img: require('../../assets/icons/layouts/theatre.png'),
           capacity: 40
         },
         {
-          type: 'Boardroom',
+          type: 'boardroom',
+          img: require('../../assets/icons/layouts/boardroom.png'),
           capacity: 14
         },
         {
-          type: 'U-Shape',
+          type: 'u-shape',
+          img: require('../../assets/icons/layouts/banquet.png'),
           capacity: 15
         }
       ]
@@ -310,7 +330,6 @@ export default {
         'Natural Daylight',
         'Catering and breakout areas close by',
       ],
-      capacity: 24,
       floorArea: 38.7,
       price: 400.00,
       extrasPrice: 0,
@@ -365,15 +384,18 @@ export default {
       catering: false,
       layoutTypes: [
         {
-          type: 'Theatre',
+          type: 'theatre',
+          img: require('../../assets/icons/layouts/theatre.png'),
           capacity: 24
         },
         {
-          type: 'Boardroom',
+          type: 'boardroom',
+          img: require('../../assets/icons/layouts/boardroom.png'),
           capacity: 12
         },
         {
-          type: 'U-Shape',
+          type: 'u-shape',
+          img: require('../../assets/icons/layouts/banquet.png'),
           capacity: 9
         }
       ]
@@ -389,7 +411,6 @@ export default {
         'outdoor deck with fantastic views of\n' +
         'wellington',
       ],
-      capacity: 130,
       floorArea: 128.7,
       price: 875.99,
       extrasPrice: 0,
@@ -419,19 +440,23 @@ export default {
       catering: false,
       layoutTypes: [
         {
-          type: 'Theatre',
+          type: 'theatre',
+          img: require('../../assets/icons/layouts/theatre.png'),
           capacity: 40
         },
         {
-          type: 'Cocktail',
+          type: 'cocktail',
+          img: require('../../assets/icons/layouts/cocktail.png'),
           capacity: 60
         },
         {
-          type: 'Boardroom',
+          type: 'boardroom',
+          img: require('../../assets/icons/layouts/boardroom.png'),
           capacity: 12
         },
         {
-          type: 'U-Shape',
+          type: 'u-shape',
+          img: require('../../assets/icons/layouts/banquet.png'),
           capacity: 14
         }
       ]

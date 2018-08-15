@@ -2,14 +2,15 @@
   <div class="property-layouts">
 
     <p class="property-layouts__data">
-      <span class="property-layouts__capacity">{{ selectedCapacity() }} People</span>
+      <span class="property-layouts__type">{{ selectedLayout }}</span>
+      <span class="property-layouts__capacity">{{ selectedCapacity }} People</span>
       <span class="property-layouts__area-label">Floor Area</span>
-      <span class="property-layouts__area-count">{{ selectedArea() }} sqm</span>
+      <span class="property-layouts__area-count">{{ area }} sqm</span>
     </p>
     <ul class="property-layouts__list">
-      <li v-for="(layout, i) in layouts" :key="i" :class="{ active: layout.name === selected }">
-        <label :style="{ backgroundImage: `url(${layout.img})` }">
-          <input type="radio" :value="layout.name" v-model="selected">
+      <li v-for="(layout, i) in layouts" :key="i" :class="{ active: layout.type === state }">
+        <label :style="{ backgroundImage: `url(${layout.img})` }" @click="changeLayout">
+          <input type="radio" :value="layout.type" v-model="state">
         </label>
       </li>
     </ul>
@@ -24,62 +25,49 @@
 
     mixins: [findIndexByKey],
 
-    data: () => ({
-      selected: 'theater',
-      layouts: [
-        {
-          name: 'theater',
-          capacity: 100,
-          area: 40,
-          img: require('../../assets/icons/layouts/theatre.png')
-        },
-        {
-          name: 'cocktail',
-          capacity: 130,
-          area: 30,
-          img: require('../../assets/icons/layouts/cocktail.png')
-        },
-        {
-          name: 'classroom',
-          capacity: 54,
-          area: 10,
-          img: require('../../assets/icons/layouts/classroom.png')
-        },
-        {
-          name: 'banquet',
-          capacity: 80,
-          area: 410,
-          img: require('../../assets/icons/layouts/banquet.png')
-        },
-        {
-          name: 'cabaret',
-          capacity: 54,
-          area: 45,
-          img: require('../../assets/icons/layouts/cabaret.png')
-        },
-        {
-          name: 'boardroom',
-          capacity: 22,
-          area: 80,
-          img: require('../../assets/icons/layouts/boardroom.png')
-        },
-        {
-          name: 'u-shape',
-          capacity: 21,
-          area: 90,
-          img: require('../../assets/icons/layouts/banquet.png')
-        }
-      ]
-    }),
+    props: {
+      layouts: {
+        type: Array,
+        required: true
+      },
+      area: {
+        type: Number,
+        required: true
+      },
+      select: {
+        type: String,
+        required: true
+      },
+      propertyId: {
+        type: String,
+        required: true
+      }
+    },
 
-    methods: {
+    data() {
+      return {
+        state: this.select
+      }
+    },
+
+    computed: {
       selectedCapacity() {
-        const index = this.findIndexByKey(this.layouts, 'name', this.selected);
+        const index = this.findIndexByKey(this.layouts, 'type', this.state);
         return this.layouts[index].capacity;
       },
-      selectedArea() {
-        const index = this.findIndexByKey(this.layouts, 'name', this.selected);
-        return this.layouts[index].area;
+      selectedLayout() {
+        const index = this.findIndexByKey(this.layouts, 'type', this.state);
+        return this.layouts[index].type;
+      }
+    },
+
+    mounted() {
+      this.changeLayout();
+    },
+
+    methods: {
+      changeLayout() {
+        EventBus.$emit(`CHANGE_LAYOUT_TYPE_${this.propertyId}`, this.selectedCapacity)
       }
     }
   }
@@ -94,8 +82,14 @@
     }
 
     &__capacity,
-    &__area-label {
+    &__area-label,
+    &__type {
       font-weight: 700;
+    }
+
+    &__type {
+      margin-right: 30px;
+      text-transform: capitalize;
     }
 
     &__capacity {
