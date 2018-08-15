@@ -22,12 +22,12 @@
     props: {
       select: {
         type: Array,
-        required: false
+        required: true
       },
 
       label: {
         type: String,
-        required: false
+        required: true
       }
     },
 
