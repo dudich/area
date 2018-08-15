@@ -1,5 +1,5 @@
-const state = {
-  properties: [
+export default {
+  state: [
     {
       id: '1',
       name: 'The Precinct',
@@ -28,6 +28,28 @@ const state = {
         }
       ],
       catering: false,
+      layoutTypes: [
+        {
+          type: 'Theatre',
+          capacity: 100
+        },
+        {
+          type: 'Cocktail',
+          capacity: 130
+        },
+        {
+          type: 'Classroom',
+          capacity: 54
+        },
+        {
+          type: 'Banquet',
+          capacity: 80
+        },
+        {
+          type: 'Cabaret',
+          capacity: 54
+        }
+      ]
     },
     {
       id: '2',
@@ -65,6 +87,36 @@ const state = {
         }
       ],
       catering: false,
+      layoutTypes: [
+        {
+          type: 'Theatre',
+          capacity: 54
+        },
+        {
+          type: 'Cocktail',
+          capacity: 60
+        },
+        {
+          type: 'Classroom',
+          capacity: 30
+        },
+        {
+          type: 'Boardroom',
+          capacity: 22
+        },
+        {
+          type: 'U-Shape',
+          capacity: 24
+        },
+        {
+          type: 'Banquet',
+          capacity: 40
+        },
+        {
+          type: 'Cabaret',
+          capacity: 20
+        }
+      ]
     },
     {
       id: '3',
@@ -127,6 +179,36 @@ const state = {
         }
       ],
       catering: false,
+      layoutTypes: [
+        {
+          type: 'Theatre',
+          capacity: 43
+        },
+        {
+          type: 'Cocktail',
+          capacity: 50
+        },
+        {
+          type: 'Classroom',
+          capacity: 24
+        },
+        {
+          type: 'Boardroom',
+          capacity: 22
+        },
+        {
+          type: 'U-Shape',
+          capacity: 21
+        },
+        {
+          type: 'Banquet',
+          capacity: 30
+        },
+        {
+          type: 'Cabaret',
+          capacity: 20
+        }
+      ]
     },
     {
       id: '4',
@@ -154,6 +236,20 @@ const state = {
         }
       ],
       catering: false,
+      layoutTypes: [
+        {
+          type: 'Theatre',
+          capacity: 32
+        },
+        {
+          type: 'Boardroom',
+          capacity: 14
+        },
+        {
+          type: 'U-Shape',
+          capacity: 15
+        }
+      ]
     },
     {
       id: '5',
@@ -191,6 +287,20 @@ const state = {
         }
       ],
       catering: false,
+      layoutTypes: [
+        {
+          type: 'Theatre',
+          capacity: 40
+        },
+        {
+          type: 'Boardroom',
+          capacity: 14
+        },
+        {
+          type: 'U-Shape',
+          capacity: 15
+        }
+      ]
     },
     {
       id: '6',
@@ -253,6 +363,20 @@ const state = {
         }
       ],
       catering: false,
+      layoutTypes: [
+        {
+          type: 'Theatre',
+          capacity: 24
+        },
+        {
+          type: 'Boardroom',
+          capacity: 12
+        },
+        {
+          type: 'U-Shape',
+          capacity: 9
+        }
+      ]
     },
     {
       id: '7',
@@ -293,32 +417,39 @@ const state = {
         }
       ],
       catering: false,
+      layoutTypes: [
+        {
+          type: 'Theatre',
+          capacity: 40
+        },
+        {
+          type: 'Cocktail',
+          capacity: 60
+        },
+        {
+          type: 'Boardroom',
+          capacity: 12
+        },
+        {
+          type: 'U-Shape',
+          capacity: 14
+        }
+      ]
     }
-  ]
-};
+  ],
 
-const mutations = {
-  'CHANGE_EXTRAS_PRICE'(state, payload) {
-    const index = state.properties.map((item) => item.id).indexOf(payload.id);
-    state.properties[index].extrasPrice = payload.total;
+  mutations: {
+    'CHANGE_EXTRAS_PRICE'(state, payload) {
+      const index = state.properties.map((item) => item.id).indexOf(payload.id);
+      state.properties[index].extrasPrice = payload.total;
+    },
+    'ADD_CATERING'(state, payload) {
+      const index = state.properties.map((item) => item.id).indexOf(payload);
+      state.properties[index].catering = true;
+    }
   },
-  'ADD_CATERING'(state, payload) {
-    const index = state.properties.map((item) => item.id).indexOf(payload);
-    state.properties[index].catering = true;
+
+  getters: {
+    properties: state => state
   }
-};
-
-const actions = {};
-
-const getters = {
-  properties: state => {
-    return state.properties;
-  }
-};
-
-export default {
-  state,
-  mutations,
-  actions,
-  getters
 };

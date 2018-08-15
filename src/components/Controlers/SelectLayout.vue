@@ -12,14 +12,15 @@
 <script>
   export default {
     data: () => ({
-      select: 'Boardroom 22 people',
+      select: 'Boardroom',
       items: [
-        'U-shape 21 people',
-        'Boardroom 22 people',
-        'Classroom 54 people',
-        'Banquet 80 people',
-        'Theater 100 people',
-        'Cocktail 130'
+        'U-shape',
+        'Boardroom',
+        'Cabaret',
+        'Classroom',
+        'Banquet',
+        'Theatre',
+        'Cocktail'
       ]
     })
   }

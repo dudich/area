@@ -11,7 +11,7 @@
 <script>
   export default {
     data: () => ({
-      items: ['7:00am-10am', '8:00am-11am', '9:00am-12am', '10:00am-1:00pm']
+      items: ['7:00am - 10am', '8:00am - 11am', '9:00am - 12am', '10:00am - 1:00pm']
     })
   }
 </script>

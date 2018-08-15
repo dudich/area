@@ -1,5 +1,5 @@
-const state = {
-  extras: [
+export default {
+  state: [
     {
       id: "1",
       name: 'The Day Delegate Package',
@@ -50,26 +50,9 @@ const state = {
       icon: 'fas fa-chalkboard-teacher',
       quantity: 1
     }
-  ]
-};
+  ],
 
-const mutations = {
-
-};
-
-const actions = {
-
-};
-
-const getters = {
-  extras: state => {
-    return state.extras;
+  getters: {
+    extras: state => state
   }
-};
-
-export default {
-  state,
-  mutations,
-  actions,
-  getters
-};
+}

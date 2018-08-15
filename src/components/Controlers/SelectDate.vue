@@ -1,6 +1,6 @@
 <template>
   <div class="datepicker-container">
-    <label class="datepicker-label" for="datePicker">Select Date</label>
+    <label class="datepicker-label" for="datePicker" v-text="label"></label>
     <date-picker
       v-model="date"
       :lang="lang"
@@ -8,18 +8,32 @@
       range
       :shortcuts="shortcuts"
       :not-before="new Date()"
+      @change="updateValue"
       id="datePicker"></date-picker>
   </div>
 </template>
 
 <script>
   import DatePicker from 'vue2-datepicker'
+  import {UPDATE_FILTER_SELECT_VALUE} from "../../store/actionTypes";
 
   export default {
-    components: {DatePicker},
+
+    props: {
+      select: {
+        type: Array,
+        required: false
+      },
+
+      label: {
+        type: String,
+        required: false
+      }
+    },
+
     data() {
       return {
-        date: '',
+        date: this.select,
         shortcuts: [
           {
             text: 'Today',
@@ -37,7 +51,15 @@
           }
         }
       }
-    }
+    },
+
+    methods: {
+      updateValue() {
+        this.$emit(UPDATE_FILTER_SELECT_VALUE, this.date)
+      }
+    },
+
+    components: {DatePicker}
   }
 </script>
 
