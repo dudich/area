@@ -15,6 +15,7 @@
 </template>
 
 <script>
+  import {UPDATE_OFFSET_TOP} from "./store/actionTypes";
   import PageHeader from './components/layouts/PageHeader'
   import PageFooter from './components/layouts/PageFooter'
   import FooterBanner from './components/FooterBanner'
@@ -30,8 +31,9 @@
     },
 
     methods: {
-      onScroll (e) {
-        this.offsetTop = window.pageYOffset || document.documentElement.scrollTop
+      onScroll() {
+         const offset = window.pageYOffset || document.documentElement.scrollTop;
+         this.$store.commit(UPDATE_OFFSET_TOP, offset);
       }
     },
 

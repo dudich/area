@@ -15,7 +15,7 @@
             <v-flex class="mb-3 pl-3" xs12 md6>
               <property-description :property="property"></property-description>
             </v-flex>
-            <v-flex class="mb-3" xs12>
+            <v-flex xs12>
               <property-layouts
                 :layouts="property.layoutTypes"
                 :area="property.floorArea"
@@ -88,6 +88,34 @@
       }
     },
 
+    data () {
+      return {
+        type: 'number',
+        duration: 300,
+        easing: 'easeInOutCubic',
+      }
+    },
+
+    computed: {
+      target () {
+        const value = this[this.type];
+        if (!isNaN(value)) return Number(value);
+        else return value
+      },
+      options () {
+        return {
+          duration: this.duration,
+          easing: this.easing
+        }
+      },
+      offset() {
+        return this.$store.getters.offsetTop
+      },
+      number() {
+        return this.offset + 400
+      }
+    },
+
     components: {
       PropertyGallery,
       PropertyDescription,
@@ -99,6 +127,7 @@
     methods: {
       showExtras(id) {
         EventBus.$emit(SHOW_EXTRAS, id);
+        this.$vuetify.goTo(this.target, this.options).then()
       },
       holdProperty(id) {
         this.$router.push(`/hold/${id}`);
@@ -113,6 +142,10 @@
 <style lang="scss" scoped>
   .property {
     border: 1px solid #fff;
+
+    &:last-child {
+      margin-bottom: 30px;
+    }
 
     &-name {
       margin: {

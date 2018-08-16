@@ -18,18 +18,10 @@
   export default {
     name: 'scroll-top-btn',
 
-    props: {
-      offsetTop: {
-        type: Number,
-        required: true
-      }
-    },
-
     data () {
       return {
         selector: '#app',
         duration: 600,
-        offset: 0,
         easing: 'easeInOutCubic',
       }
     },
@@ -41,12 +33,14 @@
       options () {
         return {
           duration: this.duration,
-          offset: this.offset,
           easing: this.easing
         }
       },
       hidden() {
-        return this.offsetTop < 150
+        return this.offset < 350
+      },
+      offset() {
+        return this.$store.getters.offsetTop
       }
     }
   }

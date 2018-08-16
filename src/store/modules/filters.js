@@ -4,7 +4,7 @@ export default {
       event: 'Meeting',
       date: [],
       time: '',
-      layout: 'Boardroom'
+      layout: 'Boardroom ~ 22 people'
     },
     items: {
       selectEvent: [
@@ -27,13 +27,13 @@ export default {
         '10:00am - 1:00pm'
       ],
       selectLayout: [
-        'U-shape',
-        'Boardroom',
-        'Cabaret',
-        'Classroom',
-        'Banquet',
-        'Theatre',
-        'Cocktail'
+        'U-shape ~ 21 people',
+        'Boardroom ~ 22 people',
+        'Cabaret ~ 54 people',
+        'Classroom ~ 54 people',
+        'Banquet ~ 80 people',
+        'Theatre ~ 100 people',
+        'Cocktail ~ 130 people'
       ]
     }
   },

@@ -1,7 +1,7 @@
 <template>
   <v-layout class="extras-header" align-center justify-center>
     <v-flex class="text-xs-left" xs2 sm5>
-      <i class="far fa-times-circle text-red" @click="hideExtras"></i>
+      <i class="fas fa-times" @click="hideExtras"></i>
     </v-flex>
     <v-flex class="extras-header__container" xs10 sm7 align-center>
       <span class="extras-header__caption">Extras</span>
@@ -45,8 +45,9 @@
     padding: 20px;
     border: 1px solid #fff;
 
-    .far {
-      font-size: 30px;
+    .fas {
+      font-size: 25px;
+      color: #fff;
       cursor: pointer;
     }
 

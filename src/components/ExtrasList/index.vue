@@ -1,22 +1,24 @@
 <template>
-  <v-card class="extras-card bg-dark-blue" v-if="showExtras">
-    <extras-header :total="total" :propertyId="propertyId" :addExtras="addExtras"></extras-header>
-    <ul class="extras-list">
-      <extras-item
-        v-for="extra in extras"
-        :extra="extra"
-        :selected="selected"
-        :checked="checked"
-        @EXTRA_SELECTED="updateSelected"
-        @EXTRA_CHECKED="updateChecked"
-        @INCREASE_EXTRA_QUANTITY="increaseExtraQuantity"
-        @DECREASE_EXTRA_QUANTITY="decreaseExtraQuantity"
-      >
-      </extras-item>
-    </ul>
-    <p class="extras-description">{{ selected ? description : '' }}</p>
-    <extras-table :extras="extras" :checked="checked"></extras-table>
-  </v-card>
+  <v-slide-y-transition>
+    <v-card class="extras-card bg-dark-blue" v-if="showExtras">
+      <extras-header :total="total" :propertyId="propertyId" :addExtras="addExtras"></extras-header>
+      <ul class="extras-list">
+        <extras-item
+          v-for="extra in extras"
+          :extra="extra"
+          :selected="selected"
+          :checked="checked"
+          @EXTRA_SELECTED="updateSelected"
+          @EXTRA_CHECKED="updateChecked"
+          @INCREASE_EXTRA_QUANTITY="increaseExtraQuantity"
+          @DECREASE_EXTRA_QUANTITY="decreaseExtraQuantity"
+        >
+        </extras-item>
+      </ul>
+      <p class="extras-description">{{ selected ? description : '' }}</p>
+      <extras-table :extras="extras" :checked="checked"></extras-table>
+    </v-card>
+  </v-slide-y-transition>
 </template>
 
 <script>
