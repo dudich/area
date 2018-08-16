@@ -79,6 +79,8 @@
       }
 
       .thumb-img {
+        width: 80px;
+        height: 80px;
         margin-right: 6px;
 
         &-container {
@@ -95,11 +97,11 @@
 
       .count {
         display: block;
-        margin-bottom: -5px;
+        margin-bottom: 10px;
         font-size: 20px;
         line-height: 18px;
         font-weight: 700;
-        color: #000;
+        color: #fff;
       }
 
       .icon-container {
@@ -108,6 +110,9 @@
         justify-content: center;
         width: 50px;
         height: 40px;
+        border: 1px solid #000;
+        border-radius: 12px;
+        background-color: #fff;
 
         img {
           width: 80%;

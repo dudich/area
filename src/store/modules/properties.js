@@ -17,13 +17,13 @@ export default {
       images: [
         {
           id: '1',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-1.jpg'),
+          thumb: require('../../assets/img/properties/photo-1.jpg')
         },
         {
           id: '2',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-2.jpg'),
+          thumb: require('../../assets/img/properties/photo-2.jpg')
         }
       ],
       catering: false,
@@ -70,23 +70,23 @@ export default {
       images: [
         {
           id: '1',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-1.jpg'),
+          thumb: require('../../assets/img/properties/photo-1.jpg')
         },
         {
           id: '2',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-2.jpg'),
+          thumb: require('../../assets/img/properties/photo-2.jpg')
         },
         {
           id: '3',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-3.jpg'),
+          thumb: require('../../assets/img/properties/photo-3.jpg')
         },
         {
           id: '4',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-4.jpg'),
+          thumb: require('../../assets/img/properties/photo-4.jpg')
         }
       ],
       catering: false,
@@ -143,48 +143,48 @@ export default {
       images: [
         {
           id: '1',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-1.jpg'),
+          thumb: require('../../assets/img/properties/photo-1.jpg')
         },
         {
           id: '2',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-2.jpg'),
+          thumb: require('../../assets/img/properties/photo-2.jpg')
         },
         {
           id: '3',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-3.jpg'),
+          thumb: require('../../assets/img/properties/photo-3.jpg')
         },
         {
           id: '4',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-4.jpg'),
+          thumb: require('../../assets/img/properties/photo-4.jpg')
         },
         {
           id: '5',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-5.jpg'),
+          thumb: require('../../assets/img/properties/photo-5.jpg')
         },
         {
           id: '6',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-6.jpg'),
+          thumb: require('../../assets/img/properties/photo-6.jpg')
         },
         {
           id: '7',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-7.jpg'),
+          thumb: require('../../assets/img/properties/photo-7.jpg')
         },
         {
           id: '8',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-8.jpg'),
+          thumb: require('../../assets/img/properties/photo-8.jpg')
         },
         {
           id: '9',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-9.jpg'),
+          thumb: require('../../assets/img/properties/photo-9.jpg')
         }
       ],
       catering: false,
@@ -241,13 +241,13 @@ export default {
       images: [
         {
           id: '1',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-1.jpg'),
+          thumb: require('../../assets/img/properties/photo-1.jpg')
         },
         {
           id: '2',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-2.jpg'),
+          thumb: require('../../assets/img/properties/photo-2.jpg')
         }
       ],
       catering: false,
@@ -284,23 +284,23 @@ export default {
       images: [
         {
           id: '1',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-1.jpg'),
+          thumb: require('../../assets/img/properties/photo-1.jpg')
         },
         {
           id: '2',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-2.jpg'),
+          thumb: require('../../assets/img/properties/photo-2.jpg')
         },
         {
           id: '3',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-3.jpg'),
+          thumb: require('../../assets/img/properties/photo-3.jpg')
         },
         {
           id: '4',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-4.jpg'),
+          thumb: require('../../assets/img/properties/photo-4.jpg')
         }
       ],
       catering: false,
@@ -337,48 +337,48 @@ export default {
       images: [
         {
           id: '1',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-1.jpg'),
+          thumb: require('../../assets/img/properties/photo-1.jpg')
         },
         {
           id: '2',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-2.jpg'),
+          thumb: require('../../assets/img/properties/photo-2.jpg')
         },
         {
           id: '3',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-3.jpg'),
+          thumb: require('../../assets/img/properties/photo-3.jpg')
         },
         {
           id: '4',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-4.jpg'),
+          thumb: require('../../assets/img/properties/photo-4.jpg')
         },
         {
           id: '5',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-5.jpg'),
+          thumb: require('../../assets/img/properties/photo-5.jpg')
         },
         {
           id: '6',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-6.jpg'),
+          thumb: require('../../assets/img/properties/photo-6.jpg')
         },
         {
           id: '7',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-7.jpg'),
+          thumb: require('../../assets/img/properties/photo-7.jpg')
         },
         {
           id: '8',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-8.jpg'),
+          thumb: require('../../assets/img/properties/photo-8.jpg')
         },
         {
           id: '9',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-9.jpg'),
+          thumb: require('../../assets/img/properties/photo-9.jpg')
         }
       ],
       catering: false,
@@ -418,23 +418,23 @@ export default {
       images: [
         {
           id: '1',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-1.jpg'),
+          thumb: require('../../assets/img/properties/photo-1.jpg')
         },
         {
           id: '2',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-2.jpg'),
+          thumb: require('../../assets/img/properties/photo-2.jpg')
         },
         {
           id: '3',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-3.jpg'),
+          thumb: require('../../assets/img/properties/photo-3.jpg')
         },
         {
           id: '4',
-          big: 'http://placekitten.com/350/200',
-          thumb: 'http://placekitten.com/80/80'
+          big: require('../../assets/img/properties/photo-4.jpg'),
+          thumb: require('../../assets/img/properties/photo-4.jpg')
         }
       ],
       catering: false,
@@ -465,12 +465,12 @@ export default {
 
   mutations: {
     'CHANGE_EXTRAS_PRICE'(state, payload) {
-      const index = state.properties.map((item) => item.id).indexOf(payload.id);
-      state.properties[index].extrasPrice = payload.total;
+      const index = state.map((item) => item.id).indexOf(payload.id);
+      state[index].extrasPrice = payload.total;
     },
     'ADD_CATERING'(state, payload) {
-      const index = state.properties.map((item) => item.id).indexOf(payload);
-      state.properties[index].catering = true;
+      const index = state.map((item) => item.id).indexOf(payload);
+      state[index].catering = true;
     }
   },
 

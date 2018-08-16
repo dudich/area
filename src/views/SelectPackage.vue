@@ -69,44 +69,6 @@
 
     data() {
       return {
-        select: {
-          event: 'Meeting',
-          date: [],
-          time: '',
-          layout: 'Boardroom'
-        },
-
-        items: {
-          selectEvent: [
-            'Breakfast/Lunch/Dinner',
-            'Cocktail',
-            'Conference',
-            'Corporate Function',
-            'Exhibition',
-            'Group Accommodation',
-            'Meeting',
-            'Party',
-            'Wedding',
-            'Xmas'
-          ],
-          selectDate: [],
-          selectTime: [
-            '7:00am - 10am',
-            '8:00am - 11am',
-            '9:00am - 12am',
-            '10:00am - 1:00pm'
-          ],
-          selectLayout: [
-            'U-shape',
-            'Boardroom',
-            'Cabaret',
-            'Classroom',
-            'Banquet',
-            'Theatre',
-            'Cocktail'
-          ]
-        },
-
         labels: {
           selectEvent: 'Select Event',
           selectDate: 'Select Date',
@@ -122,6 +84,13 @@
       },
       extras() {
         return this.$store.getters.extras;
+      },
+      select() {
+        return this.$store.getters.filtersSelect
+      },
+
+      items() {
+        return this.$store.getters.filtersItems;
       }
     },
 

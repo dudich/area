@@ -5,7 +5,7 @@
       <v-btn class="btn bg-blue no-text-transform" dark round v-if="!catering" @click="addCatering">Add</v-btn>
       <img src="../../../assets/icons/check-icon.png" alt="check-icon" v-if="catering" :class="{ opacity: disappear }">
     </td>
-    <td class="count">{{ catering ? 'Added' : '$0.00' }}</td>
+    <td class="count">{{ catering ? 'Added' : '-' }}</td>
   </tr>
 </template>
 

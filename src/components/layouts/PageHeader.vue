@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import logo from '../../assets/area-logo.jpg'
+  import logo from '../../assets/header-logo.png'
 
   export default {
     name: 'page-header',

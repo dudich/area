@@ -5,10 +5,10 @@
         <div class="carousel-img">
           <img :src="currentImage" alt="">
           <div class="actions">
-            <span @click="prevImage" class="prev bg-light-green">
+            <span @click="prevImage" class="prev bg-light-dark ">
               <i class="fas fa-chevron-left"></i>
             </span>
-            <span @click="nextImage" class="next bg-light-green">
+            <span @click="nextImage" class="next bg-light-dark ">
               <i class="fas fa-chevron-right"></i>
             </span>
           </div>
@@ -75,6 +75,8 @@
 </script>
 
 <style lang="scss">
+  @import "../../../styles/variables";
+
   .gallery-carousel {
     padding: 20px;
   }
@@ -98,7 +100,7 @@
   }
 
   .thumbnail-image {
-    flex: 0 0 84px;
+    flex: 0 0 110px;
     align-items: center;
     cursor: pointer;
     margin-right: 6px;
@@ -147,6 +149,9 @@
     border-radius: 50%;
     cursor: pointer;
     transition: all 250ms;
+    &:hover {
+      background-color: $light-green!important;
+    }
   }
 
   .actions > span.prev {
@@ -155,11 +160,6 @@
 
   .actions > span.next {
     margin-right: 30px;
-  }
-
-  .actions > span:hover {
-    color: #eee;
-    background-color: #000;
   }
 
   .actions > span i {

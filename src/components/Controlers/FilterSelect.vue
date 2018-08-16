@@ -39,7 +39,7 @@
 
     methods: {
       updateValue() {
-        this.$emit(UPDATE_FILTER_SELECT_VALUE, this.state)
+        this.$store.commit(UPDATE_FILTER_SELECT_VALUE, {select: this.state, label: this.label})
       }
     }
   }
