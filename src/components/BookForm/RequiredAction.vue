@@ -69,7 +69,7 @@
   .required-action {
     position: relative;
     max-width: 145px;
-    padding-bottom: 30px;
+    padding-bottom: 60px;
 
     &__caption {
       line-height: 16px;

@@ -3,6 +3,7 @@
     <v-select
       v-model="select"
       :items="items"
+      label="Arrival Time"
       outline
     ></v-select>
     <i class="fas fa-star-of-life"></i>
@@ -15,8 +16,8 @@
 
     data() {
       return {
-        select: 'Arrival Time',
-        items: ['Arrival Time', '7:00am', '8:00am', '9:00am', '10:00am']
+        select: '',
+        items: ['7:00am', '8:00am', '9:00am', '10:00am']
       }
     }
   }
@@ -30,6 +31,15 @@
 
     .v-input {
       color: #000 !important;
+
+      .v-label {
+        top: -25px !important;
+        color: #000 !important;
+
+        &--active {
+          transform: none;
+        }
+      }
     }
 
     .fa-star-of-life {
