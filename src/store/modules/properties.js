@@ -12,7 +12,7 @@ export default {
       ],
       floorArea: 128.7,
       price: 999.99,
-      extrasPrice: 0,
+      extrasPrice: 0.00,
       dayDelegateMin: 30,
       images: [
         {
@@ -65,7 +65,7 @@ export default {
       ],
       floorArea: 76,
       price: 875.99,
-      extrasPrice: 0,
+      extrasPrice: 0.00,
       dayDelegateMin: 20,
       images: [
         {
@@ -138,7 +138,7 @@ export default {
       ],
       floorArea: 52.7,
       price: 400.00,
-      extrasPrice: 0,
+      extrasPrice: 0.00,
       dayDelegateMin: 20,
       images: [
         {
@@ -236,7 +236,7 @@ export default {
       ],
       floorArea: 30.2,
       price: 500,
-      extrasPrice: 0,
+      extrasPrice: 0.00,
       dayDelegateMin: 12,
       images: [
         {
@@ -279,7 +279,7 @@ export default {
       ],
       floorArea: 34.9,
       price: 875.99,
-      extrasPrice: 0,
+      extrasPrice: 0.00,
       dayDelegateMin: 12,
       images: [
         {
@@ -332,7 +332,7 @@ export default {
       ],
       floorArea: 38.7,
       price: 400.00,
-      extrasPrice: 0,
+      extrasPrice: 0.00,
       dayDelegateMin: 10,
       images: [
         {
@@ -413,7 +413,7 @@ export default {
       ],
       floorArea: 128.7,
       price: 875.99,
-      extrasPrice: 0,
+      extrasPrice: 0.00,
       dayDelegateMin: 70,
       images: [
         {

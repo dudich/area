@@ -119,6 +119,7 @@
   .select-package {
     .mx-datepicker {
       .mx-input {
+        height: 50px;
         border: none;
         background-color: rgba(255, 255, 255, .1)
       }

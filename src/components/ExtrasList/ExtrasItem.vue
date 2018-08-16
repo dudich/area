@@ -74,6 +74,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../../styles/variables";
   .extras {
 
     &-item {
@@ -95,7 +96,6 @@
       position: relative;
       margin-bottom: 10px;
       border-radius: 5px;
-      background-color: white;
       cursor: pointer;
 
       .icon-container {
@@ -104,54 +104,55 @@
         justify-content: center;
         width: 100px;
         height: 100px;
-        border: 4px solid black;
+        border: 1px solid black;
         border-radius: 5px;
         &:hover,
         &.active {
-          border-color: #7FBE42;
+          border-color: $green;
         }
       }
 
       img {
-        width: 50px;
-        height: 50px;
+        width: 80%;
+        height: 80%;
       }
     }
 
-    &-checkbox,
-    &-control {
+    &-checkbox {
       position: absolute;
       width: 30px;
       height: 25px;
-      border: 1px solid black;
+      border: 1px solid $green;
       border-radius: 4px;
       background-color: white;
-    }
-
-    &-checkbox {
       bottom: -14px;
       left: -14px;
 
       .fas {
-        font-size: 30px;
+        font-size: 25px;
         line-height: 25px;
       }
     }
 
     &-control {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border: 1px solid $green;
+      border-radius: 50%;
       &-minus {
-        top: -14px;
-        left: -14px;
+        top: -20px;
+        left: -26px;
       }
 
       &-plus {
-        top: -14px;
-        right: -14px;
+        top: -20px;
+        right: -26px;
       }
 
       .fas {
         font-size: 15px;
-        line-height: 25px;
+        line-height: 30px;
       }
     }
   }

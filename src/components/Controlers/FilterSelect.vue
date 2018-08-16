@@ -82,13 +82,13 @@
   .select-package {
     .select-control {
       .v-input__slot {
-        height: 35px;
+        height: 50px;
         min-height: auto;
         border: none!important;
         background-color: rgba(255, 255, 255, .1) !important;
 
         .v-input__append-inner {
-          margin-top: 7px;
+          margin-top: 14px;
         }
       }
     }

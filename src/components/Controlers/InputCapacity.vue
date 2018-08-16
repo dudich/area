@@ -91,7 +91,7 @@
   .select-package {
     .input-capacity-container {
       .input-capacity {
-        height: 35px;
+        height: 50px;
         background-color: rgba(255, 255, 255, .1);
 
         .v-text-field__details {

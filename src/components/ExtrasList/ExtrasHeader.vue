@@ -56,15 +56,14 @@
     }
 
     &__caption {
-      margin-right: 60px;
-      font-size: 18px;
-      font-weight: 700;
+      margin-right: 80px;
+      font-size: 25px;
       color: #fff;
     }
 
     &__total-price {
       margin-right: 150px;
-      font-weight: 700;
+      font-size: 25px;
     }
 
     .btn {

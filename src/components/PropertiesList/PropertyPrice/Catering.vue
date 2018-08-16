@@ -61,7 +61,7 @@
 
       img {
         position: absolute;
-        left: 90px;
+        left: 80px;
         width: 20px;
         height: 20px;
       }

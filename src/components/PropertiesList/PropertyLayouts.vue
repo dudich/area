@@ -74,9 +74,11 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../../styles/variables";
   .property-layouts {
 
     &__data {
+      font-size: 16px;
       text-align: left;
       color: #fff;
     }
@@ -113,11 +115,12 @@
         };
         width: 80px;
         height: 60px;
+        border: 1px solid #000;
         background-color: rgba(255, 255, 255, .1);
 
         :hover,
         &.active {
-          background-color: rgba(255, 255, 255, 1);
+          border-color: $green;
         }
       }
 

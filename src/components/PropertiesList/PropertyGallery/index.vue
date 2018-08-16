@@ -92,13 +92,13 @@
 
     &-capacity {
       position: absolute;
-      right: 10px;
-      bottom: 10px;
+      right: 15px;
+      bottom: 15px;
 
       .count {
         display: block;
         margin-bottom: 10px;
-        font-size: 20px;
+        font-size: 24px;
         line-height: 18px;
         font-weight: 700;
         color: #fff;

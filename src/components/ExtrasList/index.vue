@@ -120,6 +120,7 @@
     }
 
     &-description {
+      font-size: 16px;
       color: white;
       text-align: center;
     }

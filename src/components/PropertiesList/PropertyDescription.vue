@@ -4,7 +4,7 @@
       <li v-for="(description, i) in property.description" :key="i" v-html="description"></li>
       <li class="property-delegate-min">
         <span>Day Delegate Min.</span>
-        <span>- {{ property.capacity }} people</span>
+        <span>- {{ property.dayDelegateMin }} people</span>
       </li>
     </ul>
   </div>
@@ -34,7 +34,6 @@
   .property {
 
     &-description {
-      max-width: 380px;
       color: aliceblue;
 
       .text {
@@ -53,6 +52,7 @@
         li {
           margin-bottom: 5px;
           text-align: left;
+          font-size: 16px;
         }
       }
     }

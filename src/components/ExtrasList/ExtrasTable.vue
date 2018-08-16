@@ -59,10 +59,12 @@
       td {
         width: 15%;
         padding: 10px;
+        font-size: 18px;
         font-weight: 700;
 
         &:first-of-type {
           width: 10%;
+          font-size: 14px;
           color: white;
         }
       }

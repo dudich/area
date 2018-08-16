@@ -2,7 +2,11 @@
   <div class="booking-stages">
     <v-container>
       <v-layout row wrap>
-        <router-link class="back-link" to="/select-package" v-if="$route.path === `/hold/${ $route.params.id }`">Back</router-link>
+        <router-link
+          class="back-link"
+          to="/select-package"
+          v-if="$route.path === `/hold/${ $route.params.id }` || $route.path === `/book/${ $route.params.id }`"
+        >Back</router-link>
         <v-flex md4 sm12>
           <h3 class="booking-stage" v-text="bookingStages.details" :class="{ active: $route.path === '/event-details'}"></h3>
         </v-flex>
@@ -46,7 +50,7 @@
       top: 16px;
       bottom: 16px;
     }
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 400;
     color: white;
 

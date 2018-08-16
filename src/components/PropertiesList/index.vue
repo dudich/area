@@ -152,8 +152,8 @@
         bottom: 5px;
         left: 5px;
       }
-      font-size: 18px;
-      line-height: 20px;
+      font-size: 20px;
+      line-height: 28px;
       font-weight: 700;
       text-align: left;
       text-transform: capitalize;
