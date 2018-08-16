@@ -14,7 +14,7 @@
 <style lang="scss">
   .footer-banner {
     display: flex;
-    padding: 30px;
+    padding: 80px 30px;
     margin-top: 40px;
     justify-content: center;
     align-items: center;

@@ -13,6 +13,10 @@
         >
           {{ item.title }}
         </v-list-tile>
+        <v-list-tile class="corp-sign-in">
+          <i class="fas fa-lock"></i>
+          Corporate Sign-In
+        </v-list-tile>
       </v-list>
     </v-toolbar-items>
   </v-toolbar>
@@ -52,6 +56,17 @@
     }
     background-color: $dark-blue!important;
     z-index: 1000!important;
+
+    .corp-sign-in {
+      border: 1px solid #fff;
+      border-radius: 4px;
+      cursor: pointer;
+
+      i {
+        margin-right: 10px;
+        font-size: 20px;
+      }
+    }
 
     .logo {
       width: 200px;
