@@ -93,11 +93,11 @@
       align-items: center;
       width: 60px;
       height: 35px;
-      border: 2px solid #000;
+      border: 1px solid #000;
       color: $grey;
       background-color: $light-gray;
       &:hover {
-        border: 3px solid $blue;
+        border: 2px solid $blue;
         cursor: pointer;
       }
 
@@ -106,7 +106,7 @@
       }
 
       &.active {
-        border: 3px solid $blue;
+        border: 2px solid $blue;
       }
     }
   }

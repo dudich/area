@@ -5,6 +5,7 @@
       <ul class="extras-list">
         <extras-item
           v-for="extra in extras"
+          :key="extra.id"
           :extra="extra"
           :selected="selected"
           :checked="checked"

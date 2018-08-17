@@ -57,7 +57,7 @@
   import {FILTER_PROPERTIES} from "../store/actionTypes";
   import StageList from '../components/StageList'
   import bgImage from '../assets/event-details-bg.png'
-  import FilterSelect from '../components/Controlers/FilterSelect'
+  import FilterSelect from '../components/Controlers/CustomSelect'
   import SelectDate from '../components/Controlers/SelectDate'
   import InputCapacity from '../components/Controlers/InputCapacity'
 

@@ -57,7 +57,7 @@
 <script>
   import StageList from '../components/StageList'
   import PropertiesList from '../components/PropertiesList'
-  import FilterSelect from '../components/Controlers/FilterSelect'
+  import FilterSelect from '../components/Controlers/CustomSelect'
   import SelectDate from '../components/Controlers/SelectDate'
   import InputCapacity from '../components/Controlers/InputCapacity'
   import Modal from '../components/Modal'

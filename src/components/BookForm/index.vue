@@ -5,13 +5,25 @@
         <h3 class="book-caption">Book and Confirm</h3>
         <v-layout row wrap>
           <v-flex class="px-5 mb-4" xs12 sm6>
-            <booker-details :details="bookerDetails"></booker-details>
+            <booker-details
+              :details="bookerDetails"
+              :location="location"
+            ></booker-details>
           </v-flex>
           <v-flex class="px-5 mb-4" xs12 sm6>
-            <contacts-on-site :contacts="contactsOnSite" :details="bookerDetails"></contacts-on-site>
+            <contacts-on-site
+              :contacts="contactsOnSite"
+              :details="bookerDetails"
+            ></contacts-on-site>
             <v-layout row justify-space-between>
-              <required-action :caption="siteInspectionCaption" @SELECT_REQUIRED_ACTION="changeSiteInspection"></required-action>
-              <required-action :caption="accommodationCaption" @SELECT_REQUIRED_ACTION="changeAccommodation"></required-action>
+              <required-action
+                :caption="siteInspectionCaption"
+                @SELECT_REQUIRED_ACTION="changeSiteInspection"
+              ></required-action>
+              <required-action
+                :caption="accommodationCaption"
+                @SELECT_REQUIRED_ACTION="changeAccommodation"
+              ></required-action>
             </v-layout>
             <v-layout row>
               <v-flex xs12 sm6>
@@ -46,17 +58,92 @@
     data() {
       return {
         bookerDetails: {
-          name: '',
-          email: '',
-          phoneDay: '',
-          phoneMobile: ''
+          name: {
+            value: '',
+            placeholder: 'Name',
+            iconClass: 'fas fa-user'
+          },
+          email: {
+            value: '',
+            placeholder: 'Email',
+            iconClass: 'fas fa-envelope'
+          },
+          phoneDay: {
+            value: '',
+            placeholder: 'Phone Number-Day',
+            iconClass: 'fas fa-phone-square'
+          },
+          phoneMobile: {
+            value: '',
+            placeholder: 'Phone Number-Mobile',
+            iconClass: 'fas fa-phone-square'
+          }
         },
 
         contactsOnSite: {
-          name: '',
-          email: '',
-          phoneDay: '',
-          phoneMobile: ''
+          name: {
+            value: '',
+            placeholder: 'Name',
+            iconClass: 'fas fa-user'
+          },
+          email: {
+            value: '',
+            placeholder: 'Email',
+            iconClass: 'fas fa-envelope'
+          },
+          phoneDay: {
+            value: '',
+            placeholder: 'Phone Number-Day',
+            iconClass: 'fas fa-phone-square'
+          },
+          phoneMobile: {
+            value: '',
+            placeholder: 'Phone Number-Mobile',
+            iconClass: 'fas fa-phone-square'
+          }
+        },
+
+        location: {
+          address: {
+            value: 'null',
+            items: ['Address 1', 'Address 2'],
+            placeholder: 'Address'
+          },
+          country: {
+            value: null,
+            items: ['USA', 'England', 'Australia', 'New Zealand'],
+            placeholder: 'Country'
+          },
+          city: {
+            value: null,
+            items: ['London', 'Berlin', 'Cairo', 'Boston'],
+            placeholder: 'City'
+          },
+          state: {
+            value: null,
+            items: [
+              'Alabama', 'Alaska', 'American Samoa', 'Arizona',
+              'Arkansas', 'California', 'Colorado', 'Connecticut',
+              'Delaware', 'District of Columbia', 'Federated States of Micronesia',
+              'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho',
+              'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
+              'Louisiana', 'Maine', 'Marshall Islands', 'Maryland',
+              'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
+              'Missouri', 'Montana', 'Nebraska', 'Nevada',
+              'New Hampshire', 'New Jersey', 'New Mexico', 'New York',
+              'North Carolina', 'North Dakota', 'Northern Mariana Islands', 'Ohio',
+              'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico',
+              'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee',
+              'Texas', 'Utah', 'Vermont', 'Virgin Island', 'Virginia',
+              'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+            ],
+            placeholder: 'State'
+          },
+          zip: {
+            value: null,
+            items: ['1235', '5469', '4587'],
+            placeholder: 'ZIP'
+          },
         },
 
         siteInspection: 'no',
