@@ -1,31 +1,33 @@
 <template>
   <li class="extras-item" :key="extra.id">
-    <p class="extras-name">{{ extra.name }}</p>
     <div class="extras-icon">
       <div class="extras-control extras-control-minus"
-           v-if="extra.maxQuantity && extra.quantity > 0 && checked.indexOf(extra.id) !== -1"
+           v-if="extra.quantity > 0"
            @click="decreaseExtraQuantity(extra.id)"
       >
         <i class="fas fa-minus text-light-green"></i>
       </div>
       <div class="extras-control extras-control-plus"
-           v-if="extra.maxQuantity && extra.maxQuantity !== extra.quantity && checked.indexOf(extra.id) !== -1"
+           v-if="extra.maxQuantity !== extra.quantity"
            @click="increaseExtraQuantity(extra.id)"
       >
         <i class="fas fa-plus text-light-green"></i>
       </div>
-      <div class="icon-container" :class="{ active: selected === extra.id }" @click="handleOnSelect(extra.id)">
+      <div class="icon-container" @click="handleOnCheck(extra.id)">
         <img :src="iconPath" alt="icon">
       </div>
-      <div class="extras-checkbox" @click="handleOnCheck(extra.id)">
-          <i class="fas fa-check text-light-green" v-if="checked.indexOf(extra.id) !== -1"></i>
-      </div>
     </div>
-    <span class="extras-price">${{ extra.price }}</span>
+    <p class="extras-name">{{ extra.name }}</p>
   </li>
 </template>
 
 <script>
+  import {
+    EXTRA_CHECKED,
+    INCREASE_EXTRA_QUANTITY,
+    DECREASE_EXTRA_QUANTITY
+  } from "../../store/actionTypes";
+
   export default {
     name: 'extras-item',
 
@@ -51,23 +53,14 @@
     },
 
     methods: {
-      handleOnSelect(id) {
-        this.$emit('EXTRA_SELECTED', id)
-      },
-      handleOnCheck(payload) {
-        this.$emit('EXTRA_CHECKED', payload);
-        /*if(this.checked.indexOf('1') !== -1) {
-          return
-        }
-        if(this.checked.indexOf('1') !== -1) {
-          this.$emit('REMOVE_ITEMS')
-        }*/
+      handleOnCheck(id) {
+        this.$emit(EXTRA_CHECKED, id);
       },
       increaseExtraQuantity(id) {
-        this.$emit('INCREASE_EXTRA_QUANTITY', id);
+        this.$emit(INCREASE_EXTRA_QUANTITY, id);
       },
       decreaseExtraQuantity(id) {
-        this.$emit('DECREASE_EXTRA_QUANTITY', id);
+        this.$emit(DECREASE_EXTRA_QUANTITY, id);
       }
     }
   }
@@ -80,8 +73,9 @@
     &-item {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      margin: 10px 35px;
+      margin: 10px 35px 0;
     }
 
     &-name,
@@ -96,7 +90,6 @@
       position: relative;
       margin-bottom: 10px;
       border-radius: 5px;
-      cursor: pointer;
 
       .icon-container {
         display: flex;
@@ -104,33 +97,13 @@
         justify-content: center;
         width: 100px;
         height: 100px;
-        border: 1px solid black;
+        border: 1px solid $green;
         border-radius: 5px;
-        &:hover,
-        &.active {
-          border-color: $green;
-        }
       }
 
       img {
         width: 80%;
         height: 80%;
-      }
-    }
-
-    &-checkbox {
-      position: absolute;
-      width: 30px;
-      height: 25px;
-      border: 1px solid $green;
-      border-radius: 4px;
-      background-color: white;
-      bottom: -14px;
-      left: -14px;
-
-      .fas {
-        font-size: 25px;
-        line-height: 25px;
       }
     }
 
@@ -140,6 +113,8 @@
       height: 30px;
       border: 1px solid $green;
       border-radius: 50%;
+      cursor: pointer;
+
       &-minus {
         top: -20px;
         left: -26px;

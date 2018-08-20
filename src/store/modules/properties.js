@@ -113,7 +113,7 @@ export default {
         },
         {
           type: 'u-shape',
-          img: require('../../assets/icons/layouts/banquet.png'),
+          img: require('../../assets/icons/layouts/ushape.png'),
           capacity: 24
         },
         {
@@ -211,7 +211,7 @@ export default {
         },
         {
           type: 'u-shape',
-          img: require('../../assets/icons/layouts/banquet.png'),
+          img: require('../../assets/icons/layouts/ushape.png'),
           capacity: 21
         },
         {
@@ -264,7 +264,7 @@ export default {
         },
         {
           type: 'u-shape',
-          img: require('../../assets/icons/layouts/banquet.png'),
+          img: require('../../assets/icons/layouts/ushape.png'),
           capacity: 15
         }
       ]
@@ -317,7 +317,7 @@ export default {
         },
         {
           type: 'u-shape',
-          img: require('../../assets/icons/layouts/banquet.png'),
+          img: require('../../assets/icons/layouts/ushape.png'),
           capacity: 15
         }
       ]
@@ -395,7 +395,7 @@ export default {
         },
         {
           type: 'u-shape',
-          img: require('../../assets/icons/layouts/banquet.png'),
+          img: require('../../assets/icons/layouts/ushape.png'),
           capacity: 9
         }
       ]
@@ -456,7 +456,7 @@ export default {
         },
         {
           type: 'u-shape',
-          img: require('../../assets/icons/layouts/banquet.png'),
+          img: require('../../assets/icons/layouts/ushape.png'),
           capacity: 14
         }
       ]

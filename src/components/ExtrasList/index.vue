@@ -7,16 +7,13 @@
           v-for="extra in extras"
           :key="extra.id"
           :extra="extra"
-          :selected="selected"
           :checked="checked"
-          @EXTRA_SELECTED="updateSelected"
           @EXTRA_CHECKED="updateChecked"
           @INCREASE_EXTRA_QUANTITY="increaseExtraQuantity"
           @DECREASE_EXTRA_QUANTITY="decreaseExtraQuantity"
         >
         </extras-item>
       </ul>
-      <p class="extras-description">{{ selected ? description : '' }}</p>
       <extras-table :extras="extras" :checked="checked"></extras-table>
     </v-card>
   </v-slide-y-transition>
@@ -45,7 +42,6 @@
 
     data() {
       return {
-        selected: '',
         checked: [],
         showExtras: false
       }
@@ -65,10 +61,6 @@
     },
 
     computed: {
-      description() {
-        const index = this.findIndexByKey(this.extras, 'id', this.selected);
-        return this.extras[index].description;
-      },
       total() {
         const arrOfChecked = this.extras.filter((item) => this.checked.indexOf(item.id) !== -1);
         const arrOfCost = arrOfChecked.map((item) => item.price * item.quantity);
@@ -77,9 +69,6 @@
     },
 
     methods: {
-      updateSelected(id) {
-        this.selected = id;
-      },
       updateChecked(id) {
         const index = this.checked.indexOf(id);
         if (index === -1) {
@@ -115,7 +104,6 @@
     &-list {
       display: flex;
       justify-content: flex-start;
-      align-items: flex-end;
       max-width: 81%;
       margin: 0 auto !important;
     }
@@ -123,7 +111,7 @@
     &-description {
       font-size: 16px;
       color: white;
-      text-align: center;
+      text-align: left;
     }
   }
 </style>

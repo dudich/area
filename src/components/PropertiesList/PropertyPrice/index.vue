@@ -6,7 +6,7 @@
     </tr>
     <tr class="price-extras">
       <td class="text">Extras</td>
-      <td class="count">${{ property.extrasPrice }}</td>
+      <td class="count" v-text="property.extras > 0 ? property.extras : '-'"></td>
     </tr>
     <catering :catering="property.catering" :propertyId="property.id"></catering>
     <catering-notification :catering="property.catering"></catering-notification>

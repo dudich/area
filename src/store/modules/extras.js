@@ -2,19 +2,21 @@ export default {
   state: [
     {
       id: "1",
-      name: 'The Day Delegate Package',
+      name: 'Day Package',
       description: 'The Day Delegate Package',
       price: 999.90,
       icon: 'fas fa-gift',
-      quantity: 1
+      quantity: 0,
+      maxQuantity: 1
     },
     {
       id: "2",
-      name: 'Tea and Nespresso Coffee',
+      name: 'Tea and Filter Coffee',
       description: 'Nespresso coffee and a selection of T Leaf Tea as well as individual water bottles for each attendee',
       price: 999.90,
       icon: 'fas fa-coffee',
-      quantity: 50
+      quantity: 0,
+      maxQuantity: 50
     },
     {
       id: "3",
@@ -22,7 +24,7 @@ export default {
       description: 'Teleconferencing for up to 8 callers',
       price: 999.90,
       icon: 'fas fa-video',
-      quantity: 1,
+      quantity: 0,
       maxQuantity: 8
     },
     {
@@ -31,7 +33,7 @@ export default {
       description: '2 x 5K Projectors with dual connectivity 2 x 120” screen and hidden speakers',
       price: 999.90,
       icon: 'fab fa-r-project',
-      quantity: 1,
+      quantity: 0,
       maxQuantity: 2
     },
     {
@@ -40,7 +42,8 @@ export default {
       description: 'A1 flipchart, stand and markers',
       price: 999.90,
       icon: 'fab fa-flipboard',
-      quantity: 1
+      quantity: 0,
+      maxQuantity: 1
     },
     {
       id: "6",
@@ -48,7 +51,8 @@ export default {
       description: 'Whiteboard and markers',
       price: 999.90,
       icon: 'fas fa-chalkboard-teacher',
-      quantity: 1
+      quantity: 0,
+      maxQuantity: 1
     }
   ],
 
