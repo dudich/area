@@ -1,14 +1,16 @@
 <template>
-  <v-select
-    class="select-control"
-    v-model="state"
-    :items="input.items"
-    :label="input.label"
-    :name="input.name"
-    @change="updateValue"
-    outline
-    append-icon="$vuetify.icons.dropdown"
-  ></v-select>
+  <div class="custom-select">
+    <v-select
+      v-model="state"
+      :items="input.items"
+      :label="input.label"
+      :name="input.name"
+      @change="updateValue"
+      outline
+      append-icon="$vuetify.icons.dropdown"
+    ></v-select>
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -32,7 +34,7 @@
 
     methods: {
       updateValue() {
-        this.$store.commit(UPDATE_SELECT_VALUE, {select: this.state, name: this.input.name})
+        this.$emit(UPDATE_SELECT_VALUE, this.state)
       }
     }
   }
@@ -41,49 +43,45 @@
 <style lang="scss">
   @import "../../styles/variables";
 
-  .event-details,
-  .select-package {
-    .select-control {
-      .v-select__selections {
-        padding-top: 0 !important;
-        color: #fff;
-      }
+  .custom-select {
+    position: relative;
 
-      .v-label {
-        top: -30px;
-        color: #fff !important;
+    .v-select__selections {
+      padding-top: 0 !important;
+      color: $grey;
+    }
 
-        &--active {
-          transform: none;
-        }
-      }
+    .v-input__slot {
+      height: 48px;
+      min-height: auto;
+      border: 1px solid #000 !important;
+      border-radius: 0 !important;
+      background-color: $light-gray !important;
 
-      .v-icon {
-        color: #fff !important;
+      .v-input__append-inner {
+        margin-top: 10px;
       }
     }
-  }
 
-  .event-details {
-    .select-control {
-      .v-input__slot {
-        border-color: rgba(255, 255, 255, .8) !important;
+    .v-label {
+      top: -30px;
+      color: #fff !important;
+
+      &--active {
+        transform: none;
       }
     }
-  }
 
-  .select-package {
-    .select-control {
-      .v-input__slot {
-        height: 50px;
-        min-height: auto;
-        border: none !important;
-        background-color: rgba(255, 255, 255, .1) !important;
+    .v-icon {
+      color: #000 !important;
+    }
 
-        .v-input__append-inner {
-          margin-top: 14px;
-        }
-      }
+    .fas {
+      position: absolute;
+      top: 10px;
+      left: -35px;
+      font-size: 28px;
+      color: #000;
     }
   }
 </style>

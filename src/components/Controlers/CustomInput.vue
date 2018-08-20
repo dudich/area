@@ -5,12 +5,15 @@
       single-line
       solo
       v-model="input.value"
+      @input="updateValue"
     ></v-text-field>
     <slot></slot>
   </div>
 </template>
 
 <script>
+  import {UPDATE_INPUT_VALUE} from "../../store/actionTypes";
+
   export default {
     name: 'custom-input',
 
@@ -18,6 +21,12 @@
       input: {
         type: Object,
         required: true
+      }
+    },
+
+    methods: {
+      updateValue() {
+        this.$emit(UPDATE_INPUT_VALUE, this.input.value);
       }
     }
   }

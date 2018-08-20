@@ -26,11 +26,19 @@
               ></required-action>
             </v-layout>
             <v-layout row>
-              <v-flex xs6>
-                <custom-input :input="arrivalTime"></custom-input>
+              <v-flex class="pr-1" xs6>
+                <custom-input
+                  :input="{placeholder: arrivalTime.placeholder, value: arrivalTime.value }"
+                  @UPDATE_INPUT_VALUE="updateArrivalTimeInput"
+                >
+                  <i class="fas fa-star-of-life"></i>
+                </custom-input>
               </v-flex>
-              <v-flex xs6 sm4>
-                <custom-select></custom-select>
+              <v-flex class="pl-1" xs6 sm4>
+                <custom-select
+                  :input="{items: arrivalTime.items, select: arrivalTime.select }"
+                  @UPDATE_SELECT_VALUE="updateArrivalTimeSelect"
+                ></custom-select>
               </v-flex>
             </v-layout>
           </v-flex>
@@ -152,8 +160,9 @@
 
         arrivalTime: {
           value: '',
+          select: 'AM',
+          items: ['AM', 'PM'],
           placeholder: 'Arrival Time',
-          iconClass: 'fas fa-star-of-life'
         },
 
         siteInspection: '',
@@ -169,6 +178,12 @@
       },
       changeAccommodation(string) {
         this.accommodation = string;
+      },
+      updateArrivalTimeInput(payload) {
+        this.arrivalTime = {...this.arrivalTime, value: payload}
+      },
+      updateArrivalTimeSelect(payload) {
+        this.arrivalTime = {...this.arrivalTime, select: payload}
       }
     },
 

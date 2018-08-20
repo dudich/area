@@ -70,7 +70,7 @@
     position: relative;
     max-width: 145px;
     padding-bottom: 20px;
-    margin-bottom: 12px;
+    margin-bottom: 23px;
 
     &__caption {
       line-height: 16px;
