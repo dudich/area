@@ -1,8 +1,8 @@
 <template>
   <div class="datepicker-container">
-    <label class="datepicker-label" for="datePicker" v-text="label"></label>
+    <label class="datepicker-label" for="datePicker" v-text="input.label"></label>
     <date-picker
-      v-model="date"
+      v-model="input.date"
       :lang="lang"
       width="100%"
       range
@@ -20,20 +20,15 @@
   export default {
 
     props: {
-      select: {
-        type: Array,
-        required: true
-      },
-
-      label: {
-        type: String,
+      input: {
+        type: Object,
         required: true
       }
     },
 
     data() {
       return {
-        date: this.select,
+        date: this.input.select,
         shortcuts: [
           {
             text: 'Today',
@@ -55,7 +50,7 @@
 
     methods: {
       updateValue() {
-        this.$emit(UPDATE_FILTER_SELECT_VALUE, this.date)
+        this.$store.commit(UPDATE_FILTER_SELECT_VALUE, {select: this.date, name: this.input.name})
       }
     },
 

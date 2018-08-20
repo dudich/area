@@ -7,19 +7,9 @@
             <h2 class="event-details__caption mt-1" v-html="caption"></h2>
             <stage-list class="mb-5"></stage-list>
             <v-layout class="pt-4" row wrap>
-              <v-flex class="mb-4" xs12 sm6 md3 offset-md2>
-                <filter-select
-                  class="pa-2"
-                  :select="select.event"
-                  :items="items.selectEvent"
-                  :label="labels.selectEvent"
-                ></filter-select>
-              </v-flex>
               <v-flex class="mb-4" xs12 sm6 md4>
                 <select-date
-                  class="pa-2"
-                  :select="select.date"
-                  :label="labels.selectDate"
+                  :input="filters.date"
                 ></select-date>
               </v-flex>
               <v-flex class="mb-4" xs3 sm2 md1 offset-xs3 offset-sm5 offset-md0>
@@ -28,20 +18,10 @@
             </v-layout>
             <v-layout row wrap>
               <v-flex class="mb-4" xs12 sm6 md3 offset-md2>
-                <filter-select
-                  class="pa-2"
-                  :select="select.time"
-                  :items="items.selectTime"
-                  :label="labels.selectTime"
-                ></filter-select>
+                <filter-select class="pa-2" :input="filters.time"></filter-select>
               </v-flex>
               <v-flex class="mb-4" xs12 sm6 md5>
-                <filter-select
-                  class="pa-2"
-                  :select="select.layout"
-                  :items="items.selectLayout"
-                  :label="labels.selectLayout"
-                ></filter-select>
+                <filter-select class="pa-2" :input="filters.layout"></filter-select>
               </v-flex>
             </v-layout>
             <v-btn class="btn btn-large bg-blue" dark round @click="findVenue">FIND VENUE</v-btn>
@@ -54,10 +34,9 @@
 </template>
 
 <script>
-  import {FILTER_PROPERTIES} from "../store/actionTypes";
   import StageList from '../components/StageList'
   import bgImage from '../assets/event-details-bg.png'
-  import FilterSelect from '../components/Controlers/CustomSelect'
+  import FilterSelect from '../components/Controlers/FilterSelect'
   import SelectDate from '../components/Controlers/SelectDate'
   import InputCapacity from '../components/Controlers/InputCapacity'
 
@@ -67,24 +46,13 @@
     data() {
       return {
         bgImage,
-        caption: 'Tailored Solutions for Your Event',
-
-        labels: {
-          selectEvent: 'Select Event',
-          selectDate: 'Select Date',
-          selectTime: 'Select Time',
-          selectLayout: 'Select Layout'
-        }
+        caption: 'Tailored Solutions for Your Event'
       }
     },
 
     computed: {
-      select() {
-        return this.$store.getters.filtersSelect
-      },
-
-      items() {
-        return this.$store.getters.filtersItems;
+      filters() {
+        return this.$store.getters.filters
       }
     },
 

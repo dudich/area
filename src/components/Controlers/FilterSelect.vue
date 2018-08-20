@@ -12,10 +12,10 @@
 </template>
 
 <script>
-  import {UPDATE_SELECT_VALUE} from "../../store/actionTypes";
+  import {UPDATE_FILTER_SELECT_VALUE} from "../../store/actionTypes";
 
   export default {
-    name: 'custom-select',
+    name: 'filter-select',
 
     props: {
       input: {
@@ -32,7 +32,7 @@
 
     methods: {
       updateValue() {
-        this.$store.commit(UPDATE_SELECT_VALUE, {select: this.state, name: this.input.name})
+        this.$store.commit(UPDATE_FILTER_SELECT_VALUE, {select: this.state, name: this.input.name})
       }
     }
   }
@@ -45,13 +45,13 @@
   .select-package {
     .select-control {
       .v-select__selections {
-        padding-top: 0 !important;
+        padding-top: 0!important;
         color: #fff;
       }
 
       .v-label {
         top: -30px;
-        color: #fff !important;
+        color: #fff!important;
 
         &--active {
           transform: none;
@@ -59,7 +59,7 @@
       }
 
       .v-icon {
-        color: #fff !important;
+        color: #fff!important;
       }
     }
   }
@@ -67,7 +67,7 @@
   .event-details {
     .select-control {
       .v-input__slot {
-        border-color: rgba(255, 255, 255, .8) !important;
+        border-color: rgba(255, 255, 255, .8)!important;
       }
     }
   }
@@ -77,7 +77,7 @@
       .v-input__slot {
         height: 50px;
         min-height: auto;
-        border: none !important;
+        border: none!important;
         background-color: rgba(255, 255, 255, .1) !important;
 
         .v-input__append-inner {

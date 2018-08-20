@@ -26,8 +26,11 @@
               ></required-action>
             </v-layout>
             <v-layout row>
-              <v-flex xs12 sm6>
-                <arrival-time></arrival-time>
+              <v-flex xs6>
+                <custom-input :input="arrivalTime"></custom-input>
+              </v-flex>
+              <v-flex xs6 sm4>
+                <custom-select></custom-select>
               </v-flex>
             </v-layout>
           </v-flex>
@@ -49,7 +52,8 @@
   import BookerDetails from './BookerDetails'
   import ContactsOnSite from './ContacsOnSite'
   import RequiredAction from './RequiredAction'
-  import ArrivalTime from './ArrivalTime'
+  import CustomInput from '../../components/Controlers/CustomInput'
+  import CustomSelect from '../../components/Controlers/CustomSelect'
   import BookTexarea from './BookTextarea'
 
   export default {
@@ -146,8 +150,14 @@
           },
         },
 
-        siteInspection: 'no',
-        accommodation: 'no',
+        arrivalTime: {
+          value: '',
+          placeholder: 'Arrival Time',
+          iconClass: 'fas fa-star-of-life'
+        },
+
+        siteInspection: '',
+        accommodation: '',
         siteInspectionCaption: ' Site Inspection Required?',
         accommodationCaption: 'Accommodation Required?'
       }
@@ -166,7 +176,8 @@
       BookerDetails,
       ContactsOnSite,
       RequiredAction,
-      ArrivalTime,
+      CustomInput,
+      CustomSelect,
       BookTexarea
     }
   }

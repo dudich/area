@@ -60,7 +60,9 @@
 </template>
 
 <script>
-
+ export default {
+   name: 'hold-form'
+ }
 </script>
 
 <style lang="scss">

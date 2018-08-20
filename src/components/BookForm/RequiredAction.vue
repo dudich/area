@@ -44,7 +44,7 @@
 
     data() {
       return {
-        selected: 'no',
+        selected: '',
         disappearNotification: false
       }
     },
@@ -69,7 +69,8 @@
   .required-action {
     position: relative;
     max-width: 145px;
-    padding-bottom: 60px;
+    padding-bottom: 20px;
+    margin-bottom: 12px;
 
     &__caption {
       line-height: 16px;
@@ -79,6 +80,7 @@
     &__notification {
       position: absolute;
       bottom: 0;
+      margin-bottom: 0;
       font-size: 11px;
     }
 
@@ -94,7 +96,7 @@
       width: 60px;
       height: 35px;
       border: 1px solid #000;
-      color: $grey;
+      color: #000;
       background-color: $light-gray;
       &:hover {
         border: 2px solid $blue;
