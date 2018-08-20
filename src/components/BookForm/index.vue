@@ -7,14 +7,10 @@
           <v-flex class="px-5 mb-4" xs12 sm6>
             <booker-details
               :details="bookerDetails"
-              :location="location"
-            ></booker-details>
+              :location="location">
+            </booker-details>
           </v-flex>
           <v-flex class="px-5 mb-4" xs12 sm6>
-            <contacts-on-site
-              :contacts="contactsOnSite"
-              :details="bookerDetails"
-            ></contacts-on-site>
             <v-layout row justify-space-between>
               <required-action
                 :caption="siteInspectionCaption"
@@ -41,14 +37,26 @@
                 ></custom-select>
               </v-flex>
             </v-layout>
-          </v-flex>
-        </v-layout>
-        <v-layout row>
-          <v-flex class="pr-2" xs12 sm6>
-            <book-texarea :placeholder="'How did you hear about us?'"></book-texarea>
-          </v-flex>
-          <v-flex class="pl-2" xs12 sm6>
-            <book-texarea :placeholder="'Comments'"></book-texarea>
+            <v-layout row>
+              <v-flex class="mt-5" xs12 sm8>
+                <custom-select
+                  :input="aboutUs"
+                  @UPDATE_SELECT_VALUE="updateAboutUs"
+                >
+                  <i class="fas fa-star-of-life"></i>
+                </custom-select>
+              </v-flex>
+            </v-layout>
+            <v-layout row>
+              <v-flex xs12>
+                <custom-texarea
+                  :value="comment"
+                  @UPDATE_INPUT_VALUE="updateComment"
+                >
+                  <i class="fas fa-pen"></i>
+                </custom-texarea>
+              </v-flex>
+            </v-layout>
           </v-flex>
         </v-layout>
       </v-container>
@@ -60,15 +68,18 @@
   import BookerDetails from './BookerDetails'
   import ContactsOnSite from './ContacsOnSite'
   import RequiredAction from './RequiredAction'
-  import CustomInput from '../../components/Controlers/CustomInput'
-  import CustomSelect from '../../components/Controlers/CustomSelect'
-  import BookTexarea from './BookTextarea'
+  import CustomInput from '../FormComponents/CustomInput'
+  import CustomSelect from '../FormComponents/CustomSelect'
+  import CustomTexarea from '../../components/FormComponents/CustomTextarea'
+
 
   export default {
     name: 'book-form',
 
     data() {
       return {
+        comment: '',
+
         bookerDetails: {
           name: {
             value: '',
@@ -92,7 +103,7 @@
           }
         },
 
-        contactsOnSite: {
+        /*contactsOnSite: {
           name: {
             value: '',
             placeholder: 'Name',
@@ -113,7 +124,7 @@
             placeholder: 'Phone Number-Mobile',
             iconClass: 'fas fa-phone-square'
           }
-        },
+        },*/
 
         location: {
           address: {
@@ -165,6 +176,12 @@
           placeholder: 'Arrival Time',
         },
 
+        aboutUs: {
+          select: '',
+          items: ['Booking.com', 'Expedia', 'Facebook', 'Internet', 'Referral'],
+          label: 'How did you hear about us?'
+        },
+
         siteInspection: '',
         accommodation: '',
         siteInspectionCaption: ' Site Inspection Required?',
@@ -184,6 +201,12 @@
       },
       updateArrivalTimeSelect(payload) {
         this.arrivalTime = {...this.arrivalTime, select: payload}
+      },
+      updateAboutUs(payload) {
+        this.aboutUs.select = payload
+      },
+      updateComment(payload) {
+        this.comment = payload
       }
     },
 
@@ -193,7 +216,7 @@
       RequiredAction,
       CustomInput,
       CustomSelect,
-      BookTexarea
+      CustomTexarea
     }
   }
 </script>

@@ -65,7 +65,7 @@
 
     .v-label {
       top: -30px;
-      color: #fff !important;
+      color: #000 !important;
 
       &--active {
         transform: none;

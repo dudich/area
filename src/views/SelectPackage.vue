@@ -31,9 +31,9 @@
 <script>
   import StageList from '../components/StageList'
   import PropertiesList from '../components/PropertiesList'
-  import FilterSelect from '../components/Controlers/FilterSelect'
-  import SelectDate from '../components/Controlers/SelectDate'
-  import InputCapacity from '../components/Controlers/InputCapacity'
+  import FilterSelect from '../components/FormComponents/FilterSelect'
+  import SelectDate from '../components/FormComponents/SelectDate'
+  import InputCapacity from '../components/FormComponents/InputCapacity'
   import Modal from '../components/Modal'
   import GalleryCarousel from '../components/PropertiesList/PropertyGallery/GalleryCarousel'
 

@@ -36,9 +36,9 @@
 <script>
   import StageList from '../components/StageList'
   import bgImage from '../assets/event-details-bg.png'
-  import FilterSelect from '../components/Controlers/FilterSelect'
-  import SelectDate from '../components/Controlers/SelectDate'
-  import InputCapacity from '../components/Controlers/InputCapacity'
+  import FilterSelect from '../components/FormComponents/FilterSelect'
+  import SelectDate from '../components/FormComponents/SelectDate'
+  import InputCapacity from '../components/FormComponents/InputCapacity'
 
   export default {
     name: 'event-details',

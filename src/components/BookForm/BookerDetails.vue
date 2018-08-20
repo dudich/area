@@ -25,8 +25,8 @@
 </template>
 
 <script>
-  import CustomInput from '../../components/Controlers/CustomInput'
-  import AutocompleteInput from '../../components/Controlers/AutocompleteInput'
+  import CustomInput from '../FormComponents/CustomInput'
+  import AutocompleteInput from '../FormComponents/AutocompleteInput'
 
   export default {
     name: 'booker-details',

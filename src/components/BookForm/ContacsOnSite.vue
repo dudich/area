@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  import CustomInput from '../../components/Controlers/CustomInput'
+  import CustomInput from '../FormComponents/CustomInput'
 
   export default {
     name: 'contacts-on-site',
