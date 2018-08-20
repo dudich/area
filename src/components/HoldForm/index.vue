@@ -6,52 +6,31 @@
         <v-layout row wrap>
           <v-flex class="px-5 mb-4" xs12 sm6>
             <h4 class="hold-form-caption">Booker Details</h4>
-            <div class="hold-input">
-              <v-text-field
-                placeholder="Booker Name"
-                single-line
-                solo
-              ></v-text-field>
-              <i class="fas fa-user"></i>
-            </div>
-            <div class="hold-input">
-              <v-text-field
-                class="hold-input"
-                placeholder="Email"
-                single-line
-                solo
-              ></v-text-field>
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="hold-input">
-              <v-text-field
-                class="hold-input"
-                placeholder="Phone Number-Day"
-                single-line
-                solo
-              ></v-text-field>
-              <i class="fas fa-phone-square"></i>
-            </div>
-            <div class="hold-input">
-              <v-text-field
-                class="hold-input"
-                placeholder="Phone Number-Mobile"
-                single-line
-                solo
-              ></v-text-field>
-              <i class="fas fa-phone-square"></i>
-            </div>
+            <custom-input v-for="(input, key) in details" :key="key" :input="input">
+              <i :class="input.iconClass"></i>
+            </custom-input>
           </v-flex>
-          <v-flex class="px-5 mb-4" xs12 sm6>
-            <h4 class="hold-form-caption">Booker Comments</h4>
-            <div class="hold-input hold-textarea">
-              <v-textarea
-                class="hold-input"
-                placeholder="Comments"
-                solo
-              ></v-textarea>
-              <i class="fas fa-pen"></i>
-            </div>
+          <v-flex class="px-5 mb-4 mt-4" xs12 sm6>
+            <v-layout row>
+              <v-flex class="mt-4" xs12 sm10>
+                <custom-select
+                  :input="aboutUs"
+                  @UPDATE_SELECT_VALUE="updateAboutUs"
+                >
+                  <i class="fas fa-star-of-life"></i>
+                </custom-select>
+              </v-flex>
+            </v-layout>
+            <v-layout row>
+              <v-flex xs12>
+                <custom-textarea
+                  :value="comment"
+                  @UPDATE_INPUT_VALUE="updateComment"
+                >
+                  <i class="fas fa-pen"></i>
+                </custom-textarea>
+              </v-flex>
+            </v-layout>
           </v-flex>
         </v-layout>
       </v-container>
@@ -60,14 +39,64 @@
 </template>
 
 <script>
- export default {
-   name: 'hold-form'
- }
+  import CustomInput from '../../components/FormComponents/CustomInput'
+  import CustomSelect from '../../components/FormComponents/CustomSelect'
+  import CustomTextarea from '../../components/FormComponents/CustomTextarea'
+
+  export default {
+    name: 'hold-form',
+
+    data() {
+      return {
+        details: {
+          name: {
+            value: '',
+            placeholder: 'Name',
+            iconClass: 'fas fa-user'
+          },
+          email: {
+            value: '',
+            placeholder: 'Email',
+            iconClass: 'fas fa-envelope'
+          },
+          phoneDay: {
+            value: '',
+            placeholder: 'Phone Number-Day',
+            iconClass: 'fas fa-phone-square'
+          },
+          phoneMobile: {
+            value: '',
+            placeholder: 'Phone Number-Mobile',
+            iconClass: 'fas fa-phone-square'
+          }
+        },
+        aboutUs: {
+          select: '',
+          items: ['Booking.com', 'Expedia', 'Facebook', 'Internet', 'Referral'],
+          label: 'How did you hear about us?'
+        },
+        comment: ''
+      }
+    },
+
+    methods: {
+      updateAboutUs(payload) {
+        this.aboutUs.select = payload
+      },
+      updateComment(payload) {
+        this.comment = payload
+      }
+    },
+
+    components: {
+      CustomInput,
+      CustomSelect,
+      CustomTextarea
+    }
+  }
 </script>
 
 <style lang="scss">
-  @import "../../styles/variables";
-
   .hold-caption {
     margin: {
       top: 25px;
@@ -85,59 +114,5 @@
     font-size: 18px;
     font-weight: 400;
     text-align: left;
-  }
-
-  .hold-input {
-    position: relative;
-
-    .v-input__slot {
-      border: 2px solid #000;
-      border-radius: 0 !important;
-      background-color: $light-gray !important;
-
-      input {
-        color: $grey;
-
-        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-          color: $grey;
-          opacity: 1; /* Firefox */
-        }
-        &::-ms-input-placeholder { /* Microsoft Edge */
-          color: $grey;
-        }
-      }
-    }
-
-    i {
-      position: absolute;
-      top: 10px;
-      left: -35px;
-      font-size: 28px;
-      color: #000;
-    }
-  }
-
-  .hold-textarea {
-    height: 85%;
-
-    .hold-input {
-      height: 100%;
-
-      .v-input__control {
-        height: 100%;
-
-        .v-input__slot {
-          height: 100%;
-
-          .v-text-field__slot {
-            height: 100%;
-
-            textarea {
-              height: 100%;
-            }
-          }
-        }
-      }
-    }
   }
 </style>

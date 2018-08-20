@@ -30,7 +30,7 @@
     text-align: left;
 
     .payment-info__caption {
-      font-size: 16px;
+      font-size: 18px;
     }
   }
 </style>

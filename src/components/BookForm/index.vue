@@ -5,12 +5,29 @@
         <h3 class="book-caption">Book and Confirm</h3>
         <v-layout row wrap>
           <v-flex class="px-5 mb-4" xs12 sm6>
-            <booker-details
-              :details="bookerDetails"
-              :location="location">
-            </booker-details>
+            <h4 class="book-form-caption">Booker Details</h4>
+            <custom-input v-for="(input, key) in details" :key="key" :input="input">
+              <i :class="input.iconClass"></i>
+            </custom-input>
+            <autocomplete-input :input="location.address">
+              <i class="fas fa-map-marker-alt"></i>
+            </autocomplete-input>
+            <v-layout row wrap>
+              <v-flex class="pr-1" sm6 xs12>
+                <autocomplete-input :input="location.country"></autocomplete-input>
+              </v-flex>
+              <v-flex class="pl-1" sm6 xs12>
+                <autocomplete-input :input="location.city"></autocomplete-input>
+              </v-flex>
+              <v-flex class="pr-1" sm6 xs12>
+                <autocomplete-input :input="location.state"></autocomplete-input>
+              </v-flex>
+              <v-flex class="pl-1" sm6 xs12>
+                <autocomplete-input :input="location.zip"></autocomplete-input>
+              </v-flex>
+            </v-layout>
           </v-flex>
-          <v-flex class="px-5 mb-4" xs12 sm6>
+          <v-flex class="px-5 mb-4 mt-4" xs12 sm6>
             <v-layout row justify-space-between>
               <required-action
                 :caption="siteInspectionCaption"
@@ -38,7 +55,7 @@
               </v-flex>
             </v-layout>
             <v-layout row>
-              <v-flex class="mt-5" xs12 sm8>
+              <v-flex class="mt-4" xs12 sm10>
                 <custom-select
                   :input="aboutUs"
                   @UPDATE_SELECT_VALUE="updateAboutUs"
@@ -65,12 +82,12 @@
 </template>
 
 <script>
-  import BookerDetails from './BookerDetails'
   import ContactsOnSite from './ContacsOnSite'
   import RequiredAction from './RequiredAction'
   import CustomInput from '../FormComponents/CustomInput'
   import CustomSelect from '../FormComponents/CustomSelect'
   import CustomTexarea from '../../components/FormComponents/CustomTextarea'
+  import AutocompleteInput from '../FormComponents/AutocompleteInput'
 
 
   export default {
@@ -80,7 +97,7 @@
       return {
         comment: '',
 
-        bookerDetails: {
+        details: {
           name: {
             value: '',
             placeholder: 'Name',
@@ -211,12 +228,12 @@
     },
 
     components: {
-      BookerDetails,
       ContactsOnSite,
       RequiredAction,
       CustomInput,
       CustomSelect,
-      CustomTexarea
+      CustomTexarea,
+      AutocompleteInput
     }
   }
 </script>
@@ -228,5 +245,16 @@
       bottom: 25px;
     }
     font-size: 20px;
+  }
+
+  .book-form-caption {
+    margin: {
+      left: 5px;
+      bottom: 5px;
+    }
+  ;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: left;
   }
 </style>

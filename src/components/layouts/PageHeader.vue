@@ -54,8 +54,9 @@
       top: 15px;
       bottom: 15px;
     }
-    background-color: $dark-blue!important;
-    z-index: 1000!important;
+    background-color: $dark-blue !important;
+    z-index: 1000 !important;
+    box-shadow: none !important;
 
     .corp-sign-in {
       border: 1px solid #fff;
@@ -82,25 +83,25 @@
     }
 
     &__content {
-      height: 80px!important;
+      height: 80px !important;
     }
 
     .v-list {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: inherit!important;
+      background-color: inherit !important;
 
       &__tile {
         font-weight: 900;
         text-transform: capitalize;
         &:hover {
-          background: none!important;
-          color: $green!important;
+          background: none !important;
+          color: $green !important;
         }
 
         &--active {
-          color: $green!important;
+          color: $green !important;
         }
       }
     }

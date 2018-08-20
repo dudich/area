@@ -2,7 +2,7 @@
   <div class="custom-texarea">
     <v-textarea
       :placeholder="placeholder"
-      v-model="value"
+      v-model="state"
       :rows="9"
       solo
       @input="updateValue"
@@ -28,9 +28,15 @@
       }
     },
 
+    data() {
+      return {
+        state: this.value
+      }
+    },
+
     methods: {
       updateValue() {
-        this.$emit(UPDATE_INPUT_VALUE, this.value)
+        this.$emit(UPDATE_INPUT_VALUE, this.state)
       }
     }
   }

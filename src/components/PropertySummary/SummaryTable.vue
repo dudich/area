@@ -6,11 +6,11 @@
     </tr>
     <tr>
       <td>Extras</td>
-      <td class="text-green" v-text="`$${ extras }`"></td>
+      <td class="text-green" v-text="extras > 0 ? extras : '-'"></td>
     </tr>
     <tr>
       <td>Catering</td>
-      <td class="text-green" v-text="catering ? 'TBC' : '$0'"></td>
+      <td class="text-green" v-text="catering ? 'TBC' : '-'"></td>
     </tr>
     <tr>
       <td v-text="`Discount (${discountPercentage}%)`"></td>
@@ -66,7 +66,7 @@
     text-align: right;
 
     td {
-      font-size: 16px;
+      font-size: 18px;
       color: white;
     }
 

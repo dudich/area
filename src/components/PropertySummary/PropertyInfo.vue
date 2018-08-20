@@ -28,7 +28,7 @@
     text-align: left;
 
     p {
-      font-size: 16px;
+      font-size: 18px;
     }
   }
 </style>

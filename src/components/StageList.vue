@@ -1,7 +1,7 @@
 <template>
   <div class="booking-stages">
     <v-container>
-      <v-layout row wrap>
+      <v-layout row>
         <router-link
           class="back-link"
           to="/select-package"
@@ -58,5 +58,12 @@
       font-weight: bold;
       color: $blue;
     }
+  }
+
+  .back-link {
+    align-self: center;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
   }
 </style>
