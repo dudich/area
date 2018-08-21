@@ -48,7 +48,10 @@
     data() {
       return {
         selected: '',
-        showExtras: false
+        showExtras: false,
+        type: 'number',
+        duration: 300,
+        easing: 'easeInOutCubic',
       }
     },
 
@@ -74,6 +77,23 @@
         const arrOfChecked = this.extras.filter((item) => item.quantity > 0);
         const arrOfCost = arrOfChecked.map((item) => item.price * item.quantity);
         return +arrOfCost.reduce((acc, item) => acc + item, 0).toFixed(2);
+      },
+      target () {
+        const value = this[this.type];
+        if (!isNaN(value)) return Number(value);
+        else return value
+      },
+      options () {
+        return {
+          duration: this.duration,
+          easing: this.easing
+        }
+      },
+      offset() {
+        return this.$store.getters.offsetTop
+      },
+      number() {
+        return this.offset - 400
       }
     },
 
@@ -84,6 +104,7 @@
       addExtras() {
         this.$store.commit(CHANGE_EXTRAS_PRICE, {total: this.total, id: this.propertyId});
         EventBus.$emit(`UPDATE_EXTRA_PRICE_${this.propertyId}`);
+        this.$vuetify.goTo(this.target, this.options).then()
       },
       increaseExtraQuantity(id) {
         const index = this.extras.map((item) => item.id).indexOf(id);
