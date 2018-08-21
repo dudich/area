@@ -78,7 +78,7 @@
   .event-details {
     .input-capacity-container {
       .input-capacity {
-        height: 60px;
+        height: 56px;
         border: 2px solid rgba(255, 255, 255, 0.8);
 
         .v-text-field__details {

@@ -1,9 +1,15 @@
 export default {
   state: {
-    date: {
-      items: [],
-      label: 'Select Date',
-      name: 'select-date'
+    eventStart: {
+      label: 'Event Start',
+      name: 'event-start',
+      placeholder: 'Select date and time'
+    },
+
+    eventEnd: {
+      label: 'Event End',
+      name: 'event-end',
+      placeholder: 'Select date and time'
     },
 
     time: {
@@ -37,8 +43,11 @@ export default {
   mutations: {
     'UPDATE_FILTER_SELECT_VALUE'(state, payload) {
       switch (payload.name) {
-        case 'select-date':
-          state.date.select = payload.select;
+        case 'select-start':
+          state.eventStart.select = payload.select;
+          break;
+        case 'select-end':
+          state.eventEnd.select = payload.select;
           break;
         case 'select-time':
           state.time.select = payload.select;

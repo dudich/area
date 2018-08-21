@@ -9,12 +9,12 @@
             <v-layout class="pt-4" row wrap>
               <v-flex class="mb-5 px-2" xs12 sm5 offset-xs0 offset-sm1>
                 <select-date
-                  :input="filters.date"
+                  :input="filters.eventStart"
                 ></select-date>
               </v-flex>
               <v-flex class="mb-5 px-2" xs12 sm5>
                 <select-date
-                  :input="filters.date"
+                  :input="filters.eventEnd"
                 ></select-date>
               </v-flex>
             </v-layout>

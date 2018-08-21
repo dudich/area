@@ -3,11 +3,12 @@
     <label class="datepicker-label" for="datePicker" v-text="input.label"></label>
     <date-picker
       v-model="input.date"
-      :lang="lang"
+      lang="en"
       width="100%"
-      range
-      :shortcuts="shortcuts"
-      :not-before="new Date()"
+      type="datetime"
+      format="YYYY-MM-DD hh:mm:ss a"
+      :minute-step="10"
+      :placeholder="input.placeholder"
       @change="updateValue"
       id="datePicker"></date-picker>
   </div>
@@ -29,22 +30,6 @@
     data() {
       return {
         date: this.input.select,
-        shortcuts: [
-          {
-            text: 'Today',
-            onClick: () => {
-              this.date = [new Date(), new Date()]
-            }
-          }
-        ],
-        lang: {
-          days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-          months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-          pickers: ['next 7 days', 'next 30 days', 'previous 7 days', 'previous 30 days'],
-          placeholder: {
-            dateRange: 'Start Date ~ End Date'
-          }
-        }
       }
     },
 
@@ -104,7 +89,7 @@
   .event-details {
     .mx-datepicker {
       .mx-input {
-        height: 60px;
+        height: 56px;
         border: 2px solid rgba(256, 256, 256, .8);
         background-color: transparent;
       }

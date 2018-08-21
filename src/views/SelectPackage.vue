@@ -6,16 +6,19 @@
             <stage-list :style="{ border: '1px solid white' }"></stage-list>
             <v-layout class="pt-5 select-package__container" row wrap>
               <v-flex xs12 sm6 md3>
-                <select-date class="pa-2" :input="filters.date"></select-date>
+                <select-date class="pa-2" :input="filters.eventStart"></select-date>
+              </v-flex>
+              <v-flex xs12 sm6 md3>
+                <select-date class="pa-2" :input="filters.eventEnd"></select-date>
+              </v-flex>
+              <v-flex xs12 sm6 md3>
+                <filter-select class="pa-2" :input="filters.layout"></filter-select>
               </v-flex>
               <v-flex xs3 sm2 md1>
                 <input-capacity class="ma-2"></input-capacity>
               </v-flex>
-              <v-flex xs12 sm6 md3>
-                <filter-select class="pa-2" :input="filters.time"></filter-select>
-              </v-flex>
-              <v-flex xs12 sm6 md3>
-                <filter-select class="pa-2" :input="filters.layout"></filter-select>
+              <v-flex xs3 sm2 md2>
+                <v-btn class="btn bg-blue no-text-transform mt-2" dark round>Get Rooms</v-btn>
               </v-flex>
             </v-layout>
             <properties-list :properties="properties" :extras="extras"></properties-list>
