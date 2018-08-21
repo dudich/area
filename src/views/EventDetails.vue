@@ -7,35 +7,38 @@
             <h2 class="event-details__caption mt-1" v-html="caption"></h2>
             <stage-list class="mb-5"></stage-list>
             <v-layout class="pt-4" row wrap>
-              <v-flex class="mb-4" xs12 sm6 md4>
+              <v-flex class="mb-5 px-2" xs12 sm5 offset-xs0 offset-sm1>
                 <select-date
                   :input="filters.date"
                 ></select-date>
               </v-flex>
-              <v-flex class="mb-4" xs3 sm2 md1 offset-xs3 offset-sm5 offset-md0>
-                <input-capacity class="ma-2"></input-capacity>
+              <v-flex class="mb-5 px-2" xs12 sm5>
+                <select-date
+                  :input="filters.date"
+                ></select-date>
               </v-flex>
             </v-layout>
             <v-layout row wrap>
-              <v-flex class="mb-4" xs12 sm6 md3 offset-md2>
-                <filter-select class="pa-2" :input="filters.time"></filter-select>
-              </v-flex>
-              <v-flex class="mb-4" xs12 sm6 md5>
+              <v-flex class="mb-4" xs12 sm5 offset-xs0 offset-sm1>
                 <filter-select class="pa-2" :input="filters.layout"></filter-select>
+              </v-flex>
+              <v-flex class="mb-4" xs2 sm1>
+                <input-capacity class="ma-2"></input-capacity>
               </v-flex>
             </v-layout>
             <v-btn class="btn btn-large bg-blue" dark round @click="findVenue">FIND VENUE</v-btn>
           </div>
-          <div class="overlay"></div>
+
         </div>
       </v-flex>
     </v-container>
+    <div class="overlay"></div>
   </div>
 </template>
 
 <script>
   import StageList from '../components/StageList'
-  import bgImage from '../assets/event-details-bg.png'
+  import bgImage from '../assets/event-details-bg.jpg'
   import FilterSelect from '../components/FormComponents/FilterSelect'
   import SelectDate from '../components/FormComponents/SelectDate'
   import InputCapacity from '../components/FormComponents/InputCapacity'
@@ -77,14 +80,15 @@
   }
 
   .event-details {
+    position: relative;
 
     &__filters {
-      position: relative;
       height: 100%;
       padding: 20px;
       background: {
         repeat: no-repeat;
-        size: cover;
+        size: 100% auto;
+        position: center;
       }
     }
 
