@@ -100,10 +100,12 @@
   }
 
   .thumbnail-image {
-    flex: 0 0 110px;
+    flex: 0 0 25%;
     align-items: center;
     cursor: pointer;
-    margin-right: 6px;
+    &:not(:last-of-type) {
+      padding-right: 6px;
+    }
   }
 
   .thumbnail-image > img {
@@ -134,7 +136,7 @@
     font-size: 1.5em;
     height: 40px;
     position: absolute;
-    top: -12%;
+    top: -34px;
     margin-top: -20px;
     width: 100%;
     display: flex;

@@ -45,25 +45,28 @@
 <style lang="scss" scoped>
   @import '../styles/variables';
 
-  .booking-stage {
-    margin: {
-      top: 16px;
-      bottom: 16px;
-    }
-    font-size: 26px;
-    font-weight: 400;
-    color: white;
+  .booking-stages {
 
-    &.active {
-      font-weight: bold;
-      color: $blue;
-    }
-  }
+    .booking-stage {
+      margin: {
+        top: 16px;
+        bottom: 16px;
+      }
+      font-size: 26px;
+      font-weight: 400;
+      color: white;
 
-  .back-link {
-    align-self: center;
-    font-size: 16px;
-    text-decoration: none;
-    color: #fff;
+      &.active {
+        font-weight: bold;
+        color: $blue;
+      }
+    }
+
+    .back-link {
+      align-self: center;
+      font-size: 16px;
+      text-decoration: none;
+      color: #fff;
+    }
   }
 </style>

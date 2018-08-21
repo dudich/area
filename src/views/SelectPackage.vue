@@ -3,7 +3,7 @@
       <v-container>
         <v-layout row>
           <v-flex xl8 offset-xl2>
-            <stage-list></stage-list>
+            <stage-list :style="{ border: '1px solid white' }"></stage-list>
             <v-layout class="pt-5 select-package__container" row wrap>
               <v-flex xs12 sm6 md3>
                 <select-date class="pa-2" :input="filters.date"></select-date>
@@ -19,7 +19,7 @@
               </v-flex>
             </v-layout>
             <properties-list :properties="properties" :extras="extras"></properties-list>
-            <modal>
+            <modal :width="800">
               <gallery-carousel></gallery-carousel>
             </modal>
           </v-flex>

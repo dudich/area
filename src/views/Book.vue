@@ -15,7 +15,7 @@
         ></property-summary>
       </v-flex>
     </v-layout>
-    <modal>
+    <modal :width="500">
       <ConfirmModalContent
         :terms="terms"
         :caption="'Payment'"

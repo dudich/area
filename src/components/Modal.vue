@@ -1,9 +1,6 @@
 <template>
   <div class="text-xs-center">
-    <v-dialog
-      v-model="dialog"
-      width="500"
-    >
+    <v-dialog v-model="dialog" :width="width">
       <slot></slot>
     </v-dialog>
   </div>
@@ -19,6 +16,13 @@
 
   export default {
     name: 'modal',
+
+    props: {
+      width: {
+        type: Number,
+        required: true
+      }
+    },
 
     data () {
       return {
@@ -43,7 +47,7 @@
     background-color: $dark-blue;
 
     &__content {
-      top: 80px;
+      top: 70px;
     }
   }
 </style>
