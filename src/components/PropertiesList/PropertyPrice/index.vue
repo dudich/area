@@ -4,12 +4,22 @@
       <td class="text">Room Hire Cost</td>
       <td class="count">${{ property.price }}</td>
     </tr>
-    <tr class="price-extras">
-      <td class="text">Extras</td>
-      <td class="count" v-text="property.extras > 0 ? property.extras : '-'"></td>
-    </tr>
-    <catering :catering="property.catering" :propertyId="property.id"></catering>
-    <catering-notification :catering="property.catering"></catering-notification>
+    <extra-price
+      :price="property.extrasPrice"
+      :propertyId="property.id"
+    ></extra-price>
+    <price-notification
+      :price="property.extrasPrice"
+      :notificationText="'You add extras, total price updated'"
+    ></price-notification>
+    <catering
+      :catering="property.catering"
+      :propertyId="property.id"
+    ></catering>
+    <price-notification
+      :catering="property.catering"
+      :notificationText="'We will contact tou to discuss details about catering options'"
+    ></price-notification>
     <tr class="price-total">
       <td class="text text-green">Total</td>
       <td class="count text-green">${{ totalPrice(property) }}</td>
@@ -19,7 +29,8 @@
 
 <script>
   import Catering from './Catering'
-  import CateringNotification from './CateringNotification'
+  import ExtraPrice from './ExtraPrice'
+  import PriceNotification from './PriceNotification'
 
   export default {
     name: 'PropertyPrice',
@@ -37,9 +48,16 @@
       }
     },
 
+    data() {
+      return {
+
+      }
+    },
+
     components: {
       Catering,
-      CateringNotification
+      ExtraPrice,
+      PriceNotification
     }
   }
 </script>

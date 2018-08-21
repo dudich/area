@@ -13,17 +13,16 @@
       >
         <i class="fas fa-plus text-light-green"></i>
       </div>
-      <div class="icon-container" @click="handleOnCheck(extra.id)">
+      <div class="icon-container" :class="{ active: selected === extra.id }" @click="handleOnSelect(extra.id)">
         <img :src="iconPath" alt="icon">
       </div>
     </div>
-    <p class="extras-name">{{ extra.name }}</p>
   </li>
 </template>
 
 <script>
   import {
-    EXTRA_CHECKED,
+    EXTRA_SELECTED,
     INCREASE_EXTRA_QUANTITY,
     DECREASE_EXTRA_QUANTITY
   } from "../../store/actionTypes";
@@ -53,14 +52,14 @@
     },
 
     methods: {
-      handleOnCheck(id) {
-        this.$emit(EXTRA_CHECKED, id);
+      handleOnSelect(payload) {
+        this.$emit(EXTRA_SELECTED, payload)
       },
       increaseExtraQuantity(id) {
-        this.$emit(INCREASE_EXTRA_QUANTITY, id);
+        this.$emit(INCREASE_EXTRA_QUANTITY, id)
       },
       decreaseExtraQuantity(id) {
-        this.$emit(DECREASE_EXTRA_QUANTITY, id);
+        this.$emit(DECREASE_EXTRA_QUANTITY, id)
       }
     }
   }
@@ -73,12 +72,10 @@
     &-item {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       align-items: center;
       margin: 10px 35px 0;
     }
 
-    &-name,
     &-price {
       max-width: 100px;
       margin-bottom: 5px;
@@ -97,8 +94,14 @@
         justify-content: center;
         width: 100px;
         height: 100px;
-        border: 1px solid $green;
+        border: 1px solid black;
         border-radius: 5px;
+        cursor: pointer;
+
+        &:hover,
+        &.active {
+          border-color: $green;
+        }
       }
 
       img {

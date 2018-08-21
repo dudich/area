@@ -65,11 +65,6 @@
         width: 20px;
         height: 20px;
       }
-
-      .opacity {
-        opacity: 0;
-        transition: 2s;
-      }
     }
 
     .count {

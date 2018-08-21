@@ -2,6 +2,10 @@
   <table class="extras-table">
     <tbody>
     <tr>
+      <td></td>
+      <td class="extras-name" v-for="extra in extras">{{ extra.name }}</td>
+    </tr>
+    <tr>
       <td>Quantity</td>
       <td class="text-green" v-for="extra in extras">{{ quantity(extra) }}</td>
     </tr>
@@ -32,27 +36,31 @@
 
     methods: {
       quantity(extra) {
-        return this.checked.indexOf(extra.id) !== -1 ? extra.quantity : '-';
+        return extra.quantity > 0 ? extra.quantity : '-';
       },
       unitePrice(extra) {
-        return this.checked.indexOf(extra.id) !== -1 ? `$ ${ extra.price }` : '-';
+        return extra.quantity > 0 ? `$ ${ extra.price }` : '-';
       },
       cost(extra) {
-        return this.checked.indexOf(extra.id) !== -1 ? `$ ${ extra.quantity * extra.price }` : '-';
-      },
-
+        return extra.quantity > 0 ? `$ ${ (extra.quantity * extra.price).toFixed(2) }` : '-';
+      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
   .extras {
+    &-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
 
     &-table {
       width: 100%;
       border-collapse: collapse;
 
-      tr {
+      tr:not(:first-of-type) {
         border-top: 2px solid white;
       }
 
@@ -63,7 +71,7 @@
         font-weight: 700;
 
         &:first-of-type {
-          width: 10%;
+          width: 8%;
           font-size: 14px;
           color: white;
         }

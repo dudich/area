@@ -72,7 +72,7 @@
     }
 
     ul {
-      padding: 0;
+      padding-left: 0;
       margin: 0;
       li {
         list-style: none;

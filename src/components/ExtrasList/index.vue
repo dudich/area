@@ -2,25 +2,30 @@
   <v-slide-y-transition>
     <v-card class="extras-card bg-dark-blue" v-if="showExtras">
       <extras-header :total="total" :propertyId="propertyId" :addExtras="addExtras"></extras-header>
+      <p class="extras-description" :class="{opacity: !selected}">{{ selected ? description : 'default' }}</p>
       <ul class="extras-list">
         <extras-item
           v-for="extra in extras"
           :key="extra.id"
           :extra="extra"
-          :checked="checked"
-          @EXTRA_CHECKED="updateChecked"
+          :selected="selected"
+          @EXTRA_SELECTED="updateSelected"
           @INCREASE_EXTRA_QUANTITY="increaseExtraQuantity"
           @DECREASE_EXTRA_QUANTITY="decreaseExtraQuantity"
         >
         </extras-item>
       </ul>
-      <extras-table :extras="extras" :checked="checked"></extras-table>
+      <extras-table :extras="extras"></extras-table>
     </v-card>
   </v-slide-y-transition>
 </template>
 
 <script>
-  import {SHOW_EXTRAS, HIDE_EXTRAS} from "../../store/actionTypes";
+  import {
+    SHOW_EXTRAS,
+    HIDE_EXTRAS,
+    CHANGE_EXTRAS_PRICE
+  } from "../../store/actionTypes";
   import ExtrasHeader from './ExtrasHeader'
   import ExtrasTable from './ExtrasTable'
   import ExtrasItem from './ExtrasItem'
@@ -42,7 +47,7 @@
 
     data() {
       return {
-        checked: [],
+        selected: '',
         showExtras: false
       }
     },
@@ -61,24 +66,24 @@
     },
 
     computed: {
+      description() {
+        const index = this.findIndexByKey(this.extras, 'id', this.selected);
+        return this.extras[index].description;
+      },
       total() {
-        const arrOfChecked = this.extras.filter((item) => this.checked.indexOf(item.id) !== -1);
+        const arrOfChecked = this.extras.filter((item) => item.quantity > 0);
         const arrOfCost = arrOfChecked.map((item) => item.price * item.quantity);
         return +arrOfCost.reduce((acc, item) => acc + item, 0).toFixed(2);
       }
     },
 
     methods: {
-      updateChecked(id) {
-        const index = this.checked.indexOf(id);
-        if (index === -1) {
-          this.checked.push(id);
-        } else {
-          this.checked.splice(index, 1);
-        }
+      updateSelected(id) {
+        this.selected = id;
       },
       addExtras() {
-        this.$store.commit('CHANGE_EXTRAS_PRICE', {total: this.total, id: this.propertyId});
+        this.$store.commit(CHANGE_EXTRAS_PRICE, {total: this.total, id: this.propertyId});
+        EventBus.$emit(`UPDATE_EXTRA_PRICE_${this.propertyId}`);
       },
       increaseExtraQuantity(id) {
         const index = this.extras.map((item) => item.id).indexOf(id);
@@ -102,16 +107,18 @@
   .extras {
 
     &-list {
+      position: relative;
       display: flex;
-      justify-content: flex-start;
-      max-width: 81%;
+      justify-content: center;
+      padding-top: 10px;
       margin: 0 auto !important;
     }
 
     &-description {
+      margin-top: 20px;
       font-size: 16px;
       color: white;
-      text-align: left;
+      text-align: center;
     }
   }
 </style>
