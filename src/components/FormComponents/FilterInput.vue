@@ -93,7 +93,7 @@
         border: 2px solid rgba(255, 255, 255, 0.8);
 
         .v-text-field__details {
-          top: 65px;
+          top: 50px;
         }
       }
     }
@@ -106,7 +106,7 @@
         background-color: rgba(255, 255, 255, .1);
 
         .v-text-field__details {
-          top: 40px;
+          top: 45px;
         }
       }
     }

@@ -115,12 +115,12 @@
         };
         width: 80px;
         height: 60px;
-        border: 1px solid #000;
-        background-color: rgba(255, 255, 255, .1);
+        border: 2px solid transparent;
+        background-color: transparent;
 
         :hover,
         &.active {
-          border-color: $green;
+          border-color: $blue;
         }
       }
 
