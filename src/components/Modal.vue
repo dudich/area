@@ -45,9 +45,5 @@
   .v-dialog {
     border-radius: 50px;
     background-color: $dark-blue;
-
-    &__content {
-      top: 70px;
-    }
   }
 </style>

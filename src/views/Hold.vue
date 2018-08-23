@@ -5,7 +5,6 @@
         <stage-list class="bg-dark-blue"></stage-list>
       </v-flex>
     </v-layout>
-    <component :is="currentView"></component>
     <v-layout class="bg-dark-blue" row>
       <v-flex xl6 offset-xl3>
         <property-summary
@@ -15,6 +14,7 @@
         ></property-summary>
       </v-flex>
     </v-layout>
+    <component :is="currentView"></component>
     <modal :width="500">
       <ConfirmModalContent
         :terms="terms"

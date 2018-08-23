@@ -1,5 +1,5 @@
 <template>
-  <v-layout class="confirm-dialog bg-dark-blue pt-5" row>
+  <v-layout class="confirm-dialog bg-dark-blue pb-5" row>
     <v-flex xl6 offset-xl3>
     <v-container>
       <v-layout align-center>
