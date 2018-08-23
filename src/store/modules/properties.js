@@ -468,9 +468,9 @@ export default {
       const index = state.map((item) => item.id).indexOf(payload.id);
       state[index].extrasPrice = payload.total;
     },
-    'ADD_CATERING'(state, payload) {
+    'CHANGE_CATERING'(state, payload) {
       const index = state.map((item) => item.id).indexOf(payload);
-      state[index].catering = true;
+      state[index].catering = !state[index].catering;
     }
   },
 

@@ -104,11 +104,12 @@
       addExtras() {
         this.$store.commit(CHANGE_EXTRAS_PRICE, {total: this.total, id: this.propertyId});
         EventBus.$emit(`UPDATE_EXTRA_PRICE_${this.propertyId}`);
-        this.$vuetify.goTo(this.target, this.options).then()
+        this.$vuetify.goTo(this.target, this.options).then();
+        EventBus.$emit(HIDE_EXTRAS, this.propertyId);
       },
       increaseExtraQuantity(id) {
         const index = this.extras.map((item) => item.id).indexOf(id);
-        ++this.extras[index].quantity
+        ++this.extras[index].quantity;
       },
       decreaseExtraQuantity(id) {
         const index = this.extras.map((item) => item.id).indexOf(id);

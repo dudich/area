@@ -2,15 +2,21 @@
   <tr class="catering">
     <td class="text">
       Catering
-      <v-btn class="btn bg-blue no-text-transform" dark round v-if="!catering" @click="addCatering">Add</v-btn>
-      <img src="../../../assets/icons/check-icon.png" alt="check-icon" v-if="catering" :class="{ opacity: disappear }">
+      <v-btn
+        class="btn bg-blue no-text-transform"
+        @click="changeCatering"
+        dark
+        round
+      >
+        {{ catering ? 'Remove' : 'Add' }}
+      </v-btn>
     </td>
     <td class="count">{{ catering ? 'Added' : '-' }}</td>
   </tr>
 </template>
 
 <script>
-  import {ADD_CATERING} from "../../../store/actionTypes";
+  import {CHANGE_CATERING} from "../../../store/actionTypes";
 
   export default {
     name: 'catering',
@@ -26,14 +32,10 @@
       }
     },
 
-    data: () => ({
-      disappear: false
-    }),
-
     methods: {
-      addCatering() {
-        this.$store.commit(ADD_CATERING, this.propertyId);
-        setTimeout(() => this.disappear = true, 1000);
+      changeCatering() {
+        this.$store.commit(CHANGE_CATERING, this.propertyId);
+        EventBus.$emit(`CHANGE_CATERING_${this.propertyId}`);
       }
     }
   }
@@ -57,13 +59,6 @@
         position: absolute;
         top: -7px;
         left: -20px;
-      }
-
-      img {
-        position: absolute;
-        left: 80px;
-        width: 20px;
-        height: 20px;
       }
     }
 

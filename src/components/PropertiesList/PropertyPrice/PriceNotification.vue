@@ -1,6 +1,11 @@
 <template>
-  <tr v-if="catering || price > 0">
-    <td class="price-notification text-notification"  v-text="notificationText" colspan="2"></td>
+  <tr>
+    <td
+      class="price-notification text-notification"
+      colspan="2"
+      >
+    <slot></slot>
+    </td>
   </tr>
 </template>
 
@@ -8,20 +13,15 @@
   export default {
     name: 'price-notification',
 
-    props: {
-      catering: {
-        type: Boolean,
-        default: false
-      },
-      price: {
-        type: Number,
-        default: 0
-      },
-      notificationText: {
-        type: String,
-        required: true
+    data() {
+      return {
+        catering: false,
+        extraAdd: false,
+        disappear: false
       }
-    }
+    },
+
+
   }
 </script>
 

@@ -21,7 +21,7 @@
                 ></filter-input>
               </v-flex>
               <v-flex xs3 sm2 md2>
-                <v-btn class="btn bg-blue no-text-transform mt-2" dark round>Get Rooms</v-btn>
+                <loader-button class="mt-3">Get Rooms</loader-button>
               </v-flex>
             </v-layout>
             <properties-list :properties="properties" :extras="extras"></properties-list>
@@ -42,6 +42,7 @@
   import FilterInput from '../components/FormComponents/FilterInput'
   import Modal from '../components/Modal'
   import GalleryCarousel from '../components/PropertiesList/PropertyGallery/GalleryCarousel'
+  import LoaderButton from '../components/Buttons/LoaderButton'
 
 
   export default {
@@ -66,7 +67,8 @@
       SelectDate,
       FilterInput,
       Modal,
-      GalleryCarousel
+      GalleryCarousel,
+      LoaderButton
     }
   }
 </script>
