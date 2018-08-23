@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import {UPDATE_FILTER_SELECT_VALUE} from "../../store/actionTypes";
+  import {UPDATE_FILTER_VALUE} from "../../store/actionTypes";
 
   export default {
     name: 'filter-select',
@@ -32,7 +32,7 @@
 
     methods: {
       updateValue() {
-        this.$store.commit(UPDATE_FILTER_SELECT_VALUE, {select: this.state, name: this.input.name})
+        this.$store.commit(UPDATE_FILTER_VALUE, {select: this.state, name: this.input.name})
       }
     }
   }

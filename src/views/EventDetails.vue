@@ -20,10 +20,16 @@
             </v-layout>
             <v-layout row wrap>
               <v-flex class="mb-4" xs12 sm5 offset-xs0 offset-sm1>
-                <filter-select class="pa-2" :input="filters.layout"></filter-select>
+                <filter-select
+                  class="pa-2"
+                  :input="filters.layout"
+                ></filter-select>
               </v-flex>
               <v-flex class="mb-4" xs2 sm1>
-                <input-capacity class="ma-2"></input-capacity>
+                <filter-input
+                  class="ma-2"
+                  :input="filters.capacity"
+                ></filter-input>
               </v-flex>
             </v-layout>
             <v-btn class="btn btn-large bg-blue" dark round @click="findVenue">FIND VENUE</v-btn>
@@ -41,7 +47,7 @@
   import bgImage from '../assets/event-details-bg.jpg'
   import FilterSelect from '../components/FormComponents/FilterSelect'
   import SelectDate from '../components/FormComponents/SelectDate'
-  import InputCapacity from '../components/FormComponents/InputCapacity'
+  import FilterInput from '../components/FormComponents/FilterInput'
 
   export default {
     name: 'event-details',
@@ -68,7 +74,7 @@
     components: {
       StageList,
       SelectDate,
-      InputCapacity,
+      FilterInput,
       FilterSelect
     }
   }
@@ -113,7 +119,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(0, 0, 0, .5);
     }
   }
 </style>

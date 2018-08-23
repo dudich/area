@@ -1,24 +1,32 @@
 <template>
   <div class="input-capacity-container">
-    <label class="capacityLabel" for="capacity">Capacity</label>
+    <label class="capacityLabel" for="capacity" v-text="input.label"></label>
     <v-text-field
       class="input-capacity"
-      v-model="capacity"
+      v-model="input.value"
       :rules="capacityRules"
       id="capacity"
-      required
       @focus="onFocus"
+      @change="updateValue"
     ></v-text-field>
   </div>
 </template>
 
 <script>
+  import {UPDATE_FILTER_VALUE} from "../../store/actionTypes";
+
   export default {
     name: 'input-capacity',
 
+    props: {
+      input: {
+        type: Object,
+        required: true
+      }
+    },
+
     data: () => ({
       valid: false,
-      capacity: '20',
       capacityRules: [
         v => !!v || 'Capacity is required',
         v => v.length < 5 || 'Too much',
@@ -27,7 +35,10 @@
 
     methods: {
       onFocus() {
-        this.capacity = ''
+        this.input.value = ''
+      },
+      updateValue() {
+        this.$store.commit(UPDATE_FILTER_VALUE, {value: this.input.value, name: this.input.name})
       }
     }
   }

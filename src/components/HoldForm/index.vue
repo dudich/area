@@ -14,6 +14,7 @@
             <v-layout row>
               <v-flex class="mt-4" xs12 sm10>
                 <custom-select
+                  class="text--black"
                   :input="aboutUs"
                   @UPDATE_SELECT_VALUE="updateAboutUs"
                 >

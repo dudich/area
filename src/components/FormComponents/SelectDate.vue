@@ -6,9 +6,11 @@
       lang="en"
       width="100%"
       type="datetime"
-      format="YYYY-MM-DD hh:mm:ss a"
+      format="YYYY-MM-DD hh:mm a"
       :minute-step="10"
+      :not-before="new Date()"
       :placeholder="input.placeholder"
+      :input-name="input.name"
       @change="updateValue"
       id="datePicker"></date-picker>
   </div>
@@ -16,7 +18,7 @@
 
 <script>
   import DatePicker from 'vue2-datepicker'
-  import {UPDATE_FILTER_SELECT_VALUE} from "../../store/actionTypes";
+  import {UPDATE_FILTER_VALUE} from "../../store/actionTypes";
 
   export default {
 
@@ -27,15 +29,9 @@
       }
     },
 
-    data() {
-      return {
-        date: this.input.select,
-      }
-    },
-
     methods: {
       updateValue() {
-        this.$store.commit(UPDATE_FILTER_SELECT_VALUE, {select: this.date, name: this.input.name})
+        this.$store.commit(UPDATE_FILTER_VALUE, {select: this.input.date, name: this.input.name})
       }
     },
 
@@ -59,6 +55,10 @@
         }
       }
 
+      &-popup {
+        right: auto !important;
+      }
+
       .mx-input-append {
         background-color: transparent;
 
@@ -74,10 +74,9 @@
 
     .datepicker-container {
       position: relative;
+
       label {
         position: absolute;
-        top: -20px;
-        left: 20px;
         color: #fff;
         font-size: 16px;
         line-height: 20px;
@@ -88,21 +87,33 @@
 
   .event-details {
     .mx-datepicker {
+
       .mx-input {
         height: 56px;
         border: 2px solid rgba(256, 256, 256, .8);
         background-color: transparent;
       }
     }
+
+    .datepicker-container label {
+      top: -28px;
+      left: 14px;
+    }
   }
 
   .select-package {
     .mx-datepicker {
+
       .mx-input {
         height: 50px;
         border: none;
         background-color: rgba(255, 255, 255, .1)
       }
+    }
+
+    .datepicker-container label {
+      top: -20px;
+      left: 20px;
     }
   }
 </style>

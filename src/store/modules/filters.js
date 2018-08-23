@@ -37,16 +37,22 @@ export default {
       ],
       label: 'Select Layout',
       name: 'select-layout'
+    },
+
+    capacity: {
+      value: 20,
+      label:'Capacity',
+      name: 'capacity'
     }
   },
 
   mutations: {
-    'UPDATE_FILTER_SELECT_VALUE'(state, payload) {
+    'UPDATE_FILTER_VALUE'(state, payload) {
       switch (payload.name) {
-        case 'select-start':
+        case 'event-start':
           state.eventStart.select = payload.select;
           break;
-        case 'select-end':
+        case 'event-end':
           state.eventEnd.select = payload.select;
           break;
         case 'select-time':
@@ -54,6 +60,9 @@ export default {
           break;
         case 'select-layout':
           state.layout.select = payload.select;
+          break;
+        case 'capacity':
+          state.capacity.value = payload.value;
           break;
         default:
           console.log('Error');

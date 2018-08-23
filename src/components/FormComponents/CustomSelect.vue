@@ -48,7 +48,6 @@
 
     .v-select__selections {
       padding-top: 0 !important;
-      color: $grey;
     }
 
     .v-input__slot {

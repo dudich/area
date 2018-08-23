@@ -15,7 +15,10 @@
                 <filter-select class="pa-2" :input="filters.layout"></filter-select>
               </v-flex>
               <v-flex xs3 sm2 md1>
-                <input-capacity class="ma-2"></input-capacity>
+                <filter-input
+                  class="ma-2"
+                  :input="filters.capacity"
+                ></filter-input>
               </v-flex>
               <v-flex xs3 sm2 md2>
                 <v-btn class="btn bg-blue no-text-transform mt-2" dark round>Get Rooms</v-btn>
@@ -36,7 +39,7 @@
   import PropertiesList from '../components/PropertiesList'
   import FilterSelect from '../components/FormComponents/FilterSelect'
   import SelectDate from '../components/FormComponents/SelectDate'
-  import InputCapacity from '../components/FormComponents/InputCapacity'
+  import FilterInput from '../components/FormComponents/FilterInput'
   import Modal from '../components/Modal'
   import GalleryCarousel from '../components/PropertiesList/PropertyGallery/GalleryCarousel'
 
@@ -61,7 +64,7 @@
       PropertiesList,
       FilterSelect,
       SelectDate,
-      InputCapacity,
+      FilterInput,
       Modal,
       GalleryCarousel
     }
