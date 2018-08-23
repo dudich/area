@@ -9,21 +9,21 @@
             <custom-input v-for="(input, key) in details" :key="key" :input="input">
               <i :class="input.iconClass"></i>
             </custom-input>
-            <autocomplete-input :input="location.address">
+            <autocomplete-input class="mb-2" :input="location.address">
               <i class="fas fa-map-marker-alt"></i>
             </autocomplete-input>
             <v-layout row wrap>
-              <v-flex class="pr-1" sm6 xs12>
+              <v-flex class="pr-1 mb-2" sm6 xs12>
                 <autocomplete-input :input="location.country"></autocomplete-input>
               </v-flex>
-              <v-flex class="pl-1" sm6 xs12>
+              <v-flex class="pl-1 mb-2" sm6 xs12>
                 <autocomplete-input :input="location.city"></autocomplete-input>
               </v-flex>
-              <v-flex class="pr-1" sm6 xs12>
+              <v-flex class="pr-1 mb-2" sm6 xs12>
                 <autocomplete-input :input="location.state"></autocomplete-input>
               </v-flex>
-              <v-flex class="pl-1" sm6 xs12>
-                <autocomplete-input :input="location.zip"></autocomplete-input>
+              <v-flex class="pl-1 mb-2" sm6 xs12>
+                <custom-input :input="location.zip"></custom-input>
               </v-flex>
             </v-layout>
           </v-flex>
@@ -82,7 +82,6 @@
 </template>
 
 <script>
-  import ContactsOnSite from './ContacsOnSite'
   import RequiredAction from './RequiredAction'
   import CustomInput from '../FormComponents/CustomInput'
   import CustomSelect from '../FormComponents/CustomSelect'
@@ -119,29 +118,6 @@
             iconClass: 'fas fa-phone-square'
           }
         },
-
-        /*contactsOnSite: {
-          name: {
-            value: '',
-            placeholder: 'Name',
-            iconClass: 'fas fa-user'
-          },
-          email: {
-            value: '',
-            placeholder: 'Email',
-            iconClass: 'fas fa-envelope'
-          },
-          phoneDay: {
-            value: '',
-            placeholder: 'Phone Number-Day',
-            iconClass: 'fas fa-phone-square'
-          },
-          phoneMobile: {
-            value: '',
-            placeholder: 'Phone Number-Mobile',
-            iconClass: 'fas fa-phone-square'
-          }
-        },*/
 
         location: {
           address: {
@@ -228,7 +204,6 @@
     },
 
     components: {
-      ContactsOnSite,
       RequiredAction,
       CustomInput,
       CustomSelect,
