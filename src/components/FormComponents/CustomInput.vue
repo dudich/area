@@ -65,4 +65,31 @@
       color: #000;
     }
   }
+
+  .sign-in {
+    .custom-input {
+      .v-input__slot {
+        border: 1px solid #fff;
+        border-radius: 0 !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+
+        input {
+          color: #fff;
+
+          &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #fff;
+            opacity: 1; /* Firefox */
+          }
+          &::-ms-input-placeholder { /* Microsoft Edge */
+            color: #fff;
+          }
+        }
+      }
+
+      .v-messages {
+        display: none;
+      }
+    }
+  }
 </style>

@@ -1,0 +1,55 @@
+<template>
+  <div class="sign-in">
+    <h2 class="text-white mb-4 font-weight-bold">Corporate Sign In</h2>
+    <custom-input :input="agentId"></custom-input>
+    <custom-input :input="password"></custom-input>
+    <v-btn class="font-weight-bold no-text-transform" white block>Sign-In</v-btn>
+    <p class="sign-in__link text-white mb-4 font-weight-bold" @click="forgotPasswordLink">Forgot password</p>
+    <p class="sign-in__error text-notification">Error signing in. Please try again.</p>
+  </div>
+</template>
+
+<script>
+  import CustomInput from '../../components/FormComponents/CustomInput'
+
+  export default {
+    name: 'sign-in',
+
+    data() {
+      return {
+        agentId: {
+          value: '',
+          placeholder: 'Agent ID'
+        },
+
+        password: {
+          value: '',
+          placeholder: 'Password'
+        }
+      }
+    },
+
+    methods: {
+      forgotPasswordLink() {
+        this.$emit('FORGOT_PASSWORD')
+      }
+    },
+
+    components: {
+      CustomInput
+    }
+
+  }
+</script>
+
+<style lang="scss">
+  .sign-in {
+    width: 50%;
+    margin: 0 auto;
+
+    &__link {
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+  }
+</style>

@@ -13,7 +13,7 @@
         >
           {{ item.title }}
         </v-list-tile>
-        <v-list-tile class="corp-sign-in">
+        <v-list-tile class="corp-sign-in" @click="openCorpSignIn">
           <i class="fas fa-lock"></i>
           Corporate Sign-In
         </v-list-tile>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+  import {OPEN_SIGN_IN_MODAL} from "../../store/actionTypes";
   import logo from '../../assets/header-logo.png'
 
   export default {
@@ -41,6 +42,12 @@
           {title: 'av', link: '/av'},
           {title: 'contact', link: '/contact'}
         ]
+      }
+    },
+
+    methods: {
+      openCorpSignIn() {
+        EventBus.$emit(OPEN_SIGN_IN_MODAL)
       }
     }
   }

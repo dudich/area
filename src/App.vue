@@ -10,6 +10,7 @@
       </v-content>
       <scroll-top-btn :offsetTop=" offsetTop"></scroll-top-btn>
       <page-footer></page-footer>
+      <modal-sign-in :width="500"></modal-sign-in>
     </v-app>
   </div>
 </template>
@@ -20,6 +21,7 @@
   import PageFooter from './components/layouts/PageFooter'
   import FooterBanner from './components/FooterBanner'
   import ScrollTopBtn from './components/ScrollTopBtn'
+  import ModalSignIn from './components/SignIn/ModalSignIn'
 
   export default {
     name: 'app',
@@ -41,7 +43,8 @@
       PageHeader,
       PageFooter,
       FooterBanner,
-      ScrollTopBtn
+      ScrollTopBtn,
+      ModalSignIn
     }
   }
 </script>
