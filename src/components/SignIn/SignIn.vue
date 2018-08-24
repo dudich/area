@@ -10,11 +10,20 @@
       block
     >Sign-In</v-btn>
     <p class="sign-in__link text-white font-weight-bold" @click="forgotPasswordLink">Forgot password</p>
-    <p class="sign-in__message text-notification">Error signing in. Please try again.</p>
+    <p
+      class="sign-in__message text-notification"
+      v-if="errors.items.length"
+      v-text="errors.items[0]"
+    >
+    </p>
   </div>
 </template>
 
 <script>
+  import {
+    OPEN_SIGN_IN_MODAL,
+    USER_SIGN_IN
+  } from "../../store/actionTypes";
   import CustomInput from '../../components/FormComponents/CustomInput'
 
   export default {
@@ -34,14 +43,34 @@
       }
     },
 
+    computed: {
+      user() {
+        return this.$store.getters.user
+      }
+    },
+
+    mounted() {
+      EventBus.$on(OPEN_SIGN_IN_MODAL, () => {
+        this.agentId.value = '';
+        this.password.value = '';
+        this.errors.items = [];
+      });
+    },
+
     methods: {
       forgotPasswordLink() {
         this.$emit('FORGOT_PASSWORD')
       },
       logIn() {
         this.errors.items = [];
+        if(this.agentId.value !== this.user.id) {
+          this.errors.items.push('Your user name is incorrect. Please try again.');
+        }
+        if(this.password.value !== this.user.password) {
+          this.errors.items.push('Your password is incorrect. Password must be “X” .Please try again.');
+        }
         if (!this.errors.items.length) {
-          return true
+          this.$store.commit(USER_SIGN_IN)
         }
       },
     },
