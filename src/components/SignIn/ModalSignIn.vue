@@ -24,13 +24,15 @@
     data() {
       return {
         dialog: false,
-        currentView: SignIn
+        currentView: null
       }
     },
 
     mounted() {
-      EventBus.$on(OPEN_SIGN_IN_MODAL, () => this.dialog = true);
-      //EventBus.$on('update:returnValue', () => this.currentView = SignIn);
+      EventBus.$on(OPEN_SIGN_IN_MODAL, () => {
+        this.dialog = true;
+        this.currentView = SignIn
+      });
     },
 
     methods: {

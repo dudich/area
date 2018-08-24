@@ -66,7 +66,8 @@
     }
   }
 
-  .sign-in {
+  .sign-in,
+  .forgot-password {
     .custom-input {
       .v-input__slot {
         border: 1px solid #fff;
