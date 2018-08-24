@@ -13,18 +13,30 @@
         >
           {{ item.title }}
         </v-list-tile>
-        <v-list-tile class="corp-sign-in" @click="openCorpSignIn">
-          <i class="fas fa-lock"></i>
-          Corporate Sign-In
-        </v-list-tile>
+        <sign-in-link
+          class="ml-4"
+          v-if="!user.logIn"
+          :openSignIn="openSignIn"
+        ></sign-in-link>
+        <sign-out-link
+          class="ml-4"
+          v-else
+          :signOut="signOut"
+          :userName="user.name"
+        ></sign-out-link>
       </v-list>
     </v-toolbar-items>
   </v-toolbar>
 </template>
 
 <script>
-  import {OPEN_SIGN_IN_MODAL} from "../../store/actionTypes";
-  import logo from '../../assets/header-logo.png'
+  import logo from '../../../assets/header-logo.png'
+  import {
+    OPEN_SIGN_IN_MODAL,
+    USER_SIGN_OUT
+  } from "../../../store/actionTypes";
+  import SignInLink from './SignInLink'
+  import SignOutLink from './SignOutLink'
 
   export default {
     name: 'page-header',
@@ -45,16 +57,31 @@
       }
     },
 
-    methods: {
-      openCorpSignIn() {
-        EventBus.$emit(OPEN_SIGN_IN_MODAL)
+    computed: {
+      user() {
+        return this.$store.getters.user
       }
+    },
+
+    methods: {
+      openSignIn() {
+        EventBus.$emit(OPEN_SIGN_IN_MODAL)
+      },
+
+      signOut() {
+        this.$store.commit(USER_SIGN_OUT)
+      }
+    },
+
+    components: {
+      SignInLink,
+      SignOutLink
     }
   }
 </script>
 
 <style lang="scss">
-  @import '../../styles/colors';
+  @import '../../../styles/colors';
 
   .v-toolbar {
     padding: {
@@ -64,17 +91,6 @@
     background-color: $dark-blue !important;
     z-index: 1000 !important;
     box-shadow: none !important;
-
-    .corp-sign-in {
-      border: 1px solid #fff;
-      border-radius: 4px;
-      cursor: pointer;
-
-      i {
-        margin-right: 10px;
-        font-size: 20px;
-      }
-    }
 
     .logo {
       width: 200px;

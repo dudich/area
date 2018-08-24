@@ -3,15 +3,15 @@ export default {
     id: '123456789',
     password: 'password',
     name: 'Username',
-    signIn: false
+    logIn: false
   },
 
   mutations: {
     'USER_SIGN_IN'(state) {
-      state.signIn = true
+      state.logIn = true
     },
     'USER_SIGN_OUT'(state) {
-      state.signIn = false
+      state.logIn = false
     }
   },
 

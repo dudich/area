@@ -22,6 +22,7 @@
 <script>
   import {
     OPEN_SIGN_IN_MODAL,
+    CLOSE_SIGN_IN_MODAL,
     USER_SIGN_IN
   } from "../../store/actionTypes";
   import CustomInput from '../../components/FormComponents/CustomInput'
@@ -70,7 +71,8 @@
           this.errors.items.push('Your password is incorrect. Password must be “X” .Please try again.');
         }
         if (!this.errors.items.length) {
-          this.$store.commit(USER_SIGN_IN)
+          EventBus.$emit(CLOSE_SIGN_IN_MODAL);
+          this.$store.commit(USER_SIGN_IN);
         }
       },
     },

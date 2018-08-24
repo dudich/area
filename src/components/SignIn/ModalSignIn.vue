@@ -7,7 +7,10 @@
 </template>
 
 <script>
-  import {OPEN_SIGN_IN_MODAL} from "../../store/actionTypes";
+  import {
+    OPEN_SIGN_IN_MODAL,
+    CLOSE_SIGN_IN_MODAL
+  } from "../../store/actionTypes";
   import SignIn from "./SignIn"
   import ForgotPassword from "./ForgotPassword"
 
@@ -31,7 +34,10 @@
     mounted() {
       EventBus.$on(OPEN_SIGN_IN_MODAL, () => {
         this.dialog = true;
-        this.currentView = SignIn
+        this.currentView = SignIn;
+      });
+      EventBus.$on(CLOSE_SIGN_IN_MODAL, () => {
+        this.dialog = false;
       });
     },
 

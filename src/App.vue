@@ -17,7 +17,7 @@
 
 <script>
   import {UPDATE_OFFSET_TOP} from "./store/actionTypes";
-  import PageHeader from './components/layouts/PageHeader'
+  import PageHeader from './components/layouts/PageHeader/index'
   import PageFooter from './components/layouts/PageFooter'
   import FooterBanner from './components/FooterBanner'
   import ScrollTopBtn from './components/ScrollTopBtn'
