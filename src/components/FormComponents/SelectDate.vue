@@ -7,8 +7,8 @@
       width="100%"
       type="datetime"
       format="YYYY-MM-DD hh:mm a"
-      :minute-step="10"
-      :not-before="new Date()"
+      :time-picker-options="{ start: '00:00', step: '00:30', end: '23:30' }"
+      :not-before="notBefore"
       :placeholder="input.placeholder"
       :input-name="input.name"
       @change="updateValue"
@@ -25,6 +25,10 @@
     props: {
       input: {
         type: Object,
+        required: true
+      },
+      notBefore: {
+        type: Number,
         required: true
       }
     },

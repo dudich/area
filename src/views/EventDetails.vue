@@ -10,11 +10,13 @@
               <v-flex class="mb-5 px-2" xs12 sm5 offset-xs0 offset-sm1>
                 <select-date
                   :input="filters.eventStart"
+                  :notBefore="notBeforeStart"
                 ></select-date>
               </v-flex>
               <v-flex class="mb-5 px-2" xs12 sm5>
                 <select-date
                   :input="filters.eventEnd"
+                  :notBefore="notBeforeEnd"
                 ></select-date>
               </v-flex>
             </v-layout>
@@ -55,13 +57,20 @@
     data() {
       return {
         bgImage,
-        caption: 'Tailored Solutions for Your Event'
+        caption: 'Tailored Solutions for Your Event',
       }
     },
 
     computed: {
       filters() {
         return this.$store.getters.filters
+      },
+      notBeforeStart() {
+        return new Date().getTime();
+      },
+      notBeforeEnd() {
+        const CurrentTime = new Date();
+        return CurrentTime.setMinutes(CurrentTime.getMinutes() + 30);
       }
     },
 

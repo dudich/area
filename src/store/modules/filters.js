@@ -3,13 +3,13 @@ export default {
     eventStart: {
       label: 'Event Start',
       name: 'event-start',
-      placeholder: 'Select date and time'
+      placeholder: 'Select date and time',
     },
 
     eventEnd: {
       label: 'Event End',
       name: 'event-end',
-      placeholder: 'Select date and time'
+      placeholder: 'Select date and time',
     },
 
     time: {
