@@ -36,7 +36,6 @@
             </v-layout>
             <v-btn class="btn btn-large bg-blue" dark round @click="findVenue">FIND VENUE</v-btn>
           </div>
-
         </div>
       </v-flex>
     </v-container>

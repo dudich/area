@@ -32,6 +32,10 @@
       }
     },
 
+    updated() {
+      window.scrollTo(0, 0)
+    },
+
     methods: {
       onScroll() {
          const offset = window.pageYOffset || document.documentElement.scrollTop;

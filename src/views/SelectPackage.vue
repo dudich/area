@@ -6,10 +6,18 @@
             <stage-list :style="{ border: '1px solid white' }"></stage-list>
             <v-layout class="pt-5 select-package__container" row wrap>
               <v-flex xs12 sm6 md3>
-                <select-date class="pa-2" :input="filters.eventStart"></select-date>
+                <select-date
+                  class="pa-2"
+                  :input="filters.eventStart"
+                  :notBefore="notBeforeStart"
+                ></select-date>
               </v-flex>
               <v-flex xs12 sm6 md3>
-                <select-date class="pa-2" :input="filters.eventEnd"></select-date>
+                <select-date
+                  class="pa-2"
+                  :input="filters.eventEnd"
+                  :notBefore="notBeforeEnd"
+                ></select-date>
               </v-flex>
               <v-flex xs12 sm6 md3>
                 <filter-select class="pa-2" :input="filters.layout"></filter-select>
@@ -57,6 +65,13 @@
       },
       filters() {
         return this.$store.getters.filters
+      },
+      notBeforeStart() {
+        return new Date().getTime();
+      },
+      notBeforeEnd() {
+        const CurrentTime = new Date();
+        return CurrentTime.setMinutes(CurrentTime.getMinutes() + 30);
       }
     },
 
