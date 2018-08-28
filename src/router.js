@@ -13,9 +13,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/event-details',
-      name: 'event-details',
-      component: () => import('./views/EventDetails')
+      path: '/select-event',
+      name: 'select-event',
+      component: () => import('./views/SelectEvent')
     },
     {
       path: '/select-package',

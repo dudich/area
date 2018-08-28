@@ -3,43 +3,64 @@
     <v-flex xl6 offset-xl3>
       <v-container>
         <h3 class="hold-caption">Hold Room</h3>
-        <v-layout row wrap>
-          <v-flex class="px-5 mb-4" xs12 sm6>
-            <h4 class="hold-form-caption">Booker Details</h4>
-            <custom-input v-for="(input, key) in details" :key="key" :input="input">
-              <i :class="input.iconClass"></i>
-            </custom-input>
-          </v-flex>
-          <v-flex class="px-5 mb-4 mt-4" xs12 sm6>
-            <v-layout row>
-              <v-flex class="mt-4" xs12 sm10>
-                <custom-select
-                  class="text--black"
-                  :input="aboutUs"
-                  @UPDATE_SELECT_VALUE="updateAboutUs"
-                >
-                  <i class="fas fa-star-of-life"></i>
-                </custom-select>
-              </v-flex>
-            </v-layout>
-            <v-layout row>
-              <v-flex xs12>
-                <custom-textarea
-                  :value="comment"
-                  @UPDATE_INPUT_VALUE="updateComment"
-                >
-                  <i class="fas fa-pen"></i>
-                </custom-textarea>
-              </v-flex>
-            </v-layout>
-          </v-flex>
-        </v-layout>
+        <v-form ref="form"  v-model="valid" lazy-validation>
+          <v-layout row wrap>
+            <v-flex class="px-5 mb-2" xs12 sm6>
+              <h4 class="hold-form-caption">Booker Details</h4>
+              <custom-input
+                v-for="(input, key) in details"
+                :key="key"
+                :input="input"
+                :rules="[rules.required]"
+              >
+                <i :class="input.iconClass"></i>
+              </custom-input>
+            </v-flex>
+            <v-flex class="px-5 mb-2 mt-4" xs12 sm6>
+              <v-layout row>
+                <v-flex class="mt-4" xs12 sm10>
+                  <custom-select
+                    class="text--black"
+                    :input="aboutUs"
+                    :rules="[rules.required]"
+                    @UPDATE_SELECT_VALUE="updateAboutUs"
+                  >
+                    <i class="fas fa-star-of-life"></i>
+                  </custom-select>
+                </v-flex>
+              </v-layout>
+              <v-layout row>
+                <v-flex xs12>
+                  <custom-textarea
+                    :value="comment"
+                    @UPDATE_INPUT_VALUE="updateComment"
+                  >
+                    <i class="fas fa-pen"></i>
+                  </custom-textarea>
+                </v-flex>
+              </v-layout>
+            </v-flex>
+            <v-flex xs12>
+              <v-btn
+                class="btn btn-large no-text-transform bg-blue mb-4"
+                @click="confirmHold"
+                :disabled="!valid"
+                dark
+                round
+                large
+                flatgit 
+              >Hold
+              </v-btn>
+            </v-flex>
+          </v-layout>
+        </v-form>
       </v-container>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
+  import {IS_VALID} from "../../store/actionTypes";
   import CustomInput from '../../components/FormComponents/CustomInput'
   import CustomSelect from '../../components/FormComponents/CustomSelect'
   import CustomTextarea from '../../components/FormComponents/CustomTextarea'
@@ -76,7 +97,11 @@
           items: ['Booking.com', 'Expedia', 'Facebook', 'Internet', 'Referral'],
           label: 'How did you hear about us?'
         },
-        comment: ''
+        comment: '',
+        valid: true,
+        rules: {
+          required: v => !!v || 'Required.',
+        }
       }
     },
 
@@ -86,6 +111,12 @@
       },
       updateComment(payload) {
         this.comment = payload
+      },
+      confirmHold() {
+        if (this.$refs.form.validate()) {
+          EventBus.$emit(OPEN_CONFIRMATION_MODAL);
+          setTimeout(() => EventBus.$emit(CLOSE_CONFIRMATION_MODAL), 3000);
+        }
       }
     },
 

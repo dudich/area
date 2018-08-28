@@ -79,6 +79,10 @@
       background-color: #fff !important;
     }
 
+    a {
+      text-decoration: none;
+    }
+
     ul {
       padding-left: 0;
       margin: 0;

@@ -2,16 +2,15 @@
   <div class="booking-stages">
     <v-container>
       <v-layout row>
-        <router-link
-          class="back-link"
-          to="/select-package"
-          v-if="$route.path === `/hold/${ $route.params.id }` || $route.path === `/book/${ $route.params.id }`"
-        >Back</router-link>
         <v-flex md4 sm12>
-          <h3 class="booking-stage" v-text="bookingStages.details" :class="{ active: $route.path === '/event-details'}"></h3>
+          <router-link to="/select-event">
+            <h3 class="booking-stage" v-text="bookingStages.selectEvent" :class="{ active: $route.path === '/select-event'}"></h3>
+          </router-link>
         </v-flex>
         <v-flex md4 sm12>
-          <h3 class="booking-stage" v-text="bookingStages.selectPackage" :class="{ active: $route.path === '/select-package'}"></h3>
+          <router-link to="/select-package">
+            <h3 class="booking-stage" v-text="bookingStages.selectPackage" :class="{ active: $route.path === '/select-package'}"></h3>
+          </router-link>
         </v-flex>
         <v-flex md4 sm12 v-if="$route.path === `/hold/${ $route.params.id }`">
           <h3 class="booking-stage" v-text="bookingStages.hold" :class="{ active: $route.path === `/hold/${ $route.params.id }`}"></h3>
@@ -31,7 +30,7 @@
     data() {
       return {
         bookingStages: {
-          details: 'Event Details',
+          selectEvent: 'Select Event',
           selectPackage: 'Select Package',
           book: 'Book and Pay',
           hold: 'Hold Room'
@@ -60,13 +59,6 @@
         font-weight: bold;
         color: $blue;
       }
-    }
-
-    .back-link {
-      align-self: center;
-      font-size: 16px;
-      text-decoration: none;
-      color: #fff;
     }
   }
 </style>

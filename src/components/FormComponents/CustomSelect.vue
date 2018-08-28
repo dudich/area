@@ -5,6 +5,7 @@
       :items="input.items"
       :label="input.label"
       :name="input.name"
+      :rules="rules"
       @change="updateValue"
       outline
       append-icon="$vuetify.icons.dropdown"
@@ -23,6 +24,10 @@
       input: {
         type: Object,
         required: true
+      },
+      rules: {
+        type: Array,
+        required: false
       }
     },
 

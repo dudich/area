@@ -3,6 +3,7 @@
     <v-text-field
       :placeholder="input.placeholder"
       :type="type"
+      :rules="rules"
       single-line
       solo
       v-model="input.value"
@@ -26,6 +27,10 @@
       type: {
         type: String,
         default: 'text'
+      },
+      rules: {
+        type: Array,
+        required: false
       }
     },
 

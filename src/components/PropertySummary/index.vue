@@ -26,7 +26,7 @@
                 solo
               ></v-text-field>
             </v-flex>
-            <v-flex xs6 offset-xs6 v-if="$route.path === `/hold/${ $route.params.id }`">
+            <!--<v-flex xs6 offset-xs6 v-if="$route.path === `/hold/${ $route.params.id }`">
               <v-btn
                 class="btn btn-large no-text-transform bg-blue"
                 v-show="visible"
@@ -36,7 +36,7 @@
                 large
               >Hold
               </v-btn>
-            </v-flex>
+            </v-flex>-->
             <v-flex xs6 offset-xs6 v-if="$route.path === `/book/${ $route.params.id }`">
               <v-btn
                 class="btn btn-large no-text-transform bg-light-green"
@@ -84,6 +84,10 @@
       caption: {
         type: String,
         required: true
+      },
+      valid: {
+        type: Boolean,
+        required: false
       }
     },
 
@@ -105,10 +109,10 @@
     },
 
     methods: {
-      confirmHold() {
-        EventBus.$emit(OPEN_CONFIRMATION_MODAL);
-        setTimeout(() => EventBus.$emit(CLOSE_CONFIRMATION_MODAL), 3000)
-      },
+      /*confirmHold() {
+          EventBus.$emit(OPEN_CONFIRMATION_MODAL);
+          setTimeout(() => EventBus.$emit(CLOSE_CONFIRMATION_MODAL), 3000);
+      },*/
       confirmBook() {
         EventBus.$emit(OPEN_CONFIRMATION_MODAL);
       }

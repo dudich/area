@@ -68,8 +68,8 @@
 
     .fas.fa-times {
       position: absolute;
-      right: 10px;
-      top: 10px;
+      right: 30px;
+      top: 15px;
       font-size: 25px;
       cursor: pointer;
     }
