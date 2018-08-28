@@ -7,13 +7,13 @@
             <h2 class="event-details__caption mt-1" v-html="caption"></h2>
             <stage-list class="mb-5"></stage-list>
             <v-layout class="pt-4" row wrap>
-              <v-flex class="mb-5 px-2" xs12 sm5 offset-xs0 offset-sm1>
+              <v-flex class="mb-5 px-2" xs12 md5 sm6 offset-xs0 offset-md1>
                 <select-date
                   :input="filters.eventStart"
                   :notBefore="notBeforeStart"
                 ></select-date>
               </v-flex>
-              <v-flex class="mb-5 px-2" xs12 sm5>
+              <v-flex class="mb-5 px-2" xs12 md5 sm6>
                 <select-date
                   :input="filters.eventEnd"
                   :notBefore="notBeforeEnd"
@@ -21,20 +21,20 @@
               </v-flex>
             </v-layout>
             <v-layout row wrap>
-              <v-flex class="mb-4" xs12 sm5 offset-xs0 offset-sm1>
+              <v-flex class="mb-4" xs12 md5 sm6 offset-xs0 offset-md1>
                 <filter-select
                   class="pa-2"
                   :input="filters.layout"
                 ></filter-select>
               </v-flex>
-              <v-flex class="mb-4" xs2 sm1>
+              <v-flex class="mb-4" xs3 sm2 md1>
                 <filter-input
                   class="ma-2"
                   :input="filters.capacity"
                 ></filter-input>
               </v-flex>
             </v-layout>
-            <v-btn class="btn btn-large bg-blue" dark round @click="findVenue">FIND VENUE</v-btn>
+            <v-btn class="btn btn-large bg-blue mt-3" dark round @click="findVenue">FIND VENUE</v-btn>
           </div>
         </div>
       </v-flex>

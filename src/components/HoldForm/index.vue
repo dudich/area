@@ -48,7 +48,7 @@
                 dark
                 round
                 large
-                flatgit 
+                flatgit
               >Hold
               </v-btn>
             </v-flex>
