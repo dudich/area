@@ -47,10 +47,6 @@
   .booking-stages {
 
     .booking-stage {
-      margin: {
-        top: 16px;
-        bottom: 16px;
-      }
       font-size: 25px;
       font-weight: 400;
       color: white;
@@ -58,6 +54,13 @@
       &.active {
         font-weight: bold;
         color: $blue;
+      }
+
+      @media screen and (min-width: $xs) {
+        margin: {
+          top: 16px;
+          bottom: 16px;
+        }
       }
     }
   }

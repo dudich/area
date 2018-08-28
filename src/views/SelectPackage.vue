@@ -5,14 +5,14 @@
           <v-flex xl8 offset-xl2>
             <stage-list :style="{ border: '1px solid white' }"></stage-list>
             <v-layout class="pt-5 select-package__container" row wrap>
-              <v-flex xs12 sm6 md3>
+              <v-flex class="mb-4" xs12 sm6 md3>
                 <select-date
                   class="pa-2"
                   :input="filters.eventStart"
                   :notBefore="notBeforeStart"
                 ></select-date>
               </v-flex>
-              <v-flex xs12 sm6 md3>
+              <v-flex class="mb-4" xs12 sm6 md3>
                 <select-date
                   class="pa-2"
                   :input="filters.eventEnd"
@@ -28,7 +28,7 @@
                   :input="filters.capacity"
                 ></filter-input>
               </v-flex>
-              <v-flex xs3 sm2 md2>
+              <v-flex xs7 sm4 md2>
                 <loader-button class="mt-3">Get Rooms</loader-button>
               </v-flex>
             </v-layout>
