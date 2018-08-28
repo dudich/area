@@ -76,7 +76,7 @@
       total() {
         const arrOfChecked = this.extras.filter((item) => item.quantity > 0);
         const arrOfCost = arrOfChecked.map((item) => item.price * item.quantity);
-        return +arrOfCost.reduce((acc, item) => acc + item, 0).toFixed(2);
+        return arrOfCost.reduce((acc, item) => acc + item, 0).toFixed(2);
       },
       target () {
         const value = this[this.type];
@@ -102,7 +102,7 @@
         this.selected = id;
       },
       addExtras() {
-        this.$store.commit(CHANGE_EXTRAS_PRICE, {total: this.total, id: this.propertyId});
+        this.$store.commit(CHANGE_EXTRAS_PRICE, {total: +this.total, id: this.propertyId});
         EventBus.$emit(`UPDATE_EXTRA_PRICE_${this.propertyId}`);
         this.$vuetify.goTo(this.target, this.options).then();
         EventBus.$emit(HIDE_EXTRAS, this.propertyId);

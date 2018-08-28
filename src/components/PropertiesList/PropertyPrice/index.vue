@@ -12,7 +12,7 @@
       :class="{ opacity: disappear }"
       v-if="extraAddNotification"
     >
-      You add extras, total price updated
+      Extras added
     </price-notification>
     <catering
       :catering="property.catering"

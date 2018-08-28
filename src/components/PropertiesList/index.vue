@@ -57,7 +57,7 @@
                   block
                   round
                   @click="bookProperty(property.id)"
-                >Book and confirm
+                >Book and Confirm
                 </v-btn>
               </div>
             </v-flex>

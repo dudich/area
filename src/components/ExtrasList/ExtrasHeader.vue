@@ -19,7 +19,7 @@
 
     props: {
       total: {
-        type: Number,
+        type: String,
         required: true
       },
       propertyId: {

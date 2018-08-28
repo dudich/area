@@ -4,7 +4,7 @@
       Extras
       <img src="../../../assets/icons/check-icon.png" alt="check-icon" v-if="price > 0" :class="{ opacity: extraAdd }">
     </td>
-    <td class="count" v-text="price > 0 ? price : '-'"></td>
+    <td class="count" v-text="price > 0 ? `$ ${price.toFixed(2)}` : '-'"></td>
   </tr>
 </template>
 

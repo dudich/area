@@ -235,7 +235,7 @@ export default {
         '65” television'
       ],
       floorArea: 30.2,
-      price: 500,
+      price: 500.99,
       extrasPrice: 0.00,
       dayDelegateMin: 12,
       images: [

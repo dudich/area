@@ -39,7 +39,7 @@
         return extra.quantity > 0 ? extra.quantity : '-';
       },
       unitePrice(extra) {
-        return extra.quantity > 0 ? `$ ${ extra.price }` : '-';
+        return extra.quantity > 0 ? `$ ${ extra.price.toFixed(2) }` : '-';
       },
       cost(extra) {
         return extra.quantity > 0 ? `$ ${ (extra.quantity * extra.price).toFixed(2) }` : '-';
