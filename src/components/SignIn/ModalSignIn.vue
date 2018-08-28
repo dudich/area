@@ -1,6 +1,7 @@
 <template>
   <div class="text-xs-center">
     <v-dialog v-model="dialog" :width="width">
+      <i class="fas fa-times text-red" @click="closeModal"></i>
       <component :is="currentView" @FORGOT_PASSWORD="changeView"></component>
     </v-dialog>
   </div>
@@ -44,6 +45,9 @@
     methods: {
       changeView() {
         this.currentView = ForgotPassword;
+      },
+      closeModal() {
+        this.dialog = false;
       }
     },
 
@@ -58,7 +62,16 @@
   @import "../../styles/variables";
 
   .v-dialog {
+    position: relative;
     border-radius: 50px;
     background-color: $dark-blue;
+
+    .fas.fa-times {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 25px;
+      cursor: pointer;
+    }
   }
 </style>

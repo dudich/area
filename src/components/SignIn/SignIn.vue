@@ -2,14 +2,14 @@
   <div class="sign-in">
     <h2 class="text-white mb-4 font-weight-bold">Corporate Sign In</h2>
     <custom-input :input="agentId"></custom-input>
-    <custom-input :input="password"></custom-input>
+    <custom-input :input="password" :type="'password'"></custom-input>
     <v-btn
       class="btn font-weight-bold no-text-transform mt-0 mb-3"
       @click="logIn"
       white
       block
     >Sign-In</v-btn>
-    <p class="sign-in__link text-white font-weight-bold" @click="forgotPasswordLink">Forgot password</p>
+    <p class="sign-in__link font-weight-bold" @click="forgotPasswordLink">Forgot password</p>
     <p
       class="sign-in__message text-notification"
       v-if="errors.items.length"
@@ -85,6 +85,8 @@
 </script>
 
 <style lang="scss">
+  @import "../../styles/variables";
+
   .sign-in {
     width: 50%;
     padding: 40px 0;
@@ -97,6 +99,11 @@
     &__link {
       margin-bottom: 0;
       cursor: pointer;
+      color: #fff;
+      transition: .5s;
+      &:hover {
+        color: $green;
+      }
     }
 
     .btn {

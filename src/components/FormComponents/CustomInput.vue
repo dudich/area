@@ -2,6 +2,7 @@
   <div class="custom-input">
     <v-text-field
       :placeholder="input.placeholder"
+      :type="type"
       single-line
       solo
       v-model="input.value"
@@ -21,6 +22,10 @@
       input: {
         type: Object,
         required: true
+      },
+      type: {
+        type: String,
+        default: 'text'
       }
     },
 

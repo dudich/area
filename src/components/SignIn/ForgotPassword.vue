@@ -6,17 +6,25 @@
     <p
       class="forgot-password__error text-notification"
       v-if="passwordSent"
-    >A password reset email has benn sent to you</p>
+    >A password reset email has been sent to you</p>
     <p
       class="forgot-password__message text-notification"
       v-if="errors.items.length"
       v-text="errors.items[0]"
     >
     </p>
+    <v-btn
+      class="v-btn bg-light-green"
+      v-if="passwordSent"
+      @click="closeModal"
+      dark
+    >OK
+    </v-btn>
   </div>
 </template>
 
 <script>
+  import {CLOSE_SIGN_IN_MODAL} from "../../store/actionTypes";
   import CustomInput from '../../components/FormComponents/CustomInput'
 
   export default {
@@ -50,6 +58,9 @@
       validEmail: function (email) {
         let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
+      },
+      closeModal() {
+        EventBus.$emit(CLOSE_SIGN_IN_MODAL);
       }
     },
 
