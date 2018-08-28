@@ -1,6 +1,10 @@
 <template>
   <ul class="property-list">
     <li class="property" v-for="property in properties" :key="property.id">
+      <property-notification
+        :propertyId="property.id"
+        :catering="property.catering"
+      ></property-notification>
       <v-layout class="px-3 py-2" row wrap>
         <v-flex xs12 md7>
           <p class="property-name">{{ property.name }}</p>
@@ -73,6 +77,7 @@
   import PropertyLayouts from './PropertyLayouts'
   import PropertyPrice from './PropertyPrice/index'
   import ExtrasList from '../ExtrasList'
+  import PropertyNotification from './PropertyNotification'
 
   export default {
     name: 'properties-list',
@@ -121,7 +126,8 @@
       PropertyDescription,
       PropertyLayouts,
       PropertyPrice,
-      ExtrasList
+      ExtrasList,
+      PropertyNotification
     },
 
     methods: {
@@ -141,6 +147,7 @@
 
 <style lang="scss" scoped>
   .property {
+    position: relative;
     border: 1px solid #fff;
 
     &:last-child {

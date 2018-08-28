@@ -22,7 +22,7 @@
       :class="{ opacity: disappear }"
       v-if="cateringNotification"
     >
-      We will contact tou to discuss details about catering options
+      We will contact you to discuss details about catering options
     </price-notification>
     <tr class="price-total">
       <td class="text text-green">Total</td>
@@ -61,14 +61,14 @@
         setTimeout(() => this.disappear = true, 2000);
         setTimeout(() => this.extraAddNotification = false, 3000);
       });
-      EventBus.$on(`CHANGE_CATERING_${this.property.id}`, () => {
+      /*EventBus.$on(`CHANGE_CATERING_${this.property.id}`, () => {
         if(this.property.catering) {
           this.disappear = false;
           this.cateringNotification = true;
           setTimeout(() => this.disappear = true, 2000);
           setTimeout(() => this.cateringNotification = false, 3000);
         }
-      });
+      });*/
     },
 
     methods: {

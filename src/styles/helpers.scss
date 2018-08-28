@@ -3,10 +3,18 @@
 }
 
 .no-text-transform {
-  text-transform: none!important;
+  text-transform: none !important;
 }
 
 .opacity {
   transition: 2s;
   opacity: 0;
+}
+
+.absolute {
+  position: absolute !important;
+}
+
+.block {
+  width: 100%;
 }
