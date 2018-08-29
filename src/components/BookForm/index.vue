@@ -3,11 +3,33 @@
     <v-flex xl6 offset-xl3>
       <v-container>
         <h3 class="book-caption">Book and Confirm</h3>
+        <v-form ref="form"  v-model="valid" lazy-validation>
         <v-layout row wrap>
           <v-flex class="px-5 mb-4" xs12 sm6>
             <h4 class="book-form-caption">Booker Details</h4>
-            <custom-input v-for="(input, key) in details" :key="key" :input="input">
-              <i :class="input.iconClass"></i>
+            <custom-input
+              :input="details.name"
+              :rules="rules.name"
+            >
+              <i :class="details.name.iconClass"></i>
+            </custom-input>
+            <custom-input
+              :input="details.email"
+              :rules="rules.email"
+            >
+              <i :class="details.email.iconClass"></i>
+            </custom-input>
+            <custom-input
+              :input="details.phoneDay"
+              :rules="rules.phone"
+            >
+              <i :class="details.phoneDay.iconClass"></i>
+            </custom-input>
+            <custom-input
+              :input="details.phoneMobile"
+              :rules="rules.phone"
+            >
+              <i :class="details.phoneMobile.iconClass"></i>
             </custom-input>
             <autocomplete-input class="mb-2" :input="location.address">
               <i class="fas fa-map-marker-alt"></i>
@@ -42,6 +64,7 @@
               <v-flex class="pr-1" xs6>
                 <custom-input
                   :input="{placeholder: arrivalTime.placeholder, value: arrivalTime.value }"
+                  :rules="rules.time"
                   @UPDATE_INPUT_VALUE="updateArrivalTimeInput"
                 >
                   <i class="fas fa-star-of-life"></i>
@@ -58,6 +81,7 @@
               <v-flex class="mt-4" xs12 sm10>
                 <custom-select
                   :input="aboutUs"
+                  :rules="rules.required"
                   @UPDATE_SELECT_VALUE="updateAboutUs"
                 >
                   <i class="fas fa-star-of-life"></i>
@@ -75,13 +99,27 @@
               </v-flex>
             </v-layout>
           </v-flex>
+          <v-layout class="px-5" justify-end>
+            <v-btn
+              class="btn btn-large no-text-transform bg-blue mb-4 mx-0"
+              @click="confirmBook"
+              :disabled="!valid"
+              dark
+              round
+              large
+              flat
+            >Book and Confirm
+            </v-btn>
+          </v-layout>
         </v-layout>
+        </v-form>
       </v-container>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
+  import {OPEN_CONFIRMATION_MODAL} from "../../store/actionTypes";
   import RequiredAction from './RequiredAction'
   import CustomInput from '../FormComponents/CustomInput'
   import CustomSelect from '../FormComponents/CustomSelect'
@@ -95,6 +133,29 @@
     data() {
       return {
         comment: '',
+        valid: true,
+        rules: {
+          required: [v => !!v || 'Field is required'],
+          name: [
+            v => !!v || 'Name is required.',
+            v => /[a-zA-Z]/.test(v) || 'Name must be valid',
+          ],
+          email: [
+            v => !!v || 'E-mail is required.',
+            v => /.+@.+/.test(v) || 'E-mail must be valid',
+          ],
+
+          phone: [
+            v => !!v || 'Phone is required.',
+            v => /[0-9]/.test(v) || 'Phone must be valid',
+            v => (v && v.length >= 10) || 'Phone must be min. 10 characters'
+          ],
+          time: [
+            v => !!v || 'Phone is required.',
+            v => /[0-9]/.test(v) || 'Time must be valid',
+            v => (v && v.length <= 2) || 'Two digits'
+          ]
+        },
 
         details: {
           name: {
@@ -200,6 +261,11 @@
       },
       updateComment(payload) {
         this.comment = payload
+      },
+      confirmBook() {
+        if (this.$refs.form.validate()) {
+          EventBus.$emit(OPEN_CONFIRMATION_MODAL);
+        }
       }
     },
 

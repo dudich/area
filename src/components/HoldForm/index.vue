@@ -8,21 +8,37 @@
             <v-flex class="px-5 mb-2" xs12 sm6>
               <h4 class="hold-form-caption">Booker Details</h4>
               <custom-input
-                v-for="(input, key) in details"
-                :key="key"
-                :input="input"
-                :rules="[rules.required]"
+                :input="details.name"
+                :rules="rules.name"
               >
-                <i :class="input.iconClass"></i>
+                <i :class="details.name.iconClass"></i>
+              </custom-input>
+              <custom-input
+                :input="details.email"
+                :rules="rules.email"
+              >
+                <i :class="details.email.iconClass"></i>
+              </custom-input>
+              <custom-input
+                :input="details.phoneDay"
+                :rules="rules.phone"
+              >
+                <i :class="details.phoneDay.iconClass"></i>
+              </custom-input>
+              <custom-input
+                :input="details.phoneMobile"
+                :rules="rules.phone"
+              >
+                <i :class="details.phoneMobile.iconClass"></i>
               </custom-input>
             </v-flex>
-            <v-flex class="px-5 mb-2 mt-4" xs12 sm6>
+            <v-flex class="px-5 mb-2 mt-2" xs12 sm6>
               <v-layout row>
                 <v-flex class="mt-4" xs12 sm10>
                   <custom-select
                     class="text--black"
                     :input="aboutUs"
-                    :rules="[rules.required]"
+                    :rules="rules.required"
                     @UPDATE_SELECT_VALUE="updateAboutUs"
                   >
                     <i class="fas fa-star-of-life"></i>
@@ -40,18 +56,18 @@
                 </v-flex>
               </v-layout>
             </v-flex>
-            <v-flex xs12>
+            <v-layout class="px-5" justify-end>
               <v-btn
-                class="btn btn-large no-text-transform bg-blue mb-4"
+                class="btn btn-large no-text-transform bg-blue mb-4 mx-0"
                 @click="confirmHold"
                 :disabled="!valid"
                 dark
                 round
                 large
-                flatgit
+                flat
               >Hold
               </v-btn>
-            </v-flex>
+            </v-layout>
           </v-layout>
         </v-form>
       </v-container>
@@ -60,7 +76,10 @@
 </template>
 
 <script>
-  import {IS_VALID} from "../../store/actionTypes";
+  import {
+    OPEN_CONFIRMATION_MODAL,
+    CLOSE_CONFIRMATION_MODAL
+  } from "../../store/actionTypes";
   import CustomInput from '../../components/FormComponents/CustomInput'
   import CustomSelect from '../../components/FormComponents/CustomSelect'
   import CustomTextarea from '../../components/FormComponents/CustomTextarea'
@@ -70,6 +89,26 @@
 
     data() {
       return {
+        comment: '',
+        valid: true,
+        rules: {
+          required: [v => !!v || 'Field is required'],
+          name: [
+            v => !!v || 'Name is required.',
+            v => /[a-zA-Z]/.test(v) || 'Name must be valid',
+          ],
+          email: [
+            v => !!v || 'E-mail is required.',
+            v => /.+@.+/.test(v) || 'E-mail must be valid',
+          ],
+
+          phone: [
+            v => !!v || 'Phone is required.',
+            v => /[0-9]/.test(v) || 'Phone must be valid',
+            v => (v && v.length >= 10) || 'Phone must be min. 10 characters'
+          ]
+        },
+
         details: {
           name: {
             value: '',
@@ -96,11 +135,6 @@
           select: '',
           items: ['Booking.com', 'Expedia', 'Facebook', 'Internet', 'Referral'],
           label: 'How did you hear about us?'
-        },
-        comment: '',
-        valid: true,
-        rules: {
-          required: v => !!v || 'Required.',
         }
       }
     },
