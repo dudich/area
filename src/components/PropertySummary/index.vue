@@ -2,15 +2,15 @@
   <div class="summary bg-dark-blue">
     <h4 class="summary-caption" v-text="summaryCaption"></h4>
     <v-container>
-      <v-layout row wrap>
-        <v-flex class="px-4" xs12 sm6>
+      <v-layout class="px-5" row wrap>
+        <v-flex xs12 sm5 md6>
           <property-info :propertyName="property.name"></property-info>
           <payment-info
             v-show="visible"
             v-if="$route.path === `/book/${ $route.params.id }`"
           ></payment-info>
         </v-flex>
-        <v-flex class="px-5 text-xs-right" xs12 sm6>
+        <v-flex xs12 sm7 md6>
           <summary-table
             class="mb-4"
             :price="property.price"
@@ -92,6 +92,15 @@
     position: relative;
     padding-bottom: 20px;
     color: #fff;
+
+    .layout.px-5 {
+      @media screen and (max-width: 400px) {
+        padding: {
+          left: 8px !important;
+          right: 8px !important;
+        };
+      }
+    }
 
     &-caption {
       margin: {

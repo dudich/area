@@ -1,5 +1,5 @@
 <template>
-  <table class="summary-table">
+  <table class="summary-table text-sm-right text-xs-left">
     <tr>
       <td>Room Hire Cost-Hourly</td>
       <td class="text-green" v-text="`$${ price }`"></td>
@@ -63,15 +63,10 @@
 <style lang="scss">
   .summary-table {
     width: 100%;
-    text-align: right;
 
     td {
       font-size: 18px;
       color: white;
-    }
-
-    td:first-of-type {
-      //padding-right: 10px;
     }
 
     .total,

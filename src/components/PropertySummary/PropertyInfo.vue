@@ -1,5 +1,5 @@
 <template>
-  <div class="property-info">
+  <div class="property-info text-xs-left">
     <p class="property-name" v-text="propertyName"></p>
     <p class="hold-dates" v-text="dates"></p>
   </div>
@@ -23,9 +23,10 @@
 </script>
 
 <style lang="scss">
+  @import "../../styles/variables";
+
   .property-info {
     margin-bottom: 60px;
-    text-align: left;
 
     p {
       font-size: 18px;

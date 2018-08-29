@@ -5,7 +5,7 @@
         <h3 class="hold-caption">Hold Room</h3>
         <v-form class="hold-form" ref="form" v-model="valid" lazy-validation>
           <v-layout row wrap>
-            <v-flex class="px-5" xs12 sm6>
+            <v-flex class="px-5" xs12 sm8 md6 offset-sm2 offset-md0>
               <h4 class="hold-form__caption">Booker Details</h4>
               <custom-input
                 :input="details.name"
@@ -32,9 +32,9 @@
                 <i :class="details.phoneMobile.iconClass"></i>
               </custom-input>
             </v-flex>
-            <v-flex class="px-5 mt-2" xs12 sm6>
+            <v-flex class="px-5 mt-2 mb-4" xs12 sm8 md6 offset-sm2 offset-md0>
               <v-layout row>
-                <v-flex class="mt-4" xs12 sm10>
+                <v-flex class="mt-4" xs12 md10>
                   <custom-select
                     class="text--black"
                     :input="aboutUs"
@@ -56,7 +56,7 @@
                 </v-flex>
               </v-layout>
             </v-flex>
-            <v-layout class="px-5" justify-end>
+            <div class="submit px-5">
               <v-btn
                 class="btn btn-large no-text-transform bg-blue mb-4 mx-0"
                 @click="confirmHold"
@@ -67,7 +67,7 @@
                 flat
               >Hold
               </v-btn>
-            </v-layout>
+            </div>
           </v-layout>
         </v-form>
       </v-container>
@@ -162,6 +162,8 @@
 </script>
 
 <style lang="scss">
+  @import "../../styles/variables";
+
   .hold-caption {
     margin: {
       top: 25px;
@@ -181,6 +183,16 @@
       font-size: 18px;
       font-weight: 400;
       text-align: left;
+    }
+
+    .submit {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+
+      @media screen and (max-width: $sm - 1) {
+        justify-content: center;
+      }
     }
 
     .v-btn--disabled {
