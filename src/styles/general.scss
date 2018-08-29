@@ -5,3 +5,9 @@
     color: $blue !important;
   }
 }
+
+.v-toolbar--fixed {
+  @media screen and (max-width: $sm - 1) {
+    position: static !important;
+  }
+}

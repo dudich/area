@@ -27,6 +27,8 @@
 </script>
 
 <style lang="scss">
+  @import "../../../styles/variables";
+
   .corp-sign-out {
 
     &__name {
@@ -38,6 +40,10 @@
       border: 1px solid #fff;
       border-radius: 4px;
       cursor: pointer;
+    }
+
+    @media screen and (min-width: $sm) {
+      margin-left: 24px;
     }
   }
 </style>

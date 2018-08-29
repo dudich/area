@@ -19,6 +19,8 @@
 </script>
 
 <style lang="scss">
+  @import "../../../styles/variables";
+
   .corp-sign-in {
     border: 1px solid #fff;
     border-radius: 4px;
@@ -27,6 +29,10 @@
     i {
       margin-right: 10px;
       font-size: 20px;
+    }
+
+    @media screen and (min-width: $sm) {
+      margin-left: 24px;
     }
   }
 </style>

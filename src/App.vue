@@ -73,6 +73,14 @@
 
     .v-content {
       padding: 110px 0 0 !important;
+
+      @media screen and (max-width: $header-break-point) and (min-width: $sm) {
+        padding: 180px 0 0 !important;
+      }
+
+      @media screen and (max-width: $sm - 1) {
+        padding: 0 !important;
+      }
     }
 
     .v-overlay:before {
