@@ -1,6 +1,6 @@
 <template>
   <v-alert
-    class="absolute block mt-0"
+    class="absolute block mt-0 font-weight-bold"
     :value="notification"
     type="success"
     transition="fade-transition"
@@ -35,8 +35,13 @@
         if(!this.catering) {
           this.notification = true;
           this.message = 'We will contact you to discuss details about catering options';
-          setTimeout(() => this.notification = false, 5000);
+          setTimeout(() => this.notification = false, 4000);
         }
+      });
+      EventBus.$on(`UPDATE_EXTRA_PRICE_${this.propertyId}`, () => {
+        this.notification = true;
+        this.message = 'Extras added';
+        setTimeout(() => this.notification = false, 4000);
       });
     },
   }
