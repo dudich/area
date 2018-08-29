@@ -1,7 +1,7 @@
 <template>
   <div class="text-xs-center">
     <v-dialog v-model="dialog" :width="width">
-      <i class="fas fa-times text-red" @click="closeModal"></i>
+      <i class="fas fa-times text-white" @click="closeModal"></i>
       <component :is="currentView" @FORGOT_PASSWORD="changeView"></component>
     </v-dialog>
   </div>
