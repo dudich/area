@@ -3,10 +3,10 @@
     <v-flex xl6 offset-xl3>
       <v-container>
         <h3 class="book-caption">Book and Confirm</h3>
-        <v-form ref="form"  v-model="valid" lazy-validation>
+        <v-form class="book-form" ref="form"  v-model="valid" lazy-validation>
         <v-layout row wrap>
-          <v-flex class="px-5 mb-4" xs12 sm6>
-            <h4 class="book-form-caption">Booker Details</h4>
+          <v-flex class="px-5" xs12 sm6>
+            <h4 class="book-form__caption">Booker Details</h4>
             <custom-input
               :input="details.name"
               :rules="rules.name"
@@ -49,7 +49,7 @@
               </v-flex>
             </v-layout>
           </v-flex>
-          <v-flex class="px-5 mb-4 mt-4" xs12 sm6>
+          <v-flex class="px-5 mt-4" xs12 sm6>
             <v-layout row justify-space-between>
               <required-action
                 :caption="siteInspectionCaption"
@@ -144,7 +144,6 @@
             v => !!v || 'E-mail is required.',
             v => /.+@.+/.test(v) || 'E-mail must be valid',
           ],
-
           phone: [
             v => !!v || 'Phone is required.',
             v => /[0-9]/.test(v) || 'Phone must be valid',
@@ -152,7 +151,7 @@
           ],
           time: [
             v => !!v || 'Phone is required.',
-            v => /[0-9]/.test(v) || 'Time must be valid',
+            v => /^[ 0-9]+$/.test(v) || 'Time must be valid',
             v => (v && v.length <= 2) || 'Two digits'
           ]
         },
@@ -288,14 +287,21 @@
     font-size: 20px;
   }
 
-  .book-form-caption {
-    margin: {
-      left: 5px;
-      bottom: 5px;
+  .book-form {
+
+    &__caption {
+      margin: {
+        left: 5px;
+        bottom: 5px;
+      }
+    ;
+      font-size: 18px;
+      font-weight: 400;
+      text-align: left;
     }
-  ;
-    font-size: 18px;
-    font-weight: 400;
-    text-align: left;
+
+    .v-btn--disabled {
+      background-color: rgba(0, 0, 0, .12) !important;
+    }
   }
 </style>

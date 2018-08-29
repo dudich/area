@@ -30,6 +30,7 @@
       capacityRules: [
         v => !!v || 'Capacity is required',
         v => v.length < 5 || 'Too much',
+        v => /^[ 0-9]+$/.test(v) || 'Time must be number',
       ]
     }),
 

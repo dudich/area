@@ -3,10 +3,10 @@
     <v-flex xl6 offset-xl3>
       <v-container>
         <h3 class="hold-caption">Hold Room</h3>
-        <v-form ref="form"  v-model="valid" lazy-validation>
+        <v-form class="hold-form" ref="form" v-model="valid" lazy-validation>
           <v-layout row wrap>
-            <v-flex class="px-5 mb-2" xs12 sm6>
-              <h4 class="hold-form-caption">Booker Details</h4>
+            <v-flex class="px-5" xs12 sm6>
+              <h4 class="hold-form__caption">Booker Details</h4>
               <custom-input
                 :input="details.name"
                 :rules="rules.name"
@@ -32,7 +32,7 @@
                 <i :class="details.phoneMobile.iconClass"></i>
               </custom-input>
             </v-flex>
-            <v-flex class="px-5 mb-2 mt-2" xs12 sm6>
+            <v-flex class="px-5 mt-2" xs12 sm6>
               <v-layout row>
                 <v-flex class="mt-4" xs12 sm10>
                   <custom-select
@@ -101,10 +101,9 @@
             v => !!v || 'E-mail is required.',
             v => /.+@.+/.test(v) || 'E-mail must be valid',
           ],
-
           phone: [
             v => !!v || 'Phone is required.',
-            v => /[0-9]/.test(v) || 'Phone must be valid',
+            v => /^[ 0-9]+$/.test(v) || 'Phone must be valid',
             v => (v && v.length >= 10) || 'Phone must be min. 10 characters'
           ]
         },
@@ -171,14 +170,23 @@
     font-size: 20px;
   }
 
-  .hold-form-caption {
-    margin: {
-      left: 5px;
-      bottom: 5px;
+  .hold-form {
+
+    &__caption {
+      margin: {
+        left: 5px;
+        bottom: 5px;
+      }
+    ;
+      font-size: 18px;
+      font-weight: 400;
+      text-align: left;
     }
-  ;
-    font-size: 18px;
-    font-weight: 400;
-    text-align: left;
+
+    .v-btn--disabled {
+      background-color: rgba(0, 0, 0, .12) !important;
+    }
   }
+
+
 </style>
