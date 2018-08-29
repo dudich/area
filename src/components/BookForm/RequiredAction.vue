@@ -68,7 +68,6 @@
 
   .required-action {
     position: relative;
-    max-width: 145px;
     padding-bottom: 20px;
     margin-bottom: 23px;
 
@@ -80,6 +79,7 @@
     &__notification {
       position: absolute;
       bottom: 0;
+      width: 100%;
       margin-bottom: 0;
       font-size: 11px;
     }
@@ -110,6 +110,10 @@
       &.active {
         border: 2px solid $blue;
       }
+    }
+
+    @media screen and (min-width: 401px) {
+      max-width: 145px;
     }
   }
 </style>

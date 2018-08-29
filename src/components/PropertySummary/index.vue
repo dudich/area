@@ -17,8 +17,8 @@
             :extras="property.extrasPrice"
             :catering="property.catering"
           ></summary-table>
-          <v-layout row wrap>
-            <v-flex xs6 offset-xs6 v-if="$route.path === `/book/${ $route.params.id }`">
+          <v-layout row wrap justify-center>
+            <v-flex xs7 md5 offset-sm5 offset-md7 v-if="$route.path === `/book/${ $route.params.id }`">
               <v-text-field
                 v-show="visible"
                 label="Solo"

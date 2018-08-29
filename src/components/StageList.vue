@@ -63,5 +63,9 @@
         }
       }
     }
+
+    @media screen and (max-width: $xs - 1) {
+      padding-bottom: 10px;
+    }
   }
 </style>

@@ -5,7 +5,7 @@
         <h3 class="book-caption">Book and Confirm</h3>
         <v-form class="book-form" ref="form"  v-model="valid" lazy-validation>
         <v-layout row wrap>
-          <v-flex class="px-5" xs12 sm6>
+          <v-flex class="px-5 mt-2" xs12 sm8 md6 offset-sm2 offset-md0>
             <h4 class="book-form__caption">Booker Details</h4>
             <custom-input
               :input="details.name"
@@ -35,22 +35,22 @@
               <i class="fas fa-map-marker-alt"></i>
             </autocomplete-input>
             <v-layout row wrap>
-              <v-flex class="pr-1 mb-2" sm6 xs12>
+              <v-flex class=" autocomplete-input pr-1 mb-2" sm6 xs12>
                 <autocomplete-input :input="location.country"></autocomplete-input>
               </v-flex>
-              <v-flex class="pl-1 mb-2" sm6 xs12>
+              <v-flex class="autocomplete-input pl-1 mb-2" sm6 xs12>
                 <autocomplete-input :input="location.city"></autocomplete-input>
               </v-flex>
-              <v-flex class="pr-1 mb-2" sm6 xs12>
+              <v-flex class="autocomplete-input pr-1 mb-2" sm6 xs12>
                 <autocomplete-input :input="location.state"></autocomplete-input>
               </v-flex>
-              <v-flex class="pl-1 mb-2" sm6 xs12>
+              <v-flex class="autocomplete-input pl-1 mb-2" sm6 xs12>
                 <custom-input :input="location.zip"></custom-input>
               </v-flex>
             </v-layout>
           </v-flex>
-          <v-flex class="px-5 mt-4" xs12 sm6>
-            <v-layout row justify-space-between>
+          <v-flex class="px-5 mt-4 mb-4" xs12 sm8 md6 offset-sm2 offset-md0>
+            <div class="required-actions">
               <required-action
                 :caption="siteInspectionCaption"
                 @SELECT_REQUIRED_ACTION="changeSiteInspection"
@@ -59,9 +59,9 @@
                 :caption="accommodationCaption"
                 @SELECT_REQUIRED_ACTION="changeAccommodation"
               ></required-action>
-            </v-layout>
+            </div>
             <v-layout row>
-              <v-flex class="pr-1" xs6>
+              <v-flex class="pr-1" xs8 sm6>
                 <custom-input
                   :input="{placeholder: arrivalTime.placeholder, value: arrivalTime.value }"
                   :rules="rules.time"
@@ -70,7 +70,7 @@
                   <i class="fas fa-star-of-life"></i>
                 </custom-input>
               </v-flex>
-              <v-flex class="pl-1" xs6 sm4>
+              <v-flex class="pl-1" xs4 sm3 md4>
                 <custom-select
                   :input="{items: arrivalTime.items, select: arrivalTime.select }"
                   @UPDATE_SELECT_VALUE="updateArrivalTimeSelect"
@@ -78,7 +78,7 @@
               </v-flex>
             </v-layout>
             <v-layout row>
-              <v-flex class="mt-4" xs12 sm10>
+              <v-flex class="mt-4" xs12 md10>
                 <custom-select
                   :input="aboutUs"
                   :rules="rules.required"
@@ -99,7 +99,7 @@
               </v-flex>
             </v-layout>
           </v-flex>
-          <v-layout class="px-5" justify-end>
+          <div class="submit px-5">
             <v-btn
               class="btn btn-large no-text-transform bg-blue mb-4 mx-0"
               @click="confirmBook"
@@ -110,7 +110,7 @@
               flat
             >Book and Confirm
             </v-btn>
-          </v-layout>
+          </div>
         </v-layout>
         </v-form>
       </v-container>
@@ -279,6 +279,8 @@
 </script>
 
 <style lang="scss">
+  @import "../../styles/variables";
+
   .book-caption {
     margin: {
       top: 25px;
@@ -289,6 +291,26 @@
 
   .book-form {
 
+    .required-actions {
+      display: flex;
+      justify-content: space-between;
+
+      @media screen and (max-width: $sm - 1) {
+        justify-content: space-around;
+      }
+
+      @media screen and (max-width: 400px) {
+        flex-direction: column;
+        align-self: center;
+      }
+    }
+
+    .autocomplete-input {
+      @media screen and (max-width: $xs) {
+        padding: 0 !important;
+      }
+    }
+
     &__caption {
       margin: {
         left: 5px;
@@ -298,6 +320,16 @@
       font-size: 18px;
       font-weight: 400;
       text-align: left;
+    }
+
+    .submit {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+
+      @media screen and (max-width: $sm - 1) {
+        justify-content: center;
+      }
     }
 
     .v-btn--disabled {
