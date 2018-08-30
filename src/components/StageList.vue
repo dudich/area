@@ -2,7 +2,7 @@
   <div class="booking-stages">
     <v-container>
       <v-layout row wrap align-center>
-        <v-flex sm1 xs12>
+        <v-flex xs12 md2 lg1>
           <v-btn
             class="back-link no-text-transform"
             to="/select-package"
@@ -13,19 +13,19 @@
           >Back
           </v-btn>
         </v-flex>
-        <v-flex sm3 xs12>
+        <v-flex xs12 sm4 md3 lg3>
           <h3 class="booking-stage" v-text="bookingStages.selectEvent"
               :class="{ active: $route.path === '/select-event'}"></h3>
         </v-flex>
-        <v-flex sm4 xs12>
+        <v-flex xs12 sm4 md3 lg4>
           <h3 class="booking-stage" v-text="bookingStages.selectPackage"
               :class="{ active: $route.path === '/select-package'}"></h3>
         </v-flex>
-        <v-flex sm4 xs12 v-if="$route.path === `/hold/${ $route.params.id }`">
+        <v-flex xs12 sm4 md4 lg4 v-if="$route.path === `/hold/${ $route.params.id }`">
           <h3 class="booking-stage" v-text="bookingStages.hold"
               :class="{ active: $route.path === `/hold/${ $route.params.id }`}"></h3>
         </v-flex>
-        <v-flex sm4 xs12 v-else>
+        <v-flex xs12 sm4 lg4 v-else>
           <h3 class="booking-stage" v-text="bookingStages.book"
               :class="{ active: $route.path === `/book/${ $route.params.id }`}"></h3>
         </v-flex>

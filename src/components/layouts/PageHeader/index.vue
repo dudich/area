@@ -105,6 +105,7 @@
     box-shadow: none !important;
 
     .logo {
+      align-self: flex-start;
       width: 200px;
       height: 80px;
 
