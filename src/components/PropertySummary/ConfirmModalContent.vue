@@ -7,7 +7,7 @@
         Amet, cum excepturi exercitationem fugiat incidunt laborum nihil nisi numquam quam ratione repellendus similique, ut vitae?
         A asperiores hic laborum rem voluptatibus.
       </p>
-      <v-layout row justify-space-between>
+      <v-layout row justify-space-between wrap>
         <v-flex xs5>
           <v-btn
             class="bg-blue no-text-transform"
@@ -70,6 +70,8 @@
 </script>
 
 <style lang="scss">
+  @import "../../styles/variables";
+
   .confirm-modal-content {
     padding: 120px 0 100px;
   }
@@ -79,6 +81,10 @@
 
     &__text {
       font-size: 11px;
+    }
+
+    @media screen and (max-width: $xs - 1) {
+      padding: 20px 30px;
     }
   }
 </style>

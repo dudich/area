@@ -324,7 +324,7 @@
     }
 
     .autocomplete-input {
-      @media screen and (max-width: $xs) {
+      @media screen and (max-width: $xs - 1) {
         padding: 0 !important;
       }
     }

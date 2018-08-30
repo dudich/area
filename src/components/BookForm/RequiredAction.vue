@@ -81,6 +81,7 @@
 
     .v-input--radio-group__input {
       flex-direction: row;
+      justify-content: center;
     }
 
     .v-radio {
