@@ -16,8 +16,7 @@
           @click="showDetails"
           dark
           round
-          v-text="`${details ? 'Hide Details' : 'Vue Details'}`"
-        ></v-btn>
+        >{{ details ? 'Hide Details' : 'Vue Details' }}</v-btn>
       </v-layout>
     </v-flex>
   </v-layout>
