@@ -8,6 +8,14 @@
 
 .btn {
   font-size: 18px!important;
+
+  .v-btn__content {
+    white-space: pre-line !important;
+  }
+
+  @media screen and (max-width: $xs - 1) {
+    font-size: 14px !important;
+  }
 }
 
 .btn-large {

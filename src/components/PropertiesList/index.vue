@@ -8,6 +8,7 @@
       <v-layout class="px-3 py-2" row wrap justify-space-between>
         <v-flex xs12 sm5 md7 lg7>
           <p class="property-name">{{ property.name }}</p>
+
           <v-layout row wrap>
             <v-flex class="mb-3" xs12 md6>
               <property-gallery
@@ -16,43 +17,57 @@
                 :propertyId="property.id"
               ></property-gallery>
             </v-flex>
-            <v-flex class="mb-3 pl-3" xs12 md6>
+
+            <v-flex class="mb-3 pl-3 hidden-xs-only" sm12 md6>
               <property-description :property="property"></property-description>
             </v-flex>
           </v-layout>
         </v-flex>
 
-        <v-flex xs12 sm6 md4 lg3>
-              <property-price :property="property"></property-price>
-              <div class="btn-container">
-                <v-btn
-                  class="btn btn-view-extras no-text-transform bg-blue no-text-transform btn-large mb-2"
-                  dark
-                  round
-                  block
-                  @click="showExtras(property.id)"
-                >View Extras
-                </v-btn>
-                <v-btn
-                  class="btn btn-hold no-text-transform bg-blue no-text-transform btn-large mb-2"
-                  dark
-                  round
-                  block
-                  @click="holdProperty(property.id)"
-                >Hold
-                </v-btn>
-                <v-btn
-                  class="btn btn-book no-text-transform bg-light-green no-text-transform btn-large mb-2"
-                  dark
-                  block
-                  round
-                  @click="bookProperty(property.id)"
-                >Book and Confirm
-                </v-btn>
-              </div>
+        <v-flex class="hidden-sm-and-up" xs12>
+          <property-layouts
+            :layouts="property.layoutTypes"
+            :area="property.floorArea"
+            :propertyId="property.id"
+            :select="'theatre'"
+          ></property-layouts>
         </v-flex>
 
-        <v-flex xs12>
+        <v-flex xs12 sm6 md4 lg3>
+          <property-description class="hidden-sm-and-up" :property="property"></property-description>
+          <property-price :property="property"></property-price>
+          <div class="btn-container">
+            <add-extra-button
+              class="hidden-sm-and-up"
+              :catering="property.catering"
+              :id="property.id"
+              :text="['Add Catering', 'Remove Catering']"
+            ></add-extra-button>
+            <v-btn
+              class="btn btn-view-extras no-text-transform bg-blue no-text-transform btn-large mb-2"
+              dark
+              round
+              @click="showExtras(property.id)"
+            >View Extras
+            </v-btn>
+            <v-btn
+              class="btn btn-hold no-text-transform bg-blue no-text-transform btn-large mb-2"
+              dark
+              round
+              @click="holdProperty(property.id)"
+            >Hold
+            </v-btn>
+            <v-btn
+              class="btn btn-book no-text-transform bg-light-green no-text-transform btn-large mb-2"
+              dark
+              round
+              @click="bookProperty(property.id)"
+            >Book and Confirm
+            </v-btn>
+          </div>
+        </v-flex>
+
+        <v-flex class="hidden-xs-only" sm12>
           <property-layouts
             :layouts="property.layoutTypes"
             :area="property.floorArea"
@@ -75,6 +90,7 @@
   import PropertyPrice from './PropertyPrice/index'
   import ExtrasList from '../ExtrasList'
   import PropertyNotification from './PropertyNotification'
+  import AddExtraButton from '../../components/Buttons/AddExtraButton'
 
   export default {
     name: 'properties-list',
@@ -90,7 +106,7 @@
       }
     },
 
-    data () {
+    data() {
       return {
         type: 'number',
         duration: 300,
@@ -98,13 +114,17 @@
       }
     },
 
+    mounted() {
+      EventBus.$on(`SHOW_DETAILS_${this.property.id}`, () => console.log('dd'))
+    },
+
     computed: {
-      target () {
+      target() {
         const value = this[this.type];
         if (!isNaN(value)) return Number(value);
         else return value
       },
-      options () {
+      options() {
         return {
           duration: this.duration,
           easing: this.easing
@@ -124,7 +144,8 @@
       PropertyLayouts,
       PropertyPrice,
       ExtrasList,
-      PropertyNotification
+      PropertyNotification,
+      AddExtraButton
     },
 
     methods: {
@@ -143,6 +164,8 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../../styles/variables";
+
   .property {
     position: relative;
     border: 1px solid #fff;
@@ -167,6 +190,23 @@
     .btn-container {
       width: 60%;
       margin-left: auto;
+
+      .v-btn {
+        width: 100%;
+
+        @media screen and (max-width: $xs - 1) {
+          width: 30px;
+          height: 80px !important;
+          border-radius: 50%;
+        }
+      }
+
+      @media screen and (max-width: $xs - 1) {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: auto;
+      }
     }
   }
 </style>

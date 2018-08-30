@@ -122,6 +122,11 @@
         &.active {
           border-color: $blue;
         }
+
+        @media screen and (max-width: $xs - 1) {
+          width: 65px;
+          height: 50px;
+        }
       }
 
       label {

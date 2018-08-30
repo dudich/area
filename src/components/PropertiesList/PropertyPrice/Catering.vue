@@ -1,22 +1,20 @@
 <template>
   <tr class="catering">
-    <td class="text">
+    <td class="text text-xs-left text-sm-right">
       Catering
-      <v-btn
-        class="btn bg-blue no-text-transform"
-        @click="changeCatering"
-        dark
-        round
-      >
-        {{ catering ? 'Remove' : 'Add' }}
-      </v-btn>
+      <add-extra-button
+        class="hidden-xs-only"
+        :catering="catering"
+        :id="propertyId"
+        :text="['Add', 'Remove']"
+      ></add-extra-button>
     </td>
-    <td class="count">{{ catering ? 'Added' : '-' }}</td>
+    <td class="count text-xs-right">{{ catering ? 'Added' : '-' }}</td>
   </tr>
 </template>
 
 <script>
-  import {CHANGE_CATERING} from "../../../store/actionTypes";
+  import AddExtraButton from '../../../components/Buttons/AddExtraButton'
 
   export default {
     name: 'catering',
@@ -32,11 +30,8 @@
       }
     },
 
-    methods: {
-      changeCatering() {
-        this.$store.commit(CHANGE_CATERING, this.propertyId);
-        EventBus.$emit(`CHANGE_CATERING_${this.propertyId}`);
-      }
+    components: {
+      AddExtraButton
     }
   }
 </script>
@@ -53,7 +48,6 @@
 
     .text {
       position: relative;
-      text-align: right;
 
       .btn {
         position: absolute;

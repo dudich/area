@@ -1,15 +1,26 @@
 <template>
-  <div class="property-gallery">
-    <img class="big-img" :src="images[0].big" alt="img" @click="openGalleryCarousel">
-    <div class="thumb-img-container">
-      <img class="thumb-img"
-           v-for="(item, i) in thumbArr.slice(0, 4)"
-           :key="i"
-           :src="item"
-           alt="img"
-      >
-    </div>
-  </div>
+  <v-layout class="property-gallery" row wrap>
+    <v-flex xs7 sm12>
+      <img class="big-img" :src="images[0].big" alt="img" @click="openGalleryCarousel">
+    </v-flex>
+    <v-flex xs5 sm12>
+      <v-layout class="thumb-img-container" row>
+        <img class="thumb-img"
+             v-for="(item, i) in thumbArr.slice(0, 4)"
+             :key="i"
+             :src="item"
+             alt="img"
+        >
+        <v-btn
+          class="btn no-text-transform bg-light-green hidden-sm-and-up"
+          @click="showDetails"
+          dark
+          round
+          v-text="`${details ? 'Hide Details' : 'Vue Details'}`"
+        ></v-btn>
+      </v-layout>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
@@ -35,7 +46,8 @@
 
     data() {
       return {
-        capacity: ''
+        capacity: '',
+        details: false
       }
     },
 
@@ -52,6 +64,11 @@
     methods: {
       openGalleryCarousel() {
         EventBus.$emit(OPEN_GALLERY_CAROUSEL, {images: this.images, caption: this.propertyName})
+      },
+
+      showDetails() {
+        EventBus.$emit(`SHOW_DETAILS_${this.propertyId}`);
+        this.details = !this.details;
       }
     }
   }
@@ -68,6 +85,10 @@
       .big-img {
         width: 100%;
         cursor: pointer;
+
+        @media screen and (max-width: $xs - 1) {
+          height: 100%;
+        }
       }
 
       .thumb-img {
@@ -79,9 +100,17 @@
           width: 32%;
         }
 
+        @media screen and (max-width: $xs - 1) {
+          width: 46%;
+          height: 20%;
+          margin: 0 0 6% 4%;
+        }
+
         &-container {
-          display: flex;
-          justify-content: flex-start;
+          @media screen and (max-width: $xs - 1) {
+            flex-wrap: wrap;
+            justify-content: space-around;
+          }
         }
       }
     }

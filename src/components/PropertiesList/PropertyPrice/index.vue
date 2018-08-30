@@ -1,5 +1,5 @@
 <template>
-  <table class="price text-xs-right">
+  <table class="price text-sm-right">
     <tr class="price-property">
       <td class="text">Room Hire Cost</td>
       <td class="count">${{ property.price }}</td>
@@ -46,6 +46,8 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../../../styles/variables";
+
   .price {
     width: 100%;
 
@@ -54,6 +56,18 @@
       font-size: 18px;
       font-weight: 700;
       color: white;
+
+      &:first-of-type {
+        @media screen and (max-width: $xs - 1) {
+          text-align: left;
+        }
+      }
+
+      &:last-of-type {
+        @media screen and (max-width: $xs - 1) {
+          text-align: right;
+        }
+      }
     }
   }
 </style>
