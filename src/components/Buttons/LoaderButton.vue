@@ -1,10 +1,11 @@
 <template>
   <v-btn
-    class="btn bg-blue no-text-transform"
+    class="btn no-text-transform get-rooms-btn"
     :loading="loading4"
     :disabled="loading4"
     dark
     round
+    flat
     @click.native="loader = 'loading4'"
   >
     <slot></slot>
@@ -40,7 +41,13 @@
   }
 </script>
 
-<style>
+<style lang="scss">
+  @import "../../styles/variables";
+
+  .get-rooms-btn {
+    border: 1px solid $blue;
+  }
+
   .custom-loader {
     animation: loader 1s infinite;
     display: flex;
