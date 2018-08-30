@@ -5,8 +5,8 @@
         :propertyId="property.id"
         :catering="property.catering"
       ></property-notification>
-      <v-layout class="px-3 py-2" row wrap>
-        <v-flex xs12 md7>
+      <v-layout class="px-3 py-2" row wrap justify-space-between>
+        <v-flex xs12 sm5 md7 lg7>
           <p class="property-name">{{ property.name }}</p>
           <v-layout row wrap>
             <v-flex class="mb-3" xs12 md6>
@@ -19,20 +19,10 @@
             <v-flex class="mb-3 pl-3" xs12 md6>
               <property-description :property="property"></property-description>
             </v-flex>
-            <v-flex xs12>
-              <property-layouts
-                :layouts="property.layoutTypes"
-                :area="property.floorArea"
-                :propertyId="property.id"
-                :select="'theatre'"
-              ></property-layouts>
-            </v-flex>
           </v-layout>
         </v-flex>
 
-        <v-flex xs12 md5>
-          <v-layout row>
-            <v-flex xs12 md8 offset-xs0 offset-md4>
+        <v-flex xs12 sm6 md4 lg3>
               <property-price :property="property"></property-price>
               <div class="btn-container">
                 <v-btn
@@ -60,8 +50,15 @@
                 >Book and Confirm
                 </v-btn>
               </div>
-            </v-flex>
-          </v-layout>
+        </v-flex>
+
+        <v-flex xs12>
+          <property-layouts
+            :layouts="property.layoutTypes"
+            :area="property.floorArea"
+            :propertyId="property.id"
+            :select="'theatre'"
+          ></property-layouts>
         </v-flex>
       </v-layout>
 

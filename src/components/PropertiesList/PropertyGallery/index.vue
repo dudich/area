@@ -58,9 +58,12 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../../../styles/variables";
+
   .property {
 
     &-gallery {
+      overflow: hidden;
 
       .big-img {
         width: 100%;
@@ -71,6 +74,10 @@
         width: 80px;
         height: 80px;
         margin-right: 6px;
+
+        @media screen and (max-width: $sm - 1) {
+          width: 32%;
+        }
 
         &-container {
           display: flex;

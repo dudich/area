@@ -58,7 +58,7 @@
       .btn {
         position: absolute;
         top: -7px;
-        left: -20px;
+        right: 100px;
       }
     }
 
