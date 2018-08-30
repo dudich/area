@@ -27,7 +27,6 @@
               </custom-input>
               <custom-input
                 :input="details.phoneMobile"
-                :rules="rules.phone"
               >
                 <i :class="details.phoneMobile.iconClass"></i>
               </custom-input>

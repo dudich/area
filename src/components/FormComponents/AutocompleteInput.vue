@@ -4,6 +4,7 @@
       v-model="input.value"
       :items="input.items"
       :placeholder="input.placeholder"
+      :rules="rules"
     >
     </v-autocomplete>
     <slot></slot>
@@ -18,6 +19,10 @@
       input: {
         type: Object,
         required: true
+      },
+      rules: {
+        type: Array,
+        required: false
       }
     }
   }

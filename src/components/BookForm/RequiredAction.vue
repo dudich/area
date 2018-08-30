@@ -1,24 +1,19 @@
 <template>
   <div class="required-action">
     <p class="required-action__caption" v-text="caption"></p>
-    <div class="label-container mr-1">
-      <label
-        :class="{ active:  selected === 'yes'}"
-        @click="showNotification"
-      >
-        <input type="radio" value="yes" v-model="selected">
-        Yes
-      </label>
-    </div>
-    <div class="label-container">
-      <label
-        :class="{ active:  selected === 'no'}"
-        @click="hideNotification"
-      >
-        <input type="radio" value="no" v-model="selected">
-        No
-      </label>
-    </div>
+
+    <v-radio-group v-model="selected" :rules="rules" @change="showNotification">
+      <v-radio
+        label="Yes"
+        value="yes"
+        :class="{ active: selected === 'yes' }"
+      ></v-radio>
+      <v-radio
+        label="No"
+        value="no"
+        :class="{ active: selected === 'no' }"
+      ></v-radio>
+    </v-radio-group>
     <p
       class="required-action__notification text-notification font-weight-bold"
       v-if="selected === 'yes'"
@@ -39,6 +34,10 @@
       caption: {
         type: String,
         required: true
+      },
+      rules: {
+        type: Array,
+        required: false
       }
     },
 
@@ -51,24 +50,20 @@
 
     methods: {
       showNotification() {
-        setTimeout(() => this.disappearNotification = true, 2000);
-        setTimeout(() => this.$emit(SELECT_REQUIRED_ACTION, this.selected), 100);
-      },
-
-      hideNotification() {
         this.disappearNotification = false;
-        setTimeout(() => this.$emit(SELECT_REQUIRED_ACTION, this.selected), 100);
+        this.$emit(SELECT_REQUIRED_ACTION, this.selected);
+        setTimeout(() => this.disappearNotification = true, 2000);
       }
     }
   }
 </script>
 
-<style lang="scss" scoped>
-  @import "../../styles/variables";
+<style lang="scss">
+ @import "../../styles/variables";
 
   .required-action {
     position: relative;
-    padding-bottom: 20px;
+    //padding-bottom: 20px;
     margin-bottom: 23px;
 
     &__caption {
@@ -84,30 +79,32 @@
       font-size: 11px;
     }
 
-    .label-container {
-      display: inline-block;
-      margin-bottom: 10px;
+    .v-input--radio-group__input {
+      flex-direction: row;
     }
 
-    label {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 60px;
-      height: 35px;
-      border: 1px solid #000;
-      color: #000;
-      background-color: $light-gray;
-      &:hover {
-        border: 2px solid $blue;
-        cursor: pointer;
-      }
+    .v-radio {
 
-      input {
+      .v-input--selection-controls__input {
         display: none;
       }
 
-      &.active {
+      .v-label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 35px;
+        border: 1px solid #000;
+        color: #000;
+        background-color: $light-gray;
+        &:hover {
+          border: 2px solid $blue;
+          cursor: pointer;
+        }
+      }
+
+      &.active .v-label {
         border: 2px solid $blue;
       }
     }

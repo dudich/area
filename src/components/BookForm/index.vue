@@ -31,21 +31,37 @@
             >
               <i :class="details.phoneMobile.iconClass"></i>
             </custom-input>
-            <autocomplete-input class="mb-2" :input="location.address">
+            <autocomplete-input
+              class="mb-2"
+              :input="location.address"
+              :rules="rules.required"
+            >
               <i class="fas fa-map-marker-alt"></i>
             </autocomplete-input>
             <v-layout row wrap>
               <v-flex class=" autocomplete-input pr-1 mb-2" sm6 xs12>
-                <autocomplete-input :input="location.country"></autocomplete-input>
+                <autocomplete-input
+                  :input="location.country"
+                  :rules="rules.required"
+                ></autocomplete-input>
               </v-flex>
               <v-flex class="autocomplete-input pl-1 mb-2" sm6 xs12>
-                <autocomplete-input :input="location.city"></autocomplete-input>
+                <autocomplete-input
+                  :input="location.city"
+                  :rules="rules.required"
+                ></autocomplete-input>
               </v-flex>
               <v-flex class="autocomplete-input pr-1 mb-2" sm6 xs12>
-                <autocomplete-input :input="location.state"></autocomplete-input>
+                <autocomplete-input
+                  :input="location.state"
+                  :rules="rules.required"
+                ></autocomplete-input>
               </v-flex>
               <v-flex class="autocomplete-input pl-1 mb-2" sm6 xs12>
-                <custom-input :input="location.zip"></custom-input>
+                <custom-input
+                  :input="location.zip"
+                  :rules="rules.required"
+                ></custom-input>
               </v-flex>
             </v-layout>
           </v-flex>
@@ -53,10 +69,12 @@
             <div class="required-actions">
               <required-action
                 :caption="siteInspectionCaption"
+                :rules="rules.required"
                 @SELECT_REQUIRED_ACTION="changeSiteInspection"
               ></required-action>
               <required-action
                 :caption="accommodationCaption"
+                :rules="rules.required"
                 @SELECT_REQUIRED_ACTION="changeAccommodation"
               ></required-action>
             </div>
