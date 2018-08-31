@@ -19,15 +19,16 @@
     </v-card>
 
     <v-card class="extras-card bg-dark-blue hidden-lg-and-up">
-        <carousel
+        <carousel ref="carousel"
           :auto="0"
           :watch-items="extras"
           :dots="false"
           :prev-html="prevArrow"
           :next-html="nextArrow"
         >
-          <carousel-item v-for="extra in extras">
-            <extras-item
+          <carousel-item v-for="i in chunkExtras">
+
+            <extras-item v-for="extra in i"
               :key="extra.id"
               :extra="extra"
               :selected="selected"
@@ -47,11 +48,27 @@
           </div>
         </carousel>
     </v-card>
+
+    <!--<v-card class="extras-card bg-dark-blue hidden-lg-and-up">
+      <slick ref="slick" :options="slickOptions">
+        <extras-item
+          v-for="extra in extras"
+          :key="extra.id"
+          :extra="extra"
+          :selected="selected"
+          @EXTRA_SELECTED="updateSelected"
+          @INCREASE_EXTRA_QUANTITY="increaseExtraQuantity"
+          @DECREASE_EXTRA_QUANTITY="decreaseExtraQuantity"
+        >
+        </extras-item>
+      </slick>
+    </v-card>-->
   </v-dialog>
 </template>
 
 <script>
   import { Carousel, CarouselItem } from 'vue-l-carousel'
+  import _ from 'lodash'
   import {
     SHOW_EXTRAS,
     HIDE_EXTRAS,
@@ -79,6 +96,7 @@
         selected: '',
         prevArrow: '<i class="fas fa-chevron-left"></i>',
         nextArrow: '<i class="fas fa-chevron-right"></i>'
+
       }
     },
 
@@ -89,7 +107,8 @@
       });
       EventBus.$on(HIDE_EXTRAS, () => {
         this.dialog = false
-      })
+      });
+      console.log(this.$refs.carousel)
     },
 
     computed: {
@@ -101,12 +120,15 @@
         const arrOfChecked = this.extras.filter((item) => item.quantity > 0);
         const arrOfCost = arrOfChecked.map((item) => item.price * item.quantity);
         return arrOfCost.reduce((acc, item) => acc + item, 0).toFixed(2);
+      },
+      chunkExtras() {
+        return _.chunk(this.extras, 3)
       }
     },
 
     methods: {
       updateSelected(id) {
-        this.selected = id;
+        return this.selected = id;
       },
       addExtras() {
         this.$store.commit(CHANGE_EXTRAS_PRICE, {total: +this.total, id: this.propertyId});
@@ -121,6 +143,20 @@
       decreaseExtraQuantity(id) {
         const index = this.extras.map((item) => item.id).indexOf(id);
         --this.extras[index].quantity;
+      },
+      next() {
+        this.$refs.slick.next();
+      },
+
+      prev() {
+        this.$refs.slick.prev();
+      },
+
+      reInit() {
+        // Helpful if you have to deal with v-for to update dynamic lists
+        this.$nextTick(() => {
+          this.$refs.slick.reSlick();
+        });
       }
     },
 
@@ -130,6 +166,7 @@
       ExtrasHeader,
       'carousel': Carousel,
       'carousel-item': CarouselItem
+
     }
   }
 </script>
@@ -167,10 +204,10 @@
 
   .v-carousel-items {
     display: flex;
-    width: 200% !important;
+    //width: 300% !important;
 
     @media screen and (min-width: $md) {
-      width: 100% !important;
+
     }
   }
 
