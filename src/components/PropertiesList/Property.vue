@@ -112,8 +112,6 @@
         ></property-layouts>
       </v-flex>
     </v-layout>
-
-    <extras-list :extras="extras" :propertyId="property.id"></extras-list>
   </div>
 </template>
 
@@ -123,7 +121,6 @@
   import PropertyGallery from './PropertyGallery/index'
   import PropertyLayouts from './PropertyLayouts'
   import PropertyPrice from './PropertyPrice/index'
-  import ExtrasList from '../ExtrasList'
   import PropertyNotification from './PropertyNotification'
   import AddExtraButton from '../../components/Buttons/AddExtraButton'
 
@@ -134,50 +131,22 @@
       property: {
         type: Object,
         required: true
-      },
-      extras: {
-        type: Array,
-        required: true
       }
     },
 
     data() {
       return {
-        details: false,
-        type: 'number',
-        duration: 300,
-        easing: 'easeInOutCubic',
+        details: false
       }
     },
 
     mounted() {
-      EventBus.$on(`SHOW_DETAILS_${this.property.id}`, (payload) => this.details = !this.details)
-    },
-
-    computed: {
-      target() {
-        const value = this[this.type];
-        if (!isNaN(value)) return Number(value);
-        else return value
-      },
-      options() {
-        return {
-          duration: this.duration,
-          easing: this.easing
-        }
-      },
-      offset() {
-        return this.$store.getters.offsetTop
-      },
-      number() {
-        return this.offset + 400
-      }
+      EventBus.$on(`SHOW_DETAILS_${this.property.id}`, () => this.details = !this.details)
     },
 
     methods: {
       showExtras(id) {
         EventBus.$emit(SHOW_EXTRAS, id);
-        this.$vuetify.goTo(this.target, this.options).then()
       },
       holdProperty(id) {
         this.$router.push(`/hold/${id}`);
@@ -192,7 +161,6 @@
       PropertyDescription,
       PropertyLayouts,
       PropertyPrice,
-      ExtrasList,
       PropertyNotification,
       AddExtraButton
     }

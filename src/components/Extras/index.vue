@@ -1,8 +1,8 @@
 <template>
-  <v-slide-y-transition>
-    <v-card class="extras-card bg-dark-blue" v-if="showExtras">
-      <extras-header :total="total" :propertyId="propertyId" :addExtras="addExtras"></extras-header>
-      <p class="extras-description" :class="{opacity: !selected}">{{ selected ? description : 'default' }}</p>
+  <v-dialog v-model="dialog" width="1190" content-class="extras" :scrollable=true>
+    <v-card class="extras-card bg-dark-blue">
+      <extras-header :total="total" :addExtras="addExtras"></extras-header>
+      <p class="extras-description" :class="{ opacity: !selected }">{{ selected ? description : 'default' }}</p>
       <ul class="extras-list">
         <extras-item
           v-for="extra in extras"
@@ -17,7 +17,7 @@
       </ul>
       <extras-table :extras="extras"></extras-table>
     </v-card>
-  </v-slide-y-transition>
+  </v-dialog>
 </template>
 
 <script>
@@ -36,10 +36,6 @@
       extras: {
         type: Array,
         required: true
-      },
-      propertyId: {
-        type: String,
-        required: true
       }
     },
 
@@ -47,24 +43,19 @@
 
     data() {
       return {
-        selected: '',
-        showExtras: false,
-        type: 'number',
-        duration: 300,
-        easing: 'easeInOutCubic',
+        dialog: false,
+        propertyId: '',
+        selected: ''
       }
     },
 
     mounted() {
       EventBus.$on(SHOW_EXTRAS, (payload) => {
-        if (payload === this.propertyId) {
-          this.showExtras = true
-        }
+        this.propertyId = payload;
+        this.dialog = true
       });
-      EventBus.$on(HIDE_EXTRAS, (payload) => {
-        if (payload === this.propertyId) {
-          this.showExtras = false
-        }
+      EventBus.$on(HIDE_EXTRAS, () => {
+        this.dialog = false
       })
     },
 
@@ -77,23 +68,6 @@
         const arrOfChecked = this.extras.filter((item) => item.quantity > 0);
         const arrOfCost = arrOfChecked.map((item) => item.price * item.quantity);
         return arrOfCost.reduce((acc, item) => acc + item, 0).toFixed(2);
-      },
-      target () {
-        const value = this[this.type];
-        if (!isNaN(value)) return Number(value);
-        else return value
-      },
-      options () {
-        return {
-          duration: this.duration,
-          easing: this.easing
-        }
-      },
-      offset() {
-        return this.$store.getters.offsetTop
-      },
-      number() {
-        return this.offset - 400
       }
     },
 
@@ -128,16 +102,21 @@
 <style lang="scss">
   .extras {
 
+    &.v-dialog {
+      border-radius: 0;
+    }
+
     &-list {
       position: relative;
       display: flex;
       justify-content: center;
+      //flex-wrap: wrap;
       padding-top: 10px;
       margin: 0 auto !important;
     }
 
     &-description {
-      margin-top: 20px;
+      margin-bottom: 40px;
       font-size: 16px;
       color: white;
       text-align: center;

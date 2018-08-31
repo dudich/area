@@ -32,10 +32,11 @@
                 <loader-button class="mt-3">Get Rooms</loader-button>
               </v-flex>
             </v-layout>
-            <properties-list :properties="properties" :extras="extras"></properties-list>
+            <properties-list :properties="properties"></properties-list>
             <modal :width="800">
               <gallery-carousel></gallery-carousel>
             </modal>
+            <extras :extras="extras"></extras>
           </v-flex>
         </v-layout>
       </v-container>
@@ -50,11 +51,18 @@
   import FilterInput from '../components/FormComponents/FilterInput'
   import Modal from '../components/Modal'
   import GalleryCarousel from '../components/PropertiesList/PropertyGallery/GalleryCarousel'
+  import Extras from '../components/Extras'
   import LoaderButton from '../components/Buttons/LoaderButton'
 
 
   export default {
     name: 'select-package',
+
+    data() {
+      return {
+        currentView: null
+      }
+    },
 
     computed: {
       properties() {
@@ -83,6 +91,7 @@
       FilterInput,
       Modal,
       GalleryCarousel,
+      Extras,
       LoaderButton
     }
   }

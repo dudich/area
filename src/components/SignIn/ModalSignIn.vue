@@ -1,10 +1,8 @@
 <template>
-  <div class="text-xs-center">
-    <v-dialog v-model="dialog" :width="width">
-      <i class="fas fa-times text-white" @click="closeModal"></i>
-      <component :is="currentView" @FORGOT_PASSWORD="changeView"></component>
-    </v-dialog>
-  </div>
+  <v-dialog v-model="dialog" :width="width">
+    <i class="fas fa-times text-white sign-in-closer" @click="closeModal"></i>
+    <component :is="currentView" @FORGOT_PASSWORD="changeView"></component>
+  </v-dialog>
 </template>
 
 <script>
@@ -66,7 +64,7 @@
     border-radius: 50px;
     background-color: $dark-blue;
 
-    .fas.fa-times {
+    .sign-in-closer {
       position: absolute;
       right: 30px;
       top: 15px;

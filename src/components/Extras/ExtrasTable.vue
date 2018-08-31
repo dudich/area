@@ -59,6 +59,7 @@
     &-table {
       width: 100%;
       border-collapse: collapse;
+      margin-top: 40px;
 
       tr:not(:first-of-type) {
         border-top: 2px solid white;

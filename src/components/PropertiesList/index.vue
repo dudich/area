@@ -4,7 +4,6 @@
       v-for="property in properties"
       :key="property.id"
       :property="property"
-      :extras="extras"
     ></property>
   </div>
 </template>
@@ -17,10 +16,6 @@
 
     props: {
       properties: {
-        type: Array,
-        required: true
-      },
-      extras: {
         type: Array,
         required: true
       }
