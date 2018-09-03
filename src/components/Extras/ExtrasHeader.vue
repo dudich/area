@@ -11,8 +11,6 @@
 </template>
 
 <script>
-  import {HIDE_EXTRAS} from "../../store/actionTypes";
-
   export default {
     name: 'extras-header',
 
@@ -24,12 +22,6 @@
       addExtras: {
         type: Function,
         required: true
-      }
-    },
-
-    methods: {
-      hideExtras() {
-        EventBus.$emit(HIDE_EXTRAS)
       }
     }
   }

@@ -120,8 +120,7 @@
       addExtras() {
         this.$store.commit(CHANGE_EXTRAS_PRICE, {total: +this.total, id: this.propertyId});
         EventBus.$emit(`UPDATE_EXTRA_PRICE_${this.propertyId}`);
-        this.$vuetify.goTo(this.target, this.options).then();
-        EventBus.$emit(HIDE_EXTRAS, this.propertyId);
+        EventBus.$emit(HIDE_EXTRAS);
       },
       increaseExtraQuantity(id) {
         const index = this.extras.map((item) => item.id).indexOf(id);

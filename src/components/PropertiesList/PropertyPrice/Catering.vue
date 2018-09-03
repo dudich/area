@@ -2,19 +2,19 @@
   <tr class="catering">
     <td class="text text-xs-left text-sm-right">
       Catering
-      <add-extra-button
+      <add-catering-button
         class="hidden-xs-only"
         :catering="catering"
         :id="propertyId"
         :text="['Add', 'Remove']"
-      ></add-extra-button>
+      ></add-catering-button>
     </td>
     <td class="count text-xs-right">{{ catering ? 'Added' : '-' }}</td>
   </tr>
 </template>
 
 <script>
-  import AddExtraButton from '../../../components/Buttons/AddExtraButton'
+  import AddCateringButton from '../../Buttons/AddCateringButton'
 
   export default {
     name: 'catering',
@@ -31,7 +31,7 @@
     },
 
     components: {
-      AddExtraButton
+      AddCateringButton
     }
   }
 </script>

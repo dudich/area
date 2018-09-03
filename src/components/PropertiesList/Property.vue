@@ -122,7 +122,7 @@
   import PropertyLayouts from './PropertyLayouts'
   import PropertyPrice from './PropertyPrice/index'
   import PropertyNotification from './PropertyNotification'
-  import AddExtraButton from '../../components/Buttons/AddExtraButton'
+  import AddExtraButton from '../Buttons/AddCateringButton'
 
   export default {
     name: 'property',

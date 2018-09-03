@@ -34,6 +34,6 @@
         this.$store.commit(CHANGE_CATERING, this.id);
         EventBus.$emit(`CHANGE_CATERING_${this.id}`);
       }
-    },
+    }
   }
 </script>
