@@ -67,7 +67,8 @@
 
     methods: {
       changeLayout() {
-        EventBus.$emit(`CHANGE_LAYOUT_TYPE_${this.propertyId}`, this.selectedCapacity)
+        setTimeout(() => EventBus.$emit(`CHANGE_LAYOUT_TYPE_${this.propertyId}`, this.selectedCapacity), 100);
+
       }
     }
   }

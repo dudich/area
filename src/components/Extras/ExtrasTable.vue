@@ -3,19 +3,31 @@
     <tbody>
     <tr>
       <td></td>
-      <td class="extras-name" v-for="extra in extras">{{ extra.name }}</td>
+      <td
+        class="extras-name"
+        v-for="extra in extras"
+      >{{ extra.name }}</td>
     </tr>
     <tr>
       <td>Quantity</td>
-      <td class="text-green" v-for="extra in extras">{{ quantity(extra) }}</td>
+      <td
+        class="text-green"
+        v-for="extra in extras"
+      >{{ quantity(extra) }}</td>
     </tr>
     <tr>
       <td>Unit Price</td>
-      <td class="text-green" v-for="extra in extras">{{ unitePrice(extra) }}</td>
+      <td
+        class="text-green"
+        v-for="extra in extras"
+      >{{ unitePrice(extra) }}</td>
     </tr>
     <tr>
       <td>Cost</td>
-      <td class="text-green" v-for="extra in extras">{{ cost(extra) }}</td>
+      <td
+        class="text-green"
+        v-for="extra in extras"
+      >{{ cost(extra) }}</td>
     </tr>
     </tbody>
   </table>
@@ -27,10 +39,6 @@
       extras: {
         type: Array,
         required: true
-      },
-      checked: {
-        type: Array,
-        required: false
       }
     },
 

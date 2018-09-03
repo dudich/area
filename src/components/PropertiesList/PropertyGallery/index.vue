@@ -45,7 +45,6 @@
 
     data() {
       return {
-        capacity: '',
         details: false
       }
     },
@@ -54,10 +53,6 @@
       thumbArr() {
         return this.images.map((item) => item.thumb)
       }
-    },
-
-    mounted() {
-      EventBus.$on(`CHANGE_LAYOUT_TYPE_${this.propertyId}`, (payload) => this.capacity = payload)
     },
 
     methods: {

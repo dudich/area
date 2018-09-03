@@ -47,21 +47,21 @@
                 class="btn btn-view-extras no-text-transform bg-blue no-text-transform btn-large mb-2"
                 dark
                 round
-                @click="showExtras(property.id)"
+                @click="showExtras()"
               >View Extras
               </v-btn>
               <v-btn
                 class="btn btn-hold no-text-transform bg-blue no-text-transform btn-large mb-2"
                 dark
                 round
-                @click="holdProperty(property.id)"
+                @click="holdProperty()"
               >Hold
               </v-btn>
               <v-btn
                 class="btn btn-book no-text-transform bg-light-green no-text-transform btn-large mb-2"
                 dark
                 round
-                @click="bookProperty(property.id)"
+                @click="bookProperty()"
               >Book and Confirm
               </v-btn>
             </div>
@@ -136,23 +136,25 @@
 
     data() {
       return {
-        details: false
+        details: false,
+        capacity: null
       }
     },
 
     mounted() {
-      EventBus.$on(`SHOW_DETAILS_${this.property.id}`, () => this.details = !this.details)
+      EventBus.$on(`SHOW_DETAILS_${this.property.id}`, () => this.details = !this.details);
+      EventBus.$on(`CHANGE_LAYOUT_TYPE_${this.property.id}`, (payload) => this.capacity = payload);
     },
 
     methods: {
-      showExtras(id) {
-        EventBus.$emit(SHOW_EXTRAS, id);
+      showExtras() {
+        EventBus.$emit(SHOW_EXTRAS, { id: this.property.id, capacity: this.capacity });
       },
-      holdProperty(id) {
-        this.$router.push(`/hold/${id}`);
+      holdProperty() {
+        this.$router.push(`/hold/${this.property.id}`);
       },
-      bookProperty(id) {
-        this.$router.push(`/book/${id}`);
+      bookProperty() {
+        this.$router.push(`/book/${this.property.id}`);
       }
     },
 

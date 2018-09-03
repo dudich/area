@@ -5,7 +5,7 @@
       <p class="extras-description" :class="{opacity: !selected}">{{ selected ? description : 'default' }}</p>
       <ul class="extras-list">
         <extras-item
-          v-for="extra in extras"
+          v-for="extra in filteredExtras"
           :key="extra.id"
           :extra="extra"
           :selected="selected"
@@ -15,7 +15,7 @@
         >
         </extras-item>
       </ul>
-      <extras-table :extras="extras"></extras-table>
+      <extras-table :extras="filteredExtras"></extras-table>
     </v-card>
 
     <v-card class="extras-card bg-dark-blue hidden-lg-and-up">
@@ -46,7 +46,7 @@
           <p class="extras-description" :class="{ opacity: !selected }">{{ selected ? description : 'default' }}</p>
         </div>
         <div slot="after">
-          <extras-table class="hidden-md-and-down" :extras="extras"></extras-table>
+          <extras-table class="hidden-md-and-down" :extras="filteredExtras"></extras-table>
         </div>
       </carousel>
     </v-card>
@@ -65,7 +65,6 @@
   import ExtrasTable from './ExtrasTable'
   import ExtrasItem from './ExtrasItem'
   import findIndexByKey from '../../mixins/findIndexByKey'
-  import extras from "../../store/modules/extras";
 
   export default {
     props: {
@@ -81,6 +80,7 @@
       return {
         dialog: false,
         propertyId: '',
+        capacity: null,
         selected: '',
         prevArrow: '<i class="fas fa-chevron-left"></i>',
         nextArrow: '<i class="fas fa-chevron-right"></i>'
@@ -91,7 +91,8 @@
     mounted() {
       EventBus.$on(SHOW_EXTRAS, (payload) => {
         _.forEach(this.extras, (item) => item.quantity = 0);
-        this.propertyId = payload;
+        this.propertyId = payload.id;
+        this.capacity = payload.capacity;
         this.dialog = true;
       });
       EventBus.$on(HIDE_EXTRAS, () => {
@@ -110,7 +111,10 @@
         return arrOfCost.reduce((acc, item) => acc + item, 0).toFixed(2);
       },
       chunkExtras() {
-        return _.chunk(this.extras, 3)
+        return _.chunk(this.filteredExtras, 3);
+      },
+      filteredExtras() {
+        return this.extras.filter(extra => !(extra.name === 'Tea and Nespresso Coffee' && this.capacity > 50));
       }
     },
 
@@ -155,10 +159,9 @@
     }
 
     &-list {
-      position: relative;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-around;
       padding-top: 10px;
     }
 

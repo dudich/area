@@ -10,14 +10,22 @@ export default {
     },
     {
       id: "2",
-      name: 'Tea and Filter Coffee',
-      description: 'Nespresso coffee and a selection of T Leaf Tea as well as individual water bottles for each attendee',
+      name: 'Tea and Nespresso Coffee',
+      description: 'Nespresso coffee and a selection of Tea as well as individual water bottles for each attendee',
       price: 999.90,
       quantity: 0,
-      maxQuantity: 50
+      maxQuantity: null
     },
     {
       id: "3",
+      name: 'Tea and Filter Coffee',
+      description: 'Filter coffee and a selection of Tea as well as individual water bottles for each attendee',
+      price: 999.90,
+      quantity: 0,
+      maxQuantity: null
+    },
+    {
+      id: "4",
       name: 'Polycom',
       description: 'Teleconferencing for up to 8 callers',
       price: 999.90,
@@ -25,7 +33,7 @@ export default {
       maxQuantity: 8
     },
     {
-      id: "4",
+      id: "5",
       name: 'Projector and Screen',
       description: '2 x 5K Projectors with dual connectivity 2 x 120” screen and hidden speakers',
       price: 999.90,
@@ -33,7 +41,7 @@ export default {
       maxQuantity: 2
     },
     {
-      id: "5",
+      id: "6",
       name: 'Flipchart',
       description: 'A1 flipchart, stand and markers',
       price: 999.90,
@@ -41,7 +49,7 @@ export default {
       maxQuantity: 1
     },
     {
-      id: "6",
+      id: "7",
       name: 'Whiteboard',
       description: 'Whiteboard and markers',
       price: 999.90,
