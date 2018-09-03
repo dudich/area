@@ -29,7 +29,6 @@
         <carousel-item
           v-for="(stripe, i) in chunkExtras"
           :key="i"
-
         >
           <extras-item v-for="extra in stripe"
                        :key="extra.id"
@@ -66,6 +65,7 @@
   import ExtrasTable from './ExtrasTable'
   import ExtrasItem from './ExtrasItem'
   import findIndexByKey from '../../mixins/findIndexByKey'
+  import extras from "../../store/modules/extras";
 
   export default {
     props: {
@@ -90,11 +90,12 @@
 
     mounted() {
       EventBus.$on(SHOW_EXTRAS, (payload) => {
+        _.forEach(this.extras, (item) => item.quantity = 0);
         this.propertyId = payload;
-        this.dialog = true
+        this.dialog = true;
       });
       EventBus.$on(HIDE_EXTRAS, () => {
-        this.dialog = false
+        this.dialog = false;
       });
     },
 
