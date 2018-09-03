@@ -2,30 +2,35 @@
   <div class="booking-stages">
     <v-container>
       <v-layout row wrap align-center>
-        <v-flex xs12 md2 lg1>
+        <v-flex v-if="pathCondition" xs12 md2 lg1>
           <v-btn
             class="back-link no-text-transform"
             to="/select-package"
-            v-if="$route.path === `/hold/${ $route.params.id }` || $route.path === `/book/${ $route.params.id }`"
             flat
             round
             dark
           >Back
           </v-btn>
         </v-flex>
-        <v-flex xs12 sm4 md3 lg3>
+        <v-flex :class="[pathCondition ? 'xs12 sm4 md3 lg3' : 'xs12 sm4']">
           <h3 class="booking-stage" v-text="bookingStages.selectEvent"
               :class="{ active: $route.path === '/select-event'}"></h3>
         </v-flex>
-        <v-flex xs12 sm4 md3 lg4>
+        <v-flex :class="[pathCondition ? 'xs12 sm4 md3 lg4' : 'xs12 sm4']">
           <h3 class="booking-stage" v-text="bookingStages.selectPackage"
               :class="{ active: $route.path === '/select-package'}"></h3>
         </v-flex>
-        <v-flex xs12 sm4 md4 lg4 v-if="$route.path === `/hold/${ $route.params.id }`">
+        <v-flex
+          :class="[pathCondition ? 'xs12 sm4 lg4' : 'xs12 sm4']"
+          v-if="$route.path === `/hold/${ $route.params.id }`"
+        >
           <h3 class="booking-stage" v-text="bookingStages.hold"
               :class="{ active: $route.path === `/hold/${ $route.params.id }`}"></h3>
         </v-flex>
-        <v-flex xs12 sm4 lg4 v-else>
+        <v-flex
+          :class="[pathCondition ? 'xs12 sm4 lg4' : 'xs12 sm4']"
+          v-else
+        >
           <h3 class="booking-stage" v-text="bookingStages.book"
               :class="{ active: $route.path === `/book/${ $route.params.id }`}"></h3>
         </v-flex>
@@ -46,6 +51,12 @@
           book: 'Book and Confirm',
           hold: 'Hold Room'
         }
+      }
+    },
+
+    computed: {
+      pathCondition() {
+        return this.$route.path === `/hold/${ this.$route.params.id }` || this.$route.path === `/book/${ this.$route.params.id }`
       }
     }
   }
