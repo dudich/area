@@ -127,13 +127,13 @@
         EventBus.$emit(`UPDATE_EXTRA_PRICE_${this.propertyId}`);
         EventBus.$emit(HIDE_EXTRAS);
       },
-      increaseExtraQuantity(id) {
-        const index = this.extras.map((item) => item.id).indexOf(id);
-        ++this.extras[index].quantity;
+      increaseExtraQuantity(payload) {
+        const index = this.extras.map((item) => item.id).indexOf(payload.id);
+        payload.name.indexOf('Tea') !== -1 ? this.extras[index].quantity = this.capacity : ++this.extras[index].quantity;
       },
-      decreaseExtraQuantity(id) {
-        const index = this.extras.map((item) => item.id).indexOf(id);
-        --this.extras[index].quantity;
+      decreaseExtraQuantity(payload) {
+        const index = this.extras.map((item) => item.id).indexOf(payload.id);
+        payload.name.indexOf('Tea') !== -1 ? this.extras[index].quantity = 0 : --this.extras[index].quantity;
       }
     },
 

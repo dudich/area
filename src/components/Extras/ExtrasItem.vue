@@ -5,13 +5,13 @@
     <div class="extras-icon">
       <div class="extras-control extras-control-minus"
            v-if="extra.quantity > 0"
-           @click="decreaseExtraQuantity(extra.id)"
+           @click="decreaseExtraQuantity(extra.id, extra.name)"
       >
         <i class="fas fa-minus text-light-green"></i>
       </div>
       <div class="extras-control extras-control-plus"
            v-if="extra.maxQuantity !== extra.quantity"
-           @click="increaseExtraQuantity(extra.id)"
+           @click="increaseExtraQuantity(extra.id, extra.name)"
       >
         <i class="fas fa-plus text-light-green"></i>
       </div>
@@ -45,7 +45,7 @@
       checked: {
         type: Array,
         required: false
-      },
+      }
     },
 
     data() {
@@ -58,11 +58,11 @@
       handleOnSelect(payload) {
         this.$emit(EXTRA_SELECTED, payload)
       },
-      increaseExtraQuantity(id) {
-        this.$emit(INCREASE_EXTRA_QUANTITY, id)
+      increaseExtraQuantity(id, name) {
+        this.$emit(INCREASE_EXTRA_QUANTITY, {id: id, name: name})
       },
-      decreaseExtraQuantity(id) {
-        this.$emit(DECREASE_EXTRA_QUANTITY, id)
+      decreaseExtraQuantity(id, name) {
+        this.$emit(DECREASE_EXTRA_QUANTITY, {id: id, name: name})
       }
     }
   }
