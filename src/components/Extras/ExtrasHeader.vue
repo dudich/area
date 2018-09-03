@@ -1,9 +1,9 @@
 <template>
-  <v-layout class="extras-header" align-center justify-center>
-    <v-flex class="extras-header__left text-xs-center" xs4 offset-xs4>
+  <v-layout class="extras-header" align-center justify-center wrap>
+    <v-flex class="extras-header__left text-xs-center" xs12 sm4 md4 offset-md4>
       <span class="extras-header__caption">Extras</span>
     </v-flex>
-    <v-flex class="extras-header__right" xs4>
+    <v-flex class="extras-header__right" xs12 sm8 md4>
       <span class="extras-header__total-price text-green font-weight-bold">Total ${{ total }}</span>
       <v-btn class="btn bg-blue no-text-transform" dark round @click="addExtras">Add</v-btn>
     </v-flex>
@@ -36,6 +36,8 @@
 </script>
 
 <style lang="scss">
+  @import "../../styles/variables";
+
   .extras-header {
     padding: 20px;
 
@@ -54,11 +56,19 @@
     &__caption {
       font-size: 25px;
       color: #fff;
+
+      @media screen and (max-width: $xs - 1) {
+        font-size: 22px;
+      }
     }
 
     &__total-price {
       margin-right: 30px;
       font-size: 20px;
+
+      @media screen and (max-width: $xs - 1) {
+        font-size: 16px;
+      }
     }
   }
 </style>

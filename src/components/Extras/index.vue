@@ -19,55 +19,43 @@
     </v-card>
 
     <v-card class="extras-card bg-dark-blue hidden-lg-and-up">
-        <carousel ref="carousel"
-          :auto="0"
-          :watch-items="extras"
-          :dots="false"
-          :prev-html="prevArrow"
-          :next-html="nextArrow"
+      <carousel ref="carousel"
+                :auto="0"
+                :watch-items="chunkExtras"
+                :dots="false"
+                :prev-html="prevArrow"
+                :next-html="nextArrow"
+      >
+        <carousel-item
+          v-for="(stripe, i) in chunkExtras"
+          :key="i"
+
         >
-          <carousel-item v-for="i in chunkExtras">
+          <extras-item v-for="extra in stripe"
+                       :key="extra.id"
+                       :extra="extra"
+                       :selected="selected"
+                       @EXTRA_SELECTED="updateSelected"
+                       @INCREASE_EXTRA_QUANTITY="increaseExtraQuantity"
+                       @DECREASE_EXTRA_QUANTITY="decreaseExtraQuantity"
+          >
+          </extras-item>
+        </carousel-item>
 
-            <extras-item v-for="extra in i"
-              :key="extra.id"
-              :extra="extra"
-              :selected="selected"
-              @EXTRA_SELECTED="updateSelected"
-              @INCREASE_EXTRA_QUANTITY="increaseExtraQuantity"
-              @DECREASE_EXTRA_QUANTITY="decreaseExtraQuantity"
-            >
-            </extras-item>
-          </carousel-item>
-
-          <div slot="before">
-            <extras-header :total="total" :addExtras="addExtras"></extras-header>
-            <p class="extras-description" :class="{ opacity: !selected }">{{ selected ? description : 'default' }}</p>
-          </div>
-          <div slot="after">
-            <extras-table class="hidden-md-and-down" :extras="extras"></extras-table>
-          </div>
-        </carousel>
+        <div slot="before">
+          <extras-header :total="total" :addExtras="addExtras"></extras-header>
+          <p class="extras-description" :class="{ opacity: !selected }">{{ selected ? description : 'default' }}</p>
+        </div>
+        <div slot="after">
+          <extras-table class="hidden-md-and-down" :extras="extras"></extras-table>
+        </div>
+      </carousel>
     </v-card>
-
-    <!--<v-card class="extras-card bg-dark-blue hidden-lg-and-up">
-      <slick ref="slick" :options="slickOptions">
-        <extras-item
-          v-for="extra in extras"
-          :key="extra.id"
-          :extra="extra"
-          :selected="selected"
-          @EXTRA_SELECTED="updateSelected"
-          @INCREASE_EXTRA_QUANTITY="increaseExtraQuantity"
-          @DECREASE_EXTRA_QUANTITY="decreaseExtraQuantity"
-        >
-        </extras-item>
-      </slick>
-    </v-card>-->
   </v-dialog>
 </template>
 
 <script>
-  import { Carousel, CarouselItem } from 'vue-l-carousel'
+  import {Carousel, CarouselItem} from 'vue-l-carousel'
   import _ from 'lodash'
   import {
     SHOW_EXTRAS,
@@ -108,7 +96,6 @@
       EventBus.$on(HIDE_EXTRAS, () => {
         this.dialog = false
       });
-      console.log(this.$refs.carousel)
     },
 
     computed: {
@@ -143,20 +130,6 @@
       decreaseExtraQuantity(id) {
         const index = this.extras.map((item) => item.id).indexOf(id);
         --this.extras[index].quantity;
-      },
-      next() {
-        this.$refs.slick.next();
-      },
-
-      prev() {
-        this.$refs.slick.prev();
-      },
-
-      reInit() {
-        // Helpful if you have to deal with v-for to update dynamic lists
-        this.$nextTick(() => {
-          this.$refs.slick.reSlick();
-        });
       }
     },
 
@@ -194,6 +167,10 @@
       font-size: 16px;
       color: white;
       text-align: center;
+
+      @media screen and (max-width: $xs - 1) {
+        margin-bottom: 20px;
+      }
     }
   }
 
@@ -204,21 +181,18 @@
 
   .v-carousel-items {
     display: flex;
-    //width: 300% !important;
-
-    @media screen and (min-width: $md) {
-
-    }
+    margin-bottom: 40px;
   }
 
   .v-carousel-item {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: flex-end;
   }
 
   .v-carousel-nav {
     position: absolute;
-    top: 200px;
+    top: 65%;
     color: #fff;
     font-size: 20px;
 
@@ -228,6 +202,18 @@
 
     &.next {
       right: 15px;
+    }
+
+    @media screen and (max-width: 654px) {
+      top: 67%;
+    }
+
+    @media screen and (max-width: $xs - 1) {
+      top: 69%;
+    }
+
+    @media screen and (max-width: 450px) {
+      display: none;
     }
   }
 </style>

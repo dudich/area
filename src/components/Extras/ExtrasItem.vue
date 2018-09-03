@@ -1,5 +1,7 @@
 <template>
-  <li class="extras-item" :key="extra.id">
+  <div class="extras-item" :key="extra.id">
+    <p class="extras-name hidden-lg-and-up" v-text="extra.name"></p>
+    <span class="extras-quantity hidden-lg-and-up" v-text="extra.quantity"></span>
     <div class="extras-icon">
       <div class="extras-control extras-control-minus"
            v-if="extra.quantity > 0"
@@ -17,7 +19,8 @@
         <img :src="iconPath" alt="icon">
       </div>
     </div>
-  </li>
+    <span class="extras-price hidden-lg-and-up" v-text="`$${extra.price}`"></span>
+  </div>
 </template>
 
 <script>
@@ -69,18 +72,29 @@
   @import "../../styles/variables";
   .extras {
 
+    &-name,
+    &-quantity,
+    &-price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+
+      @media screen and (max-width: $xs - 1) {
+        font-size: 14px;
+      }
+    }
+
+
     &-item {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin: 10px 35px 0;
-    }
 
-    &-price {
-      max-width: 100px;
-      margin-bottom: 5px;
-      color: white;
-      font-weight: 700;
+      @media screen and (max-width: $xs - 1 ) {
+        width: 30%;
+        margin: 0;
+      }
     }
 
     &-icon {
@@ -102,6 +116,11 @@
         &.active {
           border-color: $green;
         }
+
+        @media screen and (max-width: $xs - 1 ) {
+          width: 60px;
+          height: 60px;
+        }
       }
 
       img {
@@ -121,16 +140,36 @@
       &-minus {
         top: -20px;
         left: -26px;
+
+        @media screen and (max-width: $xs - 1 ) {
+          top: -18px;
+          left: -10px;
+        }
       }
 
       &-plus {
         top: -20px;
         right: -26px;
+
+        @media screen and (max-width: $xs - 1 ) {
+          top: -18px;
+          right: -10px;
+        }
       }
 
       .fas {
         font-size: 15px;
         line-height: 30px;
+
+        @media screen and (max-width: $xs - 1 ) {
+          font-size: 13px;
+          line-height: 20px;
+        }
+      }
+
+      @media screen and (max-width: $xs - 1 ) {
+        width: 20px;
+        height: 20px;
       }
     }
   }
