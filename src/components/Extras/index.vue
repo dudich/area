@@ -198,6 +198,7 @@
     top: 65%;
     color: #fff;
     font-size: 20px;
+    cursor: pointer;
 
     &.prev {
       left: 15px;

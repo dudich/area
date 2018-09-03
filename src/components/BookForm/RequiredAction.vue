@@ -63,7 +63,6 @@
 
   .required-action {
     position: relative;
-    //padding-bottom: 20px;
     margin-bottom: 23px;
 
     &__caption {
@@ -75,6 +74,7 @@
       position: absolute;
       bottom: 0;
       width: 100%;
+      height: 16px;
       margin-bottom: 0;
       font-size: 11px;
     }
@@ -85,6 +85,10 @@
     }
 
     .v-radio {
+
+      &:last-of-type {
+        margin-right: 0;
+      }
 
       .v-input--selection-controls__input {
         display: none;

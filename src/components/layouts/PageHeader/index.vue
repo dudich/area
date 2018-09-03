@@ -101,7 +101,7 @@
       bottom: 15px;
     }
     background-color: $dark-blue !important;
-    z-index: 100 !important;
+    z-index: 200 !important;
     box-shadow: none !important;
 
     .logo {

@@ -7,6 +7,7 @@ import VeeValidate from 'vee-validate'
 import 'vuetify/dist/vuetify.min.css'
 import 'vue-loaders/dist/vue-loaders.css';
 import * as VueLoaders from 'vue-loaders';
+import '@babel/polyfill'
 
 Vue.use(VueLoaders);
 Vue.use(VeeValidate);
