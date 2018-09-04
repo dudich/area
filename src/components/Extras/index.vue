@@ -62,6 +62,7 @@
       return {
         dialog: false,
         propertyId: '',
+        propertyName: '',
         capacity: null,
         selected: '',
         prevArrow: '<i class="fas fa-chevron-left"></i>',
@@ -84,6 +85,7 @@
         _.forEach(this.extras, (item) => item.quantity = 0);
         this.propertyId = payload.id;
         this.capacity = payload.capacity;
+        this.propertyName = payload.name;
         this.dialog = true;
       });
       EventBus.$on(HIDE_EXTRAS, () => {
@@ -108,7 +110,15 @@
         return _.chunk(this.filteredExtras, this.chunkSize);
       },
       filteredExtras() {
-        return this.extras.filter(extra => !(extra.name === 'Tea and Nespresso Coffee' && this.capacity > 50));
+        return this.extras
+          .filter(extra => !(extra.name === 'Tea and Nespresso Coffee' && this.capacity > 50))
+          .filter(({ name }) => {
+            return (
+              (this.propertyName === 'The Zone' || this.propertyName === 'The Domain' ) ?
+                name !== 'Projector and Screen' :
+                name
+            )
+          });
       }
     },
 

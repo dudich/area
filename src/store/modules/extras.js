@@ -30,7 +30,7 @@ export default {
       description: 'Teleconferencing for up to 8 callers',
       price: 999.90,
       quantity: 0,
-      maxQuantity: 8
+      maxQuantity: 1
     },
     {
       id: "5",
@@ -38,7 +38,7 @@ export default {
       description: '2 x 5K Projectors with dual connectivity 2 x 120” screen and hidden speakers',
       price: 999.90,
       quantity: 0,
-      maxQuantity: 2
+      maxQuantity: 1
     },
     {
       id: "6",
@@ -46,7 +46,7 @@ export default {
       description: 'A1 flipchart, stand and markers',
       price: 999.90,
       quantity: 0,
-      maxQuantity: 1
+      maxQuantity: 2
     },
     {
       id: "7",
@@ -54,7 +54,7 @@ export default {
       description: 'Whiteboard and markers',
       price: 999.90,
       quantity: 0,
-      maxQuantity: 1
+      maxQuantity: 3
     }
   ],
 

@@ -148,7 +148,11 @@
 
     methods: {
       showExtras() {
-        EventBus.$emit(SHOW_EXTRAS, { id: this.property.id, capacity: this.capacity });
+        EventBus.$emit(SHOW_EXTRAS, {
+          id: this.property.id,
+          capacity: this.capacity,
+          name: this.property.name
+        });
       },
       holdProperty() {
         this.$router.push(`/hold/${this.property.id}`);
