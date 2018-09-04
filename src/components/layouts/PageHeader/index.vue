@@ -118,6 +118,10 @@
       }
     }
 
+    .v-toolbar__side-icon .v-icon{
+      font-size: 40px;
+    }
+
     &__content {
       height: 80px !important;
 
