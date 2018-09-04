@@ -1,9 +1,12 @@
 <template>
   <v-layout class="extras-header" align-center justify-center wrap>
-    <v-flex class="extras-header__left text-xs-center" xs12 sm4 md4 offset-md4>
+    <v-flex class="text-xs-left" xs12 sm2 md4>
+      <i class="fas fa-times" @click="hideExtras"></i>
+    </v-flex>
+    <v-flex class="extras-header__left text-xs-center text-sm-right text-md-center" xs10 sm4 md4>
       <span class="extras-header__caption">Extras</span>
     </v-flex>
-    <v-flex class="extras-header__right" xs12 sm8 md4>
+    <v-flex class="extras-header__right" xs12 sm6 md4>
       <span class="extras-header__total-price text-green font-weight-bold">Total ${{ total }}</span>
       <v-btn
         class="btn bg-blue no-text-transform"
@@ -17,6 +20,8 @@
 </template>
 
 <script>
+  import {HIDE_EXTRAS} from "../../store/actionTypes";
+
   export default {
     name: 'extras-header',
 
@@ -28,6 +33,12 @@
       addExtras: {
         type: Function,
         required: true
+      }
+    },
+
+    methods: {
+      hideExtras() {
+        EventBus.$emit(HIDE_EXTRAS)
       }
     }
   }
