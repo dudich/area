@@ -168,9 +168,9 @@
             v => (v && v.length >= 10) || 'Phone must be min. 10 characters'
           ],
           time: [
-            v => !!v || 'Phone is required.',
-            v => /^[ 0-9]+$/.test(v) || 'Time must be valid',
-            v => (v && v.length <= 2) || 'Two digits'
+            v => !!v || 'Field is required.',
+            //v => /^[ 0-9]+$/.test(v) || 'Valid format hh:mm'
+            v => /[0-1].+:.+[0-9]/.test(v) || 'Valid format hh:mm'
           ]
         },
 

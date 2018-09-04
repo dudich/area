@@ -61,7 +61,7 @@ export default {
       description: [
         'Natural light',
         'Outside balcony',
-        'PropertyPrice and breakout areas close by',
+        'Catering and breakout areas close by',
       ],
       floorArea: 76,
       price: 875.99,
@@ -404,17 +404,17 @@ export default {
       id: '7',
       name: 'The Osullivan Space',
       description: [
-        'ideal for private dinners,\n' +
-        'business meetings or coctail\n' +
+        'Ideal for private dinners,\n' +
+        'business meetings or cocktail\n' +
         'functions.',
-        'on the top floor of Bulcotte suites',
+        'On the top floor of Bulcotte suites',
         'outdoor deck with fantastic views of\n' +
-        'wellington',
+        'Wellington',
       ],
       floorArea: 128.7,
       price: 875.99,
       extrasPrice: 0.00,
-      dayDelegateMin: 70,
+      dayDelegateMin: 0,
       images: [
         {
           id: '1',

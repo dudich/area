@@ -2,7 +2,7 @@
   <div class="property-description">
     <ul class="property-description__list">
       <li v-for="(description, i) in property.description" :key="i" v-html="description"></li>
-      <li class="property-delegate-min">
+      <li class="property-delegate-min" v-if="property.dayDelegateMin !== 0">
         <span>Day Delegate Min.</span>
         <span>- {{ property.dayDelegateMin }} people</span>
       </li>
