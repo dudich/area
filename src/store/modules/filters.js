@@ -1,27 +1,29 @@
 export default {
   state: {
     eventStart: {
+      date: new Date().setMinutes(Math.trunc(new Date().getMinutes() / 10) * 10 + 30),
       label: 'Event Start',
       name: 'event-start',
       placeholder: 'Select date and time',
+      disabledDays: [
+        new Date(2018, 8, 14),
+        new Date(2018, 8, 15),
+        new Date(2018, 8, 16),
+        new Date(2018, 8, 17)
+      ]
     },
 
     eventEnd: {
+      date: '',
       label: 'Event End',
       name: 'event-end',
       placeholder: 'Select date and time',
-    },
-
-    time: {
-      select: '',
-      items: [
-        '7:00am - 10am',
-        '8:00am - 11am',
-        '9:00am - 12am',
-        '10:00am - 1:00pm'
-      ],
-      label: 'Select Time',
-      name: 'select-time'
+      disabledDays: [
+        new Date(2018, 8, 14),
+        new Date(2018, 8, 15),
+        new Date(2018, 8, 16),
+        new Date(2018, 8, 17)
+      ]
     },
 
     layout: {
@@ -54,9 +56,6 @@ export default {
           break;
         case 'event-end':
           state.eventEnd.select = payload.select;
-          break;
-        case 'select-time':
-          state.time.select = payload.select;
           break;
         case 'select-layout':
           state.layout.select = payload.select;

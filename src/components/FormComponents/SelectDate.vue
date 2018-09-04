@@ -7,12 +7,14 @@
       width="100%"
       type="datetime"
       format="YYYY-MM-DD hh:mm a"
-      :time-picker-options="{ start: '00:00', step: '00:30', end: '23:30' }"
+      :time-picker-options="{ start: '07:00', step: '00:30', end: '22:00' }"
       :not-before="notBefore"
       :placeholder="input.placeholder"
       :input-name="input.name"
       @change="updateValue"
-      id="datePicker"></date-picker>
+      id="datePicker"
+      confirm
+    ></date-picker>
   </div>
 </template>
 
@@ -44,6 +46,8 @@
 </script>
 
 <style lang="scss">
+  @import "../../styles/variables";
+
   .event-details,
   .select-package {
     .mx-datepicker {
@@ -87,6 +91,26 @@
         cursor: pointer;
       }
     }
+
+    /*.mx-panel-date td.today {
+      color: $blue;
+    }
+
+    .mx-calendar-content .cur-month {
+      background-color: $blue;
+    }
+
+    .mx-calendar-content .cur-month.disabled {
+      background-color: #f3f3f3 !important;
+    }
+
+    .mx-calendar-content .cur-month.actived {
+      background-color: green !important;
+    }
+
+    .mx-calendar-content .cur-month.actived ~ .cur-month{
+      background-color: transparent !important;
+    }*/
   }
 
   .event-details {

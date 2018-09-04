@@ -68,7 +68,7 @@
         return new Date().getTime();
       },
       notBeforeEnd() {
-        const CurrentTime = new Date();
+        const CurrentTime = new Date(this.filters.eventStart.date);
         return CurrentTime.setMinutes(CurrentTime.getMinutes() + 30);
       }
     },

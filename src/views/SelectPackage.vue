@@ -75,10 +75,10 @@
         return this.$store.getters.filters
       },
       notBeforeStart() {
-        return new Date().getTime();
+        return new Date();
       },
       notBeforeEnd() {
-        const CurrentTime = new Date();
+        const CurrentTime = new Date(this.filters.eventStart.date);
         return CurrentTime.setMinutes(CurrentTime.getMinutes() + 30);
       }
     },
