@@ -104,13 +104,13 @@
         color: #000;
         background-color: $light-gray;
         &:hover {
-          border: 2px solid $blue;
+          border: 3px solid $blue;
           cursor: pointer;
         }
       }
 
       &.active .v-label {
-        border: 2px solid $blue;
+        border: 3px solid $blue;
       }
     }
 

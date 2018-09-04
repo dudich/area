@@ -43,6 +43,12 @@
   @import "../../styles/variables";
 
   .add-catering-btn {
-    border: 1px solid $blue;
+    @media screen and (min-width: $xs) {
+      border: 1px solid $blue;
+    }
+
+    @media screen and (max-width: $xs - 1) {
+      background-color: $blue;
+    }
   }
 </style>

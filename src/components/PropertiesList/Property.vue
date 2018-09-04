@@ -62,7 +62,7 @@
                 dark
                 round
                 @click="bookProperty()"
-              >Book and Confirm
+              >Book + Confirm
               </v-btn>
             </div>
           </div>
@@ -94,11 +94,11 @@
           >Hold
           </v-btn>
           <v-btn
-            class="btn btn-book no-text-transform bg-light-green no-text-transform btn-large mb-2"
+            class="btn btn-book no-text-transform bg-light-green no-text-transform btn-large no-pre-line mb-2"
             dark
             round
             @click="bookProperty(property.id)"
-          >Book and Confirm
+          >Book + Confirm
           </v-btn>
         </div>
       </v-flex>

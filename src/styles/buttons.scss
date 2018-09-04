@@ -8,7 +8,11 @@
 
 .btn {
   font-size: 18px!important;
-
+  &.no-pre-line {
+    .v-btn__content {
+      white-space: nowrap !important;
+    }
+  }
   .v-btn__content {
     white-space: pre-line !important;
   }

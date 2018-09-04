@@ -48,7 +48,7 @@
         bookingStages: {
           selectEvent: 'Select Event',
           selectPackage: 'Select Package',
-          book: 'Book and Confirm',
+          book: 'Book + Confirm',
           hold: 'Hold Room'
         }
       }
