@@ -1,24 +1,6 @@
 <template>
   <v-dialog v-model="dialog" width="1190" content-class="extras" :scrollable=true>
-    <v-card class="extras-card bg-dark-blue hidden-md-and-down">
-      <extras-header :total="total" :propertyId="propertyId" :addExtras="addExtras"></extras-header>
-      <p class="extras-description" :class="{opacity: !selected}">{{ selected ? description : 'default' }}</p>
-      <ul class="extras-list">
-        <extras-item
-          v-for="extra in filteredExtras"
-          :key="extra.id"
-          :extra="extra"
-          :selected="selected"
-          @EXTRA_SELECTED="updateSelected"
-          @INCREASE_EXTRA_QUANTITY="increaseExtraQuantity"
-          @DECREASE_EXTRA_QUANTITY="decreaseExtraQuantity"
-        >
-        </extras-item>
-      </ul>
-      <extras-table :extras="filteredExtras"></extras-table>
-    </v-card>
-
-    <v-card class="extras-card bg-dark-blue hidden-lg-and-up">
+    <v-card class="extras-card bg-dark-blue">
       <carousel ref="carousel"
                 :auto="0"
                 :watch-items="chunkExtras"
@@ -83,9 +65,18 @@
         capacity: null,
         selected: '',
         prevArrow: '<i class="fas fa-chevron-left"></i>',
-        nextArrow: '<i class="fas fa-chevron-right"></i>'
+        nextArrow: '<i class="fas fa-chevron-right"></i>',
+        windowWidth: 0
 
       }
+    },
+
+    created() {
+      window.addEventListener('resize', this.handleResize)
+      this.handleResize();
+    },
+    destroyed() {
+      window.removeEventListener('resize', this.handleResize)
     },
 
     mounted() {
@@ -110,8 +101,11 @@
         const arrOfCost = arrOfChecked.map((item) => item.price * item.quantity);
         return arrOfCost.reduce((acc, item) => acc + item, 0).toFixed(2);
       },
+      chunkSize() {
+        return this.windowWidth < 1264 ? 3 : 6;
+      },
       chunkExtras() {
-        return _.chunk(this.filteredExtras, 3);
+        return _.chunk(this.filteredExtras, this.chunkSize);
       },
       filteredExtras() {
         return this.extras.filter(extra => !(extra.name === 'Tea and Nespresso Coffee' && this.capacity > 50));
@@ -134,6 +128,9 @@
       decreaseExtraQuantity(payload) {
         const index = this.extras.map((item) => item.id).indexOf(payload.id);
         payload.name.indexOf('Tea') !== -1 ? this.extras[index].quantity = 0 : --this.extras[index].quantity;
+      },
+      handleResize() {
+        this.windowWidth = window.innerWidth;
       }
     },
 
@@ -156,13 +153,6 @@
     &.v-dialog {
       border-radius: 30px;
       border: 3px solid #fff;
-    }
-
-    &-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      padding-top: 10px;
     }
 
     &-description {
@@ -190,22 +180,37 @@
   .v-carousel-item {
     display: flex;
     justify-content: space-around;
-    align-items: flex-end;
+    align-items: flex-start;
+
+    @media screen and (max-width: $md - 1 ) {
+      align-items: flex-end;
+    }
   }
 
   .v-carousel-nav {
     position: absolute;
-    top: 65%;
+    top: 200px;
     color: #fff;
     font-size: 20px;
     cursor: pointer;
 
     &.prev {
-      left: 15px;
+      left: 5px;
+      @media screen and (max-width: $md -1) {
+        left: 15px;
+      }
     }
 
     &.next {
-      right: 15px;
+      right: 5px;
+
+      @media screen and (max-width: $md -1) {
+        right: 15px;
+      }
+    }
+
+    @media screen and (max-width: $md -1) {
+      top: 65%;
     }
 
     @media screen and (max-width: 654px) {

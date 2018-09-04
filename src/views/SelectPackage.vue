@@ -75,7 +75,7 @@
         return this.$store.getters.filters
       },
       notBeforeStart() {
-        return new Date();
+        return new Date().getTime();
       },
       notBeforeEnd() {
         const CurrentTime = new Date(this.filters.eventStart.date);

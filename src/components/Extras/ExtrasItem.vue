@@ -20,6 +20,7 @@
       </div>
     </div>
     <span class="extras-price hidden-lg-and-up" v-text="`$${extra.price}`"></span>
+    <p class="extras-name hidden-md-and-down" v-text="extra.name"></p>
   </div>
 </template>
 
