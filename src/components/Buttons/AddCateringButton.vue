@@ -1,9 +1,10 @@
 <template>
   <v-btn
-    class="btn bg-blue no-text-transform"
+    class="btn no-text-transform add-catering-btn"
     @click="changeCatering"
     dark
     round
+    flat
   >{{ catering ? text[1] : text[0] }}
   </v-btn>
 </template>
@@ -37,3 +38,11 @@
     }
   }
 </script>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  .add-catering-btn {
+    border: 1px solid $blue;
+  }
+</style>
