@@ -5,7 +5,13 @@
     </v-flex>
     <v-flex class="extras-header__right" xs12 sm8 md4>
       <span class="extras-header__total-price text-green font-weight-bold">Total ${{ total }}</span>
-      <v-btn class="btn bg-blue no-text-transform" dark round @click="addExtras">Add</v-btn>
+      <v-btn
+        class="btn bg-blue no-text-transform"
+        @click="addExtras"
+        :disabled="total === '0.00'"
+        dark
+        round
+      >Add</v-btn>
     </v-flex>
   </v-layout>
 </template>
