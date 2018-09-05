@@ -10,6 +10,9 @@
                   class="pa-2"
                   :input="filters.eventStart"
                   :notBefore="notBeforeStart"
+                  :id="'eventStart'"
+                  ref="pickerStart"
+                  @confirm="handle('eventStart')"
                 ></select-date>
               </v-flex>
               <v-flex class="mb-4" xs12 sm6 md3>
@@ -17,6 +20,9 @@
                   class="pa-2"
                   :input="filters.eventEnd"
                   :notBefore="notBeforeEnd"
+                  :id="'eventEnd'"
+                  ref="pickerEnd"
+                  @confirm="handle('eventEnd')"
                 ></select-date>
               </v-flex>
               <v-flex xs12 sm6 md3>
@@ -80,6 +86,37 @@
       notBeforeEnd() {
         const CurrentTime = new Date(this.filters.eventStart.date);
         return CurrentTime.setMinutes(CurrentTime.getMinutes() + 30);
+      }
+    },
+
+    methods: {
+      handle(value) {
+        if (value === 'eventStart') {
+          this.$refs.pickerEnd.$children[0].$el.children[1].classList.add('display-popup')
+        } else {
+          this.$refs.pickerEnd.$children[0].$el.children[1].classList.remove('display-popup');
+          this.getRange();
+        }
+
+      },
+      getRange() {
+        const parent = this.$refs.pickerEnd.$children[0].$el.children[1];
+        const rows = Array.from(parent.querySelector('tbody').children);
+
+        rows.every(row => {
+          return Array.from(row.children).every(cell => {
+
+            if (cell.classList.contains('actived')) {
+              return false;
+            }
+
+            if (!cell.classList.contains('disabled')) {
+              cell.classList.add('inrange');
+            }
+
+            return true;
+          })
+        })
       }
     },
 
