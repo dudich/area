@@ -26,7 +26,7 @@
       confirmMessage() {
         return this.$route.path === `/hold/${ this.$route.params.id }` ?
           'Hold Confirmed. <br> ' +
-          'This will be valid from 24 hours.' :
+          'This will be valid for 24 hours.' :
           `Booking Confirmed! <br>
            Your booking confirmation has been emailed to you.<br>
             We will be in touch within the next 48 hours to talk about your catering options`
