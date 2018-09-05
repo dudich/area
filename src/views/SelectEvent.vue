@@ -11,12 +11,18 @@
                 <select-date
                   :input="filters.eventStart"
                   :notBefore="notBeforeStart"
+                  :id="'eventStart'"
+                  ref="pickerStart"
+                  @confirm="handle('eventStart')"
                 ></select-date>
               </v-flex>
               <v-flex class="mb-5 px-2" xs12 md5 sm6>
                 <select-date
                   :input="filters.eventEnd"
                   :notBefore="notBeforeEnd"
+                  :id="'eventEnd'"
+                  ref="pickerEnd"
+                  @confirm="handle('eventEnd')"
                 ></select-date>
               </v-flex>
             </v-layout>
@@ -56,7 +62,7 @@
     data() {
       return {
         bgImage,
-        caption: 'Tailored Solutions for Your Event',
+        caption: 'Tailored Solutions for Your Event'
       }
     },
 
@@ -76,6 +82,34 @@
     methods: {
       findVenue() {
         this.$router.push('/select-package')
+      },
+      handle(value) {
+        if (value === 'eventStart') {
+          this.$refs.pickerEnd.$children[0].$el.children[1].classList.add('display-popup')
+        } else {
+            this.$refs.pickerEnd.$children[0].$el.children[1].classList.remove('display-popup');
+            this.getRange();
+        }
+
+      },
+      getRange() {
+        const parent = this.$refs.pickerEnd.$children[0].$el.children[1];
+        const rows = Array.from(parent.querySelector('tbody').children);
+
+        rows.every(row => {
+          return Array.from(row.children).every(cell => {
+
+            if (cell.classList.contains('actived')) {
+              return false;
+            }
+
+            if (!cell.classList.contains('disabled')) {
+              cell.classList.add('inrange');
+            }
+
+            return true;
+          })
+        })
       }
     },
 

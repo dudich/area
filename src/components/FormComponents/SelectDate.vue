@@ -1,6 +1,6 @@
 <template>
   <div class="datepicker-container">
-    <label class="datepicker-label" for="datePicker" v-text="input.label"></label>
+    <label class="datepicker-label" :for="id" v-text="input.label"></label>
     <date-picker
       v-model="input.date"
       lang="en"
@@ -12,8 +12,9 @@
       :placeholder="input.placeholder"
       :input-name="input.name"
       @change="updateValue"
-      id="datePicker"
+      :id="id"
       confirm
+      @confirm="handleConfirm"
     ></date-picker>
   </div>
 </template>
@@ -32,12 +33,19 @@
       notBefore: {
         type: Number,
         required: true
+      },
+      id: {
+        type: String,
+        required: true
       }
     },
 
     methods: {
       updateValue() {
         this.$store.commit(UPDATE_FILTER_VALUE, {select: this.input.date, name: this.input.name})
+      },
+      handleConfirm(value) {
+        this.$emit('confirm', value);
       }
     },
 
@@ -90,27 +98,17 @@
         line-height: 20px;
         cursor: pointer;
       }
-    }
 
-    /*.mx-panel-date td.today {
-      color: $blue;
-    }
-
-    .mx-calendar-content .cur-month {
-      background-color: $blue;
-    }
-
-    .mx-calendar-content .cur-month.disabled {
-      background-color: #f3f3f3 !important;
+      .display-popup {
+        display: block !important;
+        width: auto;
+      }
     }
 
     .mx-calendar-content .cur-month.actived {
-      background-color: green !important;
+      background-color: $blue !important;
     }
 
-    .mx-calendar-content .cur-month.actived ~ .cur-month{
-      background-color: transparent !important;
-    }*/
   }
 
   .event-details {
