@@ -48,6 +48,7 @@
                 <v-flex xs12>
                   <custom-textarea
                     :value="comment"
+                    :rows="9"
                     @UPDATE_INPUT_VALUE="updateComment"
                   >
                     <i class="fas fa-pen"></i>

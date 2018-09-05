@@ -5,7 +5,12 @@
         <stage-list class="bg-dark-blue"></stage-list>
       </v-flex>
     </v-layout>
-    <component :is="currentView"></component>
+    <component
+      :is="currentView"
+      :arrivalHour="arrivalHour"
+      :arrivalMinutes="arrivalMinutes"
+      :arrivalDayPart="arrivalDayPart"
+    ></component>
     <v-layout class="bg-dark-blue" row>
       <v-flex xl6 offset-xl3>
         <property-summary
@@ -54,8 +59,32 @@
 
       property() {
         return this.properties[this.findIndexByKey(this.properties, 'id', this.$route.params.id)];
+      },
+      eventStart() {
+        return this.$store.getters.filters.eventStart.date;
+      },
+      arrivalHour() {
+        let hour = new Date(this.eventStart).getHours();
+        if(hour > 12) {
+          hour = hour - 12;
+        }
+        if(hour < 10) {
+          hour = `0${hour}`;
+        }
+        return `${hour}`;
+      },
+
+      arrivalMinutes() {
+        let minutes = new Date(this.eventStart).getMinutes();
+        return minutes < 10 ? `0${minutes}` : `${minutes}`;
+      },
+
+      arrivalDayPart() {
+        const hour = new Date(this.eventStart).getHours();
+        return hour > 12 ? 'PM' : 'AM';
       }
     },
+
 
     mounted() {
       EventBus.$on(CLOSE_CONFIRMATION_MODAL, () => this.currentView = ConfirmDialog);

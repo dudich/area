@@ -3,7 +3,7 @@
     <v-textarea
       :placeholder="placeholder"
       v-model="state"
-      :rows="9"
+      :rows="rows"
       solo
       @input="updateValue"
     ></v-textarea>
@@ -24,6 +24,10 @@
       },
       value: {
         type: String,
+        required: true
+      },
+      rows: {
+        type: Number,
         required: true
       }
     },

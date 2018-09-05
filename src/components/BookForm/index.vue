@@ -78,7 +78,10 @@
                 @SELECT_REQUIRED_ACTION="changeAccommodation"
               ></required-action>
             </div>
-            <v-layout row>
+            <v-layout row wrap>
+              <v-flex xs12>
+                <p class="arrivalLabel">Arrival Time</p>
+              </v-flex>
               <v-flex class="pr-1" xs8 sm6>
                 <custom-input
                   :input="{placeholder: arrivalTime.placeholder, value: arrivalTime.value }"
@@ -110,6 +113,7 @@
               <v-flex xs12>
                 <custom-texarea
                   :value="comment"
+                  :rows="8"
                   @UPDATE_INPUT_VALUE="updateComment"
                 >
                   <i class="fas fa-pen"></i>
@@ -147,6 +151,21 @@
 
   export default {
     name: 'book-form',
+
+    props: {
+      arrivalHour: {
+        type: String,
+        required: true
+      },
+      arrivalMinutes: {
+        type: String,
+        required: true
+      },
+      arrivalDayPart: {
+        type: String,
+        required: true
+      }
+    },
 
     data() {
       return {
@@ -241,8 +260,8 @@
         },
 
         arrivalTime: {
-          value: '',
-          select: 'AM',
+          value: `${this.arrivalHour}:${this.arrivalMinutes}`,
+          select: this.arrivalDayPart,
           items: ['AM', 'PM'],
           placeholder: 'Arrival Time',
         },
@@ -352,6 +371,15 @@
 
     .v-btn--disabled {
       background-color: rgba(0, 0, 0, .12) !important;
+    }
+
+    .arrivalLabel {
+      margin: {
+        left: 15px;
+        bottom: 5px;
+      }
+      text-align: left;
+      font-size: 16px;
     }
   }
 </style>
